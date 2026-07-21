@@ -1,0 +1,26 @@
+Starting project at C:\Users\Eli\Documents\Projects\Code\App Developments\lifespan-sleep-education-mobile
+React Compiler enabled
+Starting Metro Bundler
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+Waiting on http://localhost:8101
+Logs for your project will appear below.
+Web node_modules\expo-router\entry.js ▓▓░░░░░░░░░░░░░░ 16.0% ( 4/10)
+λ node_modules\expo-router\node\render.js ▓░░░░░░░░░░░░░░░  8.2% ( 17/110)
+Web node_modules\expo-router\entry.js ▓▓▓▓░░░░░░░░░░░░ 29.8% (23/53)
+λ node_modules\expo-router\node\render.js ▓▓▓▓▓▓▓░░░░░░░░░ 48.0% (288/435)
+Web node_modules\expo-router\entry.js ▓▓▓▓░░░░░░░░░░░░ 29.8% (176/355)
+λ node_modules\expo-router\node\render.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 70.2% (698/833)
+Web node_modules\expo-router\entry.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 60.3% (526/680)
+λ node_modules\expo-router\node\render.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 89.7% (906/965)
+λ Bundled 16210ms node_modules\expo-router\node\render.js (1120 modules)
+Web node_modules\expo-router\entry.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 95.5% (1028/1052)
+Web node_modules\expo-router\entry.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 98.2% (1093/1103)
+Web Bundled 20768ms node_modules\expo-router\entry.js (1117 modules)
+Web node_modules\expo-router\entry.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 71.5% (689/815)
+Web Bundled 5616ms node_modules\expo-router\entry.js (1118 modules)
+ LOG  [web] Logs will appear in the browser console
+Web node_modules\expo-router\entry.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+λ Bundled 91ms node_modules\expo-router\node\render.js (1 module)
+Web Bundled 838ms node_modules\expo-router\entry.js (1 module)
+Web Bundled 64ms node_modules\expo-router\entry.js (1 module)
+ LOG  [web] Logs will appear in the browser console

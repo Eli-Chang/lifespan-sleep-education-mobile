@@ -1,112 +1,126 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Collapsible } from '@/components/ui/collapsible';
-import { ExternalLink } from '@/components/external-link';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Fonts } from '@/constants/theme';
+const resourceGroups = [
+  {
+    title: 'Source document',
+    items: [
+      'docs/CIAS App_ EZ-PAP .pdf',
+      '30-page outline for a clickable question-based CPAP education app.',
+      'The source asks for each question header to reveal short bullet points that users advance through.',
+    ],
+  },
+  {
+    title: 'Covered app sections',
+    items: [
+      'Section I: What OSA is, symptoms, risk factors, diagnosis, treatment, pregnancy relevance, and healthy sleep.',
+      'Section II: Getting started with CPAP and building toward full-night use.',
+      'Section III: Troubleshooting mask fit, leaks, dryness, irritation, congestion, bloating, temperature, cleaning, and travel.',
+      'Sections V and VI: Healthy sleep plus intimacy, dating, and partner support.',
+    ],
+  },
+  {
+    title: 'Clinical boundary',
+    items: [
+      'This app is educational and should support, not replace, clinician guidance.',
+      'Patients should follow their prescribed pressure settings, device instructions, and equipment supplier guidance.',
+      'Persistent symptoms, severe sleepiness, pregnancy concerns, or CPAP intolerance should be escalated to the care team.',
+    ],
+  },
+];
 
-export default function TabTwoScreen() {
+export default function ResourcesScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText
-          type="title"
-          style={{
-            fontFamily: Fonts.rounded,
-          }}>
-          Explore
-        </ThemedText>
-      </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image
-          source={require('@/assets/images/react-logo.png')}
-          style={{ width: 100, height: 100, alignSelf: 'center' }}
-        />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful{' '}
-          <ThemedText type="defaultSemiBold" style={{ fontFamily: Fonts.mono }}>
-            react-native-reanimated
-          </ThemedText>{' '}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+        <View style={styles.header}>
+          <Text style={styles.eyebrow}>EZ-PAP build notes</Text>
+          <Text style={styles.title}>The app is now anchored to the CIS/CIAS source document.</Text>
+          <Text style={styles.subtitle}>
+            This tab keeps the source basis visible while the Learn tab turns the document into a mobile education flow.
+          </Text>
+        </View>
+
+        {resourceGroups.map((group) => (
+          <View key={group.title} style={styles.card}>
+            <Text style={styles.cardTitle}>{group.title}</Text>
+            {group.items.map((item) => (
+              <View key={item} style={styles.row}>
+                <View style={styles.dot} />
+                <Text style={styles.itemText}>{item}</Text>
+              </View>
+            ))}
+          </View>
+        ))}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#f5f7fb',
   },
-  titleContainer: {
+  content: {
+    padding: 18,
+    paddingBottom: 36,
+  },
+  header: {
+    backgroundColor: '#0f766e',
+    borderRadius: 18,
+    padding: 22,
+    marginBottom: 14,
+  },
+  eyebrow: {
+    color: '#ccfbf1',
+    fontSize: 12,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    marginBottom: 8,
+  },
+  title: {
+    color: '#ffffff',
+    fontSize: 26,
+    lineHeight: 33,
+    fontWeight: '900',
+    marginBottom: 10,
+  },
+  subtitle: {
+    color: '#ecfeff',
+    fontSize: 15,
+    lineHeight: 22,
+  },
+  card: {
+    backgroundColor: '#ffffff',
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
+    padding: 17,
+    marginBottom: 12,
+  },
+  cardTitle: {
+    color: '#0f172a',
+    fontSize: 18,
+    fontWeight: '900',
+    marginBottom: 10,
+  },
+  row: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 10,
+    marginBottom: 10,
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#0f766e',
+    marginTop: 7,
+  },
+  itemText: {
+    flex: 1,
+    color: '#334155',
+    fontSize: 15,
+    lineHeight: 22,
   },
 });
