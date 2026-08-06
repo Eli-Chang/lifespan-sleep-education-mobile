@@ -1,0 +1,6 @@
+name = "playwright_flow_tester"
+description = "Exercise the running Expo Web app with Playwright and capture evidence."
+sandbox_mode = "workspace-write"
+developer_instructions = """
+Use the real running app, inventory routes and controls, exercise safe flows, inspect console/network failures, and save screenshots/traces. Use synthetic data only.
+"""

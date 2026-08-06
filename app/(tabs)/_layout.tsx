@@ -1,35 +1,17 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useTranslation } from 'react-i18next';
+import { palette } from '@/src/theme/tokens';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Learn',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Resources',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
-  );
+  const { t } = useTranslation();
+  return <Tabs screenOptions={{
+    headerShown: false, tabBarActiveTintColor: palette.primaryDark, tabBarInactiveTintColor: palette.inkMuted,
+    tabBarStyle: { height: 72, paddingTop: 8, paddingBottom: 10, backgroundColor: palette.surface, borderTopColor: palette.border },
+    tabBarLabelStyle: { fontSize: 12, fontWeight: '700' },
+  }}>
+    <Tabs.Screen name="index" options={{ title: t('home'), tabBarAccessibilityLabel: t('home'), tabBarIcon: ({ color }) => <MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="home-outline" color={color} size={25} /> }} />
+    <Tabs.Screen name="explore" options={{ href: null }} />
+    <Tabs.Screen name="settings" options={{ title: t('settings'), tabBarAccessibilityLabel: t('settings'), tabBarIcon: ({ color }) => <MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="cog-outline" color={color} size={25} /> }} />
+  </Tabs>;
 }

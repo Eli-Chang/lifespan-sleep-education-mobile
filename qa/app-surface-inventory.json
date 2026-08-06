@@ -1,0 +1,8 @@
+{
+  "generatedFrom": "app routes and src/content definitions",
+  "languages": ["en", "es"],
+  "routes": ["/", "/module/[id]", "/lesson/[moduleId]/[screenId]", "/settings", "/about", "/ai"],
+  "controls": ["Home", "Progress", "Settings", "Next", "Previous", "Submit", "Answer choices", "Narration Play", "Narration Stop", "Narration Replay", "Inline LessonChat", "Reset Progress", "Language"],
+  "networkDependencies": ["Cloudflare lesson-chat Worker"],
+  "persistence": ["AsyncStorage progress, answers, language, narration preferences, consent, lesson chat"]
+}

@@ -1,0 +1,6 @@
+name = "native_mobile_qa"
+description = "Test available Android or iOS native environments without installing large tooling."
+sandbox_mode = "read-only"
+developer_instructions = """
+Detect available native environments first. Test only existing devices/emulators. Never claim iOS testing on Windows or browser emulation as native testing.
+"""

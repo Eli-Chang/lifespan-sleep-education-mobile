@@ -1,29 +1,179 @@
+import { useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Link } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import Animated, { FadeInUp, Layout } from 'react-native-reanimated';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { Colors, Spacing, BorderRadius } from '@/constants/theme';
+import { useColorScheme } from '@/hooks/use-color-scheme';
+import { GlassCard } from '@/components/ui/glass-card';
+import { Badge } from '@/components/ui/badge';
+import { useHaptics } from '@/hooks/use-haptics';
+
+type Step = {
+  id: string;
+  title: string;
+  detail: string;
+};
+
+const NIGHTLY_STEPS: Step[] = [
+  { id: '1', title: '1. Inspect Humidifier Water Level', detail: 'Check that distilled water is filled up to the MAX fill line. Never run chamber dry.' },
+  { id: '2', title: '2. Connect Air Hose & Tubing', detail: 'Ensure tubing is securely attached to both back of machine and front of mask swivel.' },
+  { id: '3', title: '3. Position Mask Cushion on Face', detail: 'Place cushion over nose/mouth gently before pulling headgear straps over head.' },
+  { id: '4', title: '4. Turn On Ramp / Start Air Flow', detail: 'Press Power button. If pressure feels strong, press Ramp button to build pressure over 20 minutes.' },
+  { id: '5', title: '5. Perform Quick Seal Test', detail: 'Lie down in your normal sleep position (side or back) and check for air leaking toward eyes.' },
+];
 
 export default function ModalScreen() {
+  const colorScheme = useColorScheme() ?? 'light';
+  const colors = Colors[colorScheme];
+  const { triggerSelection, triggerNotification } = useHaptics();
+  const [completedSteps, setCompletedSteps] = useState<Record<string, boolean>>({});
+
+  const toggleStep = (id: string) => {
+    const nextState = !completedSteps[id];
+    if (nextState) {
+      triggerNotification();
+    } else {
+      triggerSelection();
+    }
+    setCompletedSteps((prev) => ({ ...prev, [id]: nextState }));
+  };
+
+  const completedCount = Object.values(completedSteps).filter(Boolean).length;
+
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title">This is a modal</ThemedText>
-      <Link href="/" dismissTo style={styles.link}>
-        <ThemedText type="link">Go to home screen</ThemedText>
-      </Link>
-    </ThemedView>
+    <SafeAreaView style={[styles.safeArea, { backgroundColor: colors.background }]}>
+      <ScrollView contentContainerStyle={styles.content}>
+        <View style={styles.responsiveWrapper}>
+          <GlassCard style={styles.card}>
+            <View style={styles.headerRow}>
+              <Badge label="Nightly Checklist" variant="primary" />
+              <Link href="/" dismissTo style={styles.closeButton}>
+                <Text style={[styles.closeText, { color: colors.primary }]}>Close ✕</Text>
+              </Link>
+            </View>
+
+            <Text style={[styles.title, { color: colors.text }]}>CPAP Bedtime Setup & Leak Check</Text>
+            <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
+              Tap each step as you complete your nightly setup routine before sleep.
+            </Text>
+
+            <View style={styles.stepList}>
+              {NIGHTLY_STEPS.map((step) => {
+                const checked = completedSteps[step.id];
+                return (
+                  <Animated.View key={step.id} layout={Layout.springify().damping(16)}>
+                    <Pressable
+                      onPress={() => toggleStep(step.id)}
+                      style={[
+                        styles.stepCard,
+                        {
+                          backgroundColor: checked ? colors.successLight : colors.background,
+                          borderColor: checked ? colors.success : colors.cardBorder,
+                        },
+                      ]}>
+                      <View style={styles.stepHeader}>
+                        <Text style={[styles.checkMark, { color: checked ? colors.success : colors.textMuted }]}>
+                          {checked ? '☑' : '☐'}
+                        </Text>
+                        <Text style={[styles.stepTitle, { color: colors.text, textDecorationLine: checked ? 'line-through' : 'none' }]}>
+                          {step.title}
+                        </Text>
+                      </View>
+                      <Text style={[styles.stepDetail, { color: colors.textSecondary }]}>{step.detail}</Text>
+                    </Pressable>
+                  </Animated.View>
+                );
+              })}
+            </View>
+
+            {completedCount === NIGHTLY_STEPS.length && (
+              <Animated.View entering={FadeInUp.duration(300)} style={[styles.readyBanner, { backgroundColor: colors.successLight, borderColor: colors.success }]}>
+                <Text style={[styles.readyText, { color: colors.success }]}>🎉 All 5 steps ready! Have a safe and restful night of sleep.</Text>
+              </Animated.View>
+            )}
+          </GlassCard>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
   },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
+  content: {
+    padding: Spacing.md,
+  },
+  responsiveWrapper: {
+    maxWidth: 768,
+    width: '100%',
+    alignSelf: 'center',
+  },
+  card: {
+    gap: Spacing.sm,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  closeButton: {
+    padding: Spacing.xs,
+  },
+  closeText: {
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: '900',
+    lineHeight: 28,
+  },
+  subtitle: {
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  stepList: {
+    gap: Spacing.sm,
+    marginTop: Spacing.xs,
+  },
+  stepCard: {
+    padding: Spacing.md,
+    borderRadius: BorderRadius.md,
+    borderWidth: 1,
+    gap: Spacing.xs,
+  },
+  stepHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+  },
+  checkMark: {
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  stepTitle: {
+    fontSize: 15,
+    fontWeight: '800',
+    flex: 1,
+  },
+  stepDetail: {
+    fontSize: 13,
+    lineHeight: 19,
+    paddingLeft: Spacing.lg + 2,
+  },
+  readyBanner: {
+    padding: Spacing.md,
+    borderRadius: BorderRadius.md,
+    borderWidth: 1,
+    marginTop: Spacing.sm,
+    alignItems: 'center',
+  },
+  readyText: {
+    fontSize: 14,
+    fontWeight: '800',
   },
 });

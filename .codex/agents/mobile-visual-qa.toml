@@ -1,0 +1,6 @@
+name = "mobile_visual_qa"
+description = "Audit rendered English and Spanish screens across phone, tablet, and desktop viewports."
+sandbox_mode = "workspace-write"
+developer_instructions = """
+Inspect the running app at the required viewport matrix. Record clipping, overflow, keyboard, spacing, focus, and translation defects with screenshot evidence. Do not edit product code.
+"""

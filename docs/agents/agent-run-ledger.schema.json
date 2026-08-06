@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lifespan-sleep-education.local/schemas/agent-run-ledger.schema.json",
+  "title": "Lifespan Sleep Education agent run ledger",
+  "description": "A local, auditable record of one orchestrated task. Runtime evidence is required; agent TOML configuration is not evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task",
+    "timestamp",
+    "codex_session",
+    "changed_files",
+    "required_agents",
+    "invoked_agents",
+    "skipped_agents",
+    "tests",
+    "final_verifier_status"
+  ],
+  "properties": {
+    "task": { "type": "string", "minLength": 2 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "codex_session": { "type": "string", "minLength": 2 },
+    "changed_files": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\.\\.).+$"
+      }
+    },
+    "required_agents": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 2 }
+    },
+    "invoked_agents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/invokedAgent" }
+    },
+    "skipped_agents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/skippedAgent" }
+    },
+    "tests": {
+      "type": "array",
+      "items": {}
+    },
+    "schemaVersion": { "const": "1.0" },
+    "taskId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{1,80}$"
+    },
+    "workflow": {
+      "type": "string",
+      "enum": [
+        "configuration_workflow",
+        "app_workflow",
+        "application_workflow",
+        "ui",
+        "native",
+        "feature",
+        "clinical",
+        "ai_privacy",
+        "test_only",
+        "documentation",
+        "lesson_content",
+        "content"
+      ]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "projectRoot": {
+      "type": "string",
+      "description": "Project-relative root marker; use '.' rather than an absolute path.",
+      "const": "."
+    },
+    "baselineSequence": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/stage" }
+    },
+    "runs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/run" }
+    },
+    "result": {
+      "type": "string",
+      "enum": ["pending", "pass", "fail", "blocked"]
+    },
+    "final_verifier_status": {
+      "type": "string",
+      "enum": ["pending", "passed", "failed", "blocked"]
+    },
+    "notes": { "type": "string" }
+  },
+  "$defs": {
+    "invokedAgent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "thread_or_run_id", "purpose", "status", "summary", "evidence"],
+      "properties": {
+        "name": { "type": "string", "minLength": 2 },
+        "thread_or_run_id": { "type": "string", "minLength": 2 },
+        "purpose": { "type": "string", "minLength": 2 },
+        "status": { "const": "completed" },
+        "summary": { "type": "string", "minLength": 1 },
+        "evidence": { "type": "array", "minItems": 1, "items": {} }
+      }
+    },
+    "skippedAgent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "reason"],
+      "properties": {
+        "name": { "type": "string", "minLength": 2 },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["order", "agentId", "required", "status"],
+      "properties": {
+        "order": { "type": "integer", "minimum": 1 },
+        "agentId": {
+          "type": "string",
+          "enum": [
+            "code_mapper",
+            "app_planner",
+            "app_implementer",
+            "test_architect",
+            "final_verifier"
+          ]
+        },
+        "required": { "type": "boolean" },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "running", "completed", "blocked", "skipped"]
+        },
+        "runId": { "type": "string", "pattern": "^[a-zA-Z0-9._:-]{2,120}$" },
+        "reason": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "enum": ["completed"] } },
+            "required": ["status"]
+          },
+          "then": { "required": ["runId"] }
+        },
+        {
+          "if": {
+            "properties": { "status": { "enum": ["blocked", "skipped"] } },
+            "required": ["status"]
+          },
+          "then": { "required": ["reason"] }
+        }
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "reference", "observedAt"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["codex_thread", "cli_process"]
+        },
+        "reference": { "type": "string", "minLength": 2 },
+        "observedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runId",
+        "agentId",
+        "role",
+        "status",
+        "startedAt",
+        "endedAt",
+        "invocationEvidence",
+        "filesChanged",
+        "commands",
+        "checks",
+        "networkAccess",
+        "result"
+      ],
+      "properties": {
+        "runId": { "type": "string", "pattern": "^[a-zA-Z0-9._:-]{2,120}$" },
+        "agentId": { "type": "string", "minLength": 2 },
+        "role": { "type": "string", "minLength": 2 },
+        "status": {
+          "type": "string",
+          "enum": ["running", "completed", "failed", "blocked", "skipped"]
+        },
+        "result": {
+          "type": "string",
+          "enum": ["pass", "fail", "blocked", "skipped"]
+        },
+        "startedAt": { "type": "string", "format": "date-time" },
+        "endedAt": { "type": "string", "format": "date-time" },
+        "invocationEvidence": { "$ref": "#/$defs/evidence" },
+        "filesChanged": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\.\\.).+$"
+          }
+        },
+        "commands": { "type": "array", "items": { "type": "string" } },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["command", "result"],
+            "properties": {
+              "command": { "type": "string", "minLength": 1 },
+              "result": { "type": "string", "minLength": 1 },
+              "evidence": { "type": "string" }
+            }
+          }
+        },
+        "networkAccess": {
+          "type": "string",
+          "enum": ["none", "approved"]
+        },
+        "artifacts": { "type": "array", "items": { "type": "string" } },
+        "blocker": { "type": "string" }
+      }
+    }
+  }
+}

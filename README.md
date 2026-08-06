@@ -1,50 +1,137 @@
-# Welcome to your Expo app 👋
+# Sleep Education
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A patient-facing Expo React Native education app about obstructive sleep apnea, pregnancy, PAP therapy, sleep health, relationships, and intimacy. It contains seven screenshot-traceable modules in English and Spanish, offline written content, local progress, interactive questions, and device text-to-speech.
 
-## Get started
+Status: development build. The medical content is not clinically validated and the Spanish draft is not professionally reviewed.
 
-1. Install dependencies
+## Visual and image system
 
-   ```bash
-   npm install
-   ```
+The curriculum uses a reusable local image registry (`src/content/image-registry.ts`) with bundled, licensed assets, bilingual alt text, stable aspect ratios, and subtle Expo Image loading transitions. No curriculum image is fetched at runtime. Source, license, attribution, and selection details are recorded in `docs/IMAGE_SOURCE_REGISTRY.md`.
 
-2. Start the app
+The warm UI system includes distinct module accents, varied lesson treatments, centralized restrained motion, native-only haptics, and reduced-motion handling. Review evidence and remaining native-device checks are documented in `docs/UI_VISUAL_AUDIT.md`, `docs/UI_MOTION_SYSTEM.md`, `docs/ACCESSIBILITY_REVIEW.md`, and `docs/UI_QA_REPORT.md`.
 
-   ```bash
-   npx expo start
-   ```
+## Technology
 
-In the output, you'll find options to open the app in a
+- Expo SDK 54, React Native 0.81, React 19, TypeScript
+- Expo Router for iOS, Android, and web navigation
+- AsyncStorage for device-local progress and preferences
+- i18next/react-i18next with expo-localization
+- expo-speech for installed system voices
+- No backend, account, analytics, ads, cloud translation, or remote content API
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Install and run on Windows
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Open PowerShell in:
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```powershell
+cd lifespan-sleep-education-mobile
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Install:
 
-## Learn more
+```powershell
+npm.cmd install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+Start Expo:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```powershell
+npm.cmd start
+```
 
-## Join the community
+Start web directly:
 
-Join our community of developers creating universal apps.
+```powershell
+npm.cmd run web
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Start Android with a configured emulator or connected device:
+
+```powershell
+npm.cmd run android
+```
+
+The `npm.cmd` spelling avoids PowerShell execution-policy problems that can affect `npm.ps1`.
+
+`npm.cmd run ios` can open a compatible Expo client on an iPhone on the same network, but Windows cannot run the iOS Simulator or make a local Xcode build. Physical iOS verification still requires an iPhone; native release builds require macOS/Xcode or an explicitly approved cloud build workflow.
+
+## Validation
+
+```powershell
+npm.cmd run typecheck
+npm.cmd run lint
+npm.cmd run validate:content
+npm.cmd test
+npx.cmd expo-doctor
+npx.cmd expo export --platform web --clear
+```
+
+## Structure
+
+```text
+app/                         Expo Router routes
+src/components/              patient-facing lesson and UI components
+src/content/en/modules/      seven canonical English module files
+src/content/es/modules/      seven Spanish draft module files
+src/content/source-manifest.ts
+src/services/                narration
+src/state/                   persisted learning state
+src/types/                   typed lesson schema
+src/utils/                   progress and content validation
+screenshots/                 unchanged source copies; never rendered as lessons
+docs/                        audit, clinical, translation, asset, and QA records
+tests/                       automated content/progress tests
+```
+
+## Content model and traceability
+
+Every lesson is typed as content, single choice, multi-select, scenario, or summary. Every screen has a stable ID such as `m5-s12` and at least one source screenshot ID. `src/content/source-manifest.ts` maps every one of the 77 PNG files to its module and lesson.
+
+To add a lesson, create a typed item in the correct English module file, give it a unique ID and valid source ID, then add the same ID to the Spanish module. Add questions with ordered choices and only set `correctChoiceId`/`correctChoiceIds` when the source establishes the answer. Run content validation and tests.
+
+To add a module, add matching English and Spanish files, import both from their locale index, add every source to the manifest, and update the expected title/order list in the validator.
+
+To add a language, add a locale content index with identical IDs, add UI strings to `src/i18n/index.ts`, add it to `modulesByLocale`, and extend the language settings. Written content is bundled; no runtime translation occurs.
+
+## Progress and persistence
+
+A required step completes when the learner continues from content/summary or submits an interaction. Accuracy does not affect completion. Overall progress is completed required screen IDs divided by all required screen IDs. AsyncStorage keeps completed screens/modules, last screen per module, answers, language, narration setting/rate, and selected voices. Reset removes learning progress/answers but keeps language and narration preferences.
+
+## Narration
+
+Narration is off by default. Lesson controls provide Play, Stop, and Replay. The app looks for `en-US` then another `en` voice, or `es-US` then another `es` voice, chunks long text, and stops when navigating or switching language. Written content remains available if no compatible voice exists. On physical iOS devices, expo-speech may be silent while the mute switch is on.
+
+## Offline behavior and privacy
+
+All written content, questions, feedback, translations, icons, and progress logic are bundled. Core learning requires no network. TTS depends on voices already installed by the operating system. The MVP stores only educational progress and preferences locally and collects no personal health information.
+
+## Required human review
+
+Before patient release, complete clinical review, source/citation verification, professional bilingual review, asset-permission review, accessibility review, and the iOS/Android checklist in `docs/PHYSICAL_DEVICE_TEST_CHECKLIST.md`. See the audit documents for known ambiguities and omitted third-party media.
+# Groq upgrade
+
+The app includes optional, consent-gated educational AI tools through a Cloudflare Worker. Groq is never called from the Expo client and no secret belongs in an `EXPO_PUBLIC_` variable.
+
+Local Expo flags:
+
+```text
+EXPO_PUBLIC_AI_FEATURES_ENABLED=false
+EXPO_PUBLIC_AI_API_BASE_URL=
+```
+
+Worker setup and secure secret entry are documented in `docs/GROQ_CLOUDFLARE_SETUP.md`. The normal bilingual lessons, questions, progress, and narration work without AI.
+
+Key upgrade documents:
+
+- `docs/GROQ_UPGRADE_BASELINE.md`
+- `docs/DESIGN_SYSTEM.md`
+- `docs/QUESTION_REVIEW.md`
+- `docs/AI_ARCHITECTURE.md`
+- `docs/AI_SAFETY_BOUNDARIES.md`
+- `docs/AI_QA_REPORT.md`
+# Canonical repository
+
+This AI-OS Projects checkout is the canonical Lifespan Sleep Education
+repository. The former Documents checkout is a temporary legacy mirror and
+must not be used for future edits. See
+`docs/migration/DUPLICATE_REPOSITORY_AUDIT.md` for the protected merge record.
