@@ -1,6 +1,15 @@
-# Curriculum migration history and current version 9
+# Curriculum migration history and current version 12
 
-## Current version 9 Module 5 restoration
+## Current version 12: Healthy Sleep Hygiene in two modules
+
+Version 12 has 113 screens across ten modules. The 31 Healthy Sleep Hygiene screens are unchanged and split into `m5` (Part 1: Routine and Light, 14 screens) and `m5b` (Part 2: Environment and Daily Habits, 17 screens, starting at `m5-06`). Modules `m6`–`m9` keep their IDs and move to display order 7–10. Screen IDs did not change, so answers, attempts, reflections, and completed screens carry over. The v11-to-v12 step marks both parts complete when the old `m5` was complete, otherwise marks a part complete only when all of its screens were completed, and moves a saved Part 2 position (and the current module) to `m5b`. The replaced-PAP-module cleanup now applies only to states older than version 11. Details: `docs/curriculum-audit-20261021/README.md`.
+
+## Version 11
+
+Version 11 had 113 screens across nine modules, adding Getting Started with PAP (`m8`) and Troubleshooting PAP (`m9`) and removing state from the earlier PAP modules.
+
+
+## Version 9 Module 5 restoration
 
 Version 9 has 97 screens across seven modules; Module 5 has 33 screens. It restores the sunshine (`m5-q9`) and nutrition (`m5-q11`) checks, changes `m5-q3` to a keyed multi-select caffeine check, removes `m5-09`, and preserves `m5-q6` unchanged. The v8-to-v9 migration removes `m5-09` from every keyed persisted surface, redirects a last-screen pointer at `m5-09` to `m5-q10`, clears completion, answers, and attempts for changed screen `m5-q3`, and clears Module 5 completion for v8 users. Re-running the migration is idempotent.
 

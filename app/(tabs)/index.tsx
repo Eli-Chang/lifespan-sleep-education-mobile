@@ -14,7 +14,11 @@ import { TabRouteBoundary } from '@/src/components/TabRouteBoundary';
 import { fontFamily, palette, radius, spacing, touchTarget, type as typeScale } from '@/src/theme/tokens';
 
 // Decorative module glyphs; they carry no meaning beyond visual wayfinding.
-const moduleIcons = ['weather-night', 'account-heart-outline', 'target', 'mother-heart', 'bed-clock', 'stethoscope', 'heart-multiple-outline', 'air-filter', 'tools', 'baby-face-outline'] as const;
+// Keyed by module ID so inserting a module never shifts the icons of the modules after it.
+const moduleIcons: Record<string, React.ComponentProps<typeof MaterialCommunityIcons>['name']> = {
+  m1: 'weather-night', m2: 'account-heart-outline', m3: 'target', m4: 'mother-heart', m5: 'bed-clock',
+  m5b: 'home-lightbulb-outline', m6: 'stethoscope', m7: 'heart-multiple-outline', m8: 'air-filter', m9: 'tools',
+};
 
 export default function HomeScreen() {
   const { t } = useTranslation();
@@ -81,7 +85,7 @@ export default function HomeScreen() {
               <Text style={styles.moduleKicker}>{es ? 'MÓDULO' : 'MODULE'} {module.order}</Text>
               <Text style={styles.moduleTitle}>{module.title}</Text>
             </View>
-            <View accessible={false} style={[styles.moduleIcon, complete && styles.moduleIconDone]}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name={moduleIcons[module.order - 1] ?? 'book-open-variant'} size={22} color={complete ? palette.success : palette.primary} /></View>
+            <View accessible={false} style={[styles.moduleIcon, complete && styles.moduleIconDone]}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name={moduleIcons[module.id] ?? 'book-open-variant'} size={22} color={complete ? palette.success : palette.primary} /></View>
           </View>
           <View style={styles.moduleMeta}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="format-list-numbered" size={15} color={palette.inkMuted} /><Text style={styles.progressLabel}>{progress.total} {es ? 'pasos' : 'steps'}</Text><Text style={styles.metaDot}>·</Text><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="clock-outline" size={15} color={palette.inkMuted} /><Text style={styles.progressLabel}>~{Math.max(3, Math.ceil(module.screens.length * 1.25))} min</Text></View>
           {started && !complete ? <View style={styles.miniTrack}><View style={[styles.miniFill, { width: `${progress.percentage}%` }]} /></View> : null}

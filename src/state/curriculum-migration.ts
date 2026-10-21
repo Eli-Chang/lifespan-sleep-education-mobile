@@ -1,7 +1,14 @@
 import type { LearningState } from './AppProvider';
 import { englishModules } from '../content/en';
 
-export const CURRICULUM_VERSION = 11;
+/**
+ * Curriculum versions:
+ * - < 11: legacy curricula with old screen IDs and the former PAP modules (m8–m10), which were replaced.
+ * - 11: nine modules, with Healthy Sleep Hygiene as one 31-screen module (m5).
+ * - 12: ten modules. The same 31 screens are split into m5 (Part 1) and m5b (Part 2); every screen ID is unchanged.
+ */
+export const CURRICULUM_VERSION = 12;
+const PAP_REPLACEMENT_VERSION = 11;
 
 const oldToNew: Record<string, string> = {
   'm1-s01':'m1-01','m1-s02':'m1-02','m1-s03':'m1-03','m1-s04':'m1-q1','m1-s05':'m1-05','m1-s06':'m1-r1',
@@ -15,11 +22,17 @@ const oldToNew: Record<string, string> = {
 const removedAiIds = new Set(['m1-ai1','m2-ai1','m3-ai1','m3-ai2','m4-ai1','m4-ai2','m5-ai1','m5-ai2','m5-ai3','m6-ai1','m6-ai2','m7-ai1']);
 const runtimeScreenIds = new Set(englishModules.flatMap((module) => module.screens.map((screen) => screen.id)));
 const fallback: Record<string, string> = { m1:'m1-recap',m2:'m2-recap',m3:'m3-recap',m4:'m4-recap',m5:'m5-recap',m6:'m6-recap',m7:'m7-recap' };
+const removedPapModuleIds = ['m8', 'm9', 'm10'];
 type LegacyState = Partial<LearningState> & Record<string, unknown>;
+type MigratedState = Partial<LearningState> & { curriculumVersion: number };
 
-/** Always remove obsolete Vela/AI records while retaining supported local learning data. */
-export const migrateLearningState = (input: LegacyState): Partial<LearningState> & { curriculumVersion: number } => {
-  const replacesPapModules = (input.curriculumVersion ?? 0) < CURRICULUM_VERSION;
+const screenIdsOf = (moduleId: string) => englishModules.find((module) => module.id === moduleId)?.screens.map((screen) => screen.id) ?? [];
+const SLEEP_HYGIENE_PART_ONE = 'm5';
+const SLEEP_HYGIENE_PART_TWO = 'm5b';
+
+/** Legacy step (< v11): remap old screen IDs, drop removed AI screens, and drop the replaced PAP modules. */
+const migrateLegacyIds = (input: LegacyState): MigratedState => {
+  const replacesPapModules = (input.curriculumVersion ?? 0) < PAP_REPLACEMENT_VERSION;
   const mapId = (id: string): string | undefined => {
     if (replacesPapModules && /^(m8|m9|m10)-/.test(id)) return undefined;
     if (id === 'm1-s02') return undefined;
@@ -34,12 +47,12 @@ export const migrateLearningState = (input: LegacyState): Partial<LearningState>
   const retained = Object.fromEntries(Object.entries(input).filter(([key]) => !['lessonChats','pendingVelaActivity','aiConsent','aiEnabled','velaConversationRevision','actionPlans'].includes(key)));
   return {
     ...retained,
-    curriculumVersion: CURRICULUM_VERSION,
-    currentModuleId: replacesPapModules && ['m8', 'm9', 'm10'].includes(input.currentModuleId ?? '') ? undefined : input.currentModuleId,
+    curriculumVersion: input.curriculumVersion ?? 0,
+    currentModuleId: replacesPapModules && removedPapModuleIds.includes(input.currentModuleId ?? '') ? undefined : input.currentModuleId,
     completedScreenIds: mapIds(input.completedScreenIds),
-    completedModuleIds: (input.completedModuleIds ?? []).filter((moduleId) => !replacesPapModules || !['m8', 'm9', 'm10'].includes(moduleId)),
+    completedModuleIds: (input.completedModuleIds ?? []).filter((moduleId) => !replacesPapModules || !removedPapModuleIds.includes(moduleId)),
     lastScreenByModule: Object.fromEntries(Object.entries(input.lastScreenByModule ?? {}).flatMap(([moduleId, id]) => {
-      if (replacesPapModules && ['m8', 'm9', 'm10'].includes(moduleId)) return [];
+      if (replacesPapModules && removedPapModuleIds.includes(moduleId)) return [];
       const mapped = mapId(id) ?? fallback[moduleId] ?? id;
       return [[moduleId, mapped]];
     })),
@@ -48,6 +61,49 @@ export const migrateLearningState = (input: LegacyState): Partial<LearningState>
     reflectionDrafts: mapRecord(input.reflectionDrafts),
     savedReflections: mapRecord(input.savedReflections),
   };
+};
+
+/**
+ * v12 step: split the old single Healthy Sleep Hygiene module (m5) into m5 and m5b.
+ * Screen IDs did not change, so answers, attempts, reflections, and completed screens carry over as-is.
+ * Only module-level bookkeeping moves:
+ * - A previously completed m5 means all 31 screens were finished, so both parts are complete.
+ * - Otherwise a part is complete only when every one of its screens is already completed.
+ * - A saved m5 position on a Part 2 screen moves to m5b; m5 then keeps no position unless Part 1 is complete.
+ */
+const splitSleepHygiene = (state: MigratedState): MigratedState => {
+  const partOne = screenIdsOf(SLEEP_HYGIENE_PART_ONE);
+  const partTwo = screenIdsOf(SLEEP_HYGIENE_PART_TWO);
+  const done = new Set(state.completedScreenIds ?? []);
+  const completedModules = (state.completedModuleIds ?? []).filter((id) => id !== SLEEP_HYGIENE_PART_TWO);
+  const oldModuleComplete = completedModules.includes(SLEEP_HYGIENE_PART_ONE);
+  const partOneComplete = oldModuleComplete || (partOne.length > 0 && partOne.every((id) => done.has(id)));
+  const partTwoComplete = oldModuleComplete || (partTwo.length > 0 && partTwo.every((id) => done.has(id)));
+  const completedModuleIds = completedModules.filter((id) => id !== SLEEP_HYGIENE_PART_ONE);
+  const ordered = englishModules.map((module) => module.id);
+  const withParts = [...completedModuleIds, ...(partOneComplete ? [SLEEP_HYGIENE_PART_ONE] : []), ...(partTwoComplete ? [SLEEP_HYGIENE_PART_TWO] : [])];
+  const known = withParts.filter((id) => ordered.includes(id)).sort((a, b) => ordered.indexOf(a) - ordered.indexOf(b));
+  const unknown = withParts.filter((id) => !ordered.includes(id));
+
+  const lastScreenByModule = { ...(state.lastScreenByModule ?? {}) };
+  delete lastScreenByModule[SLEEP_HYGIENE_PART_TWO];
+  const savedPosition = lastScreenByModule[SLEEP_HYGIENE_PART_ONE];
+  if (savedPosition && partTwo.includes(savedPosition)) {
+    lastScreenByModule[SLEEP_HYGIENE_PART_TWO] = savedPosition;
+    if (partOneComplete) lastScreenByModule[SLEEP_HYGIENE_PART_ONE] = partOne[partOne.length - 1];
+    else delete lastScreenByModule[SLEEP_HYGIENE_PART_ONE];
+  }
+  const currentModuleId = state.currentModuleId === SLEEP_HYGIENE_PART_ONE && savedPosition && partTwo.includes(savedPosition)
+    ? SLEEP_HYGIENE_PART_TWO : state.currentModuleId;
+  return { ...state, completedModuleIds: [...known, ...unknown], lastScreenByModule, currentModuleId };
+};
+
+/** Always remove obsolete Vela/AI records while retaining supported local learning data. */
+export const migrateLearningState = (input: LegacyState): MigratedState => {
+  const startingVersion = typeof input.curriculumVersion === 'number' ? input.curriculumVersion : 0;
+  let state = migrateLegacyIds(input);
+  if (startingVersion < CURRICULUM_VERSION) state = splitSleepHygiene(state);
+  return { ...state, curriculumVersion: Math.max(startingVersion, CURRICULUM_VERSION) };
 };
 
 export const curriculumMigrationMap = oldToNew;

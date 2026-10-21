@@ -31,4 +31,13 @@ const screens = expectedOrder.map((id) => {
   return screen;
 });
 
-export const module05: EducationModule = {id:'m5',order:5,title:'Healthy Sleep Hygiene',shortTitle:'Sleep Hygiene',description:'Build realistic habits and conditions that support sleep without replacing OSA or insomnia care.',screens,sourceScreenshotIds:[],curriculumVersion:10,translationStatus:'source',clinicalReviewStatus:'not_reviewed'};
+// The single 31-screen sleep hygiene sequence is taught as two modules. Part 1 covers why sleep
+// matters, the bedtime routine, sleep/wake timing, light, and trouble falling asleep. Part 2 begins
+// at the sleep environment and covers caffeine, meals, nutrition, exercise, naps, stress, and
+// sleeping position. Screen IDs, content, and order are unchanged; only the module boundary is new.
+export const SLEEP_HYGIENE_PART_TWO_FIRST_SCREEN_ID = 'm5-06';
+const splitIndex = screens.findIndex((screen) => screen.id === SLEEP_HYGIENE_PART_TWO_FIRST_SCREEN_ID);
+if (splitIndex <= 0) throw new Error('Module 5 split point is missing.');
+
+export const module05: EducationModule = {id:'m5',order:5,title:'Healthy Sleep Hygiene, Part 1: Routine and Light',shortTitle:'Sleep Hygiene, Part 1',description:'Build a realistic sleep routine and use timing, light, and wind-down habits to support sleep without replacing OSA or insomnia care.',screens:screens.slice(0, splitIndex),sourceScreenshotIds:[],curriculumVersion:10,translationStatus:'source',clinicalReviewStatus:'not_reviewed'};
+export const module05b: EducationModule = {id:'m5b',order:6,title:'Healthy Sleep Hygiene, Part 2: Environment and Daily Habits',shortTitle:'Sleep Hygiene, Part 2',description:'Shape the bedroom and daily habits such as caffeine, meals, activity, naps, and stress to support sleep without replacing OSA or insomnia care.',screens:screens.slice(splitIndex),sourceScreenshotIds:[],curriculumVersion:10,translationStatus:'source',clinicalReviewStatus:'not_reviewed'};

@@ -1,6 +1,6 @@
 # Sleep Education
 
-A patient-facing Expo React Native education app about obstructive sleep apnea, pregnancy, PAP therapy, sleep health, relationships, and intimacy. It contains seven screenshot-traceable modules in English and Spanish, offline written content, local progress, interactive questions, and device text-to-speech.
+A patient-facing Expo React Native education app about obstructive sleep apnea, pregnancy, PAP therapy, sleep health, relationships, and intimacy. It contains ten modules in English and Spanish (Healthy Sleep Hygiene is taught in two parts, followed by Pregnancy Comorbidities, Intimacy, Getting Started with PAP, and Troubleshooting PAP; see `docs/curriculum-audit-20261021/README.md`), offline written content, local progress, interactive questions, and device text-to-speech.
 
 Status: development build. The medical content is not clinically validated and the Spanish draft is not professionally reviewed.
 
@@ -83,8 +83,8 @@ npx.cmd expo export --platform web --clear
 ```text
 app/                         Expo Router routes
 src/components/              patient-facing lesson and UI components
-src/content/en/modules/      seven canonical English module files
-src/content/es/modules/      seven Spanish draft module files
+src/content/en/modules/      canonical English module files (module-05.ts exports both sleep hygiene parts)
+src/content/es/modules/      Spanish draft module files built from the English modules
 src/content/source-manifest.ts
 src/services/                narration
 src/state/                   persisted learning state

@@ -14,7 +14,9 @@ const screens = englishModules.flatMap((module) => module.screens);
 const screenById = new Map(screens.map((screen) => [screen.id, screen]));
 const spanishScreens = spanishModules.flatMap((module) => module.screens);
 const spanishScreenById = new Map(spanishScreens.map((screen) => [screen.id, screen]));
-const historicalModules = englishModules.filter((module) => module.order <= 7);
+// CIAS-app (screenshot-sourced) modules; Healthy Sleep Hygiene is now taught as m5 and m5b.
+const historicalModuleIds = new Set(['m1', 'm2', 'm3', 'm4', 'm5', 'm5b', 'm6', 'm7']);
+const historicalModules = englishModules.filter((module) => historicalModuleIds.has(module.id));
 const sourceLabels: Record<string, string[]> = {
   'M1-S02': ['Typical breathing during sleep', 'Tongue', 'Hard palate', 'Soft palate', 'Open airway', 'Obstructive sleep apnea', 'Tongue', 'Blocked airway', '© MAYO FOUNDATION FOR MEDICAL EDUCATION AND RESEARCH. ALL RIGHTS RESERVED.'],
   'M3-S06': ['Consistent PAP treatment for sleep apnea', 'Well-controlled stress levels', 'Well-controlled stress hormones', 'Well-controlled blood pressure', 'Well-controlled blood sugar'],

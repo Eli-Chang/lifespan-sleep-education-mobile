@@ -41,8 +41,8 @@ Record OS version, device model, installed voices, build identifier, result, scr
 - [ ] Test all five AI tools with synthetic English and Spanish text after clinical/bilingual review.
 # Version 3 additions
 
-- [ ] Android phone: complete all seven modules with TalkBack and large text.
-- [ ] iPhone: complete all seven modules with VoiceOver and large text.
+- [ ] Android phone: complete all ten modules with TalkBack and large text.
+- [ ] iPhone: complete all ten modules with VoiceOver and large text.
 - [ ] Confirm bottom actions remain visible above keyboard and safe areas.
 - [ ] Confirm narration never reads sensitive reflection or AI text automatically.
 - [ ] Confirm AI consent, revoke, offline, timeout, and retry behavior.

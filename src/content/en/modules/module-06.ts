@@ -43,4 +43,4 @@ const currentScreens = [
 const preservedCurrentScreenIds = new Set(['m6-recap']);
 const merged = [...ciasScreensByModule.m6.filter((screen) => screen.id !== 'm6-recap'), ...currentScreens.filter((screen) => preservedCurrentScreenIds.has(screen.id))];
 const screens = [...merged.filter((screen) => screen.id !== 'm6-recap'), ...merged.filter((screen) => screen.id === 'm6-recap')];
-export const module06: EducationModule = {id:'m6',order:6,title:'Pregnancy Comorbidities and PAP',shortTitle:'PAP Barriers',description:'Describe congestion, reflux, anxiety, and equipment barriers and connect them to appropriate support.',screens,sourceScreenshotIds:[],curriculumVersion:10,translationStatus:'source',clinicalReviewStatus:'needs_revision'};
+export const module06: EducationModule = {id:'m6',order:7,title:'Pregnancy Comorbidities and PAP',shortTitle:'PAP Barriers',description:'Describe congestion, reflux, anxiety, and equipment barriers and connect them to appropriate support.',screens,sourceScreenshotIds:[],curriculumVersion:10,translationStatus:'source',clinicalReviewStatus:'needs_revision'};

@@ -28,7 +28,7 @@ const q = (
 
 export const module09: EducationModule = {
   id: 'm9',
-  order: 9,
+  order: 10,
   title: 'Troubleshooting PAP',
   shortTitle: 'Troubleshooting PAP',
   description: 'Practical guidance for common PAP problems.',

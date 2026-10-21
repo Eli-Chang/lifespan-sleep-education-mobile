@@ -17,7 +17,7 @@ const q = (id: string, prompt: string, choices: string[], correctChoiceId: strin
 
 export const module08: EducationModule = {
   id: 'm8',
-  order: 8,
+  order: 9,
   title: 'Getting Started with PAP',
   shortTitle: 'Getting Started with PAP',
   description: 'Build comfort with PAP gradually and use the care team for treatment questions.',

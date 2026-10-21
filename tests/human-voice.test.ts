@@ -12,10 +12,10 @@ const expectedAnswers: Record<string, string[]> = {
 };
 
 describe('human voice copy audit', () => {
-  it('keeps the real nine-module bilingual structure', () => {
+  it('keeps the real ten-module bilingual structure', () => {
     const en = getModules('en');
     const es = getModules('es');
-    assert.equal(en.length, 9);
+    assert.equal(en.length, 10);
     assert.equal(en.reduce((total, module) => total + module.screens.length, 0), 113);
     assert.deepEqual(en.map((module) => module.screens.map((screen) => [screen.id, screen.type])), es.map((module) => module.screens.map((screen) => [screen.id, screen.type])));
   });
