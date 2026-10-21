@@ -108,3 +108,7 @@ docs/Pregnant Woman CPAP.mp4
 Thumbs.db
 .vscode/
 .idea/
+
+
+.codex/coordination/*
+!.codex/coordination/project.yaml

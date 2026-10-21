@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Pressable, StyleSheet, type ViewStyle } from 'react-native';
+import { Platform, Pressable, StyleSheet, type ViewStyle } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { Colors, BorderRadius, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -77,7 +77,9 @@ export function GlassCard({ children, style, variant = 'default', enable3DTilt =
       style={[
         styles.card,
         getVariantStyle(),
-        { shadowColor: colors.shadowColor },
+        Platform.OS === 'web'
+          ? { boxShadow: `0px 8px 16px ${colors.shadowColor}14` }
+          : { shadowColor: colors.shadowColor },
         animatedTiltStyle,
         style,
       ]}>
@@ -91,9 +93,6 @@ const styles = StyleSheet.create({
     borderRadius: BorderRadius.lg,
     borderWidth: 1,
     padding: Spacing.lg,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.08,
-    shadowRadius: 16,
     elevation: 4,
   },
 });

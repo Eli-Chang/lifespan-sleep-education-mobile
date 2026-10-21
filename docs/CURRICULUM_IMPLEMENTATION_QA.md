@@ -1,15 +1,17 @@
-# Curriculum version 3 implementation QA
+# Curriculum version 8 implementation QA
 
 ## Delivered
 
-- Seven English modules and an 82-screen stable-ID curriculum.
+- Seven English modules and a 96-screen stable-ID curriculum.
 - Spanish structural parity, marked `machine_drafted` and `not_reviewed`.
 - Objective questions with explicit keys, per-choice feedback, retry, and answer editing.
 - Reflections that are saved but never scored.
-- Four bounded teach-back rubrics, two PAP-barrier activities, action planning, bedtime timeline, and question organizers.
+- Four bounded teach-back rubrics, two PAP-barrier activities, action planning, and question organizers.
 - Lesson-level Ask and Explain actions using only server-controlled module context.
 - Explicit AI consent, revocation, bounded payloads, local action-plan editing, and deletion.
-- Version 2 to version 3 progress migration.
+- Idempotent progress migrations through version 8, including the Module 5 activity retirement and keyed-state cleanup.
+- A ten-step OSA Outcomes and Motivation module with a user-provided pregnancy infographic, three restored single-answer questions, and one new select-all question.
+- Shared question rendering that removes controlled boilerplate duplication and shows non-answer-revealing explanations after correct and incorrect scored submissions.
 
 ## Automated gates
 

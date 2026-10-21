@@ -1,0 +1,1744 @@
+{
+  "manifest_version": 1,
+  "generated_from": [
+    "docs/CIAS-TO-SLEEP-APP-CONTENT-MAP.json",
+    "docs/CIAS-SCREENSHOT-SOURCE-ARCHIVE.json",
+    "docs/CIAS-RECOVERED-QUESTIONS.md",
+    "approved Eli decisions in the CIAS English Curriculum Restoration request"
+  ],
+  "source_artifacts_preserved": true,
+  "records": [
+    {
+      "cias_id": "M1-S01",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171352.png",
+      "source_screenshot_id": "src-171352",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m1-01"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m1-01",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M1-S02",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171405.png",
+      "source_screenshot_id": "src-171405",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m1-02",
+        "m1-03"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m1-02",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M1-S03",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171413.png",
+      "source_screenshot_id": "src-171413",
+      "source_confidence": "MEDIUM",
+      "current_app_counterpart": [
+        "m1-03"
+      ],
+      "chosen_implementation_action": "SPECIAL_REVIEW_POLICY",
+      "resulting_learner_screen_id": "m1-03",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": [
+        "The embedded video thumbnail and lower graphic are image content; small thumbnail text is transcribed only where legible.",
+        "Special policy limits implementation to visibly established learner content; hidden media, diagram relationships, and below-boundary text remain unresolved where applicable."
+      ]
+    },
+    {
+      "cias_id": "M1-S04",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171424.png",
+      "source_screenshot_id": "src-171424",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m1-q1"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m1-q1",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "single-select",
+        "stem": "True or false? You have obstructive sleep apnea even if you don’t snore.",
+        "instructions": "True or false? Let us know what you think below!",
+        "option_count_visible": 2
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M1-S05",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171430.png",
+      "source_screenshot_id": "src-171430",
+      "source_confidence": "MEDIUM",
+      "current_app_counterpart": [
+        "m1-05"
+      ],
+      "chosen_implementation_action": "HOLD_SOURCE_LIMITED",
+      "resulting_learner_screen_id": "m1-05",
+      "text_changed": false,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": [
+        "The body contains literal placeholder text '[list of things]'; no replacement list is visible outside the graphic.",
+        "Source-limited record is intentionally held under the approved Eli decision; no source text or incomplete interaction is promoted."
+      ]
+    },
+    {
+      "cias_id": "M1-S06",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171451.png",
+      "source_screenshot_id": "src-171451",
+      "source_confidence": "MEDIUM",
+      "current_app_counterpart": [
+        "m1-r1"
+      ],
+      "chosen_implementation_action": "HOLD_SOURCE_LIMITED",
+      "resulting_learner_screen_id": "m1-r1",
+      "text_changed": false,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "HELD_SOURCE_LIMITED_NO_CIAS_BEHAVIOR_PROMOTED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are some of the symptoms of OSA you've noticed in your life?",
+        "instructions": null,
+        "option_count_visible": 8
+      },
+      "unresolved_source_limitations": [
+        "The screenshot ends after the visible Headaches option; lower choices, if any, are CROPPED and not recoverable from this image.",
+        "Source-limited record is intentionally held under the approved Eli decision; no source text or incomplete interaction is promoted."
+      ]
+    },
+    {
+      "cias_id": "M2-S01",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171506.png",
+      "source_screenshot_id": "src-171506",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m2-01"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m2-01",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M2-S02",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171516.png",
+      "source_screenshot_id": "src-171516",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m2-r1"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m2-r1",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "single-select",
+        "stem": "What aspect of your sleep apnea bothers your partner the most?",
+        "instructions": null,
+        "option_count_visible": 4
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M2-S03",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171527.png",
+      "source_screenshot_id": "src-171527",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m2-03"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m2-03",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M2-S04",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171532.png",
+      "source_screenshot_id": "src-171532",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m2-03",
+        "m2-04"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m2-05",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M2-S05",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171536.png",
+      "source_screenshot_id": "src-171536",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m2-03",
+        "m2-04"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m2-04",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M2-S06",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171541.png",
+      "source_screenshot_id": "src-171541",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m2-q2"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m2-q2",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "Question time! Which of the following statements is correct? (select all that apply).",
+        "instructions": "Which of the following statements is correct? (select all that apply).",
+        "option_count_visible": 4
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M2-S07",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171552.png",
+      "source_screenshot_id": "src-171552",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m2-q1"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m2-q1",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "single-select",
+        "stem": "True or False?",
+        "instructions": null,
+        "option_count_visible": 2
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M3-S01",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171600.png",
+      "source_screenshot_id": "src-171600",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m3-01"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m3-01",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M3-S02",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171605.png",
+      "source_screenshot_id": "src-171605",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m3-q1"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m3-q1",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "single-select",
+        "stem": "True or False? (This question is for learning, not a comprehension check)",
+        "instructions": null,
+        "option_count_visible": 2
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M3-S03",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171611.png",
+      "source_screenshot_id": "src-171611",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m3-q1"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m3-q3",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "single-select",
+        "stem": "Pregnant women with untreated OSA during their hospital admission at delivery are at significantly higher risk of:",
+        "instructions": "Select the right answer: (This question is for learning, not a comprehension check)",
+        "option_count_visible": 4
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M3-S04",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171621.png",
+      "source_screenshot_id": "src-171621",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m3-q1"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m3-q4",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "single-select",
+        "stem": "Clinical associations have been observed between pregnant women with sleep disordered breathing (SDB) and ______ newborn birth weights.",
+        "instructions": "Select the right answer: (This question is for learning, not a comprehension check)",
+        "option_count_visible": 3
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M3-S05",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171628.png",
+      "source_screenshot_id": "src-171628",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m3-recap"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m3-recap",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M3-S06",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171731.png",
+      "source_screenshot_id": "src-171731",
+      "source_confidence": "MEDIUM",
+      "current_app_counterpart": [
+        "m3-01",
+        "m3-04"
+      ],
+      "chosen_implementation_action": "SPECIAL_REVIEW_POLICY",
+      "resulting_learner_screen_id": "m3-04",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": [
+        "The hand-drawn diagram ends within the screenshot after the blood-pressure and blood-sugar branches; no later branches are visible.",
+        "Special policy limits implementation to visibly established learner content; hidden media, diagram relationships, and below-boundary text remain unresolved where applicable."
+      ]
+    },
+    {
+      "cias_id": "M4-S01",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171636.png",
+      "source_screenshot_id": "src-171636",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m4-01"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m4-01",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M4-S02",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171641.png",
+      "source_screenshot_id": "src-171641",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m4-q1"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m4-q1",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "Which of the following conditions are you at risk of if you have sleep apnea during pregnancy? Give it your best guess!",
+        "instructions": "Hint: There are 3 correct answers.",
+        "option_count_visible": 5
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M4-S03",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171649.png",
+      "source_screenshot_id": "src-171649",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m4-03",
+        "m4-04"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m4-03",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M4-S04",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171655.png",
+      "source_screenshot_id": "src-171655",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m4-q2"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m4-04",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "Which of the following are complications for the mother if she has gestational diabetes?",
+        "instructions": "Hint: There are 3 correct answers.",
+        "option_count_visible": 5
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M4-S05",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171701.png",
+      "source_screenshot_id": "src-171701",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m4-q2",
+        "m4-04"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m4-q4",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "Which of the following are complications for the baby if the mother has gestational diabetes?",
+        "instructions": "Hint: There are 3 correct answers.",
+        "option_count_visible": 5
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M4-S06",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171709.png",
+      "source_screenshot_id": "src-171709",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m4-05"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m4-05",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M4-S07",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171714.png",
+      "source_screenshot_id": "src-171714",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m4-05",
+        "m4-06"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m4-06",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M4-S08",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171719.png",
+      "source_screenshot_id": "src-171719",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [],
+      "chosen_implementation_action": "ADD_MISSING_CIAS_SCREEN",
+      "resulting_learner_screen_id": "m4-q6",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "Which of the following are complications for the mother or baby if the mother has preeclampsia?",
+        "instructions": "Hint: There are 2 correct answers.",
+        "option_count_visible": 5
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M4-S09",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171727.png",
+      "source_screenshot_id": "src-171727",
+      "source_confidence": "MEDIUM",
+      "current_app_counterpart": [
+        "m4-recap"
+      ],
+      "chosen_implementation_action": "SPECIAL_REVIEW_POLICY",
+      "resulting_learner_screen_id": "m4-recap",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": [
+        "Handwritten graphic is visually legible but its arrows and exact line relationships are represented as visible labels only; no causal interpretation is added.",
+        "Special policy limits implementation to visibly established learner content; hidden media, diagram relationships, and below-boundary text remain unresolved where applicable."
+      ]
+    },
+    {
+      "cias_id": "M5-S01",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171826.png",
+      "source_screenshot_id": "src-171826",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-01"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-01",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S02",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171830.png",
+      "source_screenshot_id": "src-171830",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-02"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-02",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S03",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171834.png",
+      "source_screenshot_id": "src-171834",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-01"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-03",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S04",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171839.png",
+      "source_screenshot_id": "src-171839",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [],
+      "chosen_implementation_action": "ADD_MISSING_CIAS_SCREEN",
+      "resulting_learner_screen_id": "m5-q5",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are some of the consequences of getting poor sleep?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S05",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171845.png",
+      "source_screenshot_id": "src-171845",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-02"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m5-q6",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are some of the consequences of getting poor sleep during pregnancy?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S06",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171851.png",
+      "source_screenshot_id": "src-171851",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-04"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-04",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S07",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171855.png",
+      "source_screenshot_id": "src-171855",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-03"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-13",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S08",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171900.png",
+      "source_screenshot_id": "src-171900",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-05"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-05",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S09",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171904.png",
+      "source_screenshot_id": "src-171904",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-q2"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m5-q7",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are 3 activities that you can implement in your life to help improve your sleep?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S10",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171914.png",
+      "source_screenshot_id": "src-171914",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-11"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-11",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S11",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171918.png",
+      "source_screenshot_id": "src-171918",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-q1"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m5-q1",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are the 3 important components you can implement to improve your sleep routine?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S12",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171925.png",
+      "source_screenshot_id": "src-171925",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-05"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-14",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S13",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171931.png",
+      "source_screenshot_id": "src-171931",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-q4"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m5-q4",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What should you do if you're having difficulty falling asleep at night?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S14",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171939.png",
+      "source_screenshot_id": "src-171939",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-06"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-06",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S15",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171943.png",
+      "source_screenshot_id": "src-171943",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-06"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-15",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S16",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171949.png",
+      "source_screenshot_id": "src-171949",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-06"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-16",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S17",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 171954.png",
+      "source_screenshot_id": "src-171954",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-06"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-17",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S18",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172001.png",
+      "source_screenshot_id": "src-172001",
+      "source_confidence": "MEDIUM",
+      "current_app_counterpart": [],
+      "chosen_implementation_action": "HOLD_SOURCE_LIMITED",
+      "resulting_learner_screen_id": null,
+      "text_changed": false,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "HELD_SOURCE_LIMITED_NO_CIAS_BEHAVIOR_PROMOTED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are 3 reasons why daily morning sunshine is beneficial for sleep?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": [
+        "The screenshot ends after the sixth option; the Add new answer/footer is not visible. No additional option can be assumed.",
+        "Source-limited record is intentionally held under the approved Eli decision; no source text or incomplete interaction is promoted."
+      ]
+    },
+    {
+      "cias_id": "M5-S19",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172007.png",
+      "source_screenshot_id": "src-172007",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-07"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-07",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S20",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172012.png",
+      "source_screenshot_id": "src-172012",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-q2"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m5-q2",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are 3 important components you can implement to improve your sleep environment?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S21",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172018.png",
+      "source_screenshot_id": "src-172018",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-08"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-08",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S22",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172023.png",
+      "source_screenshot_id": "src-172023",
+      "source_confidence": "MEDIUM",
+      "current_app_counterpart": [
+        "m5-q3"
+      ],
+      "chosen_implementation_action": "HOLD_SOURCE_LIMITED",
+      "resulting_learner_screen_id": "m5-q3",
+      "text_changed": false,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "HELD_SOURCE_LIMITED_NO_CIAS_BEHAVIOR_PROMOTED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "Which of the following statements best reflects the recommended guidelines and physiological effects of caffeine consumption for pregnant women?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": [
+        "The screenshot ends after the sixth option; the Add new answer/footer is not visible.",
+        "Source-limited record is intentionally held under the approved Eli decision; no source text or incomplete interaction is promoted."
+      ]
+    },
+    {
+      "cias_id": "M5-S23",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172031.png",
+      "source_screenshot_id": "src-172031",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-08"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-18",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S24",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172035.png",
+      "source_screenshot_id": "src-172035",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [],
+      "chosen_implementation_action": "ADD_MISSING_CIAS_SCREEN",
+      "resulting_learner_screen_id": "m5-q8",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are 3 nutritional tips you can follow that are supported by current chrononutrition evidence?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S25",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172040.png",
+      "source_screenshot_id": "src-172040",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-09"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-21",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S26",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172047.png",
+      "source_screenshot_id": "src-172047",
+      "source_confidence": "MEDIUM",
+      "current_app_counterpart": [],
+      "chosen_implementation_action": "HOLD_SOURCE_LIMITED",
+      "resulting_learner_screen_id": null,
+      "text_changed": false,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "HELD_SOURCE_LIMITED_NO_CIAS_BEHAVIOR_PROMOTED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "Select all the foods that can consistently be part of a healthy diet and support proper sleep.",
+        "instructions": "Select all that apply. (Hint: There are 6 correct answers.)",
+        "option_count_visible": 8
+      },
+      "unresolved_source_limitations": [
+        "The screenshot ends at the eighth visible option, Chicken. Lower choices and the interaction footer are CROPPED; no additional choices are invented.",
+        "Source-limited record is intentionally held under the approved Eli decision; no source text or incomplete interaction is promoted."
+      ]
+    },
+    {
+      "cias_id": "M5-S27",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172053.png",
+      "source_screenshot_id": "src-172053",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-10"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m5-10",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S28",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172057.png",
+      "source_screenshot_id": "src-172057",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [],
+      "chosen_implementation_action": "ADD_MISSING_CIAS_SCREEN",
+      "resulting_learner_screen_id": "m5-19",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S29",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172102.png",
+      "source_screenshot_id": "src-172102",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [],
+      "chosen_implementation_action": "ADD_MISSING_CIAS_SCREEN",
+      "resulting_learner_screen_id": "m5-20",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S30",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172107.png",
+      "source_screenshot_id": "src-172107",
+      "source_confidence": "MEDIUM",
+      "current_app_counterpart": [
+        "m5-09"
+      ],
+      "chosen_implementation_action": "HOLD_SOURCE_LIMITED",
+      "resulting_learner_screen_id": "m5-09",
+      "text_changed": false,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "HELD_SOURCE_LIMITED_NO_CIAS_BEHAVIOR_PROMOTED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What 3 pieces of advice you can implement regarding regular exercise for sleep?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": [
+        "The source screenshot ends during the sixth option after the visible tag begins; any lower options or footer are CROPPED.",
+        "Source-limited record is intentionally held under the approved Eli decision; no source text or incomplete interaction is promoted."
+      ]
+    },
+    {
+      "cias_id": "M5-S31",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172112.png",
+      "source_screenshot_id": "src-172112",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m5-10"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m5-q10",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What 3 pieces of advice you can implement regarding naps and sleeping position?",
+        "instructions": "Let's check your knowledge real quick! Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M5-S32",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172121.png",
+      "source_screenshot_id": "src-172121",
+      "source_confidence": "MEDIUM",
+      "current_app_counterpart": [
+        "m5-recap"
+      ],
+      "chosen_implementation_action": "SPECIAL_REVIEW_POLICY",
+      "resulting_learner_screen_id": "m5-recap",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "open-ended",
+        "stem": "What are some sleep hygiene practices you learned that you feel confident in implementing in your routine?",
+        "instructions": "This question is supposed to be very open-ended and get you thinking about steps you can take to improve your sleep.",
+        "option_count_visible": 0
+      },
+      "unresolved_source_limitations": [
+        "The lower illustration continues to the bottom edge of the screenshot; any text below the visible image is CROPPED/not present.",
+        "Special policy limits implementation to visibly established learner content; hidden media, diagram relationships, and below-boundary text remain unresolved where applicable."
+      ]
+    },
+    {
+      "cias_id": "M6-S01",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172134.png",
+      "source_screenshot_id": "src-172134",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m6-01"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m6-01",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M6-S02",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172138.png",
+      "source_screenshot_id": "src-172138",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m6-02"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m6-02",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M6-S03",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172142.png",
+      "source_screenshot_id": "src-172142",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m6-03"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m6-03",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M6-S04",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172146.png",
+      "source_screenshot_id": "src-172146",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m6-04"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m6-04",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M6-S05",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172151.png",
+      "source_screenshot_id": "src-172151",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m6-q1"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m6-q1",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are the recommended ways for treating nasal congestion during pregnancy?",
+        "instructions": "Select all that apply (Hint: there are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M6-S06",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172156.png",
+      "source_screenshot_id": "src-172156",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [],
+      "chosen_implementation_action": "ADD_MISSING_CIAS_SCREEN",
+      "resulting_learner_screen_id": "m6-07",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M6-S07",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172203.png",
+      "source_screenshot_id": "src-172203",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m6-05"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m6-05",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M6-S08",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172208.png",
+      "source_screenshot_id": "src-172208",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m6-q2"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m6-q2",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are the recommended ways for treating GERD during pregnancy?",
+        "instructions": "Select all that apply (Hint: there are 4 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M6-S09",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172214.png",
+      "source_screenshot_id": "src-172214",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m6-03",
+        "m6-05"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m6-08",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M6-S10",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172218.png",
+      "source_screenshot_id": "src-172218",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m6-q3"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m6-q3",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "What are the recommended ways for treating anxiety during pregnancy?",
+        "instructions": "Select all that apply (Hint: there are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M7-S01",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172231.png",
+      "source_screenshot_id": "src-172231",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m7-01"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m7-01",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M7-S02",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172235.png",
+      "source_screenshot_id": "src-172235",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m7-01",
+        "m7-02"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m7-02",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M7-S03",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172239.png",
+      "source_screenshot_id": "src-172239",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m7-02",
+        "m7-03",
+        "m7-04"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m7-03",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M7-S04",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172244.png",
+      "source_screenshot_id": "src-172244",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m7-04"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m7-04",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "When is it recommended to wear your PAP mask?",
+        "instructions": "Select all that apply. (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M7-S05",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172250.png",
+      "source_screenshot_id": "src-172250",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m7-03"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m7-05",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M7-S06",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172254.png",
+      "source_screenshot_id": "src-172254",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m7-02",
+        "m7-03"
+      ],
+      "chosen_implementation_action": "RESTORE_FULL_SOURCE",
+      "resulting_learner_screen_id": "m7-06",
+      "text_changed": true,
+      "options_changed": false,
+      "interaction_logic_changed": false,
+      "answer_key_provenance": "NOT_APPLICABLE",
+      "source_question_state": null,
+      "unresolved_source_limitations": []
+    },
+    {
+      "cias_id": "M7-S07",
+      "source_screenshot": "projects/lifespan-sleep-education-mobile/screenshots/Screenshot 2026-07-29 172258.png",
+      "source_screenshot_id": "src-172258",
+      "source_confidence": "HIGH",
+      "current_app_counterpart": [
+        "m7-q1",
+        "m7-q2"
+      ],
+      "chosen_implementation_action": "RESTORE_VISIBLE_TEXT_ONLY",
+      "resulting_learner_screen_id": "m7-q2",
+      "text_changed": true,
+      "options_changed": true,
+      "interaction_logic_changed": true,
+      "answer_key_provenance": "CIAS_ANSWER_KEY_NOT_RECOVERED",
+      "source_question_state": {
+        "interaction_type": "multi-select",
+        "stem": "Which statements correctly describe how pregnancy, obstructive sleep apnea, and CPAP may affect sex drive?",
+        "instructions": "Select all that apply (Hint: There are 3 correct answers.)",
+        "option_count_visible": 6
+      },
+      "unresolved_source_limitations": []
+    }
+  ],
+  "app_only_supplemental": [
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m1",
+      "screen_id": "m1-04",
+      "current_app_location": "src/content/en/modules/module-01.ts#m1-04",
+      "title": "Apnea and Hypopnea",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m1",
+      "screen_id": "m1-06",
+      "current_app_location": "src/content/en/modules/module-01.ts#m1-06",
+      "title": "How Is OSA Evaluated?",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m1",
+      "screen_id": "m1-07",
+      "current_app_location": "src/content/en/modules/module-01.ts#m1-07",
+      "title": "How Does PAP Help?",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m1",
+      "screen_id": "m1-q2",
+      "current_app_location": "src/content/en/modules/module-01.ts#m1-q2",
+      "title": "Knowledge check",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m1",
+      "screen_id": "m1-ai1",
+      "current_app_location": "src/content/en/modules/module-01.ts#m1-ai1",
+      "title": "Explain it in your own words",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m1",
+      "screen_id": "m1-recap",
+      "current_app_location": "src/content/en/modules/module-01.ts#m1-recap",
+      "title": "Module recap",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m2",
+      "screen_id": "m2-02",
+      "current_app_location": "src/content/en/modules/module-02.ts#m2-02",
+      "title": "What Might a Partner Experience?",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m2",
+      "screen_id": "m2-ai1",
+      "current_app_location": "src/content/en/modules/module-02.ts#m2-ai1",
+      "title": "Shared-sleep teach-back",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m2",
+      "screen_id": "m2-recap",
+      "current_app_location": "src/content/en/modules/module-02.ts#m2-recap",
+      "title": "Module recap",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m3",
+      "screen_id": "m3-02",
+      "current_app_location": "src/content/en/modules/module-03.ts#m3-02",
+      "title": "Understanding Health Risk",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m3",
+      "screen_id": "m3-03",
+      "current_app_location": "src/content/en/modules/module-03.ts#m3-03",
+      "title": "Struggling With PAP Is Common",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m3",
+      "screen_id": "m3-ai1",
+      "current_app_location": "src/content/en/modules/module-03.ts#m3-ai1",
+      "title": "Describe a PAP barrier",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m3",
+      "screen_id": "m3-ai2",
+      "current_app_location": "src/content/en/modules/module-03.ts#m3-ai2",
+      "title": "Build a realistic next step",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m3",
+      "screen_id": "m3-q2",
+      "current_app_location": "src/content/en/modules/module-03.ts#m3-q2",
+      "title": "Knowledge check",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m4",
+      "screen_id": "m4-02",
+      "current_app_location": "src/content/en/modules/module-04.ts#m4-02",
+      "title": "Risk Does Not Mean Destiny",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m4",
+      "screen_id": "m4-q3",
+      "current_app_location": "src/content/en/modules/module-04.ts#m4-q3",
+      "title": "Knowledge check",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m4",
+      "screen_id": "m4-ai1",
+      "current_app_location": "src/content/en/modules/module-04.ts#m4-ai1",
+      "title": "Association teach-back",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m4",
+      "screen_id": "m4-ai2",
+      "current_app_location": "src/content/en/modules/module-04.ts#m4-ai2",
+      "title": "Prepare a care-team question",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m5",
+      "screen_id": "m5-ai1",
+      "current_app_location": "src/content/en/modules/module-05.ts#m5-ai1",
+      "title": "Build a bedtime timeline",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m5",
+      "screen_id": "m5-ai2",
+      "current_app_location": "src/content/en/modules/module-05.ts#m5-ai2",
+      "title": "Make one sleep-habit plan",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m5",
+      "screen_id": "m5-ai3",
+      "current_app_location": "src/content/en/modules/module-05.ts#m5-ai3",
+      "title": "Sleep-hygiene teach-back",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m6",
+      "screen_id": "m6-06",
+      "current_app_location": "src/content/en/modules/module-06.ts#m6-06",
+      "title": "Becoming Familiar With the Equipment",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m6",
+      "screen_id": "m6-ai1",
+      "current_app_location": "src/content/en/modules/module-06.ts#m6-ai1",
+      "title": "Describe a PAP barrier",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m6",
+      "screen_id": "m6-ai2",
+      "current_app_location": "src/content/en/modules/module-06.ts#m6-ai2",
+      "title": "Build a discussion summary",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m6",
+      "screen_id": "m6-recap",
+      "current_app_location": "src/content/en/modules/module-06.ts#m6-recap",
+      "title": "Module recap",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m7",
+      "screen_id": "m7-r1",
+      "current_app_location": "src/content/en/modules/module-07.ts#m7-r1",
+      "title": "Optional reflection",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m7",
+      "screen_id": "m7-ai1",
+      "current_app_location": "src/content/en/modules/module-07.ts#m7-ai1",
+      "title": "Organize an optional question",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    },
+    {
+      "action": "KEEP_EXISTING_APP_ONLY",
+      "module_id": "m7",
+      "screen_id": "m7-recap",
+      "current_app_location": "src/content/en/modules/module-07.ts#m7-recap",
+      "title": "Module recap",
+      "note": "Preserve current learner-facing content and ID as supplemental app-only material; do not reinterpret as CIAS-derived."
+    }
+  ],
+  "summary": {
+    "cias_records": 77,
+    "restored_records": 71,
+    "held_records": 6,
+    "added_missing_screens": 6,
+    "preserved_app_only_screens": 28,
+    "restored_questions_without_recovered_answer_keys": 25
+  },
+  "runtime_policy": {
+    "restored_questions": "Exact recovered stem/instructions/visible option order and interaction type; unscored because no CIAS answer key, selected state, correctness feedback, or reveal state was recovered.",
+    "held_records": [
+      "M1-S05",
+      "M1-S06",
+      "M5-S18",
+      "M5-S22",
+      "M5-S26",
+      "M5-S30"
+    ],
+    "spanish": "No substantive Spanish rewrite. English-only CIAS screens use an explicit temporary English fallback locally so route structure remains valid; production remains blocked pending Spanish restoration/review."
+  }
+}

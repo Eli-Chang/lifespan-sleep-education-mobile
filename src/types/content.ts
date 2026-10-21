@@ -1,15 +1,30 @@
 export type SupportedLocale = 'en' | 'es';
-export type LessonScreenType = 'content' | 'singleChoice' | 'multiSelect' | 'scenario' | 'summary' | 'aiActivity';
+export type LessonScreenType = 'content' | 'singleChoice' | 'multiSelect' | 'scenario' | 'reflection' | 'summary';
+export type TranslationStatus = 'source' | 'machine_drafted' | 'translated_from_approved_english' | 'temporary_english_fallback';
+export type TranslationProvenance = 'approved-english-curriculum' | 'existing-app-spanish-draft';
+export type AnswerBehaviorProvenance =
+  | 'CURRENT_APP_EXISTING_BEHAVIOR'
+  | 'CIAS_ANSWER_KEY_NOT_RECOVERED'
+  | 'HELD_SOURCE_LIMITED_NO_CIAS_BEHAVIOR_PROMOTED'
+  | 'NOT_APPLICABLE';
 
 export interface Choice {
   id: string;
   label: string;
 }
 
+export interface LessonVideo {
+  url: string;
+  thumbnailUrl: string;
+  title: { en: string; es: string };
+  altText: { en: string; es: string };
+}
+
 export interface QuestionFeedback {
   correctSummary?: string;
   incorrectSummary?: string;
   generalExplanation?: string;
+  incorrectExplanation?: string;
   optionExplanations?: Record<string, string>;
 }
 
@@ -24,21 +39,48 @@ export interface LessonBase {
   needsContentReview?: boolean;
   reviewReason?: string;
   clinicalReviewStatus?: 'not_reviewed' | 'needs_revision';
-  translationStatus?: 'source' | 'machine_drafted';
+  translationStatus?: TranslationStatus;
+  translationProvenance?: TranslationProvenance;
   bilingualReviewStatus?: 'not_reviewed';
   sourceIds?: string[];
+  sourceConfidence?: 'HIGH' | 'MEDIUM' | 'LOW';
+  sourceUncertainties?: string[];
+  sourceFidelityPolicy?: string;
+  answerBehaviorProvenance?: AnswerBehaviorProvenance;
 }
 
 export interface ContentLesson extends LessonBase {
   type: 'content';
   paragraphs: string[];
+  presentation?: RichContentBlock[];
   orderedList?: string[];
   keyPoints?: string[];
+  sourceVisibleLabels?: string[];
+  video?: LessonVideo;
 }
+
+export interface RichTextSegment {
+  text: string;
+  bold?: boolean;
+}
+
+export interface RichParagraphBlock {
+  type: 'paragraph';
+  segments: RichTextSegment[];
+}
+
+export interface RichUnorderedListBlock {
+  type: 'unorderedList';
+  items: RichTextSegment[][];
+}
+
+export type RichContentBlock = RichParagraphBlock | RichUnorderedListBlock;
 
 export interface SingleChoiceLesson extends LessonBase {
   type: 'singleChoice';
   prompt: string;
+  instructions?: string;
+  contextParagraphs?: string[];
   choices: Choice[];
   correctChoiceId?: string;
   feedback?: string;
@@ -49,6 +91,8 @@ export interface SingleChoiceLesson extends LessonBase {
 export interface MultiSelectLesson extends LessonBase {
   type: 'multiSelect';
   prompt: string;
+  instructions?: string;
+  contextParagraphs?: string[];
   choices: Choice[];
   correctChoiceIds?: string[];
   feedback?: string;
@@ -67,28 +111,19 @@ export interface ScenarioLesson extends LessonBase {
   questionFeedback?: QuestionFeedback;
 }
 
+export interface ReflectionLesson extends LessonBase {
+  type: 'reflection';
+  prompt: string;
+  instructions?: string;
+  placeholder?: string;
+  optional?: boolean;
+  contextParagraphs?: string[];
+}
+
 export interface SummaryLesson extends LessonBase {
   type: 'summary';
   keyPoints: string[];
-}
-
-export type AiActivityKind =
-  | 'teach-back'
-  | 'reflection'
-  | 'lesson-question'
-  | 'pap-barrier'
-  | 'action-plan'
-  | 'question-organizer'
-  | 'timeline';
-
-export interface AiActivityLesson extends LessonBase {
-  type: 'aiActivity';
-  activityKind: AiActivityKind;
-  activityId: string;
-  prompt: string;
-  placeholder?: string;
-  optional?: boolean;
-  sensitive?: boolean;
+  sourceVisibleLabels?: string[];
 }
 
 export type LessonScreen =
@@ -96,8 +131,8 @@ export type LessonScreen =
   | SingleChoiceLesson
   | MultiSelectLesson
   | ScenarioLesson
-  | SummaryLesson
-  | AiActivityLesson;
+  | ReflectionLesson
+  | SummaryLesson;
 
 export interface EducationModule {
   id: string;
@@ -107,8 +142,9 @@ export interface EducationModule {
   description: string;
   screens: LessonScreen[];
   sourceScreenshotIds: string[];
-  curriculumVersion: 3;
-  translationStatus?: 'source' | 'machine_drafted';
+  curriculumVersion: 10 | 11;
+  translationStatus?: TranslationStatus;
+  translationProvenance?: TranslationProvenance;
   bilingualReviewStatus?: 'not_reviewed';
   clinicalReviewStatus: 'not_reviewed' | 'needs_revision';
 }

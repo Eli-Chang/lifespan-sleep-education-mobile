@@ -10,6 +10,16 @@ const groups: [string, string[]][] = [
   ['m7', ['172231', '172235', '172239', '172244', '172250', '172254', '172258']],
 ];
 
+const runtimeScreenIds: Record<string, (string | undefined)[]> = {
+  m1: ['m1-01', undefined, 'm1-03', 'm1-q1', 'm1-05', 'm1-r1'],
+  m2: ['m2-01', 'm2-r1', 'm2-03', 'm2-05', 'm2-04', 'm2-q2', 'm2-q1'],
+  m3: ['m3-01', 'm3-q1', 'm3-q3', 'm3-q4', 'm3-recap', 'm3-04'],
+  m4: ['m4-01', 'm4-q1', 'm4-03', 'm4-04', 'm4-q4', 'm4-05', 'm4-06', 'm4-q6', 'm4-recap'],
+  m5: ['m5-01', 'm5-02', 'm5-03', 'm5-q5', 'm5-q6', 'm5-04', 'm5-13', 'm5-05', 'm5-q7', 'm5-11', 'm5-q1', 'm5-14', 'm5-q4', 'm5-06', 'm5-15', 'm5-16', 'm5-17', 'm5-q9', 'm5-07', 'm5-q2', 'm5-08', 'm5-q3', 'm5-18', 'm5-q8', 'm5-21', 'm5-q11', 'm5-10', 'm5-19', 'm5-20', undefined, 'm5-q10', 'm5-recap'],
+  m6: ['m6-01', 'm6-02', 'm6-03', 'm6-04', 'm6-q1', 'm6-07', 'm6-05', 'm6-q2', 'm6-08', 'm6-q3'],
+  m7: ['m7-01', 'm7-02', 'm7-03', 'm7-04', 'm7-05', 'm7-06', 'm7-q2'],
+};
+
 const questionTimestamps = new Set([
   '171424', '171451', '171516', '171541', '171552', '171605', '171611', '171621',
   '171641', '171655', '171701', '171719', '171839', '171845', '171904', '171918',
@@ -19,13 +29,13 @@ const questionTimestamps = new Set([
 
 export const sourceManifest: SourceManifestEntry[] = groups.flatMap(([moduleId, timestamps]) =>
   timestamps.map((timestamp, index) => {
-    const screenId = `${moduleId}-s${String(index + 1).padStart(2, '0')}`;
+    const screenId = runtimeScreenIds[moduleId][index];
     return {
       id: `src-${timestamp}`,
       filePath: `screenshots/Screenshot 2026-07-29 ${timestamp}.png`,
       assignedModuleId: moduleId,
-      relatedLessonScreenIds: [screenId],
-      interactionGroupId: questionTimestamps.has(timestamp) ? `interaction-${screenId}` : undefined,
+      relatedLessonScreenIds: screenId ? [screenId] : [],
+      interactionGroupId: questionTimestamps.has(timestamp) && screenId ? `interaction-${screenId}` : undefined,
       auditStatus: 'assigned-to-module' as const,
       reviewStatus: ['171413', '171430', '171451', '171731', '171727', '172107', '172121', '172142'].includes(timestamp)
         ? 'needs-review' as const

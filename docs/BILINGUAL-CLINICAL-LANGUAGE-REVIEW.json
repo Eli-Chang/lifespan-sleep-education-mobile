@@ -7,7 +7,7 @@
       "src/content/es"
     ],
     "learnerRoute": "app/lesson/[moduleId]/[screenId].tsx → getModule(state.language, moduleId)",
-    "generatedAt": "2026-08-17T15:44:19.726Z"
+    "generatedAt": "2026-08-19T01:45:23.048Z"
   },
   "reviewPolicy": {
     "purpose": "Mechanical pre-review and complete side-by-side packet for clinical and native-Spanish-speaker human review.",
@@ -23,11 +23,11 @@
     "sourceHoldsMustNotBeReconstructed": true
   },
   "coverage": {
-    "englishScreens": 103,
-    "spanishScreens": 103,
-    "pairedScreenIds": 103,
-    "ciasBackedTranslatedScreens": 71,
-    "appOnlySupplementalScreens": 28,
+    "englishScreens": 101,
+    "spanishScreens": 101,
+    "pairedScreenIds": 101,
+    "ciasBackedTranslatedScreens": 70,
+    "appOnlySupplementalScreens": 27,
     "heldSourceRuntimeCounterparts": 4,
     "restoredCiasQuestionsAndReflections": 25,
     "heldCiasSourceRecords": 6,
@@ -35,7 +35,7 @@
       {
         "moduleId": "m1",
         "moduleTitle": "Intro to Sleep Apnea",
-        "count": 12
+        "count": 11
       },
       {
         "moduleId": "m2",
@@ -72,37 +72,37 @@
   "automatedChecks": {
     "summary": {
       "structuralMismatch": {
-        "pass": 103,
+        "pass": 101,
         "flagged": 0,
         "notApplicable": 0
       },
       "likelyUntranslatedEnglish": {
-        "pass": 103,
+        "pass": 101,
         "flagged": 0,
         "notApplicable": 0
       },
       "numbersUnitsMismatch": {
-        "pass": 101,
+        "pass": 100,
         "flagged": 2,
         "notApplicable": 0
       },
       "optionCorrespondence": {
         "pass": 30,
         "flagged": 0,
-        "notApplicable": 73
+        "notApplicable": 72
       },
       "reflectionCorrectnessFeedback": {
         "pass": 3,
         "flagged": 0,
-        "notApplicable": 100
+        "notApplicable": 99
       },
       "polarityNegationCandidates": {
-        "pass": 81,
+        "pass": 80,
         "flagged": 22,
         "notApplicable": 0
       },
       "terminologyInconsistency": {
-        "pass": 100,
+        "pass": 99,
         "flagged": 3,
         "notApplicable": 0
       }
@@ -112,9 +112,9 @@
         "family": "osa",
         "label": "OSA naming",
         "variants": {
-          "full": 8,
-          "acronym": 33,
-          "general": 29
+          "full": 6,
+          "acronym": 32,
+          "general": 30
         },
         "potentialInconsistency": false,
         "note": "Inventory only; shared use of these terms is not automatically inconsistent."
@@ -1104,7 +1104,7 @@
       "screenId": "m1-q1",
       "moduleId": "m1",
       "moduleOrder": 1,
-      "screenPosition": 4,
+      "screenPosition": 3,
       "provenance": "CIAS_BACKED_TRANSLATED_FROM_ENGLISH",
       "sourceScreenshotIds": [
         "src-171424"
@@ -2646,261 +2646,6 @@
       "moduleOrder": 1,
       "moduleTitle": "Intro to Sleep Apnea",
       "screenPosition": 2,
-      "screenId": "m1-02",
-      "provenance": "CIAS_BACKED_TRANSLATED_FROM_ENGLISH",
-      "translationStatus": "translated_from_approved_english",
-      "translationProvenance": "approved-english-curriculum",
-      "sourceScreenshotIds": [
-        "src-171405"
-      ],
-      "sourceIds": [
-        "cias-screenshot-recovery"
-      ],
-      "sourceConfidence": "HIGH",
-      "sourceUncertainties": [],
-      "sourceFidelityPolicy": null,
-      "screenType": "content",
-      "interactionType": "content",
-      "englishLearnerFacingFields": [
-        {
-          "field": "title",
-          "value": "Obstructive sleep apnea (OSA)"
-        },
-        {
-          "field": "paragraphs[1]",
-          "value": "So what is obstructive sleep apnea or OSA?"
-        },
-        {
-          "field": "paragraphs[2]",
-          "value": "Learn more:"
-        },
-        {
-          "field": "sourceVisibleLabels[1]",
-          "value": "Typical breathing during sleep"
-        },
-        {
-          "field": "sourceVisibleLabels[2]",
-          "value": "Tongue"
-        },
-        {
-          "field": "sourceVisibleLabels[3]",
-          "value": "Hard palate"
-        },
-        {
-          "field": "sourceVisibleLabels[4]",
-          "value": "Soft palate"
-        },
-        {
-          "field": "sourceVisibleLabels[5]",
-          "value": "Open airway"
-        },
-        {
-          "field": "sourceVisibleLabels[6]",
-          "value": "Obstructive sleep apnea"
-        },
-        {
-          "field": "sourceVisibleLabels[7]",
-          "value": "Tongue"
-        },
-        {
-          "field": "sourceVisibleLabels[8]",
-          "value": "Blocked airway"
-        },
-        {
-          "field": "sourceVisibleLabels[9]",
-          "value": "© MAYO FOUNDATION FOR MEDICAL EDUCATION AND RESEARCH. ALL RIGHTS RESERVED."
-        }
-      ],
-      "spanishLearnerFacingFields": [
-        {
-          "field": "title",
-          "value": "Apnea obstructiva del sueño (AOS)"
-        },
-        {
-          "field": "paragraphs[1]",
-          "value": "Entonces, ¿qué es la apnea obstructiva del sueño o AOS?"
-        },
-        {
-          "field": "paragraphs[2]",
-          "value": "Más información:"
-        },
-        {
-          "field": "sourceVisibleLabels[1]",
-          "value": "Respiración típica durante el sueño"
-        },
-        {
-          "field": "sourceVisibleLabels[2]",
-          "value": "Lengua"
-        },
-        {
-          "field": "sourceVisibleLabels[3]",
-          "value": "Paladar duro"
-        },
-        {
-          "field": "sourceVisibleLabels[4]",
-          "value": "Paladar blando"
-        },
-        {
-          "field": "sourceVisibleLabels[5]",
-          "value": "Vía respiratoria abierta"
-        },
-        {
-          "field": "sourceVisibleLabels[6]",
-          "value": "Apnea obstructiva del sueño"
-        },
-        {
-          "field": "sourceVisibleLabels[7]",
-          "value": "Lengua"
-        },
-        {
-          "field": "sourceVisibleLabels[8]",
-          "value": "Vía respiratoria bloqueada"
-        },
-        {
-          "field": "sourceVisibleLabels[9]",
-          "value": "© MAYO FOUNDATION FOR MEDICAL EDUCATION AND RESEARCH. ALL RIGHTS RESERVED."
-        }
-      ],
-      "english": {
-        "id": "m1-02",
-        "type": "content",
-        "title": "Obstructive sleep apnea (OSA)",
-        "paragraphs": [
-          "So what is obstructive sleep apnea or OSA?",
-          "Learn more:"
-        ],
-        "sourceVisibleLabels": [
-          "Typical breathing during sleep",
-          "Tongue",
-          "Hard palate",
-          "Soft palate",
-          "Open airway",
-          "Obstructive sleep apnea",
-          "Tongue",
-          "Blocked airway",
-          "© MAYO FOUNDATION FOR MEDICAL EDUCATION AND RESEARCH. ALL RIGHTS RESERVED."
-        ],
-        "sourceScreenshotIds": [
-          "src-171405"
-        ],
-        "sourceIds": [
-          "cias-screenshot-recovery"
-        ],
-        "sourceConfidence": "HIGH",
-        "sourceUncertainties": [],
-        "answerBehaviorProvenance": "NOT_APPLICABLE",
-        "clinicalReviewStatus": "not_reviewed",
-        "narrationText": "So what is obstructive sleep apnea or OSA? Learn more: Typical breathing during sleep Tongue Hard palate Soft palate Open airway Obstructive sleep apnea Tongue Blocked airway © MAYO FOUNDATION FOR MEDICAL EDUCATION AND RESEARCH. ALL RIGHTS RESERVED."
-      },
-      "spanish": {
-        "id": "m1-02",
-        "type": "content",
-        "title": "Apnea obstructiva del sueño (AOS)",
-        "paragraphs": [
-          "Entonces, ¿qué es la apnea obstructiva del sueño o AOS?",
-          "Más información:"
-        ],
-        "sourceVisibleLabels": [
-          "Respiración típica durante el sueño",
-          "Lengua",
-          "Paladar duro",
-          "Paladar blando",
-          "Vía respiratoria abierta",
-          "Apnea obstructiva del sueño",
-          "Lengua",
-          "Vía respiratoria bloqueada",
-          "© MAYO FOUNDATION FOR MEDICAL EDUCATION AND RESEARCH. ALL RIGHTS RESERVED."
-        ],
-        "sourceScreenshotIds": [
-          "src-171405"
-        ],
-        "sourceIds": [
-          "cias-screenshot-recovery"
-        ],
-        "sourceConfidence": "HIGH",
-        "sourceUncertainties": [],
-        "answerBehaviorProvenance": "NOT_APPLICABLE",
-        "clinicalReviewStatus": "not_reviewed",
-        "narrationText": "Entonces, ¿qué es la apnea obstructiva del sueño o AOS? Más información:",
-        "translationStatus": "translated_from_approved_english",
-        "translationProvenance": "approved-english-curriculum",
-        "bilingualReviewStatus": "not_reviewed"
-      },
-      "automatedFindings": {
-        "structuralMismatch": [
-          {
-            "check": "STRUCTURAL_MISMATCH",
-            "status": "PASS",
-            "severity": "INFO",
-            "message": "English and Spanish structural fields match for the active runtime pair."
-          }
-        ],
-        "likelyUntranslatedEnglish": [
-          {
-            "check": "LIKELY_UNTRANSLATED_ENGLISH",
-            "status": "PASS",
-            "severity": "INFO",
-            "message": "No likely untranslated English learner-facing fragment was detected by the structural/text heuristics."
-          }
-        ],
-        "numbersUnitsMismatch": [
-          {
-            "check": "NUMBERS_UNITS_MISMATCH",
-            "status": "PASS",
-            "severity": "INFO",
-            "message": "Number sequence and recognized unit categories match."
-          }
-        ],
-        "optionCorrespondence": [
-          {
-            "check": "OPTION_CORRESPONDENCE",
-            "status": "NOT_APPLICABLE",
-            "severity": "INFO",
-            "message": "No selectable options on this screen."
-          }
-        ],
-        "reflectionCorrectnessFeedback": [
-          {
-            "check": "REFLECTION_CORRECTNESS_FEEDBACK",
-            "status": "NOT_APPLICABLE",
-            "severity": "INFO",
-            "message": "This screen is not a reflection interaction."
-          }
-        ],
-        "polarityNegationCandidates": [
-          {
-            "check": "POLARITY_NEGATION_CANDIDATE",
-            "status": "PASS",
-            "severity": "INFO",
-            "message": "No polarity/negation candidate was generated by the lexical comparison."
-          }
-        ],
-        "terminologyInconsistency": [
-          {
-            "check": "TERMINOLOGY_INCONSISTENCY",
-            "status": "PASS",
-            "severity": "INFO",
-            "message": "No screen-level recurring-term inconsistency candidate was detected."
-          }
-        ]
-      },
-      "question": null,
-      "clinicalReviewStatus": "APPROVED",
-      "spanishLanguageReviewStatus": "APPROVED",
-      "reviewerNotes": [],
-      "finalDisposition": "APPROVED",
-      "priority": null,
-      "priorityScore": 0,
-      "priorityReasons": {
-        "clinical": [],
-        "spanishLanguage": []
-      }
-    },
-    {
-      "moduleId": "m1",
-      "moduleOrder": 1,
-      "moduleTitle": "Intro to Sleep Apnea",
-      "screenPosition": 3,
       "screenId": "m1-03",
       "provenance": "CIAS_BACKED_TRANSLATED_FROM_ENGLISH",
       "translationStatus": "translated_from_approved_english",
@@ -2930,10 +2675,6 @@
         {
           "field": "paragraphs[2]",
           "value": "In OSA, your throat relaxes so much that it narrows and/or creates a blockage during sleep, leading to difficulty breathing. (Imagine sucking air through a straw and then pinching the straw.) Your brain senses the lack of oxygen and wakes you up just enough to breathe (though you might not remember it). In OSA, these interruptions happen many times a night, leading to poor sleep quality. Over time, this repeated strain stresses your body causing poor quality of life."
-        },
-        {
-          "field": "paragraphs[3]",
-          "value": "Explore the video and graphic below and check out this handout!"
         }
       ],
       "spanishLearnerFacingFields": [
@@ -2948,10 +2689,6 @@
         {
           "field": "paragraphs[2]",
           "value": "En la AOS, la garganta se relaja tanto que se estrecha o se bloquea durante el sueño, lo que dificulta la respiración. Imagine succionar aire por una pajita y luego apretarla. El cerebro detecta la falta de oxígeno y le despierta lo suficiente para respirar, aunque quizá no lo recuerde. En la AOS, estas interrupciones ocurren muchas veces por noche y producen un sueño de menor calidad. Con el tiempo, esta tensión repetida estresa el cuerpo y puede reducir la calidad de vida."
-        },
-        {
-          "field": "paragraphs[3]",
-          "value": "Explore el video y el gráfico de abajo y consulte también este folleto."
         }
       ],
       "english": {
@@ -2960,10 +2697,21 @@
         "title": "Physiology of Sleep Apnea",
         "paragraphs": [
           "In this video, we'll dive more into understanding why OSA, or obstructive sleep apnea, happens.",
-          "In OSA, your throat relaxes so much that it narrows and/or creates a blockage during sleep, leading to difficulty breathing. (Imagine sucking air through a straw and then pinching the straw.) Your brain senses the lack of oxygen and wakes you up just enough to breathe (though you might not remember it). In OSA, these interruptions happen many times a night, leading to poor sleep quality. Over time, this repeated strain stresses your body causing poor quality of life.",
-          "Explore the video and graphic below and check out this handout!"
+          "In OSA, your throat relaxes so much that it narrows and/or creates a blockage during sleep, leading to difficulty breathing. (Imagine sucking air through a straw and then pinching the straw.) Your brain senses the lack of oxygen and wakes you up just enough to breathe (though you might not remember it). In OSA, these interruptions happen many times a night, leading to poor sleep quality. Over time, this repeated strain stresses your body causing poor quality of life."
         ],
         "sourceVisibleLabels": [],
+        "video": {
+          "url": "https://youtu.be/PCVjhDyXHSs",
+          "thumbnailUrl": "https://img.youtube.com/vi/PCVjhDyXHSs/hqdefault.jpg",
+          "title": {
+            "en": "Why obstructive sleep apnea happens",
+            "es": "Por qué ocurre la apnea obstructiva del sueño"
+          },
+          "altText": {
+            "en": "Video thumbnail for an explanation of why obstructive sleep apnea happens.",
+            "es": "Miniatura de video que explica por qué ocurre la apnea obstructiva del sueño."
+          }
+        },
         "sourceScreenshotIds": [
           "src-171413"
         ],
@@ -2977,7 +2725,7 @@
         "sourceFidelityPolicy": "Restore readable learner text only. Do not reconstruct embedded thumbnail/graphic text, video wording, or hidden handout content.",
         "answerBehaviorProvenance": "NOT_APPLICABLE",
         "clinicalReviewStatus": "not_reviewed",
-        "narrationText": "In this video, we'll dive more into understanding why OSA, or obstructive sleep apnea, happens. In OSA, your throat relaxes so much that it narrows and/or creates a blockage during sleep, leading to difficulty breathing. (Imagine sucking air through a straw and then pinching the straw.) Your brain senses the lack of oxygen and wakes you up just enough to breathe (though you might not remember it). In OSA, these interruptions happen many times a night, leading to poor sleep quality. Over time, this repeated strain stresses your body causing poor quality of life. Explore the video and graphic below and check out this handout!"
+        "narrationText": "In this video, we'll dive more into understanding why OSA, or obstructive sleep apnea, happens. In OSA, your throat relaxes so much that it narrows and/or creates a blockage during sleep, leading to difficulty breathing. (Imagine sucking air through a straw and then pinching the straw.) Your brain senses the lack of oxygen and wakes you up just enough to breathe (though you might not remember it). In OSA, these interruptions happen many times a night, leading to poor sleep quality. Over time, this repeated strain stresses your body causing poor quality of life."
       },
       "spanish": {
         "id": "m1-03",
@@ -2985,10 +2733,21 @@
         "title": "Fisiología de la apnea del sueño",
         "paragraphs": [
           "En este video profundizaremos en por qué ocurre la AOS, o apnea obstructiva del sueño.",
-          "En la AOS, la garganta se relaja tanto que se estrecha o se bloquea durante el sueño, lo que dificulta la respiración. Imagine succionar aire por una pajita y luego apretarla. El cerebro detecta la falta de oxígeno y le despierta lo suficiente para respirar, aunque quizá no lo recuerde. En la AOS, estas interrupciones ocurren muchas veces por noche y producen un sueño de menor calidad. Con el tiempo, esta tensión repetida estresa el cuerpo y puede reducir la calidad de vida.",
-          "Explore el video y el gráfico de abajo y consulte también este folleto."
+          "En la AOS, la garganta se relaja tanto que se estrecha o se bloquea durante el sueño, lo que dificulta la respiración. Imagine succionar aire por una pajita y luego apretarla. El cerebro detecta la falta de oxígeno y le despierta lo suficiente para respirar, aunque quizá no lo recuerde. En la AOS, estas interrupciones ocurren muchas veces por noche y producen un sueño de menor calidad. Con el tiempo, esta tensión repetida estresa el cuerpo y puede reducir la calidad de vida."
         ],
         "sourceVisibleLabels": [],
+        "video": {
+          "url": "https://youtu.be/PCVjhDyXHSs",
+          "thumbnailUrl": "https://img.youtube.com/vi/PCVjhDyXHSs/hqdefault.jpg",
+          "title": {
+            "en": "Why obstructive sleep apnea happens",
+            "es": "Por qué ocurre la apnea obstructiva del sueño"
+          },
+          "altText": {
+            "en": "Video thumbnail for an explanation of why obstructive sleep apnea happens.",
+            "es": "Miniatura de video que explica por qué ocurre la apnea obstructiva del sueño."
+          }
+        },
         "sourceScreenshotIds": [
           "src-171413"
         ],
@@ -3002,7 +2761,7 @@
         "sourceFidelityPolicy": "Restore readable learner text only. Do not reconstruct embedded thumbnail/graphic text, video wording, or hidden handout content.",
         "answerBehaviorProvenance": "NOT_APPLICABLE",
         "clinicalReviewStatus": "not_reviewed",
-        "narrationText": "En este video profundizaremos en por qué ocurre la AOS, o apnea obstructiva del sueño. En la AOS, la garganta se relaja tanto que se estrecha o se bloquea durante el sueño, lo que dificulta la respiración. Imagine succionar aire por una pajita y luego apretarla. El cerebro detecta la falta de oxígeno y le despierta lo suficiente para respirar, aunque quizá no lo recuerde. En la AOS, estas interrupciones ocurren muchas veces por noche y producen un sueño de menor calidad. Con el tiempo, esta tensión repetida estresa el cuerpo y puede reducir la calidad de vida. Explore el video y el gráfico de abajo y consulte también este folleto.",
+        "narrationText": "En este video profundizaremos en por qué ocurre la AOS, o apnea obstructiva del sueño. En la AOS, la garganta se relaja tanto que se estrecha o se bloquea durante el sueño, lo que dificulta la respiración. Imagine succionar aire por una pajita y luego apretarla. El cerebro detecta la falta de oxígeno y le despierta lo suficiente para respirar, aunque quizá no lo recuerde. En la AOS, estas interrupciones ocurren muchas veces por noche y producen un sueño de menor calidad. Con el tiempo, esta tensión repetida estresa el cuerpo y puede reducir la calidad de vida.",
         "translationStatus": "translated_from_approved_english",
         "translationProvenance": "approved-english-curriculum",
         "bilingualReviewStatus": "not_reviewed"
@@ -3093,7 +2852,7 @@
       "moduleId": "m1",
       "moduleOrder": 1,
       "moduleTitle": "Intro to Sleep Apnea",
-      "screenPosition": 4,
+      "screenPosition": 3,
       "screenId": "m1-q1",
       "provenance": "CIAS_BACKED_TRANSLATED_FROM_ENGLISH",
       "translationStatus": "translated_from_approved_english",
@@ -3317,7 +3076,7 @@
       "moduleId": "m1",
       "moduleOrder": 1,
       "moduleTitle": "Intro to Sleep Apnea",
-      "screenPosition": 5,
+      "screenPosition": 4,
       "screenId": "m1-04",
       "provenance": "APP_ONLY_SUPPLEMENTAL",
       "translationStatus": "machine_drafted",
@@ -3346,7 +3105,11 @@
         },
         {
           "field": "paragraphs[3]",
-          "value": "Both can disturb sleep and may affect oxygen levels. A sleep study measures breathing events and other information to help a clinician understand what is happening during sleep."
+          "value": "The image compares typical breathing with obstructive sleep apnea. With typical breathing, the airway stays open so air can move past the tongue and soft palate. In OSA, those tissues narrow or block the airway, so airflow is reduced or stops even though the person is still trying to breathe."
+        },
+        {
+          "field": "paragraphs[4]",
+          "value": "Both apnea and hypopnea can disturb sleep and may affect oxygen levels. A sleep study measures breathing events and other information to help a clinician understand what is happening during sleep."
         }
       ],
       "spanishLearnerFacingFields": [
@@ -3364,7 +3127,11 @@
         },
         {
           "field": "paragraphs[3]",
-          "value": "Ambas pueden alterar el sueño y afectar los niveles de oxígeno. Un estudio del sueño mide los eventos respiratorios y otra información para ayudar a un profesional clínico a comprender lo que ocurre durante el sueño."
+          "value": "La imagen compara la respiración típica con la apnea obstructiva del sueño. En la respiración típica, la vía respiratoria permanece abierta y el aire puede pasar junto a la lengua y el paladar blando. En la AOS, esos tejidos estrechan o bloquean la vía respiratoria, por lo que el flujo de aire disminuye o se detiene aunque la persona siga intentando respirar."
+        },
+        {
+          "field": "paragraphs[4]",
+          "value": "Tanto la apnea como la hipopnea pueden alterar el sueño y afectar los niveles de oxígeno. Un estudio del sueño mide los eventos respiratorios y otra información para ayudar a un profesional clínico a comprender lo que ocurre durante el sueño."
         }
       ],
       "english": {
@@ -3374,9 +3141,10 @@
         "paragraphs": [
           "You may hear two terms when discussing a sleep study:",
           "• Apnea means airflow stops or nearly stops for a period of time.\n• Hypopnea means airflow becomes partly reduced.",
-          "Both can disturb sleep and may affect oxygen levels. A sleep study measures breathing events and other information to help a clinician understand what is happening during sleep."
+          "The image compares typical breathing with obstructive sleep apnea. With typical breathing, the airway stays open so air can move past the tongue and soft palate. In OSA, those tissues narrow or block the airway, so airflow is reduced or stops even though the person is still trying to breathe.",
+          "Both apnea and hypopnea can disturb sleep and may affect oxygen levels. A sleep study measures breathing events and other information to help a clinician understand what is happening during sleep."
         ],
-        "narrationText": "You may hear two terms when discussing a sleep study: • Apnea means airflow stops or nearly stops for a period of time.\n• Hypopnea means airflow becomes partly reduced. Both can disturb sleep and may affect oxygen levels. A sleep study measures breathing events and other information to help a clinician understand what is happening during sleep.",
+        "narrationText": "You may hear two terms when discussing a sleep study: • Apnea means airflow stops or nearly stops for a period of time.\n• Hypopnea means airflow becomes partly reduced. The image compares typical breathing with obstructive sleep apnea. With typical breathing, the airway stays open so air can move past the tongue and soft palate. In OSA, those tissues narrow or block the airway, so airflow is reduced or stops even though the person is still trying to breathe. Both apnea and hypopnea can disturb sleep and may affect oxygen levels. A sleep study measures breathing events and other information to help a clinician understand what is happening during sleep.",
         "sourceScreenshotIds": [],
         "sourceIds": [
           "curriculum-master-v3"
@@ -3390,9 +3158,10 @@
         "paragraphs": [
           "Al hablar de un estudio del sueño, puede escuchar dos términos:",
           "• Apnea significa que el flujo de aire se detiene o casi se detiene durante un período de tiempo.\n• Hipopnea significa que el flujo de aire se reduce parcialmente.",
-          "Ambas pueden alterar el sueño y afectar los niveles de oxígeno. Un estudio del sueño mide los eventos respiratorios y otra información para ayudar a un profesional clínico a comprender lo que ocurre durante el sueño."
+          "La imagen compara la respiración típica con la apnea obstructiva del sueño. En la respiración típica, la vía respiratoria permanece abierta y el aire puede pasar junto a la lengua y el paladar blando. En la AOS, esos tejidos estrechan o bloquean la vía respiratoria, por lo que el flujo de aire disminuye o se detiene aunque la persona siga intentando respirar.",
+          "Tanto la apnea como la hipopnea pueden alterar el sueño y afectar los niveles de oxígeno. Un estudio del sueño mide los eventos respiratorios y otra información para ayudar a un profesional clínico a comprender lo que ocurre durante el sueño."
         ],
-        "narrationText": "Al hablar de un estudio del sueño, puede escuchar dos términos: • Apnea significa que el flujo de aire se detiene o casi se detiene durante un período de tiempo.\n• Hipopnea significa que el flujo de aire se reduce parcialmente. Ambas pueden alterar el sueño y afectar los niveles de oxígeno. Un estudio del sueño mide los eventos respiratorios y otra información para ayudar a un profesional clínico a comprender lo que ocurre durante el sueño.",
+        "narrationText": "Al hablar de un estudio del sueño, puede escuchar dos términos: • Apnea significa que el flujo de aire se detiene o casi se detiene durante un período de tiempo.\n• Hipopnea significa que el flujo de aire se reduce parcialmente. La imagen compara la respiración típica con la apnea obstructiva del sueño. En la respiración típica, la vía respiratoria permanece abierta y el aire puede pasar junto a la lengua y el paladar blando. En la AOS, esos tejidos estrechan o bloquean la vía respiratoria, por lo que el flujo de aire disminuye o se detiene aunque la persona siga intentando respirar. Tanto la apnea como la hipopnea pueden alterar el sueño y afectar los niveles de oxígeno. Un estudio del sueño mide los eventos respiratorios y otra información para ayudar a un profesional clínico a comprender lo que ocurre durante el sueño.",
         "sourceScreenshotIds": [],
         "sourceIds": [
           "curriculum-master-v3"
@@ -3475,7 +3244,7 @@
       "moduleId": "m1",
       "moduleOrder": 1,
       "moduleTitle": "Intro to Sleep Apnea",
-      "screenPosition": 6,
+      "screenPosition": 5,
       "screenId": "m1-05",
       "provenance": "HELD_CIAS_SOURCE_CURRENT_RUNTIME_COUNTERPART",
       "translationStatus": "machine_drafted",
@@ -3492,7 +3261,7 @@
       "englishLearnerFacingFields": [
         {
           "field": "title",
-          "value": "What Might Someone Notice?"
+          "value": "What are the symptoms of sleep apnea?"
         },
         {
           "field": "paragraphs[1]",
@@ -3514,7 +3283,7 @@
       "spanishLearnerFacingFields": [
         {
           "field": "title",
-          "value": "¿Qué podría notar una persona?"
+          "value": "¿Cuáles son los síntomas de la apnea del sueño?"
         },
         {
           "field": "paragraphs[1]",
@@ -3536,7 +3305,7 @@
       "english": {
         "id": "m1-05",
         "type": "content",
-        "title": "What Might Someone Notice?",
+        "title": "What are the symptoms of sleep apnea?",
         "paragraphs": [
           "OSA does not feel the same for everyone.",
           "Possible nighttime signs include loud snoring, pauses in breathing noticed by another person, gasping, choking, frequent awakenings, or restless sleep.",
@@ -3553,7 +3322,7 @@
       "spanish": {
         "id": "m1-05",
         "type": "content",
-        "title": "¿Qué podría notar una persona?",
+        "title": "¿Cuáles son los síntomas de la apnea del sueño?",
         "paragraphs": [
           "La AOS no se siente igual para todas las personas.",
           "Las posibles señales nocturnas incluyen ronquidos fuertes, pausas en la respiración que otra persona nota, jadeos, sensación de ahogo, despertares frecuentes o sueño inquieto.",
@@ -3643,7 +3412,7 @@
       "moduleId": "m1",
       "moduleOrder": 1,
       "moduleTitle": "Intro to Sleep Apnea",
-      "screenPosition": 7,
+      "screenPosition": 6,
       "screenId": "m1-r1",
       "provenance": "HELD_CIAS_SOURCE_CURRENT_RUNTIME_COUNTERPART",
       "translationStatus": "machine_drafted",
@@ -4018,7 +3787,7 @@
       "moduleId": "m1",
       "moduleOrder": 1,
       "moduleTitle": "Intro to Sleep Apnea",
-      "screenPosition": 8,
+      "screenPosition": 7,
       "screenId": "m1-06",
       "provenance": "APP_ONLY_SUPPLEMENTAL",
       "translationStatus": "machine_drafted",
@@ -4176,7 +3945,7 @@
       "moduleId": "m1",
       "moduleOrder": 1,
       "moduleTitle": "Intro to Sleep Apnea",
-      "screenPosition": 9,
+      "screenPosition": 8,
       "screenId": "m1-07",
       "provenance": "APP_ONLY_SUPPLEMENTAL",
       "translationStatus": "machine_drafted",
@@ -4348,7 +4117,7 @@
       "moduleId": "m1",
       "moduleOrder": 1,
       "moduleTitle": "Intro to Sleep Apnea",
-      "screenPosition": 10,
+      "screenPosition": 9,
       "screenId": "m1-q2",
       "provenance": "APP_ONLY_SUPPLEMENTAL",
       "translationStatus": "machine_drafted",
@@ -4662,7 +4431,7 @@
       "moduleId": "m1",
       "moduleOrder": 1,
       "moduleTitle": "Intro to Sleep Apnea",
-      "screenPosition": 11,
+      "screenPosition": 10,
       "screenId": "m1-ai1",
       "provenance": "APP_ONLY_SUPPLEMENTAL",
       "translationStatus": "machine_drafted",
@@ -4800,7 +4569,7 @@
       "moduleId": "m1",
       "moduleOrder": 1,
       "moduleTitle": "Intro to Sleep Apnea",
-      "screenPosition": 12,
+      "screenPosition": 11,
       "screenId": "m1-recap",
       "provenance": "APP_ONLY_SUPPLEMENTAL",
       "translationStatus": "machine_drafted",

@@ -1,8 +1,10 @@
-import type { AiActivityKind, AiActivityLesson, Choice, ContentLesson, MultiSelectLesson, QuestionFeedback, SingleChoiceLesson, SummaryLesson } from '@/src/types/content';
+import type { AnswerBehaviorProvenance, Choice, ContentLesson, LessonVideo, MultiSelectLesson, QuestionFeedback, ReflectionLesson, SingleChoiceLesson, SummaryLesson } from '@/src/types/content';
 
 export const sourceId = (timestamp: string) => `src-${timestamp}`;
 export const source = (timestamp: string) => [sourceId(timestamp)];
 const curriculumSource = ['curriculum-master-v3'];
+const ciasSource = ['cias-screenshot-recovery'];
+export const easyPapSourceIds = ['cias-ez-pap-document', 'ats-pap-overview', 'ats-pap-troubleshooting', 'ats-pap-care-cleaning'];
 
 export const choices = (...labels: string[]): Choice[] =>
   labels.map((label, index) => ({ id: `c${index + 1}`, label }));
@@ -42,13 +44,13 @@ export const single = (
   correctChoiceId,
   questionKind: correctChoiceId ? 'objective' : 'reflection',
   feedback: correctChoiceId
-    ? 'Review the explanation in this lesson and continue when you are ready.'
+    ? 'Review the explanation above, then continue when you are ready.'
     : 'Your response has been saved. This question is for learning.',
   questionFeedback: {
     correctSummary: 'Correct.',
     incorrectSummary: 'Not quite.',
     generalExplanation: correctChoiceId
-      ? 'Review the approved lesson explanation above, then change your answer or continue when ready.'
+      ? 'Review the explanation above, then change your answer or continue when ready.'
       : undefined,
   },
   sourceScreenshotIds: source(timestamp),
@@ -79,7 +81,7 @@ export const multi = (
     correctSummary: 'Correct.',
     incorrectSummary: 'Not quite. One or more choices need another look.',
     generalExplanation: correctChoiceIds
-      ? 'Review the approved teaching points above. You can change any selection and submit again.'
+      ? 'Review the teaching points above. You can change a selection and submit again.'
       : undefined,
   },
   sourceScreenshotIds: source(timestamp),
@@ -112,7 +114,7 @@ export const curriculumContent = (
   orderedList?: string[],
 ): ContentLesson => ({
   id, type: 'content', title, paragraphs, keyPoints, orderedList,
-  narrationText: [...paragraphs, ...(keyPoints ?? [])].join(' '),
+  narrationText: [...paragraphs, ...(orderedList ?? []), ...(keyPoints ?? [])].join(' '),
   sourceScreenshotIds: [], sourceIds: curriculumSource, clinicalReviewStatus,
 });
 
@@ -126,7 +128,8 @@ export const curriculumSingle = (
   reflection = false,
 ): SingleChoiceLesson => ({
   id, type: 'singleChoice', title, prompt, choices: choices(...labels), correctChoiceId,
-  questionKind: reflection ? 'reflection' : 'objective', questionFeedback,
+  questionKind: reflection ? 'reflection' : 'objective',
+  questionFeedback: reflection ? { generalExplanation: questionFeedback.generalExplanation } : questionFeedback,
   feedback: reflection ? questionFeedback.generalExplanation : undefined,
   narrationText: [prompt, ...labels].join(' '), sourceScreenshotIds: [], sourceIds: curriculumSource,
   clinicalReviewStatus: 'not_reviewed',
@@ -142,7 +145,8 @@ export const curriculumMulti = (
   reflection = false,
 ): MultiSelectLesson => ({
   id, type: 'multiSelect', title, prompt, choices: choices(...labels), correctChoiceIds,
-  questionKind: reflection ? 'reflection' : 'objective', questionFeedback,
+  questionKind: reflection ? 'reflection' : 'objective',
+  questionFeedback: reflection ? { generalExplanation: questionFeedback.generalExplanation } : questionFeedback,
   feedback: reflection ? questionFeedback.generalExplanation : undefined,
   narrationText: [prompt, ...labels].join(' '), sourceScreenshotIds: [], sourceIds: curriculumSource,
   clinicalReviewStatus: 'not_reviewed',
@@ -153,15 +157,180 @@ export const curriculumSummary = (id: string, title: string, text: string): Summ
   sourceScreenshotIds: [], sourceIds: curriculumSource, clinicalReviewStatus: 'not_reviewed',
 });
 
-export const aiActivity = (
+export const easyPapContent = (
   id: string,
   title: string,
-  activityKind: AiActivityKind,
-  activityId: string,
+  paragraphs: string[],
+  keyPoints?: string[],
+  clinicalReviewStatus: 'not_reviewed' | 'needs_revision' = 'not_reviewed',
+  orderedList?: string[],
+): ContentLesson => ({
+  ...curriculumContent(id, title, paragraphs, keyPoints, clinicalReviewStatus, orderedList),
+  sourceIds: [...easyPapSourceIds],
+});
+
+export const easyPapMulti = (
+  id: string,
+  title: string,
   prompt: string,
-  options: Pick<AiActivityLesson, 'placeholder' | 'optional' | 'sensitive'> = {},
-): AiActivityLesson => ({
-  id, type: 'aiActivity', title, activityKind, activityId, prompt, ...options,
-  narrationText: prompt, sourceScreenshotIds: [], sourceIds: curriculumSource,
+  labels: string[],
+  correctChoiceIds: string[] | undefined,
+  questionFeedback: QuestionFeedback,
+  clinicalReviewStatus: 'not_reviewed' | 'needs_revision' = 'not_reviewed',
+): MultiSelectLesson => ({
+  ...curriculumMulti(id, title, prompt, labels, correctChoiceIds, questionFeedback),
+  sourceIds: [...easyPapSourceIds],
+  clinicalReviewStatus,
+});
+
+export const easyPapSummary = (id: string, title: string, text: string): SummaryLesson => ({
+  ...curriculumSummary(id, title, text),
+  sourceIds: [...easyPapSourceIds],
+});
+
+export const curriculumReflection = (
+  id: string,
+  title: string,
+  prompt: string,
+  placeholder?: string,
+  optional = true,
+): ReflectionLesson => ({
+  id, type: 'reflection', title, prompt, placeholder, optional,
+  narrationText: [title, prompt].join(' '), sourceScreenshotIds: [], sourceIds: curriculumSource,
   clinicalReviewStatus: 'not_reviewed',
+});
+
+
+const ciasMeta = (timestamp: string, confidence: 'HIGH' | 'MEDIUM' | 'LOW', uncertainties: string[], policy: string | undefined, answerBehaviorProvenance: AnswerBehaviorProvenance | undefined) => ({
+  sourceScreenshotIds: source(timestamp),
+  sourceIds: ciasSource,
+  sourceConfidence: confidence,
+  sourceUncertainties: uncertainties,
+  sourceFidelityPolicy: policy,
+  answerBehaviorProvenance,
+  clinicalReviewStatus: 'not_reviewed' as const,
+});
+
+export const ciasContent = (
+  id: string,
+  timestamp: string,
+  title: string,
+  paragraphs: string[],
+  options: {
+    confidence?: 'HIGH' | 'MEDIUM' | 'LOW';
+    sourceVisibleLabels?: string[];
+    uncertainties?: string[];
+    policy?: string;
+    video?: LessonVideo;
+  } = {},
+): ContentLesson => ({
+  id,
+  type: 'content',
+  title,
+  paragraphs,
+  sourceVisibleLabels: options.sourceVisibleLabels,
+  video: options.video,
+  ...ciasMeta(timestamp, options.confidence ?? 'HIGH', options.uncertainties ?? [], options.policy, 'NOT_APPLICABLE'),
+  narrationText: [...paragraphs, ...(options.sourceVisibleLabels ?? [])].join(' '),
+});
+
+const ciasQuestionFeedback: QuestionFeedback = {};
+
+export const ciasSingle = (
+  id: string,
+  timestamp: string,
+  title: string,
+  prompt: string,
+  labels: string[],
+  instructions: string | undefined,
+  options: {
+    confidence?: 'HIGH' | 'MEDIUM' | 'LOW';
+    uncertainties?: string[];
+    policy?: string;
+    contextParagraphs?: string[];
+  } = {},
+): SingleChoiceLesson => ({
+  id,
+  type: 'singleChoice',
+  title,
+  prompt,
+  instructions,
+  contextParagraphs: options.contextParagraphs,
+  choices: choices(...labels),
+  questionKind: 'objective',
+  questionFeedback: ciasQuestionFeedback,
+  ...ciasMeta(timestamp, options.confidence ?? 'HIGH', options.uncertainties ?? [], options.policy, 'CIAS_ANSWER_KEY_NOT_RECOVERED'),
+  narrationText: [title, instructions, prompt, ...labels].filter(Boolean).join(' '),
+});
+
+export const ciasMulti = (
+  id: string,
+  timestamp: string,
+  title: string,
+  prompt: string,
+  labels: string[],
+  instructions: string | undefined,
+  options: {
+    confidence?: 'HIGH' | 'MEDIUM' | 'LOW';
+    uncertainties?: string[];
+    policy?: string;
+    contextParagraphs?: string[];
+  } = {},
+): MultiSelectLesson => ({
+  id,
+  type: 'multiSelect',
+  title,
+  prompt,
+  instructions,
+  contextParagraphs: options.contextParagraphs,
+  choices: choices(...labels),
+  questionKind: 'objective',
+  questionFeedback: ciasQuestionFeedback,
+  ...ciasMeta(timestamp, options.confidence ?? 'HIGH', options.uncertainties ?? [], options.policy, 'CIAS_ANSWER_KEY_NOT_RECOVERED'),
+  narrationText: [title, instructions, prompt, ...labels].filter(Boolean).join(' '),
+});
+
+export const ciasSummary = (
+  id: string,
+  timestamp: string,
+  title: string,
+  keyPoints: string[],
+  options: {
+    confidence?: 'HIGH' | 'MEDIUM' | 'LOW';
+    sourceVisibleLabels?: string[];
+    uncertainties?: string[];
+    policy?: string;
+  } = {},
+): SummaryLesson => ({
+  id,
+  type: 'summary',
+  title,
+  keyPoints,
+  sourceVisibleLabels: options.sourceVisibleLabels,
+  ...ciasMeta(timestamp, options.confidence ?? 'HIGH', options.uncertainties ?? [], options.policy, 'NOT_APPLICABLE'),
+  narrationText: [...keyPoints, ...(options.sourceVisibleLabels ?? [])].join(' '),
+});
+
+export const ciasReflectionSummary = (
+  id: string,
+  timestamp: string,
+  title: string,
+  contextParagraphs: string[],
+  prompt: string,
+  instructions: string | undefined,
+  options: {
+    confidence?: 'HIGH' | 'MEDIUM' | 'LOW';
+    uncertainties?: string[];
+    policy?: string;
+  } = {},
+): ReflectionLesson => ({
+  id,
+  type: 'reflection',
+  title,
+  contextParagraphs,
+  prompt,
+  instructions,
+  optional: true,
+  ...ciasMeta(timestamp, options.confidence ?? 'HIGH', options.uncertainties ?? [], options.policy, 'CIAS_ANSWER_KEY_NOT_RECOVERED'),
+  narrationText: [...contextParagraphs, prompt, instructions].filter(Boolean).join(' '),
 });

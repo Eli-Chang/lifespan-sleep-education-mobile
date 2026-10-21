@@ -4,11 +4,11 @@ import { Link } from 'expo-router';
 import Animated, { FadeInUp, Layout } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Colors, Spacing, BorderRadius } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Spacing, BorderRadius } from '@/constants/theme';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Badge } from '@/components/ui/badge';
 import { useHaptics } from '@/hooks/use-haptics';
+import { palette } from '@/src/theme/tokens';
 
 type Step = {
   id: string;
@@ -25,8 +25,6 @@ const NIGHTLY_STEPS: Step[] = [
 ];
 
 export default function ModalScreen() {
-  const colorScheme = useColorScheme() ?? 'light';
-  const colors = Colors[colorScheme];
   const { triggerSelection, triggerNotification } = useHaptics();
   const [completedSteps, setCompletedSteps] = useState<Record<string, boolean>>({});
 
@@ -43,19 +41,19 @@ export default function ModalScreen() {
   const completedCount = Object.values(completedSteps).filter(Boolean).length;
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: colors.background }]}>
+    <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.responsiveWrapper}>
           <GlassCard style={styles.card}>
             <View style={styles.headerRow}>
               <Badge label="Nightly Checklist" variant="primary" />
               <Link href="/" dismissTo style={styles.closeButton}>
-                <Text style={[styles.closeText, { color: colors.primary }]}>Close ✕</Text>
+                <Text style={[styles.closeText, { color: palette.primary }]}>Close ✕</Text>
               </Link>
             </View>
 
-            <Text style={[styles.title, { color: colors.text }]}>CPAP Bedtime Setup & Leak Check</Text>
-            <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
+            <Text style={[styles.title, { color: palette.ink }]}>CPAP Bedtime Setup & Leak Check</Text>
+            <Text style={[styles.subtitle, { color: palette.body }]}>
               Tap each step as you complete your nightly setup routine before sleep.
             </Text>
 
@@ -69,19 +67,19 @@ export default function ModalScreen() {
                       style={[
                         styles.stepCard,
                         {
-                          backgroundColor: checked ? colors.successLight : colors.background,
-                          borderColor: checked ? colors.success : colors.cardBorder,
+                          backgroundColor: checked ? palette.successSoft : palette.background,
+                          borderColor: checked ? palette.success : palette.border,
                         },
                       ]}>
                       <View style={styles.stepHeader}>
-                        <Text style={[styles.checkMark, { color: checked ? colors.success : colors.textMuted }]}>
+                        <Text style={[styles.checkMark, { color: checked ? palette.success : palette.inkMuted }]}>
                           {checked ? '☑' : '☐'}
                         </Text>
-                        <Text style={[styles.stepTitle, { color: colors.text, textDecorationLine: checked ? 'line-through' : 'none' }]}>
+                        <Text style={[styles.stepTitle, { color: palette.ink, textDecorationLine: checked ? 'line-through' : 'none' }]}>
                           {step.title}
                         </Text>
                       </View>
-                      <Text style={[styles.stepDetail, { color: colors.textSecondary }]}>{step.detail}</Text>
+                      <Text style={[styles.stepDetail, { color: palette.body }]}>{step.detail}</Text>
                     </Pressable>
                   </Animated.View>
                 );
@@ -89,8 +87,8 @@ export default function ModalScreen() {
             </View>
 
             {completedCount === NIGHTLY_STEPS.length && (
-              <Animated.View entering={FadeInUp.duration(300)} style={[styles.readyBanner, { backgroundColor: colors.successLight, borderColor: colors.success }]}>
-                <Text style={[styles.readyText, { color: colors.success }]}>🎉 All 5 steps ready! Have a safe and restful night of sleep.</Text>
+              <Animated.View entering={FadeInUp.duration(300)} style={[styles.readyBanner, { backgroundColor: palette.successSoft, borderColor: palette.success }]}>
+                <Text style={[styles.readyText, { color: palette.success }]}>🎉 All 5 steps ready! Have a safe and restful night of sleep.</Text>
               </Animated.View>
             )}
           </GlassCard>
@@ -103,6 +101,7 @@ export default function ModalScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+    backgroundColor: 'transparent',
   },
   content: {
     padding: Spacing.md,

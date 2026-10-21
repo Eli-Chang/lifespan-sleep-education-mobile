@@ -2,63 +2,20 @@ import { createInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 const i18n = createInstance();
+const en = {
+  home:'Home', settings:'Settings', appName:'Sleep Education', backToModules:'Back to Modules', backToModule:'Back to Module',
+  welcome:'Learn at your pace. Your progress stays on this device.', start:'Start', continue:'Continue', review:'Review module', allModulesComplete:'All modules complete', reviewModules:'Review any module below.', notStarted:'Not started', inProgress:'In progress', completed:'Completed',
+  previous:'Previous', next:'Next', submit:'Submit answer', retry:'Try again', about:'About & disclaimer', changeAnswers:'Change answers', submitAnswers:'Submit {{count}} answers', language:'Language', narration:'Narration', narrationRate:'Narration speed',
+  reset:'Reset progress', resetTitle:'Reset all progress?', resetBody:'This removes lesson progress and saved answers from this device. Language and narration preferences will remain.', cancel:'Cancel', confirmReset:'Reset', stop:'Stop', replay:'Replay', educationalDisclaimer:'This app provides general educational information and does not replace advice from your healthcare professional. Talk with your healthcare team about questions related to your symptoms, diagnosis, pregnancy, or treatment.', loading:'Loading your learning plan…', answerSaved:'Answer submitted. You can continue.', correct:'Correct!', notQuite:'Well, not quite…', changeAnswer:'Change answer',
+  reflectionSaved:'Response saved.', personalReflection:'PERSONAL REFLECTION', reflectionMultiInstruction:'Select any that apply. This response is never graded.', reflectionSingleInstruction:'Select one response. This response is never graded.', saveResponse:'Save response', saveResponses:'Save {{count}} responses', correctChoice:'Correct choice', incorrectChoice:'Selected, but not correct', missedCorrectChoice:'Correct choice not selected', close:'Close', pitch:'Pitch', decrease:'Decrease', increase:'Increase', reflectionPlaceholder:'Write a private reflection (optional).', reflectionPrivacy:'This stays on your device.', reflectionDiscussBody:'Your reflection stays on this device.', saveReflection:'Save reflection', savedLocally:'Saved locally on this device.', editReflection:'Edit response', saveFailed:'Could not save. Your draft is still here.', retrySave:'Retry save', skipOptional:'Skip', completeModule:'Complete module', moduleComplete:'Module complete', accessibility:'Accessibility', reducedMotion:'Reduce motion', reducedMotionBody:'Reduces lesson transition motion.', completionSaved:'Your module progress is saved on this device.', continueToNextModule:'Continue to {{module}}', Inventory:'Inventory',
+  aboutPrivacyBody:'Lesson progress, reflections, and preferences stay on this device. Written lessons work offline; narration uses installed system voices.',
+};
+const es: Record<keyof typeof en, string> = {
+  home:'Inicio', settings:'Ajustes', appName:'Educación del sueño', backToModules:'Volver a módulos', backToModule:'Volver al módulo', welcome:'Aprenda a su ritmo. Su progreso permanece en este dispositivo.', start:'Comenzar', continue:'Continuar', review:'Repasar módulo', allModulesComplete:'Todos los módulos están completos', reviewModules:'Repase cualquier módulo a continuación.', notStarted:'No iniciado', inProgress:'En curso', completed:'Completado', previous:'Anterior', next:'Siguiente', submit:'Enviar respuesta', retry:'Intentar de nuevo', about:'Información y aviso', changeAnswers:'Cambiar respuestas', submitAnswers:'Enviar {{count}} respuestas', language:'Idioma', narration:'Narración', narrationRate:'Velocidad de narración', reset:'Restablecer progreso', resetTitle:'¿Restablecer todo el progreso?', resetBody:'Esto elimina el progreso y las respuestas guardadas de este dispositivo. El idioma y la narración se conservan.', cancel:'Cancelar', confirmReset:'Restablecer', stop:'Detener', replay:'Repetir', educationalDisclaimer:'Esta aplicación ofrece información educativa general y no reemplaza el consejo de su profesional de salud. Hable con su equipo médico sobre preguntas relacionadas con sus síntomas, diagnóstico, embarazo o tratamiento.', loading:'Cargando su plan de aprendizaje…', answerSaved:'Respuesta enviada. Puede continuar.', correct:'¡Correcto!', notQuite:'Bueno, no del todo…', changeAnswer:'Cambiar respuesta', reflectionSaved:'Respuesta guardada.', personalReflection:'REFLEXIÓN PERSONAL', reflectionMultiInstruction:'Seleccione todas las opciones que correspondan. Esta respuesta nunca se califica.', reflectionSingleInstruction:'Seleccione una respuesta. Esta respuesta nunca se califica.', saveResponse:'Guardar respuesta', saveResponses:'Guardar {{count}} respuestas', correctChoice:'Opción correcta', incorrectChoice:'Seleccionada, pero no correcta', missedCorrectChoice:'Opción correcta no seleccionada', close:'Cerrar', pitch:'Tono', decrease:'Disminuir', increase:'Aumentar', reflectionPlaceholder:'Escriba una reflexión privada (opcional).', reflectionPrivacy:'Esto permanece en su dispositivo.', reflectionDiscussBody:'Su reflexión permanece en este dispositivo.', saveReflection:'Guardar reflexión', savedLocally:'Guardada localmente en este dispositivo.', editReflection:'Editar respuesta', saveFailed:'No se pudo guardar. El borrador sigue aquí.', retrySave:'Reintentar guardado', skipOptional:'Omitir', completeModule:'Completar módulo', moduleComplete:'Módulo completado', accessibility:'Accesibilidad', reducedMotion:'Reducir movimiento', reducedMotionBody:'Reduce el movimiento de transición de las lecciones.', completionSaved:'El progreso de su módulo se guarda en este dispositivo.', continueToNextModule:'Continuar a {{module}}', Inventory:'Inventario', aboutPrivacyBody:'El progreso, las reflexiones y las preferencias de las lecciones permanecen en este dispositivo. Las lecciones escritas funcionan sin conexión; la narración usa las voces instaladas.',
+};
 
-export const ui = {
-  en: { translation: {
-    home: 'Home', progress: 'Progress', settings: 'Settings', appName: 'Sleep Education', back: 'Back', you: 'You', askLesson: 'Ask about this lesson',
-    welcome: 'Learn at your pace. Your progress stays on this device.',
-    start: 'Start', continue: 'Continue', review: 'Review module',
-    notStarted: 'Not started', inProgress: 'In progress', completed: 'Completed',
-    overallProgress: 'Overall progress', steps: 'steps', previous: 'Previous', next: 'Next',
-    submit: 'Submit answer', retry: 'Try again', selected: 'selected', about: 'About & disclaimer',
-    language: 'Language', narration: 'Narration', narrationRate: 'Narration speed',
-    reset: 'Reset progress', resetTitle: 'Reset all progress?', resetBody: 'This removes lesson progress and saved answers from this device. Language and narration preferences will remain.',
-    cancel: 'Cancel', confirmReset: 'Reset', play: 'Play', stop: 'Stop', replay: 'Replay',
-    educationalDisclaimer: 'This app provides general educational information and does not replace advice from your healthcare professional. Talk with your healthcare team about questions related to your symptoms, diagnosis, pregnancy, or treatment.',
-    loading: 'Loading your learning plan…', answerSaved: 'Answer submitted. You can continue.',
-    correct: 'Correct.', notQuite: 'Not quite.', changeAnswer: 'Change answer',
-    reflectionSaved: 'Response saved.', correctChoice: 'Correct choice',
-    incorrectChoice: 'Selected, but not correct', missedCorrectChoice: 'Correct choice not selected',
-    aiTools: 'AI learning tools', aiOptionalFeedback: 'Optional educational feedback. Normal lessons work without AI.', revokeAiConsent: 'Revoke AI consent',
-    chatPrivacyNotice: 'Do not enter names, emails, phone numbers, dates, addresses, record numbers, clinician names, or appointment dates. Automated checks cannot guarantee removal of identifying information.',
-    close: 'Close', closeLessonChat: 'Close lesson chat', reflectTutor: 'Reflect with tutor', openAiActivity: 'Open AI activity', openOptionalAiActivity: 'Open optional AI activity', yourResponse: 'Your response', pitch: 'Pitch', decrease: 'Decrease', increase: 'Increase', aiFeatures: 'AI features', imageSource: 'Image source',
-    chatPrivacyWarning: 'Please remove identifying details before sending. This check is supplementary and cannot guarantee removal of health information.',
-    chatComplete: 'You’ve covered the main idea. Continue the lesson when you’re ready.', chatSend: 'Send', chatPlaceholder: 'Write your response. Avoid names or identifying details.', chatConsent: 'I understand and consent', chatTutor: 'Learning conversation', chatFeedback: 'Educational feedback', chatContinue: 'Continue lesson', chatLimit: 'You can continue this lesson without AI.', chatPrivacy: 'This optional tutor uses only approved lesson content. Your message is sent only after consent and is not saved as an AI conversation on this device.', chatThinking: 'Thinking…', chatEmpty: 'Share what you understand or what you would like to ask.', chatUnavailable: 'AI feedback is temporarily unavailable. Your lesson and saved progress are still available.',
-  }},
-  es: { translation: {
-    home: 'Inicio', progress: 'Progreso', settings: 'Ajustes', appName: 'Educación del sueño', back: 'Atrás', you: 'Usted', askLesson: 'Preguntar sobre esta lección',
-    welcome: 'Aprenda a su ritmo. Su progreso permanece en este dispositivo.',
-    start: 'Comenzar', continue: 'Continuar', review: 'Repasar módulo',
-    notStarted: 'No iniciado', inProgress: 'En curso', completed: 'Completado',
-    overallProgress: 'Progreso total', steps: 'pasos', previous: 'Anterior', next: 'Siguiente',
-    submit: 'Enviar respuesta', retry: 'Intentar de nuevo', selected: 'seleccionado', about: 'Información y aviso',
-    language: 'Idioma', narration: 'Narración', narrationRate: 'Velocidad de narración',
-    reset: 'Restablecer progreso', resetTitle: '¿Restablecer todo el progreso?', resetBody: 'Esto elimina el progreso y las respuestas guardadas de este dispositivo. El idioma y la narración se conservan.',
-    cancel: 'Cancelar', confirmReset: 'Restablecer', play: 'Reproducir', stop: 'Detener', replay: 'Repetir',
-    educationalDisclaimer: 'Esta aplicación ofrece información educativa general y no reemplaza el consejo de su profesional de salud. Hable con su equipo médico sobre preguntas relacionadas con sus síntomas, diagnóstico, embarazo o tratamiento.',
-    loading: 'Cargando su plan de aprendizaje…', answerSaved: 'Respuesta enviada. Puede continuar.',
-    correct: 'Correcto.', notQuite: 'Aún no.', changeAnswer: 'Cambiar respuesta',
-    reflectionSaved: 'Respuesta guardada.', correctChoice: 'Opción correcta',
-    incorrectChoice: 'Seleccionada, pero no correcta', missedCorrectChoice: 'Opción correcta no seleccionada',
-    aiTools: 'Herramientas educativas de IA', aiOptionalFeedback: 'Orientación educativa opcional. Las lecciones funcionan sin IA.', revokeAiConsent: 'Revocar consentimiento de IA',
-    chatPrivacyNotice: 'No escriba nombres, correos, teléfonos, fechas, direcciones, números de expediente, nombres de profesionales ni citas. Las comprobaciones automáticas no garantizan eliminar información identificativa.',
-    close: 'Cerrar', closeLessonChat: 'Cerrar el chat de la lección', reflectTutor: 'Reflexionar con el tutor', openAiActivity: 'Abrir actividad de IA', openOptionalAiActivity: 'Abrir actividad opcional de IA', yourResponse: 'Su respuesta', pitch: 'Tono', decrease: 'Disminuir', increase: 'Aumentar', aiFeatures: 'Funciones de IA', imageSource: 'Fuente de imagen',
-    chatPrivacyWarning: 'Quite los datos identificativos antes de enviar. Esta comprobación es complementaria y no garantiza eliminar información de salud.',
-    chatComplete: 'Ha cubierto la idea principal. Continúe la lección cuando esté listo.', chatSend: 'Enviar', chatPlaceholder: 'Escriba su respuesta. Evite nombres o datos identificativos.', chatConsent: 'Entiendo y doy mi consentimiento', chatTutor: 'Conversación educativa', chatFeedback: 'Orientación educativa', chatContinue: 'Continuar la lección', chatLimit: 'Puede continuar esta lección sin usar IA.', chatPrivacy: 'Este tutor opcional usa solo contenido aprobado. Su mensaje se envía después del consentimiento y no se guarda como conversación de IA en este dispositivo.', chatThinking: 'Pensando…', chatEmpty: 'Comparta lo que entiende o lo que desea preguntar.', chatUnavailable: 'La orientación de IA no está disponible temporalmente. Su lección y progreso guardado siguen disponibles.',
-  }},
-} as const;
+export const ui = { en: { translation: en }, es: { translation: es } };
 
-void i18n.use(initReactI18next).init({
-  resources: ui,
-  lng: 'en',
-  fallbackLng: 'en',
-  interpolation: { escapeValue: false },
-  compatibilityJSON: 'v4',
-});
-
-if (typeof document !== 'undefined') {
-  document.documentElement.lang = i18n.language;
-  i18n.on('languageChanged', (language) => { document.documentElement.lang = language; });
-}
-
+void i18n.use(initReactI18next).init({ resources: ui, lng:'en', fallbackLng:'en', interpolation:{ escapeValue:false }, compatibilityJSON:'v4' });
+if (typeof document !== 'undefined') { document.documentElement.lang = i18n.language; i18n.on('languageChanged', (language) => { document.documentElement.lang = language; }); }
 export default i18n;

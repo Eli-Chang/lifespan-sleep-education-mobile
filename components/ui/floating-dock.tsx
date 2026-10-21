@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text } from 'react-native';
 import { router, usePathname, type Href } from 'expo-router';
 import Animated, { FadeInUp } from 'react-native-reanimated';
 import { Colors, BorderRadius, Spacing } from '@/constants/theme';
@@ -22,7 +22,10 @@ export function FloatingDock() {
       entering={FadeInUp.delay(200).duration(400)}
       style={[
         styles.dockContainer,
-        { backgroundColor: colors.glassBackground, borderColor: colors.glassBorder, shadowColor: colors.shadowColor },
+        { backgroundColor: colors.glassBackground, borderColor: colors.glassBorder },
+        Platform.OS === 'web'
+          ? { boxShadow: `0px 8px 20px ${colors.shadowColor}26` }
+          : { shadowColor: colors.shadowColor },
       ]}>
       {navItems.map((item) => {
         const isActive = pathname === item.route;
@@ -63,9 +66,6 @@ const styles = StyleSheet.create({
     gap: Spacing.xs,
     elevation: 10,
     zIndex: 100,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.15,
-    shadowRadius: 20,
   },
   dockItem: {
     flexDirection: 'row',

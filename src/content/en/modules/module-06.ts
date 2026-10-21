@@ -1,6 +1,7 @@
-import { aiActivity, curriculumContent as c, curriculumMulti as m, curriculumSingle as q, curriculumSummary as recap } from '@/src/content/helpers';
+import { curriculumContent as c, curriculumMulti as m, curriculumSingle as q, curriculumSummary as recap } from '@/src/content/helpers';
+import { ciasScreensByModule } from '@/src/content/en/cias-source';
 import type { EducationModule } from '@/src/types/content';
-const screens = [
+const currentScreens = [
   c('m6-01','A PAP Barrier Is a Problem to Solve',[
     'Pregnancy symptoms and other health concerns can make PAP harder to tolerate.',
     'Nasal congestion, reflux, anxiety, mask discomfort, dryness, or equipment problems may feel similar at first, but they may require different types of support.',
@@ -34,16 +35,12 @@ const screens = [
     'Anxiety does not mean the discomfort is imaginary. Mask fit, airflow sensations, congestion, and previous experiences may all contribute.',
     'The learner should be helped to describe the experience without the app assuming its cause.',
   ]),
-  c('m6-06','Becoming Familiar With the Equipment',[
-    'Some treatment teams recommend becoming familiar with PAP equipment while awake before trying to sleep with it.',
-    'A clinician-approved plan might involve briefly handling the mask, wearing it without pressure, or using the equipment while awake in a calm setting.',
-    'This app does not present a fixed exposure schedule until the clinical team approves the exact steps.',
-  ],undefined,'needs_revision'),
-  aiActivity('m6-ai1','Describe a PAP barrier','pap-barrier','m6-pap-barrier','Describe what happens when PAP becomes difficult to use.'),
-  aiActivity('m6-ai2','Build a discussion summary','question-organizer','m6-discussion-summary','What would you like your PAP or healthcare team to understand about this problem?'),
   q('m6-q3','Knowledge check','Who is the most appropriate person to guide pregnancy-safe medication decisions?',[
     'The AI chatbot.','Another app user.','The appropriate healthcare professional.','The patient should decide without guidance.',
   ],'c3',{correctSummary:'Correct.',incorrectSummary:'Not quite.',generalExplanation:'Pregnancy-safe medication decisions belong with the appropriate healthcare professional.'}),
-  recap('m6-recap','Module recap','Congestion, reflux, anxiety, and equipment concerns may all interfere with PAP. Describing when the problem occurs and what it feels like can help identify the right discussion. Equipment questions may belong with the PAP team, while medication and pregnancy-safety decisions belong with an appropriate healthcare professional.'),
+  recap('m6-recap','Thanks for completing this module','I hope you learned that congestion, reflux, anxiety, and equipment concerns may interfere with PAP. Describing when a problem occurs can guide discussion; equipment questions belong with the PAP team, while medication and pregnancy-safety decisions belong with an appropriate healthcare professional.'),
 ];
-export const module06: EducationModule = {id:'m6',order:6,title:'Pregnancy Comorbidities and PAP',shortTitle:'PAP Barriers',description:'Describe congestion, reflux, anxiety, and equipment barriers and connect them to appropriate support.',screens,sourceScreenshotIds:[],curriculumVersion:3,translationStatus:'source',clinicalReviewStatus:'needs_revision'};
+const preservedCurrentScreenIds = new Set(['m6-recap']);
+const merged = [...ciasScreensByModule.m6.filter((screen) => screen.id !== 'm6-recap'), ...currentScreens.filter((screen) => preservedCurrentScreenIds.has(screen.id))];
+const screens = [...merged.filter((screen) => screen.id !== 'm6-recap'), ...merged.filter((screen) => screen.id === 'm6-recap')];
+export const module06: EducationModule = {id:'m6',order:6,title:'Pregnancy Comorbidities and PAP',shortTitle:'PAP Barriers',description:'Describe congestion, reflux, anxiety, and equipment barriers and connect them to appropriate support.',screens,sourceScreenshotIds:[],curriculumVersion:10,translationStatus:'source',clinicalReviewStatus:'needs_revision'};

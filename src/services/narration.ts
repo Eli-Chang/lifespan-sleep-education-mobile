@@ -115,7 +115,7 @@ export const narrationText = (screen: LessonScreen) => {
   if (screen.narrationText) return screen.narrationText;
   if (screen.type === 'content') return [screen.title, ...screen.paragraphs, ...(screen.keyPoints ?? [])].join('. ');
   if (screen.type === 'summary') return [screen.title, ...screen.keyPoints].join('. ');
-  if (screen.type === 'aiActivity') return [screen.title, screen.prompt].join('. ');
+  if (screen.type === 'reflection') return [screen.title, screen.prompt].join('. ');
   if (screen.type === 'scenario') return [screen.title, screen.scenario, screen.prompt, ...screen.choices.map((choice) => choice.label)].join('. ');
   return [screen.title, screen.prompt, ...screen.choices.map((choice) => choice.label)].join('. ');
 };
@@ -136,3 +136,4 @@ export async function speakFeedback(text: string, locale: SupportedLocale, rate:
 
 export const stopNarration = () => deviceSpeechNarrationProvider.stop();
 export const replayNarration = () => deviceSpeechNarrationProvider.replay();
+export const isNarrationSpeaking = () => Speech.isSpeakingAsync().catch(() => false);

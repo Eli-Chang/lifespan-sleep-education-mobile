@@ -33,6 +33,18 @@ Install:
 npm.cmd install
 ```
 
+Canonical local development runtime:
+
+```powershell
+npm.cmd run dev:canonical
+```
+
+This repository-owned command stops stale Lifespan Sleep Expo/Worker processes,
+starts the app at `http://127.0.0.1:8084`, starts the Worker at
+`http://127.0.0.1:8789`, and prints both URLs. Do not use stale sleep-app
+instances on other ports for verification. Historical checkouts are protected
+artifacts and are not active runtimes.
+
 Start Expo:
 
 ```powershell
@@ -108,19 +120,23 @@ All written content, questions, feedback, translations, icons, and progress logi
 ## Required human review
 
 Before patient release, complete clinical review, source/citation verification, professional bilingual review, asset-permission review, accessibility review, and the iOS/Android checklist in `docs/PHYSICAL_DEVICE_TEST_CHECKLIST.md`. See the audit documents for known ambiguities and omitted third-party media.
-# Groq upgrade
 
-The app includes optional, consent-gated educational AI tools through a Cloudflare Worker. Groq is never called from the Expo client and no secret belongs in an `EXPO_PUBLIC_` variable.
+## Deterministic evaluation system
 
-Local Expo flags:
+The `evaluation/` directory contains ten fixed synthetic personas, a versioned scenario library covering all seven active modules, fixture and fail-closed live AI runners, Playwright browser tests, raw JSONL runs, SQLite/SQL analysis, a local workbook, human-review queues, and baseline/rerun comparison reports. Deterministic personas are repeatable test constructs; they are not real users and do not establish clinical effectiveness, real-user usability, PAP adherence, or patient understanding.
 
-```text
-EXPO_PUBLIC_AI_FEATURES_ENABLED=false
-EXPO_PUBLIC_AI_API_BASE_URL=
+Run the safe fixture workflow in PowerShell:
+
+```powershell
+npm.cmd run evaluation:validate
+npm.cmd run evaluation:ai:fixture
+npm.cmd run evaluation:db
+npm.cmd run evaluation:dashboard
+npm.cmd run evaluation:report
+npm.cmd run evaluation:ui
 ```
 
-Worker setup and secure secret entry are documented in `docs/GROQ_CLOUDFLARE_SETUP.md`. The normal bilingual lessons, questions, progress, and narration work without AI.
-
+`npm.cmd run evaluation:all` combines fixture AI, Playwright, SQLite, workbook, and report generation without calling a paid live endpoint. Live AI requires explicit `LIVE_AI_TESTS=true` and a configured development endpoint; it is never enabled by the default workflow. Use `evaluation/docs/google-sheets-setup.md` for the dry-run-only Google Sheets path, and `evaluation/docs/human-review-guide.md` for medical, safety, and Spanish review.
 Key upgrade documents:
 
 - `docs/GROQ_UPGRADE_BASELINE.md`

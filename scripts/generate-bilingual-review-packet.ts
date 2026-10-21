@@ -93,8 +93,9 @@ function learnerFacingFields(screen: AnyScreen): TextField[] {
 const fieldMap = (fields: TextField[]): Map<string, string> => new Map(fields.map((entry) => [entry.field, entry.value]));
 const allText = (fields: TextField[]): string => fields.map((entry) => entry.value).join('\n');
 
-function provenanceFor(screen: AnyScreen): 'CIAS_BACKED_TRANSLATED_FROM_ENGLISH' | 'APP_ONLY_SUPPLEMENTAL' | 'HELD_CIAS_SOURCE_CURRENT_RUNTIME_COUNTERPART' {
+function provenanceFor(screen: AnyScreen): 'CIAS_BACKED_TRANSLATED_FROM_ENGLISH' | 'EZ_PAP_DOCUMENT_APP_AUTHORED' | 'APP_ONLY_SUPPLEMENTAL' | 'HELD_CIAS_SOURCE_CURRENT_RUNTIME_COUNTERPART' {
   if (screen.sourceIds?.includes('cias-screenshot-recovery')) return 'CIAS_BACKED_TRANSLATED_FROM_ENGLISH';
+  if (screen.sourceIds?.includes('cias-ez-pap-document')) return 'EZ_PAP_DOCUMENT_APP_AUTHORED';
   if (heldCounterpartIds.has(screen.id)) return 'HELD_CIAS_SOURCE_CURRENT_RUNTIME_COUNTERPART';
   if (appOnlyIds.has(screen.id) || screen.sourceIds?.includes('curriculum-master-v3')) return 'APP_ONLY_SUPPLEMENTAL';
   return 'APP_ONLY_SUPPLEMENTAL';
@@ -105,7 +106,6 @@ function interactionType(screen: AnyScreen): string {
     case 'singleChoice': return 'single-choice';
     case 'multiSelect': return 'multi-select';
     case 'reflection': return 'open-ended-reflection';
-    case 'aiActivity': return 'ai-activity';
     case 'summary': return 'summary';
     default: return 'content';
   }
@@ -455,8 +455,8 @@ function buildRecord(entry: { module: any; screen: AnyScreen; position: number }
 }
 
 function runSelfTests(): void {
-  const fixtureEnglish = { id: 'fixture-ai', type: 'aiActivity', title: 'Describe a barrier', prompt: 'What is happening?', placeholder: 'Describe what happens in your own words.' } as AnyScreen;
-  const fixtureSpanish = { ...fixtureEnglish, title: 'Describa una barrera', prompt: '¿Qué ocurre?', placeholder: 'Describe what happens in your own words.' } as AnyScreen;
+  const fixtureEnglish = { id: 'fixture-reflection', type: 'reflection', title: 'Describe a barrier', prompt: 'What is happening?', sourceScreenshotIds: [] } as AnyScreen;
+  const fixtureSpanish = { ...fixtureEnglish, title: 'Describa una barrera', prompt: '¿Qué ocurre?' } as AnyScreen;
   if (!checkUntranslatedEnglish(fixtureEnglish, fixtureSpanish).some((finding) => finding.status === 'FLAGGED')) throw new Error('Self-test failed: an injected English Spanish placeholder was not flagged.');
 
   const properNameEnglish = { id: 'fixture-proper', type: 'content', title: 'Label', paragraphs: ['Preeclampsia'], sourceVisibleLabels: ['Preeclampsia'] } as AnyScreen;
@@ -539,10 +539,10 @@ function assertCompleteness(): void {
   const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
   const missingEnglish = englishIds.filter((id) => !ids.includes(id));
   const missingSpanish = spanishIds.filter((id) => !ids.includes(id));
-  if (englishScreens.length !== 103 || spanishScreens.length !== 103) throw new Error(`Expected 103 active screens per locale; found English ${englishScreens.length}, Spanish ${spanishScreens.length}.`);
-  if (new Set(ids).size !== 103 || duplicates.length) throw new Error(`Packet screen IDs are not exactly 103 unique IDs; duplicates: ${duplicates.join(', ')}`);
+  if (englishScreens.length !== 102 || spanishScreens.length !== 102) throw new Error(`Expected 102 active screens per locale; found English ${englishScreens.length}, Spanish ${spanishScreens.length}.`);
+  if (new Set(ids).size !== 102 || duplicates.length) throw new Error(`Packet screen IDs are not exactly 102 unique IDs; duplicates: ${duplicates.join(', ')}`);
   if (missingEnglish.length || missingSpanish.length) throw new Error(`Missing runtime IDs. English: ${missingEnglish.join(', ')} Spanish: ${missingSpanish.join(', ')}`);
-  if (records.filter((record) => record.provenance === 'CIAS_BACKED_TRANSLATED_FROM_ENGLISH').length !== 71) throw new Error('Expected 71 CIAS-backed translated runtime screens.');
+  if (records.filter((record) => record.provenance === 'CIAS_BACKED_TRANSLATED_FROM_ENGLISH').length !== 70) throw new Error('Expected 70 CIAS-backed translated runtime screens.');
   if (records.filter((record) => record.provenance === 'APP_ONLY_SUPPLEMENTAL').length !== 28) throw new Error('Expected 28 app-only supplemental runtime screens.');
   if (records.filter((record) => record.provenance === 'HELD_CIAS_SOURCE_CURRENT_RUNTIME_COUNTERPART').length !== heldCounterpartIds.size) throw new Error(`Expected ${heldCounterpartIds.size} held-source runtime counterparts.`);
   if (restoredCiasQuestions.length !== 25) throw new Error(`Expected 25 restored unscored CIAS questions/reflections; found ${restoredCiasQuestions.length}.`);
@@ -633,7 +633,7 @@ function renderMarkdown(): string {
   lines.push('# Bilingual Clinical and Language Review', '');
   lines.push('Generated from the active learner-route runtime curriculum. This packet records completed clinical and Spanish-language approval; automated findings remain candidates for traceability and do not override the recorded approval decision.', '');
   lines.push('## Review Instructions', '');
-  lines.push('- Clinical review status: `APPROVED` for all 103 screen pairs.', '- Spanish-language review status: `APPROVED` for all 103 screen pairs.', '- Final packet disposition: `APPROVED_READY_FOR_DEPLOYMENT`.', '- Treat `FLAGGED` findings as candidates retained for traceability. Do not treat them as confirmed mistranslation or clinical error.', '- Spanish wording for CIAS-backed screens was translated from approved English. Original Spanish CIAS wording was not recovered.', '- The 25 restored CIAS question/reflection records remain explicitly unscored because original CIAS answer keys and feedback were not recovered; approval status does not create an answer key.', '- The six held CIAS source records remain unresolved. Do not reconstruct cropped or placeholder source content by inference.', '');
+  lines.push('- Clinical review status: `APPROVED` for all 102 screen pairs.', '- Spanish-language review status: `APPROVED` for all 102 screen pairs.', '- Final packet disposition: `APPROVED_READY_FOR_DEPLOYMENT`.', '- Treat `FLAGGED` findings as candidates retained for traceability. Do not treat them as confirmed mistranslation or clinical error.', '- Spanish wording for CIAS-backed screens was translated from approved English. Original Spanish CIAS wording was not recovered.', '- The 25 restored CIAS question/reflection records remain explicitly unscored because original CIAS answer keys and feedback were not recovered; approval status does not create an answer key.', '- The six held CIAS source records remain unresolved. Do not reconstruct cropped or placeholder source content by inference.', '');
   lines.push('## Coverage Summary', '');
   lines.push(`- English active screens: **${packet.coverage.englishScreens}**`, `- Spanish active screens: **${packet.coverage.spanishScreens}**`, `- Unique paired screen IDs: **${packet.coverage.pairedScreenIds}**`, `- CIAS-backed screens translated from approved English: **${packet.coverage.ciasBackedTranslatedScreens}**`, `- App-only supplemental screens: **${packet.coverage.appOnlySupplementalScreens}**`, `- Restored CIAS questions/reflections, unscored: **${packet.coverage.restoredCiasQuestionsAndReflections}**`, `- Held CIAS source records: **${packet.coverage.heldCiasSourceRecords}**`, '');
   lines.push('## Priority Review Queue', '');
@@ -677,10 +677,10 @@ if (checkOnly) {
     const occurrences = existingMarkdown.split(marker).length - 1;
     if (occurrences !== 1) throw new Error(`Markdown packet must contain exactly one screen section for ${record.screenId}; found ${occurrences}.`);
   }
-  console.log(JSON.stringify({ status: 'PASS', mode: 'check', englishScreens: 103, spanishScreens: 103, pairedScreenIds: 103, restoredCiasQuestions: 25, appOnlyScreens: 28, heldRecords: 6, priorityQueue: priorityQueue.length, checkSummary }, null, 2));
+  console.log(JSON.stringify({ status: 'PASS', mode: 'check', englishScreens: 102, spanishScreens: 102, pairedScreenIds: 102, restoredCiasQuestions: 25, appOnlyScreens: 28, heldRecords: 6, priorityQueue: priorityQueue.length, checkSummary }, null, 2));
 } else {
   fs.mkdirSync(docsDir, { recursive: true });
   fs.writeFileSync(jsonPath, `${JSON.stringify(packet, null, 2)}\n`, 'utf8');
   fs.writeFileSync(markdownPath, renderMarkdown(), 'utf8');
-  console.log(JSON.stringify({ status: 'PASS', mode: 'write', outputs: [path.relative(projectRoot, markdownPath), path.relative(projectRoot, jsonPath)], englishScreens: 103, spanishScreens: 103, pairedScreenIds: 103, restoredCiasQuestions: 25, appOnlyScreens: 28, heldRecords: 6, priorityQueue: priorityQueue.length, checkSummary }, null, 2));
+  console.log(JSON.stringify({ status: 'PASS', mode: 'write', outputs: [path.relative(projectRoot, markdownPath), path.relative(projectRoot, jsonPath)], englishScreens: 102, spanishScreens: 102, pairedScreenIds: 102, restoredCiasQuestions: 25, appOnlyScreens: 28, heldRecords: 6, priorityQueue: priorityQueue.length, checkSummary }, null, 2));
 }

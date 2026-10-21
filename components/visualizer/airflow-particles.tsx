@@ -53,7 +53,7 @@ export function AirflowParticles() {
   }));
 
   return (
-    <View pointerEvents="none" style={styles.container}>
+    <View style={[styles.container, { pointerEvents: 'none' }]}>
       <Animated.View style={[styles.particle, { backgroundColor: colors.accent, top: 12 }, style1]} />
       <Animated.View style={[styles.particle, { backgroundColor: colors.primary, top: 32 }, style2]} />
       <Animated.View style={[styles.particle, { backgroundColor: colors.secondary, top: 52 }, style3]} />

@@ -12,7 +12,7 @@ export function questionQualityIssues(screens: LessonScreen[]): QuestionQualityI
     const lengths = screen.choices.map((choice) => choice.label.length);
     const average = lengths.reduce((sum, length) => sum + length, 0) / Math.max(1, lengths.length);
     if (Math.max(...lengths) > average * 1.8) issues.push({ id: screen.id, issue: 'one option is substantially longer' });
-    if (!screen.questionFeedback?.generalExplanation) issues.push({ id: screen.id, issue: 'missing explanation' });
+    if (screen.answerBehaviorProvenance !== 'CIAS_ANSWER_KEY_NOT_RECOVERED' && !screen.questionFeedback?.generalExplanation) issues.push({ id: screen.id, issue: 'missing explanation' });
     if (screen.type === 'singleChoice' && screen.correctChoiceId) positions.push(screen.choices.findIndex((choice) => choice.id === screen.correctChoiceId));
     if (screen.type === 'multiSelect') {
       const correctIds = screen.correctChoiceIds;

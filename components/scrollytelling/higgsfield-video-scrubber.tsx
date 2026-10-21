@@ -131,10 +131,10 @@ export function HiggsfieldVideoScrubber({
       </Animated.View>
 
       {/* Dark gradient overlay for text legibility */}
-      <Animated.View pointerEvents="none" style={[styles.gradientOverlay, overlayStyle]} />
+      <Animated.View style={[styles.gradientOverlay, overlayStyle, { pointerEvents: 'none' }]} />
 
       {/* Bottom gradient for smooth transition into content below */}
-      <View pointerEvents="none" style={styles.bottomFade} />
+      <View style={[styles.bottomFade, { pointerEvents: 'none' }]} />
 
       {/* Scroll-scrub timeline indicator */}
       <View style={styles.scrubBarContainer}>
