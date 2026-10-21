@@ -23,7 +23,7 @@ export const module08 = draftSpanishModule(en, {
     'Pide otro tamaño o interfaz cuando la comodidad dependa de apretar demasiado.',
   ] },
   'm8-03': { title: 'Practica mientras estás despierto', body: [
-    'Practica usar PAP mientras estás despierto y sentado en una posición cómoda alrededor de una hora al día durante varios días. Combínalo con leer o ver televisión.',
+    'Practica usar PAP mientras estás despierto y sentado derecho en una posición cómoda alrededor de una hora al día durante varios días. Combínalo con leer o ver televisión.',
     'Enciende la máquina antes de colocarte la mascarilla y fíjate en cómo se siente el flujo mientras estás despierto. Una actividad tranquila te da tiempo para practicar la respiración con la mascarilla sin intentar quedarte dormido al mismo tiempo.',
     'Si la sensación se vuelve demasiado intensa, haz una pausa y vuelve más tarde a un período de práctica más corto. Repetir una práctica manejable es más útil que obligarte a continuar angustiado.',
   ], keyPoints: [
@@ -41,7 +41,7 @@ export const module08 = draftSpanishModule(en, {
   'm8-05': { title: 'Incorpora PAP a tu rutina para dormir', body: [
     'Cuando la práctica despierto y durante el descanso se sienta cómoda, empieza a usar PAP durante la primera parte del sueño nocturno.',
     'Haz que la preparación sea predecible: deja lista la mascarilla, el tubo y la máquina antes de tener sueño y no coloques el tubo donde pueda tirar de la mascarilla.',
-    'Si todavía te cuesta quedarte dormido, pregunta si tu dispositivo tiene una función de aumento gradual, o rampa, que sea adecuada para ti. Estas configuraciones deben revisarse con el equipo de atención del sueño y no cambiarse por cuenta propia.',
+    'Si todavía te cuesta quedarte dormido, pregunta si tu dispositivo tiene una función de aumento gradual (rampa o rampa automática) que sea adecuada para ti. Estas configuraciones deben revisarse con el equipo de atención del sueño y no cambiarse por cuenta propia.',
   ], keyPoints: [
     'Empieza con la primera parte del sueño y avanza desde ahí.',
     'Pregunta al equipo sobre la rampa o la rampa automática en vez de cambiar la presión por tu cuenta.',

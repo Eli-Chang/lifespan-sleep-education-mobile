@@ -1,0 +1,1204 @@
+{
+  "module": "m8",
+  "screens": [
+    {
+      "screenId": "m8-01",
+      "title": "Getting Started with PAP",
+      "claims": [
+        {
+          "field": "title",
+          "text": "Getting Started with PAP",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Section II: Getting Started with CPAP",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "App uses PAP as the umbrella term; CIAS p10 supports it: 'CPAP is just one type of Positive Airway Pressure (PAP) machine.'"
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Getting used to PAP can take time.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "getting used to CPAP is a gradual process! It can take time to get used to the sensation of the air pressure",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Move through the acclimation stages at your own pace, and ask the prescribing healthcare provider when questions or problems arise.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "you can certainly move through the steps at your own pace",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Second half matches CIAS p20: 'Reach out to the healthcare provider who prescribed you your machine if you have questions or would like more guidance.'"
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "PAP is prescribed with a particular mask or interface and settings.",
+          "ciasLocator": "CIAS p10",
+          "ciasQuote": "Your healthcare provider will prescribe the right kind of machine for you based on the data collected from your sleep study.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Section I content. Slight tension with CIAS step 1 (p19), which says users often try several interfaces; 'prescribed with a particular mask' implies a fixed mask. Wording note only."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "At first, the goal is to make the mask, airflow, and routine familiar enough to use during sleep—not to force a perfect night immediately.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "slowly get used to using the CPAP machine from focusing on mask comfort to ultimately using it all night",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "Keep the care team involved. They can check the fit, review device data, and decide whether a comfort adjustment is appropriate.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "work with your healthcare provider and the medical equipment company to find your fit once you decide to start treatment.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Device-data part matches CIAS p20 settings bullet. 'Comfort adjustment' wording is app-authored."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "Do not change prescribed pressure on your own.",
+          "ciasLocator": "CIAS p10",
+          "ciasQuote": "only a physician can determine the pressure amount needed.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Section I content (p10)."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Short, repeatable practice is progress; one difficult night does not mean PAP has failed.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Don’t be surprised if it takes awhile to get used to the CPAP machine but definitely keep at it because it’s worth it!",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "'Short' is app-authored; CIAS practice sessions are 1 hour (p19)."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Write down what feels difficult so you can bring a specific question to the PAP or sleep-care team.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored. Consistent with the CIAS p20 diary (which is about symptoms) and reach-out guidance."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: paragraphs then keyPoints. The title is not narrated (same convention on every screen). ES narrationText also matches the ES visible text exactly.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "Meaning matches overall. Small drift in paragraphs[2]: EN 'decide whether a comfort adjustment is appropriate' became 'si corresponde hacer un cambio de comodidad', which drops 'decide'. Wording only.",
+        "Spanish uses the masculine generic for direct address (repo-wide convention). Bilingual reviewer may consider feminine forms for a pregnancy audience."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-02",
+      "title": "Start with a Comfortable Mask",
+      "claims": [
+        {
+          "field": "title",
+          "text": "Start with a Comfortable Mask",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Make sure you find the mask interface and headgear that you feel comfortable with.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Maps to CIAS acclimation step 1."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Begin by finding a mask or interface and headgear that feel comfortable.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Make sure you find the mask interface and headgear that you feel comfortable with.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Different interfaces fit different faces and sleeping styles, and it may take trying more than one.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "There are many different interfaces and often we have to try multiple to find what fits us best, and that is ok!",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Faces/sleeping styles also supported by CIAS p20: 'Once people find their fit (based on their face, how they sleep)'."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "Focus on mask comfort before worrying about using the machine.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "For this step, don't even worry about plugging in your machine. Focus only on comfort.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "With the machine running, adjust the straps just enough to create a seal.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "For this step, don't even worry about plugging in your machine. Focus only on comfort.",
+          "status": "CONTRADICTION",
+          "action": "CLINICAL_REVIEW",
+          "note": "CIAS step 1 says not to plug in the machine at this stage. The app adds a machine-running fit instruction to the step-1 screen, right after 'before worrying about using the machine', so the screen also conflicts with itself. Strap/seal advice exists in CIAS Section III (p21: 'You can try loosening the straps and seeing if you continue to have a good seal.') and probably comes from the ATS supplement."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "A mask should feel secure, not painfully tight.",
+          "ciasLocator": "CIAS p21",
+          "ciasQuote": "The mask should not be too tight on the face or leave long lasting facial marks in the morning after nightly use.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Section III content. CIAS also says the mask should not leave long-lasting facial marks; that detail is not in m8."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "If the mask only seals when the straps are very tight, ask the equipment team to check the size, cushion, or style.",
+          "ciasLocator": "CIAS p21",
+          "ciasQuote": "If it needs to be very tight for adequate seal, talk to your healthcare provider about trying a different type of mask.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Section III content. CIAS sends this to the 'healthcare provider' for 'a different type of mask'. The app sends it to the 'equipment team' (supported by p20 'medical equipment company') and adds size and cushion (not in CIAS)."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "Nasal pillows, a nasal mask, and a full-face mask fit differently.",
+          "ciasLocator": "CIAS p21",
+          "ciasQuote": "Some masks cover just the nose or just the mouth and others cover both the nose and mouth.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Section III content. Nasal pillow on p21, full-face mask on p22."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Fit the mask with airflow running and make one small adjustment at a time.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "For this step, don't even worry about plugging in your machine. Focus only on comfort.",
+          "status": "CONTRADICTION",
+          "action": "CLINICAL_REVIEW",
+          "note": "Same conflict with CIAS step 1 as paragraphs[1]. 'One small adjustment at a time' is not in CIAS (p21 only says 'play around with adjusting the straps')."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Ask for a different size or interface when comfort depends on over-tightening.",
+          "ciasLocator": "CIAS p21",
+          "ciasQuote": "If it needs to be very tight for adequate seal, talk to your healthcare provider about trying a different type of mask.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Section III content."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: paragraphs then keyPoints. The title is not narrated (same convention on every screen). ES narrationText also matches the ES visible text exactly.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "Meaning matches. 'equipo de equipos médicos' (equipment team) reads awkwardly but keeps the meaning; this phrase repeats in m8-04, m8-08 and m8-10."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-03",
+      "title": "Practice While You’re Awake",
+      "claims": [
+        {
+          "field": "title",
+          "text": "Practice While You’re Awake",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Try using your CPAP machine at home, while awake and sitting upright in a comfortable position, for one hour each day.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Maps to CIAS acclimation step 2."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Practice using PAP while awake and sitting upright in a comfortable position for about one hour a day for several days.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Try using your CPAP machine at home, while awake and sitting upright in a comfortable position, for one hour each day.",
+          "status": "PARAPHRASE_OK",
+          "action": "CLINICAL_REVIEW",
+          "note": "'Several days' replaces CIAS 'Try this for 3-5 days'. 'About' was added and 'at home' was dropped. The specific timing is lost (see clinicalReview: acclimation timing)."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Pair it with reading or watching television.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Try this for 3-5 days while reading a book, or watching TV.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "Turn the machine on before placing the mask, then notice how the airflow feels while you are awake.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Instruction on device order that is not in CIAS. It is attributed to the ATS supplements, which are still waiting for statement-level review. Check it against the ATS source and the device manual during that review."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "A calm activity gives you time to practice breathing with the mask without also trying to fall asleep.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored reason, consistent with CIAS step 2."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "If the sensation becomes too much, pause and return to a shorter practice period later. Repeating manageable practice is more useful than forcing yourself through distress.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "CIAS step 2 sets 1 hour each day and gives no option to shorten sessions. This fits 'at your own pace' but changes the CIAS schedule (see clinicalReview: acclimation timing)."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Use an enjoyable, low-pressure activity to make practice predictable.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Try this for 3-5 days while reading a book, or watching TV.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Plain-language note: in a PAP lesson, 'low-pressure' could be read as low air pressure. The Spanish 'tranquila' avoids this."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Increase practice time gradually as the mask and airflow become more familiar.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Try using your CPAP machine at home, while awake and sitting upright in a comfortable position, for one hour each day.",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "In CIAS, progress happens by stage, with fixed 1-hour sessions. Adding minutes bit by bit is app-added (see clinicalReview: acclimation timing)."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: paragraphs then keyPoints. The title is not narrated (same convention on every screen). ES narrationText also matches the ES visible text exactly.",
+      "spanishParity": "ISSUE",
+      "spanishNotes": [
+        "paragraphs[0] drops 'upright' (EN 'sitting upright'; CIAS p19 'sitting upright'). 'sentado en una posición cómoda' only says 'seated'. See fixes.",
+        "keyPoints[1] drops 'practice' ('Aumenta el tiempo gradualmente'). Small, meaning still clear.",
+        "Masculine forms ('despierto', 'sentado', 'dormido'): same convention note as m8-01."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-04",
+      "title": "Practice While Resting",
+      "claims": [
+        {
+          "field": "title",
+          "text": "Practice While Resting",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Use the CPAP during scheduled 1-hour naps at home.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Maps to CIAS acclimation step '4' (the source has no step 3)."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Next, use PAP while lying down during a scheduled rest or nap.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Use the CPAP during scheduled 1-hour naps at home.",
+          "status": "PARAPHRASE_OK",
+          "action": "CLINICAL_REVIEW",
+          "note": "CIAS says 'scheduled 1-hour naps at home'. The 1-hour length and 'at home' are dropped (see clinicalReview: acclimation timing)."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Put your head down and close your eyes.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Key is to place your head down, eyes closed.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Actually falling asleep is not required for this practice to be useful.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "If you can nap that is fine. If you just relax and unwind that is the key of this step.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS says relaxing and unwinding is 'the key of this step'. The app keeps the 'sleep not required' part but drops the stress on relaxing."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "Use a short, planned rest and notice whether your position, pressure, mask seal, or tubing feels like the main barrier.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Use the CPAP during scheduled 1-hour naps at home.",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "'Planned' matches 'scheduled'. 'Short' does not match the CIAS '1-hour' nap. Noticing barriers is app-added."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "Support the tubing so it does not pull on the mask as you move.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Attributed to ATS. CIAS p21 covers the mask moving and a positioning pillow, but not tubing support."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "If you become uncomfortable, take a break and try a shorter session another time.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "Changes the CIAS 1-hour nap step (see clinicalReview: acclimation timing)."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "Persistent difficulty is a reason to ask the equipment or healthcare team for coaching.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Reach out to the healthcare provider who prescribed you your machine if you have questions or would like more guidance.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Practice the position and setup you expect to use for sleep.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Keep tubing supported so movement does not pull the mask out of place.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Attributed to ATS."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: paragraphs then keyPoints. The title is not narrated (same convention on every screen). ES narrationText also matches the ES visible text exactly.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "paragraphs[2] 'intenta otra sesión más corta' drops 'another time' (EN 'try a shorter session another time'). Small drift: it could be read as retrying right away. Note for the bilingual reviewer; not CIAS-backed text, so not listed as a fix."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-05",
+      "title": "Bring PAP Into Your Bedtime Routine",
+      "claims": [
+        {
+          "field": "title",
+          "text": "Bring PAP Into Your Bedtime Routine",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Now it is time to take your machine to the bedroom.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Maps to CIAS acclimation step 5."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Once awake and resting practice feel comfortable, begin using PAP during the first part of nighttime sleep.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Use the CPAP during the first part of your nighttime sleep.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "The 'once comfortable' condition matches CIAS p19: 'Once you are comfortable with that, move onto the next step.' CIAS 'take your machine to the bedroom' is not stated."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "Make setup predictable: keep the mask, tubing, and machine ready before you feel sleepy, and avoid routing the tubing where it can tug on the mask.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App/ATS-authored."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "If falling asleep remains difficult, ask whether your device has a ramp or autoramp comfort feature that is appropriate for you.",
+          "ciasLocator": "CIAS p23",
+          "ciasQuote": "Some CPAP machines have a “ramp feature” that helps reduce the pressure that the device delivers while you’re falling asleep.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "CIAS names the ramp only in Section III (burping/bloating), but describes it as lowering pressure 'while you’re falling asleep', which fits this use. 'Autoramp' is not in CIAS."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "These settings should be reviewed with the sleep-care team rather than changed independently.",
+          "ciasLocator": "CIAS p23",
+          "ciasQuote": "Speak to your healthcare provider to adjust your CPAP pressure",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Consistent with p10 and p20."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Start with the first part of sleep, then build from there.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Use the CPAP during the first part of your nighttime sleep.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Ask the care team about ramp or autoramp instead of changing pressure yourself.",
+          "ciasLocator": "CIAS p10",
+          "ciasQuote": "only a physician can determine the pressure amount needed.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "'Autoramp' is not in CIAS."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: paragraphs then keyPoints. The title is not narrated (same convention on every screen). ES narrationText also matches the ES visible text exactly.",
+      "spanishParity": "ISSUE",
+      "spanishNotes": [
+        "paragraphs[2] leaves out 'autoramp': EN 'a ramp or autoramp comfort feature' became 'una función de aumento gradual, o rampa'. The keyPoint on the same screen does say 'la rampa o la rampa automática', so the screen is inconsistent. See fixes (parity only; autoramp itself is not in CIAS)."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-q1",
+      "title": "Check Your Understanding",
+      "claims": [
+        {
+          "field": "prompt",
+          "text": "A person can now wear their PAP comfortably for about an hour while awake, but trying to use it for an entire night still feels overwhelming. Based on the acclimation sequence in this module, what is the best next step?",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Try using your CPAP machine at home, while awake and sitting upright in a comfortable position, for one hour each day.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "App-authored scenario built on CIAS step 2. Repo docs say the PAP knowledge checks are written by the app team, not recovered CIAS answer keys."
+        },
+        {
+          "field": "choices.c1",
+          "text": "Increase the prescribed pressure so they fall asleep faster.",
+          "ciasLocator": "CIAS p10",
+          "ciasQuote": "only a physician can determine the pressure amount needed.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "CIAS supports marking this wrong."
+        },
+        {
+          "field": "choices.c2",
+          "text": "Practice with PAP while lying down during a scheduled rest or nap.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Use the CPAP during scheduled 1-hour naps at home.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Matches CIAS step '4' and m8-04."
+        },
+        {
+          "field": "choices.c3",
+          "text": "Skip the remaining practice stages and force themselves to wear it all night.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "slowly get used to using the CPAP machine from focusing on mask comfort to ultimately using it all night",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "CIAS lets people move at their own pace, but 'force' plus skipping goes against the gradual approach, so marking it wrong is defensible."
+        },
+        {
+          "field": "choices.c4",
+          "text": "Stop using PAP until it feels completely natural without practice.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Don’t be surprised if it takes awhile to get used to the CPAP machine but definitely keep at it because it’s worth it!",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "CIAS supports marking this wrong."
+        },
+        {
+          "field": "correctChoiceId",
+          "text": "c2",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Try this for 3-5 days while reading a book, or watching TV. ○ 4: Use the CPAP during scheduled 1-hour naps at home.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Supported by the CIAS order (step 2, then the listed '4' naps, then 5 and 6). The CIAS list skips step 3 (see clinicalReview). If a step 3 was lost, the 'next step' order could be affected, but c2 is still the only defensible choice offered."
+        },
+        {
+          "field": "questionFeedback.generalExplanation",
+          "text": "Build comfort gradually. Practice while resting before moving toward nighttime use.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "slowly get used to using the CPAP machine from focusing on mask comfort to ultimately using it all night",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Matches the CIAS order of steps 4 then 5."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: prompt then the four choice labels. Feedback is spoken separately after answering. The title is not narrated (same convention on every screen). ES narrationText does NOT match the ES visible text: generalExplanation is appended (see spanishNotes/fixes).",
+      "spanishParity": "ISSUE",
+      "spanishNotes": [
+        "Same structure, choice IDs c1-c4, and correctChoiceId c2. Choice meanings match.",
+        "narrationText adds the generalExplanation ('Desarrolla la comodidad gradualmente. Practica mientras descansas antes de avanzar hacia el uso nocturno.') after the choices. EN narration ends with the last choice. Because speakScreen plays this before the learner answers, Spanish narration hints at the answer. Root cause: src/content/es/localize.ts line 93. See fixes."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-06",
+      "title": "Build Toward the Whole Night",
+      "claims": [
+        {
+          "field": "title",
+          "text": "Build Toward the Whole Night",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Use the CPAP through an entire night of sleep to get the full benefit of a good night's rest.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Maps to CIAS acclimation step 6."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "After practicing during the first part of nighttime sleep, work toward using PAP throughout the entire night.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Use the CPAP through an entire night of sleep to get the full benefit of a good night's rest.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "The CIAS reason ('to get the full benefit of a good night's rest') is left out."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Progress can happen at your own pace.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "you can certainly move through the steps at your own pace",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "Use PAP for the whole sleep period as you build tolerance.",
+          "ciasLocator": "CIAS p19",
+          "ciasQuote": "Use the CPAP through an entire night of sleep to get the full benefit of a good night's rest.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Wording note: this sits awkwardly next to 'work toward' in the paragraph before. It is also stricter than CIAS p20, which says partial use still helps ('even if it’s not every night or even for a few hours...')."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "If you remove it during the night, put it back on when you wake enough to do so safely and note what prompted you to remove it.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App/ATS-authored."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "Hours of use, leak information, and pressure data can help the care team see patterns.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "The machine will give data on sleep quality and duration and on how effective the CPAP is in treating the events.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS lists sleep quality, duration and how well CPAP treats events. 'Leak' and 'pressure data' are app/ATS details."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "Use those data to guide a conversation rather than changing settings on your own.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Your healthcare provider will recommend initial settings and then adjust based on 1) how you feel and 2) data collected by the CPAP machine.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Track what happens before you remove the mask: discomfort, dryness, leaks, congestion, noise, or pressure.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored list. Each problem on it also appears in CIAS Section III (pp. 21-23)."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Bring repeated barriers to the care team early; support can make the next step more manageable.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Reach out to the healthcare provider who prescribed you your machine if you have questions or would like more guidance.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Also echoes p19 'Support comes in many forms.'"
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: paragraphs then keyPoints. The title is not narrated (same convention on every screen). ES narrationText also matches the ES visible text exactly.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "Meaning matches."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-07",
+      "title": "How Can I Tell if PAP Is Helping?",
+      "claims": [
+        {
+          "field": "title",
+          "text": "How Can I Tell if PAP Is Helping?",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "How do I know if the CPAP is helping my sleep?",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Track symptoms before and after starting therapy, including sleepiness, daytime naps, or insomnia.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Keeping a diary to write down your symptoms before starting therapy, such as sleepiness, daytime naps, insomnia.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "'Diary' becomes 'track', and 'and after' is added (implied by CIAS)."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Some symptoms may change quickly, while others may take weeks.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Some symptoms will improve quickly, some might take weeks to get better.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS says symptoms 'will improve'. The app says they 'may change', which no longer says which way. This fits the repo policy against promising outcomes. A reviewer may prefer the CIAS direction."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "PAP devices collect treatment and use data that the healthcare team can review when assessing therapy.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "The machine will give data on sleep quality and duration and on how effective the CPAP is in treating the events.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "Symptoms and device data answer different questions: your notes describe how you feel, while the device can show use, leaks, and treatment information.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Your healthcare provider will recommend initial settings and then adjust based on 1) how you feel and 2) data collected by the CPAP machine.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "'Leaks' is an app/ATS detail."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "Persistent sleepiness or worsening symptoms should be discussed with the healthcare provider rather than used as a reason to change pressure yourself.",
+          "ciasLocator": "CIAS p10",
+          "ciasQuote": "only a physician can determine the pressure amount needed.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "The two ideas are combined from p10 and p20. The escalation wording is app-authored. CIAS p26 (Section V) notes that daytime sleepiness in pregnancy can have pregnancy-related causes. m8 says nothing about this, and no change is proposed."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Record both your experience and the nights or hours you used PAP.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Keeping a diary to write down your symptoms before starting therapy, such as sleepiness, daytime naps, insomnia.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Logging hours of use is app-added."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "A follow-up review can identify mask, leak, comfort, or setting problems that are not obvious from symptoms alone.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App/ATS-authored."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: paragraphs then keyPoints. The title is not narrated (same convention on every screen). ES narrationText also matches the ES visible text exactly.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "Meaning matches."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-08",
+      "title": "What if PAP Feels Uncomfortable at First?",
+      "claims": [
+        {
+          "field": "title",
+          "text": "What if PAP Feels Uncomfortable at First?",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Is it uncomfortable to wear the CPAP machine?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "An adjustment period is normal.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "It’s normal for people to take some time to adjust to using the CPAP machine.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Mask fit, the sensation of air pressure, and adding PAP to a bedtime routine can take time.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "It’s also a new addition to your nighttime routine, so, expect that it’ll take a while for this to become a habit.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Also p19 ('sensation of the air pressure') and p20 ('tweaking to find the right combination of mask and settings')."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Discuss persistent problems with the healthcare provider or equipment team.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "work with your healthcare provider and the medical equipment company to find your fit once you decide to start treatment.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "Name the specific barrier—mask pressure, leaks, dryness, congestion, noise, claustrophobia, or difficulty exhaling—because each may have a different solution.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored list. Mask pressure, leaks, dryness, congestion and noise (whistling) appear in CIAS Section III (pp. 21-23). 'Claustrophobia' and 'difficulty exhaling' appear nowhere in the CIAS text."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "Ask whether another mask size or style, heated humidification, ramp or autoramp, or an expiratory comfort feature is available and appropriate for your device.",
+          "ciasLocator": "CIAS p22",
+          "ciasQuote": "there are several humidifier options (pass-over humidifier or heated humidifier) as part of the CPAP machine that can add back moisture and improve comfort.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Mask style (p21), heated humidification (p22, p23) and ramp (p23) are in CIAS Section III. Autoramp and expiratory comfort features are not in CIAS."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "These are care-team and device decisions.",
+          "ciasLocator": "CIAS p23",
+          "ciasQuote": "Try the CPAP humidifier with and without heat to see which is most comfortable for you",
+          "status": "CONTRADICTION",
+          "action": "CLINICAL_REVIEW",
+          "note": "This conflicts in part with CIAS. CIAS lets patients adjust humidification themselves (p21: 'Try turning down the setting or switching back to “auto”'; p23: try the humidifier with and without heat). m9 also tells learners to lower the heated-humidifier setting. Putting humidification under 'care-team decisions' is inconsistent across sources and modules."
+        },
+        {
+          "field": "paragraphs[3]",
+          "text": "If a problem repeatedly prevents use, contact the team promptly instead of abandoning treatment or changing settings without guidance.",
+          "ciasLocator": "CIAS p22",
+          "ciasQuote": "Talk to the healthcare provider that prescribed your CPAP machine to help you troubleshoot these issues.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Also p20 'definitely keep at it'."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Describe when the problem starts and what it feels like; details help the team troubleshoot.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Do not interpret early discomfort as proof that PAP cannot work for you.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Don’t be surprised if it takes awhile to get used to the CPAP machine but definitely keep at it because it’s worth it!",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: paragraphs then keyPoints. The title is not narrated (same convention on every screen). ES narrationText also matches the ES visible text exactly.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "Meaning matches. 'sensación de encierro' for claustrophobia is acceptable."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-09",
+      "title": "When Should I Use PAP?",
+      "claims": [
+        {
+          "field": "title",
+          "text": "When Should I Use PAP?",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Do I need to use the CPAP machine for naps?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS heading asks about naps only; the app widens it."
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Use PAP whenever sleeping, including nighttime sleep, naps, and travel.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "It’s ideal to use your CPAP machine anytime you sleep, including at night, during naps, and while traveling.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Also p9: 'every time you sleep'."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "Using it for every sleep period gives the treatment the best chance to support breathing across the time you are asleep.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Each time you use your CPAP while sleeping helps prevent the long-term negative effects of untreated OSA.",
+          "status": "PARAPHRASE_OK",
+          "action": "CLINICAL_REVIEW",
+          "note": "The CIAS reason is that each use helps prevent long-term effects, even partial use ('even if it’s not every night or even for a few hours...'). The app keeps the 'every sleep' message and drops the 'partial use still counts' message."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "If you cannot use it for a particular sleep period, ask your healthcare team how to handle that situation safely.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Quick power naps, less than 30 min, sometimes it is ok to skip the CPAP.",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "Replaces the CIAS exception that it is sometimes OK to skip CPAP for power naps under 30 minutes. 'Safely' suggests a risk that CIAS does not describe. This is a real change in usage guidance (see clinicalReview)."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Keep the mask and machine part of your sleep routine, not only a response to feeling tired.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "It’s ideal to use your CPAP machine anytime you sleep, including at night, during naps, and while traveling.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Ask the care team about barriers that make naps or sleep away from home difficult.",
+          "ciasLocator": "CIAS p24",
+          "ciasQuote": "You can rent or purchase a travel CPAP machine.",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored. CIAS gives specific travel advice in Section III (p24: travel CPAP machines, flying with CPAP), which m8 and m9 do not include."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: paragraphs then keyPoints. The title is not narrated (same convention on every screen). ES narrationText also matches the ES visible text exactly.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "Meaning matches."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-10",
+      "title": "Who Adjusts My PAP Settings?",
+      "claims": [
+        {
+          "field": "title",
+          "text": "Who Adjusts My PAP Settings?",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "What are the settings on my CPAP and how do you set them?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "The healthcare provider recommends the initial settings and may adjust them based on how you feel and PAP data.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Your healthcare provider will recommend initial settings and then adjust based on 1) how you feel and 2) data collected by the CPAP machine.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Do not independently change prescribed pressure.",
+          "ciasLocator": "CIAS p10",
+          "ciasQuote": "only a physician can determine the pressure amount needed.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Section I content."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "At follow-up, share your symptom notes and ask the team to review hours of use, leaks, and other available treatment data.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Your healthcare provider will recommend initial settings and then adjust based on 1) how you feel and 2) data collected by the CPAP machine.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Hours of use and leaks are app/ATS details."
+        },
+        {
+          "field": "paragraphs[1]",
+          "text": "The team may decide that a mask change or a comfort feature is more useful than a pressure change.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App/ATS-authored."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "Use only the comfort features and settings you have been taught to use.",
+          "ciasLocator": "absent from CIAS",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored. Fits CIAS humidification self-adjustment only if the learner was taught it (see the m8-08 humidification item)."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "If the device feels too strong, too weak, or difficult to exhale against, contact the prescribing provider or equipment team.",
+          "ciasLocator": "CIAS p23",
+          "ciasQuote": "Speak to your healthcare provider to adjust your CPAP pressure",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "The symptom wording is app-authored. Sending it to the provider is supported by CIAS."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "PAP settings are part of treatment, not a self-directed experiment.",
+          "ciasLocator": "CIAS p10",
+          "ciasQuote": "only a physician can determine the pressure amount needed.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Your observations and device data give the care team better information for a safe adjustment.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Your healthcare provider will recommend initial settings and then adjust based on 1) how you feel and 2) data collected by the CPAP machine.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: paragraphs then keyPoints. The title is not narrated (same convention on every screen). ES narrationText also matches the ES visible text exactly.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "Meaning matches."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    },
+    {
+      "screenId": "m8-q2",
+      "title": "Check Your Understanding",
+      "claims": [
+        {
+          "field": "prompt",
+          "text": "A person has been using PAP for several days. They still feel tired and decide that the pressure must be too low, so they plan to increase it themselves. Which response best matches the module?",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Your healthcare provider will recommend initial settings and then adjust based on 1) how you feel and 2) data collected by the CPAP machine.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "App-authored scenario."
+        },
+        {
+          "field": "choices.c1",
+          "text": "Increase the pressure gradually until daytime tiredness disappears.",
+          "ciasLocator": "CIAS p10",
+          "ciasQuote": "only a physician can determine the pressure amount needed.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "CIAS supports marking this wrong."
+        },
+        {
+          "field": "choices.c2",
+          "text": "Stop using PAP until the tiredness improves.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Don’t be surprised if it takes awhile to get used to the CPAP machine but definitely keep at it because it’s worth it!",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "CIAS supports marking this wrong."
+        },
+        {
+          "field": "choices.c3",
+          "text": "Keep track of symptoms and use, then review the PAP data and settings with the prescribing healthcare provider.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Your healthcare provider will recommend initial settings and then adjust based on 1) how you feel and 2) data collected by the CPAP machine.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Also p20 diary."
+        },
+        {
+          "field": "choices.c4",
+          "text": "Use PAP only on nights when they feel especially tired.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "It’s ideal to use your CPAP machine anytime you sleep, including at night, during naps, and while traveling.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "CIAS supports marking this wrong."
+        },
+        {
+          "field": "correctChoiceId",
+          "text": "c3",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Your healthcare provider will recommend initial settings and then adjust based on 1) how you feel and 2) data collected by the CPAP machine.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "This matters medically because the scenario is about changing pressure yourself. The key is the cautious answer and is supported by CIAS (p10, p20). CIAS p20 ('Some symptoms ... might take weeks to get better') also supports continuing after only several days."
+        },
+        {
+          "field": "questionFeedback.generalExplanation",
+          "text": "Keep using PAP as directed and review symptoms, use data, and settings with the prescribing healthcare provider.",
+          "ciasLocator": "CIAS p20",
+          "ciasQuote": "Your healthcare provider will recommend initial settings and then adjust based on 1) how you feel and 2) data collected by the CPAP machine.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText is exactly the visible text in order: prompt then the four choice labels. Feedback is spoken separately after answering. The title is not narrated (same convention on every screen). ES narrationText does NOT match the ES visible text: generalExplanation is appended (see spanishNotes/fixes).",
+      "spanishParity": "ISSUE",
+      "spanishNotes": [
+        "Same structure, choice IDs c1-c4, and correctChoiceId c3. Choice meanings match.",
+        "narrationText adds the generalExplanation ('Sigue usando PAP según se te indicó y revisa ...') after the choices, so it hints at the answer before the learner responds. Same root cause as m8-q1. See fixes."
+      ],
+      "mediaNote": "No image, video, or attribution fields; sourceScreenshotIds is empty. sourceIds = cias-ez-pap-document + ats-pap-overview + ats-pap-troubleshooting + ats-pap-care-cleaning (module-wide constant easyPapSourceIds; the ATS IDs are not clinically approved)."
+    }
+  ],
+  "omissions": [
+    {
+      "ciasPage": 19,
+      "ciasQuote": "Congratulations on taking this important step to treating your OSA and taking care of your health!",
+      "note": "Opening encouragement left out of m8-01. Content-owner decision."
+    },
+    {
+      "ciasPage": 19,
+      "ciasQuote": "we are confident once you have the right setup and settings you will feel better and be healthier for it.",
+      "note": "Outcome promise left out. Fits the repo policy against promising outcomes; listed for completeness only."
+    },
+    {
+      "ciasPage": 19,
+      "ciasQuote": "If you know anyone using CPAP, ask for their experience. Support comes in many forms.",
+      "note": "Advice to ask other CPAP users about their experience is not anywhere in m8."
+    },
+    {
+      "ciasPage": 19,
+      "ciasQuote": "we recommend taking 3-5 days at each step but you can certainly move through the steps at your own pace",
+      "note": "The suggested 3-5 days per step is not in m8. m8-03 says 'several days' for the awake stage only, and no other stage gives a length. The CIAS wording is clear; whether to restore it is a content decision (see clinicalReview)."
+    },
+    {
+      "ciasPage": 19,
+      "ciasQuote": "Use the CPAP during scheduled 1-hour naps at home.",
+      "note": "The 1-hour nap length (and 'at home') are not in m8-04, which says 'a short, planned rest' instead."
+    },
+    {
+      "ciasPage": 19,
+      "ciasQuote": "If you can nap that is fine. If you just relax and unwind that is the key of this step.",
+      "note": "Only partly kept. m8-04 keeps 'sleep not required' but drops 'relax and unwind' as 'the key of this step'."
+    },
+    {
+      "ciasPage": 19,
+      "ciasQuote": "Now it is time to take your machine to the bedroom.",
+      "note": "Small omission: m8-05 keeps 'first part of the night' but not the move to the bedroom, which tells the learner that earlier stages happen elsewhere."
+    },
+    {
+      "ciasPage": 19,
+      "ciasQuote": "Try this for 3-5 days while reading a book, or watching TV. ○ 4: Use the CPAP during scheduled 1-hour naps at home.",
+      "note": "UNRESOLVED source issue, not an m8 defect: the CIAS steps go 1, 2, 4, 5, 6 with no step 3. pypdf on the original PDF and both text extractions agree. Page images could not be rendered (no pdftoppm), so a step 3 that exists only as an image cannot be ruled out. m8 does not number its stages."
+    },
+    {
+      "ciasPage": 20,
+      "ciasQuote": "people report getting quality sleep, less fatigue, more energy and better focus when using CPAP.",
+      "note": "Benefits people report (better sleep, less fatigue, more energy, better focus) and the 'keep at it because it's worth it' encouragement are not in m8-08."
+    },
+    {
+      "ciasPage": 20,
+      "ciasQuote": "Most people find a combination that works for them in the first few weeks.",
+      "note": "The expected timeframe ('first few weeks') for finding a mask and settings that work is not in m8."
+    },
+    {
+      "ciasPage": 20,
+      "ciasQuote": "most insurance companies will cover ordering different equipment early on, but may have restrictions on trying new masks later",
+      "note": "Practical insurance point not in m8: try different masks early, because insurance may limit new masks later. Not medical advice, and it affects when to raise mask problems."
+    },
+    {
+      "ciasPage": 20,
+      "ciasQuote": "Quick power naps, less than 30 min, sometimes it is ok to skip the CPAP.",
+      "note": "The short-nap exception is not in m8-09, which replaces it with 'ask your healthcare team how to handle that situation safely' (see clinicalReview)."
+    },
+    {
+      "ciasPage": 20,
+      "ciasQuote": "even if it’s not every night or even for a few hours and not the whole time you sleep.",
+      "note": "The 'partial use still counts' message (with p20 'Each time you use your CPAP while sleeping helps prevent the long-term negative effects of untreated OSA.') is not in m8-09 (see clinicalReview)."
+    },
+    {
+      "ciasPage": 28,
+      "ciasQuote": "if you’re using CPAP to treat sleep apnea, you do not need to wear your CPAP while you’re awake or active.",
+      "note": "Outside Section II (Section VI), but it bears on m8-09 'When should I use PAP?'. Not in m8; listed as context only."
+    },
+    {
+      "ciasPage": 27,
+      "ciasQuote": "Video: How to ﬁt a Philips PAP mask (YouTube)",
+      "note": "Outside Section II (Section IV resources): mask-fitting videos (Philips, ResMed) and 'How CPAP Works'. m8 has no video or link fields. Section IV also lists the ATS PAP troubleshooting PDF, which is relevant to the provenance of the ats-pap-troubleshooting supplement."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "You can rent or purchase a travel CPAP machine.",
+      "note": "Outside Section II (Section III): travel CPAP and flying advice (p24). m8-09 mentions travel only in general terms; neither m8 nor m9 has the CIAS travel specifics."
+    }
+  ],
+  "fixes": [
+    {
+      "screenId": "m8-q1",
+      "lang": "es",
+      "field": "narrationText",
+      "current": "Una persona ya puede usar PAP cómodamente alrededor de una hora mientras está despierta, pero intentar usarlo toda la noche todavía se siente abrumador. Según la secuencia de adaptación de este módulo, ¿cuál es el mejor siguiente paso? Aumentar la presión indicada para dormirse más rápido. Practicar con PAP mientras está acostada durante un descanso o siesta programados. Omitir las etapas de práctica restantes y obligarse a usarlo toda la noche. Dejar de usar PAP hasta que se sienta completamente natural sin practicar. Desarrolla la comodidad gradualmente. Practica mientras descansas antes de avanzar hacia el uso nocturno.",
+      "proposed": "Una persona ya puede usar PAP cómodamente alrededor de una hora mientras está despierta, pero intentar usarlo toda la noche todavía se siente abrumador. Según la secuencia de adaptación de este módulo, ¿cuál es el mejor siguiente paso? Aumentar la presión indicada para dormirse más rápido. Practicar con PAP mientras está acostada durante un descanso o siesta programados. Omitir las etapas de práctica restantes y obligarse a usarlo toda la noche. Dejar de usar PAP hasta que se sienta completamente natural sin practicar.",
+      "justification": "Implementation error. ES question narration adds questionFeedback.generalExplanation, which is only shown after answering. EN narration (module-08.ts line 12) is [prompt, ...choices]. speakScreen() plays narrationText before the learner answers, so the hint is read aloud early. Root cause: src/content/es/localize.ts line 93 uses narrationText: draft.body.join(' '); it should use draft.body.slice(0, screen.choices.length + 1).join(' '). The same pattern appears in the exported ES JSON for m5 (q3, q5, q9, q11), m7 (r1) and m9 (q1-q3), outside this audit's scope."
+    },
+    {
+      "screenId": "m8-q2",
+      "lang": "es",
+      "field": "narrationText",
+      "current": "Una persona ha usado PAP durante varios días. Todavía se siente cansada y decide que la presión debe estar demasiado baja, así que planea aumentarla por su cuenta. ¿Qué respuesta coincide mejor con el módulo? Aumentar la presión gradualmente hasta que desaparezca el cansancio durante el día. Dejar de usar PAP hasta que mejore el cansancio. Llevar un registro de los síntomas y el uso, y después revisar los datos de PAP y las configuraciones con el profesional de salud que indicó el tratamiento. Usar PAP solo las noches en que se sienta especialmente cansada. Sigue usando PAP según se te indicó y revisa los síntomas, los datos de uso y las configuraciones con el profesional de salud que indicó el tratamiento.",
+      "proposed": "Una persona ha usado PAP durante varios días. Todavía se siente cansada y decide que la presión debe estar demasiado baja, así que planea aumentarla por su cuenta. ¿Qué respuesta coincide mejor con el módulo? Aumentar la presión gradualmente hasta que desaparezca el cansancio durante el día. Dejar de usar PAP hasta que mejore el cansancio. Llevar un registro de los síntomas y el uso, y después revisar los datos de PAP y las configuraciones con el profesional de salud que indicó el tratamiento. Usar PAP solo las noches en que se sienta especialmente cansada.",
+      "justification": "Implementation error. ES question narration adds questionFeedback.generalExplanation, which is only shown after answering. EN narration (module-08.ts line 12) is [prompt, ...choices]. speakScreen() plays narrationText before the learner answers, so the hint is read aloud early. Root cause: src/content/es/localize.ts line 93 uses narrationText: draft.body.join(' '); it should use draft.body.slice(0, screen.choices.length + 1).join(' '). The same pattern appears in the exported ES JSON for m5 (q3, q5, q9, q11), m7 (r1) and m9 (q1-q3), outside this audit's scope."
+    },
+    {
+      "screenId": "m8-05",
+      "lang": "es",
+      "field": "paragraphs[2] (same sentence also in narrationText)",
+      "current": "Si todavía te cuesta quedarte dormido, pregunta si tu dispositivo tiene una función de aumento gradual, o rampa, que sea adecuada para ti.",
+      "proposed": "Si todavía te cuesta quedarte dormido, pregunta si tu dispositivo tiene una función de aumento gradual (rampa o rampa automática) que sea adecuada para ti.",
+      "justification": "Parity fix only. The ES paragraph drops 'autoramp', which is in the EN paragraph and in the ES keyPoint on the same screen ('la rampa o la rampa automática'). CIAS mentions the ramp (p23) but not autoramp, so if clinical review drops autoramp from EN, drop it from both. Source: src/content/es/modules/module-08.ts line 44. ES narration is rebuilt from the body by localize.ts line 86."
+    },
+    {
+      "screenId": "m8-03",
+      "lang": "es",
+      "field": "paragraphs[0] (same sentence also in narrationText)",
+      "current": "Practica usar PAP mientras estás despierto y sentado en una posición cómoda alrededor de una hora al día durante varios días.",
+      "proposed": "Practica usar PAP mientras estás despierto y sentado derecho en una posición cómoda alrededor de una hora al día durante varios días.",
+      "justification": "Dropped word in translation. EN says 'sitting upright in a comfortable position', and so does CIAS p19 ('while awake and sitting upright in a comfortable position'). The ES draft has only 'sentado'. The bilingual reviewer may prefer 'en posición erguida'; either way the word 'upright' should be restored."
+    }
+  ],
+  "clinicalReview": [
+    {
+      "screenId": "m8-02",
+      "issue": "CONTRADICTION with CIAS step 1. CIAS p19: 'For this step, don't even worry about plugging in your machine. Focus only on comfort.' m8-02 says 'With the machine running, adjust the straps just enough to create a seal' and its keyPoint says 'Fit the mask with airflow running', right after 'Focus on mask comfort before worrying about using the machine'. Fitting with the machine running is probably from the unapproved ATS supplement. A reviewer should decide whether it belongs in the first stage, a later stage, or the troubleshooting module. No new wording is proposed."
+    },
+    {
+      "screenId": "m8-08",
+      "issue": "Partial CONTRADICTION about who controls humidification. m8-08 lists heated humidification with ramp, autoramp and expiratory comfort, then says 'These are care-team and device decisions.' CIAS lets patients adjust humidification themselves (p21: 'Try turning down the setting or switching back to “auto” if on a fixed setting'; p23: 'Try the CPAP humidifier with and without heat to see which is most comfortable for you'). m9 also tells learners to lower the heated-humidifier setting. A reviewer should decide which settings patients may adjust and make m8 and m9 agree."
+    },
+    {
+      "screenId": "m8-09",
+      "issue": "A real change in when-to-use guidance. CIAS p20 says 'Quick power naps, less than 30 min, sometimes it is ok to skip the CPAP' and that partial use still helps ('even if it’s not every night or even for a few hours...'; 'Each time you use your CPAP while sleeping helps prevent the long-term negative effects of untreated OSA'). m8-09 leaves out both and adds 'If you cannot use it for a particular sleep period, ask your healthcare team how to handle that situation safely', which is not in CIAS and suggests a risk CIAS does not describe. A reviewer should decide whether to bring back the CIAS exception and the partial-use message for a pregnancy audience."
+    },
+    {
+      "screenId": "m8-03, m8-04",
+      "issue": "The acclimation timing differs from CIAS. CIAS p19: 3-5 days per step, 1 hour each day for awake practice, and scheduled 1-hour naps. m8 uses 'several days' (awake stage only), 'a short, planned rest' (nap stage), 'return to a shorter practice period', 'try a shorter session another time' and 'Increase practice time gradually'. These change the CIAS schedule rather than restate it. A reviewer should decide whether to bring back the CIAS durations, keep the more flexible app wording, or use both."
+    },
+    {
+      "screenId": "m8-q1 (source)",
+      "issue": "Source check, not an m8 defect. The CIAS acclimation list skips step 3 (1, 2, 4, 5, 6) in every text extraction. m8-q1 asks for the 'best next step' after awake practice, and the key (c2, rest/nap practice) matches the CIAS list as it stands. If a step 3 was lost from the source, the expected sequence could change. Among the choices offered, c2 is still the only defensible answer. Ask the CIAS authors to confirm."
+    }
+  ]
+}

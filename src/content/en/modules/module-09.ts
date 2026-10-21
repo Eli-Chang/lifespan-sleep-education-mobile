@@ -142,7 +142,7 @@ export const module09: EducationModule = {
       'A ramp feature may help comfort, while symptoms and prescribed settings should be discussed with the prescribing healthcare provider.',
     ),
     c('m9-11', 'Cleaning PAP Equipment', [
-      'Follow the manufacturer’s instructions first. Compatible general guidance includes mild soap, thorough rinsing, and air drying relevant mask and humidifier components, with weekly tubing cleaning and periodic broader cleaning as recommended by the CIAS source. Use distilled water in the humidifier as directed.',
+      'Follow the manufacturer’s instructions first. Compatible general guidance includes mild soap, thorough rinsing, and air drying relevant mask and humidifier components, with weekly tubing cleaning and periodic broader cleaning. Use distilled water in the humidifier as directed.',
       'A practical routine is to empty the humidifier chamber each morning, refill it with fresh distilled water before sleep, and wipe or wash the mask cushion as the manual directs. Wash mask parts, tubing, and headgear with warm water and mild soap on the schedule supplied with your device, then rinse and air-dry away from direct heat or sunlight.',
       'Wipe the outside of the machine as directed, and clean or replace filters and other supplies on the manufacturer schedule. Do not immerse the machine or use bleach, alcohol, harsh cleaners, household wipes, or an unapproved cleaning device on PAP equipment.',
       'Parts and materials vary, so the manufacturer instructions take priority over a universal online schedule.',

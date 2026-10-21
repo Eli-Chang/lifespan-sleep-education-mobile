@@ -1,0 +1,1849 @@
+{
+  "module": "m9",
+  "auditedOn": "2026-10-21",
+  "sourcesUsed": {
+    "cias": "cias-normalized.txt pages 1-30 (Section III = pp21-24; p25 begins Section V), spot-checked against pdftotext of the PDF pp21-24 (text identical)",
+    "app": [
+      "m9-en.json",
+      "m9-es.json",
+      "src/content/image-registry.ts (images)",
+      "src/content/es/localize.ts and src/content/helpers.ts (narration construction)"
+    ]
+  },
+  "statusCounts": {
+    "PARAPHRASE_OK": 61,
+    "NOT_IN_CIAS": 49,
+    "UNRESOLVED": 2,
+    "ORGANIZATIONAL": 5,
+    "MATCH": 23,
+    "CONTRADICTION": 1,
+    "OMISSION": 2
+  },
+  "actionCounts": {
+    "NO_ACTION": 115,
+    "CLINICAL_REVIEW": 27,
+    "FIX_UNAMBIGUOUS": 1
+  },
+  "screens": [
+    {
+      "screenId": "m9-01",
+      "title": "Troubleshooting PAP",
+      "claims": [
+        {
+          "field": "title",
+          "text": "Troubleshooting PAP",
+          "ciasLocator": "p21",
+          "ciasQuote": "Section III: Troubleshooting CPAP Below, find our advice for how to address common issues with CPAP.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CPAP renamed PAP (app-wide convention)."
+        },
+        {
+          "field": "paragraphs[0].s1",
+          "text": "This module offers practical guidance for common PAP problems.",
+          "ciasLocator": "p21",
+          "ciasQuote": "Section III: Troubleshooting CPAP Below, find our advice for how to address common issues with CPAP.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s2",
+          "text": "Discuss persistent concerns with the healthcare provider or equipment team.",
+          "ciasLocator": "p20; p22",
+          "ciasQuote": "Talk to the healthcare provider that prescribed your CPAP machine to help you troubleshoot these issues. | it’s important to work with your healthcare provider and the medical equipment company to find your fit",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS refers to prescribing provider; equipment company named on p20."
+        },
+        {
+          "field": "paragraphs[1].s1",
+          "text": "Start by checking one category at a time: mask fit, tubing and connections, humidification, nasal comfort, or the device data.",
+          "ciasLocator": "ABSENT as stated; related context p20",
+          "ciasQuote": "The machine will give data on sleep quality and duration and on how effective the CPAP is in treating the events.",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Method is app-authored. Categories loosely mirror Section III topics; device data mentioned only on p20. \"Tubing and connections\" is not a CIAS topic."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "Small, supported changes are easier to evaluate than changing several things at once.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored process guidance."
+        },
+        {
+          "field": "paragraphs[2].s1",
+          "text": "This app cannot diagnose a problem or prescribe a setting.",
+          "ciasLocator": "ABSENT as stated; related context p10",
+          "ciasQuote": "only a physician can determine the pressure amount needed",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App disclaimer; consistent with CIAS p10 (only a physician sets pressure)."
+        },
+        {
+          "field": "paragraphs[2].s2",
+          "text": "If a problem repeatedly prevents PAP use, ask the prescribing provider or equipment team for help.",
+          "ciasLocator": "p22",
+          "ciasQuote": "Talk to the healthcare provider that prescribed your CPAP machine to help you troubleshoot these issues.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[2].s3",
+          "text": "Seek prompt medical care for severe or rapidly worsening symptoms.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Generic safety-net line; Section III has none. Include in clinical sign-off of safety wording."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Use the manufacturer instructions for your particular mask and device.",
+          "ciasLocator": "ABSENT as stated; related context p23",
+          "ciasQuote": "Check your machine’s manual for instructions on cleaning and frequency.",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "CIAS says check the manual only for cleaning; the app generalizes it to all mask and device use."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Write down when the problem starts, what it feels like, and what you already tried.",
+          "ciasLocator": "ABSENT as stated; related context p20",
+          "ciasQuote": "Keeping a diary to write down your symptoms before starting therapy, such as sleepiness, daytime naps, insomnia.",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "CIAS diary (p20) is for symptoms before starting therapy, not a troubleshooting log."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "Structure, keyPoints and narration match. \"equipo de equipos médicos\" (equipment team) is awkward wording, repeated across screens; meaning kept."
+      ]
+    },
+    {
+      "screenId": "m9-02",
+      "title": "My Mask Feels Too Tight or Uncomfortable",
+      "claims": [
+        {
+          "field": "title",
+          "text": "My Mask Feels Too Tight or Uncomfortable",
+          "ciasLocator": "p21",
+          "ciasQuote": "What if the mask feels uncomfortable or is pressing too hard on my face?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s1",
+          "text": "The mask should not need to be painfully tight or leave persistent facial marks.",
+          "ciasLocator": "p21",
+          "ciasQuote": "The mask should not be too tight on the face or leave long lasting facial marks in the morning after nightly use.",
+          "status": "UNRESOLVED",
+          "action": "CLINICAL_REVIEW",
+          "note": "Threshold drift: CIAS says \"too tight\"; the app says \"painfully tight\", which suggests tight-but-not-painful is fine. Whether this matters is a clinical call."
+        },
+        {
+          "field": "paragraphs[0].s2",
+          "text": "Adjusting straps may help while maintaining a seal.",
+          "ciasLocator": "p21",
+          "ciasQuote": "You can try loosening the straps and seeing if you continue to have a good seal.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS specifically says loosening; app says \"adjusting\"."
+        },
+        {
+          "field": "paragraphs[0].s3",
+          "text": "If it only seals when extremely tight, ask about another mask style.",
+          "ciasLocator": "p21",
+          "ciasQuote": "If it needs to be very tight for adequate seal, talk to your healthcare provider about trying a different type of mask.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS names the healthcare provider as the person to ask; app leaves it unspecified in this sentence."
+        },
+        {
+          "field": "paragraphs[1].s1",
+          "text": "With the machine running, gently reseat the mask and adjust one strap at a time.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "The goal is a seal that stays in place without painful pressure; overtightening can make pressure points and leaks worse.",
+          "ciasLocator": "ABSENT as stated; related context p21",
+          "ciasQuote": "You may need to play around with adjusting the straps to ensure a fit where the mask stays in place or prevents a leak.",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "\"Stays in place\" echoes CIAS p21; the claim that overtightening worsens pressure points and leaks is not in CIAS."
+        },
+        {
+          "field": "paragraphs[2].s1",
+          "text": "If comfort remains poor, ask the equipment team to check the size, cushion, headgear, and mask style.",
+          "ciasLocator": "ABSENT as stated; related context p20",
+          "ciasQuote": "it’s important to work with your healthcare provider and the medical equipment company to find your fit",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Section III routes to the healthcare provider; size/cushion/headgear check is app-added. p20 supports working with the equipment company."
+        },
+        {
+          "field": "paragraphs[2].s2",
+          "text": "Nasal pillows, a nasal mask, and a full-face mask distribute contact differently.",
+          "ciasLocator": "p21",
+          "ciasQuote": "For example, a nasal pillow type mask might reduce skin contact and be easier to use for you.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Generalizes the CIAS example that nasal pillows may reduce skin contact."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Fit the mask with airflow on and use the smallest adjustment that improves the seal.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Ask for a refit when the mask only works if it is painfully tight.",
+          "ciasLocator": "p21",
+          "ciasQuote": "If it needs to be very tight for adequate seal, talk to your healthcare provider about trying a different type of mask.",
+          "status": "UNRESOLVED",
+          "action": "CLINICAL_REVIEW",
+          "note": "CIAS: if it must be \"very tight\", ask the healthcare provider about a different type of mask. App: if \"painfully tight\", ask for a refit. Both the threshold and the action differ slightly."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "ISSUE",
+      "spanishNotes": [
+        "P1 s2 \"Ajustar las correas puede ayudar a mantener un sello\" reads as \"adjusting straps can help maintain a seal\"; EN means adjusting (loosening) may help while still keeping the seal. Minor drift."
+      ],
+      "mediaNotes": [
+        "image-registry m9-02-mask-adjustment.jpg: alt text accurate. Looks like manufacturer product photography; attribution \"User-provided image\", licenseStatus \"unknown/user-provided\"."
+      ]
+    },
+    {
+      "screenId": "m9-03",
+      "title": "My Mask Leaks or Moves Around",
+      "claims": [
+        {
+          "field": "title",
+          "text": "My Mask Leaks or Moves Around",
+          "ciasLocator": "p21",
+          "ciasQuote": "What if air is leaking around the mask or the mask moves around in my sleep?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s1",
+          "text": "Air leaks may mean intended airflow is escaping.",
+          "ciasLocator": "p21",
+          "ciasQuote": "It’s important to address this because an air leak means the air might not be reaching your airway and preventing obstruction.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "The CIAS reason (air may not reach the airway to prevent obstruction; \"important to address\") is softened. The CIAS tip that you can hear or feel a leak is left out."
+        },
+        {
+          "field": "paragraphs[0].s2",
+          "text": "Check fit and straps.",
+          "ciasLocator": "p21",
+          "ciasQuote": "You may need to play around with adjusting the straps to ensure a fit where the mask stays in place or prevents a leak.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s3",
+          "text": "Red or sore eyes after waking can signal air leaking from the top of the mask.",
+          "ciasLocator": "p22",
+          "ciasQuote": "What if my eyes are red or sore after waking up? | This might be a sign that air is leaking from the top of the mask.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Wording matches CIAS. CIAS asks this as its own question on p22; the app merges it into the leak screen."
+        },
+        {
+          "field": "paragraphs[0].s4",
+          "text": "If it persists, another mask style may be needed.",
+          "ciasLocator": "p21",
+          "ciasQuote": "you find you need to tighten the mask to be extremely tight to keep a seal, then a different style of mask might be necessary.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[1].s1",
+          "text": "While the machine is running, lift the mask slightly away from your face and let it reseal, then adjust the headgear gradually.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "Check that the cushion is not folded and that the tubing and connectors are seated.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "paragraphs[2].s1",
+          "text": "Reduce tugging by routing the tubing over your chest or using a tubing holder.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "paragraphs[2].s2",
+          "text": "A pillow designed with space for the mask may help some side sleepers.",
+          "ciasLocator": "p21",
+          "ciasQuote": "Other suggestions would be to buy a CPAP pillow that helps positioning.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS: a CPAP pillow \"helps positioning\"; app narrows it to side sleepers."
+        },
+        {
+          "field": "paragraphs[2].s3",
+          "text": "Persistent leaks or eye irritation deserve a mask-fit review.",
+          "ciasLocator": "p21",
+          "ciasQuote": "Talk to your healthcare provider about trying a different mask style. | Click here to learn more about different CPAP mask styles. Learn more about ensuring proper mask fit.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "A good seal should not require blocking the mask vents or tightening until your skin hurts.",
+          "ciasLocator": "ABSENT as stated; related context p21",
+          "ciasQuote": "you find you need to tighten the mask to be extremely tight to keep a seal, then a different style of mask might be necessary.",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "Vent-blocking warning is not in CIAS. CIAS threshold is \"extremely tight\"; app says \"until your skin hurts\"."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Bring repeated leaks, red eyes, or frequent mask movement to the PAP team.",
+          "ciasLocator": "p21",
+          "ciasQuote": "Talk to your healthcare provider about trying a different mask style.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "OK",
+      "spanishNotes": [],
+      "mediaNotes": [
+        "image-registry m9-03-mask-leak-illustration.jpg: illustration of a full-face mask with airflow at the sides; alt text accurate; license unknown/user-provided."
+      ]
+    },
+    {
+      "screenId": "m9-04",
+      "title": "There Is Water in My Mask or I Hear Whistling",
+      "claims": [
+        {
+          "field": "title",
+          "text": "There Is Water in My Mask or I Hear Whistling",
+          "ciasLocator": "p21",
+          "ciasQuote": "What if water is leaking out of my mask or I hear a whistling noise?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s1",
+          "text": "Condensation can occur with too much humidification or a large temperature difference between tubing and surrounding air.",
+          "ciasLocator": "p21",
+          "ciasQuote": "There might be too much humidification causing water to condense (which can also cause whistling sounds). | If there is a big temperature difference between the tube and the surrounding air, this can also increase water condensation.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s2",
+          "text": "Use supported humidification and tubing-warming controls as directed for comfort.",
+          "ciasLocator": "p21",
+          "ciasQuote": "You can try a “tube cozy” to warm the area around the tube.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS: a \"tube cozy\". App: \"tubing-warming controls\", which implies heated-tubing features CIAS does not mention."
+        },
+        {
+          "field": "paragraphs[1].s1(a)",
+          "text": "If water collects, try lowering the heated-humidifier setting",
+          "ciasLocator": "p21",
+          "ciasQuote": "Try turning down the setting or switching back to “auto” if on a fixed setting.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS alternative \"switching back to auto if on a fixed setting\" is omitted."
+        },
+        {
+          "field": "paragraphs[1].s1(b)",
+          "text": "warming the room",
+          "ciasLocator": "ABSENT as stated; related context p21",
+          "ciasQuote": "If there is a big temperature difference between the tube and the surrounding air, this can also increase water condensation.",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Follows logically from the CIAS temperature-difference point but is not stated."
+        },
+        {
+          "field": "paragraphs[1].s1(c)",
+          "text": "insulating the tubing",
+          "ciasLocator": "p21",
+          "ciasQuote": "You can try a “tube cozy” to warm the area around the tube.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "= \"tube cozy\"."
+        },
+        {
+          "field": "paragraphs[1].s1(d)",
+          "text": "using heated PAP tubing when your device supports it",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "Change one setting at a time and follow the device manual.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored process guidance."
+        },
+        {
+          "field": "paragraphs[2].s1",
+          "text": "A whistle can come from a small leak, a loose connection, or a vent or cushion that needs checking.",
+          "ciasLocator": "ABSENT as stated; related context p21",
+          "ciasQuote": "There might be too much humidification causing water to condense (which can also cause whistling sounds).",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "CIAS says whistling can come from condensation caused by too much humidification. The app gives leak, connection, vent or cushion causes and does not mention the CIAS one. Not a direct contradiction, but the CIAS cause is lost."
+        },
+        {
+          "field": "paragraphs[2].s2",
+          "text": "Do not cover the intentional exhalation vents; ask the equipment team to inspect unusual sounds that persist.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Water in the tubing is often called rainout and can improve when tubing and room temperatures are closer.",
+          "ciasLocator": "p21",
+          "ciasQuote": "If there is a big temperature difference between the tube and the surrounding air, this can also increase water condensation.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "The term \"rainout\" is app-added."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Use only the humidification and tubing options supported by your machine.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "ISSUE",
+      "spanishNotes": [
+        "keyPoints[0] translates \"rainout\" as \"condensación\" (\"Water in the tubing is often called condensation\"), which drops the term and makes the sentence nearly circular.",
+        "Linked image m9-04-water-in-mask.jpg has English text baked in (\"Water in Your Mask & how to deal with it\"), which also shows on the Spanish screen."
+      ],
+      "mediaNotes": [
+        "image-registry m9-04-water-in-mask.jpg: alt text says \"Illustration\" but it is a photo with English title text overlaid (looks like a third-party blog or retailer thumbnail); license unknown/user-provided; English text shows on the Spanish screen."
+      ]
+    },
+    {
+      "screenId": "m9-05",
+      "title": "My Skin Is Irritated",
+      "claims": [
+        {
+          "field": "title",
+          "text": "My Skin Is Irritated",
+          "ciasLocator": "p22",
+          "ciasQuote": "What if my skin around the mask is irritated or I may be having an allergic reaction?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "\"Allergic reaction\" is dropped from the title but covered in P1."
+        },
+        {
+          "field": "paragraphs[0].s1",
+          "text": "Persistent irritation may relate to mask contact, fit, or material.",
+          "ciasLocator": "p22",
+          "ciasQuote": "Make sure you have a hypoallergenic mask made of silicone.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Material angle implied by CIAS hypoallergenic-silicone point."
+        },
+        {
+          "field": "paragraphs[0].s2",
+          "text": "If it continues or a reaction is suspected, discuss another interface or mask option with the healthcare provider or equipment team.",
+          "ciasLocator": "p22",
+          "ciasQuote": "If you experience a reaction to the mask cushion, talk to your healthcare provider about trying a different type of mask.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[1].s1",
+          "text": "Check that the mask is secure but not painfully tight.",
+          "ciasLocator": "p21",
+          "ciasQuote": "The mask should not be too tight on the face or leave long lasting facial marks in the morning after nightly use.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "CIAS states this in the mask-comfort question (p21), not the skin question. Same \"painfully\" threshold drift as m9-02."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "Clean and dry your face and mask components according to the manufacturer instructions; skin oils or residue can interfere with the seal.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "paragraphs[2].s1",
+          "text": "Ask about a different size or style, a mask liner, or another approved cushion if rubbing continues.",
+          "ciasLocator": "ABSENT as stated; related context p22",
+          "ciasQuote": "If you experience a reaction to the mask cushion, talk to your healthcare provider about trying a different type of mask.",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "A different style is supported. The mask liner and \"approved cushion\" are not in CIAS. The CIAS fix for friction (petroleum creams) is not offered."
+        },
+        {
+          "field": "paragraphs[2].s2",
+          "text": "An open sore, spreading redness, or worsening reaction needs prompt review by a healthcare professional.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "Safety-net thresholds are app-authored."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Treat persistent skin injury as a fit or skin-care problem to review, not something to push through.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Do not apply an unapproved product to the mask or skin without checking the manufacturer or care team.",
+          "ciasLocator": "p22",
+          "ciasQuote": "You can also use petroleum creams (e.g., Vaseline, Aquaphor) to help reduce friction on your face.",
+          "status": "CONTRADICTION",
+          "action": "CLINICAL_REVIEW",
+          "note": "Implied conflict: CIAS suggests petroleum creams (Vaseline, Aquaphor) on the face to reduce friction. The app leaves that out and instead warns against unapproved products without checking first. Not a literal contradiction, but the default advice points the opposite way. Clinical reviewer to decide; not settled here."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "\"esté segura\" for \"secure\" can be read as \"safe\"; minor wording only."
+      ],
+      "mediaNotes": [
+        "image-registry m9-05-skin-irritation.webp: close-up photo of a real person's facial skin (nose and mouth) with redness. Source unknown (\"User-provided image\", license unknown). Confirm the source. If it is a patient photo, written HIPAA authorization is required before use."
+      ]
+    },
+    {
+      "screenId": "m9-q1",
+      "title": "Check Your Understanding",
+      "claims": [
+        {
+          "field": "prompt",
+          "text": "A PAP user wakes with red, sore eyes and notices air blowing near the top edge of the mask. What is the best first interpretation and response based on this module?",
+          "ciasLocator": "p22",
+          "ciasQuote": "What if my eyes are red or sore after waking up? | This might be a sign that air is leaking from the top of the mask.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Scenario mirrors the CIAS red/sore-eyes question. Minor: the stem asks for an \"interpretation and response\" but the choices only give responses."
+        },
+        {
+          "field": "choices.c1",
+          "text": "Lower the prescribed pressure immediately and reassess after one night.",
+          "ciasLocator": "p10",
+          "ciasQuote": "only a physician can determine the pressure amount needed",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Distractor. CIAS supports it being wrong (only a physician sets pressure)."
+        },
+        {
+          "field": "choices.c2",
+          "text": "Check the mask fit and seek mask support if the leak continues.",
+          "ciasLocator": "p21; p22",
+          "ciasQuote": "This might be a sign that air is leaking from the top of the mask. | Talk to your healthcare provider about trying a different mask style.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Keyed correct; supported."
+        },
+        {
+          "field": "choices.c3",
+          "text": "Stop PAP altogether because any eye irritation means the treatment is unsafe.",
+          "ciasLocator": "p20",
+          "ciasQuote": "try to use your CPAP every time you sleep",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Distractor. CIAS supports it being wrong."
+        },
+        {
+          "field": "choices.c4",
+          "text": "Increase humidification before checking whether air is leaking.",
+          "ciasLocator": "p22",
+          "ciasQuote": "This might be a sign that air is leaking from the top of the mask.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Distractor. CIAS ties red eyes to a leak, not to humidity."
+        },
+        {
+          "field": "correctChoiceId",
+          "text": "c2",
+          "ciasLocator": "p21; p22",
+          "ciasQuote": "This might be a sign that air is leaking from the top of the mask. | Talk to your healthcare provider about trying a different mask style.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Supported by CIAS p22/p21 and by m9-03. Not debatable."
+        },
+        {
+          "field": "questionFeedback.generalExplanation",
+          "text": "Air near the top of the mask can indicate a leak. Check fit first and seek mask support if it persists.",
+          "ciasLocator": "p22",
+          "ciasQuote": "This might be a sign that air is leaking from the top of the mask.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "questionFeedback.correctSummary/incorrectSummary",
+          "text": "Correct. / Not quite.",
+          "ciasLocator": "N/A",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Generic UI feedback."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals prompt + the 4 choice labels, in order; feedback is correctly left out (shown only after answering). Screen title is not narrated, the same as on every screen. ES narrationText does NOT match: it adds the generalExplanation at the end (see fixes).",
+      "spanishParity": "ISSUE",
+      "spanishNotes": [
+        "narrationText adds the generalExplanation at the end (\"El aire cerca de la parte superior ... si persiste.\"), which reads the answer aloud before the learner picks one. EN narration does not do this. See fixes.",
+        "Choice IDs c1-c4 and answer key c2 match EN."
+      ]
+    },
+    {
+      "screenId": "m9-06",
+      "title": "My Nose or Mouth Feels Dry",
+      "claims": [
+        {
+          "field": "title",
+          "text": "My Nose or Mouth Feels Dry",
+          "ciasLocator": "p22",
+          "ciasQuote": "What if my nose/mouth feels dry and uncomfortable?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s1",
+          "text": "PAP airflow can feel drying.",
+          "ciasLocator": "p22",
+          "ciasQuote": "In general, CPAP tends to dry out the air and this can be uncomfortable.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s2",
+          "text": "Nasal saline and PAP humidification may improve comfort, but too much humidity can cause unwanted moisture.",
+          "ciasLocator": "p22",
+          "ciasQuote": "You can use a nasal saline spray before sleep at night or there are several humidifier options (pass-over humidifier or heated humidifier) | However, too much moisture can also create areas of moisture collection that can be irritating so finding a comfortable balance is key.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS humidifier types (pass-over/heated), saline \"before sleep\" timing, and the extra room-humidifier tip are not carried over."
+        },
+        {
+          "field": "paragraphs[0].s3",
+          "text": "Discuss persistent problems with the healthcare or equipment team.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Generic referral; the CIAS dryness answer has none."
+        },
+        {
+          "field": "paragraphs[1].s1",
+          "text": "Check for a mask or mouth leak first, especially if you use a nasal mask or nasal pillows.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen. Leak-first ordering not in CIAS."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "If your device has humidification, ask whether a higher heat setting or heated tubing is appropriate; balance comfort against condensation.",
+          "ciasLocator": "p22",
+          "ciasQuote": "Humidification can usually be controlled with the newer CPAP devices. | However, too much moisture can also create areas of moisture collection that can be irritating so finding a comfortable balance is key.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Balance point supported. Heated tubing is app-added. CIAS treats humidification as something you can adjust yourself; the app says to ask first."
+        },
+        {
+          "field": "paragraphs[2].s1",
+          "text": "Saline spray or gel can help some people with nasal dryness, and artificial-saliva products may help some people with dry mouth.",
+          "ciasLocator": "p22",
+          "ciasQuote": "You can use a nasal saline spray before sleep at night or there are several humidifier options (pass-over humidifier or heated humidifier) | Other options include oral sprays such as Kote Dry Mouth Spray or Biotene spray.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS brand names (Kote, Biotene) made generic. \"Gel\" is app-added."
+        },
+        {
+          "field": "paragraphs[2].s2",
+          "text": "Ask the care team before adding a chin strap or changing mask type.",
+          "ciasLocator": "p22",
+          "ciasQuote": "Sometimes a chin strap or mouth tape like Somnofix can help keep your mouth closed, helping with the sensation of dry mouth.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS lists the chin strap under the mouth-open question without a check-first step (check-first applies only to mouth tape). The app adds caution."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Dryness can be a clue to a leak, not only a need for more humidity.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Change humidification gradually and record whether dryness or condensation improves.",
+          "ciasLocator": "ABSENT as stated; related context p22",
+          "ciasQuote": "However, too much moisture can also create areas of moisture collection that can be irritating so finding a comfortable balance is key.",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Balance idea supported; the gradual-change and record-keeping method is app-added."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "\"demasiada humedad puede causar humedad no deseada\" (\"too much humidity can cause unwanted humidity\") is circular; EN says \"unwanted moisture\". Meaning kept."
+      ],
+      "mediaNotes": [
+        "image-registry m9-06-pap-sleep.jpg: alt text accurate (person sleeping with nasal mask); license unknown/user-provided."
+      ]
+    },
+    {
+      "screenId": "m9-07",
+      "title": "My Mouth Opens While I Sleep",
+      "claims": [
+        {
+          "field": "title",
+          "text": "My Mouth Opens While I Sleep",
+          "ciasLocator": "p22",
+          "ciasQuote": "What if my mouth is open while I sleep and I am having dry mouth?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s1",
+          "text": "Persistent mouth opening may contribute to dry mouth and PAP problems.",
+          "ciasLocator": "p22",
+          "ciasQuote": "What if my mouth is open while I sleep and I am having dry mouth?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s2",
+          "text": "A full-face mask may be needed for some people; the prescribing healthcare team can help troubleshoot.",
+          "ciasLocator": "p22",
+          "ciasQuote": "To ensure CPAP pressure is optimal, you may need to get a full-face mask. | Talk to the healthcare provider that prescribed your CPAP machine to help you troubleshoot these issues.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS reason \"to ensure CPAP pressure is optimal\" is omitted."
+        },
+        {
+          "field": "paragraphs[1].s1",
+          "text": "When a nasal mask or nasal pillows are used, mouth opening can let air escape and dry the mouth.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Mechanism is app-added; consistent with CIAS."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "Nasal congestion can make this more likely, so address congestion as part of the troubleshooting conversation.",
+          "ciasLocator": "ABSENT as stated; related context p22",
+          "ciasQuote": "We would not recommend using a mouth tape without checking with your doctor to ensure that your nasal passages are healthy.",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "CIAS links nasal health only to mouth-tape safety."
+        },
+        {
+          "field": "paragraphs[2].s1",
+          "text": "Ask the care team whether a chin strap or a clinician-fitted full-face mask is appropriate.",
+          "ciasLocator": "p22",
+          "ciasQuote": "Sometimes a chin strap or mouth tape like Somnofix can help keep your mouth closed, helping with the sensation of dry mouth.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Mouth tape (Somnofix) and the CIAS \"check with your doctor\" caveat are omitted (see omissions)."
+        },
+        {
+          "field": "paragraphs[2].s2",
+          "text": "Mask choice depends on fit, breathing comfort, leak, and your treatment plan.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Mouth leak is a reason to review the interface, not to tighten every strap.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored; consistent with CIAS."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Have the PAP team help choose and fit any alternate interface.",
+          "ciasLocator": "p22",
+          "ciasQuote": "Talk to the healthcare provider that prescribed your CPAP machine to help you troubleshoot these issues.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "OK",
+      "spanishNotes": [],
+      "mediaNotes": [
+        "image-registry m9-07-mouth-open.jpg: alt text accurate; no PAP shown; license unknown/user-provided."
+      ]
+    },
+    {
+      "screenId": "m9-08",
+      "title": "I Have Congestion, Allergies, or Nasal Irritation",
+      "claims": [
+        {
+          "field": "title",
+          "text": "I Have Congestion, Allergies, or Nasal Irritation",
+          "ciasLocator": "p23",
+          "ciasQuote": "What if I am having a “runny nose” (nasal congestion), or my seasonal allergies are worsened by the CPAP? | What if my nose is irritated?",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Merges two CIAS p23 questions."
+        },
+        {
+          "field": "paragraphs[0].s1",
+          "text": "Keep PAP filters clean.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Change your CPAP filters often",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS: \"change ... often\"; app: \"keep clean\" (P3 adds replace/clean per manual)."
+        },
+        {
+          "field": "paragraphs[0].s2",
+          "text": "Use humidifier and heat options according to device setup and comfort",
+          "ciasLocator": "p23",
+          "ciasQuote": "Try the CPAP humidifier with and without heat to see which is most comfortable for you",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "The CIAS idea of trying it with and without heat is generalized."
+        },
+        {
+          "field": "paragraphs[0].s3",
+          "text": "and use distilled water as directed.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Use distilled water in the CPAP humidifier and change it daily",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "\"Change it daily\" is not stated here; it is covered by the m9-11 empty-each-morning routine (ORGANIZATIONAL)."
+        },
+        {
+          "field": "paragraphs[0].s4",
+          "text": "Reduce allergens",
+          "ciasLocator": "p23",
+          "ciasQuote": "Remove known allergens (including pets) from where you sleep ○ Vacuum to remove dust and allergens",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Pets and vacuuming specifics omitted."
+        },
+        {
+          "field": "paragraphs[0].s5",
+          "text": "and discuss medications or persistent symptoms with the healthcare provider.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Lastly, taking a nasal spray or oral allergy medicine before sleep might help. Please speak to your healthcare provider prior to starting.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[1].s1",
+          "text": "Heated humidification or heated tubing may improve comfort for some people.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Try using a humidifier, preferably a heated one. Use a saline spray before sleep.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Heated tubing is app-added."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "Saline spray or gel can help nasal irritation;",
+          "ciasLocator": "p23",
+          "ciasQuote": "Try using a humidifier, preferably a heated one. Use a saline spray before sleep.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "\"Gel\" app-added; \"before sleep\" timing omitted."
+        },
+        {
+          "field": "paragraphs[1].s3",
+          "text": "ask the healthcare provider whether a nasal spray is appropriate when congestion persists, especially during pregnancy.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Lastly, taking a nasal spray or oral allergy medicine before sleep might help. Please speak to your healthcare provider prior to starting. | is safe to use in pregnancy and we would recommend using that as a first option. | Nasal steroids are also safe to use in pregnancy and some are found over the counter.",
+          "status": "PARAPHRASE_OK",
+          "action": "CLINICAL_REVIEW",
+          "note": "Pregnancy-specific. Matches the CIAS \"speak to your healthcare provider prior to starting\". But CIAS also says saline spray and nasal steroids are safe in pregnancy, that saline is the first option, and that both are preferred to oral medicines. The app leaves all of that out, and \"especially during pregnancy\" presents pregnancy as a reason for extra caution."
+        },
+        {
+          "field": "paragraphs[2].s1",
+          "text": "Reduce dust, smoke, fragrances, and other known irritants where you sleep.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Remove known allergens (including pets) from where you sleep ○ Vacuum to remove dust and allergens",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Smoke and fragrances are app-added; pets omitted."
+        },
+        {
+          "field": "paragraphs[2].s2",
+          "text": "Replace or clean filters on the schedule in the device manual,",
+          "ciasLocator": "p23",
+          "ciasQuote": "Change your CPAP filters often",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS \"often\" replaced by the manual schedule."
+        },
+        {
+          "field": "paragraphs[2].s3",
+          "text": "and ask whether another interface would be easier while your nose is blocked.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Medication choices belong with the healthcare provider; the app does not select or dose them.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Lastly, taking a nasal spray or oral allergy medicine before sleep might help. Please speak to your healthcare provider prior to starting.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Persistent congestion, nosebleeds, or worsening breathing needs clinical review.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "Safety-net thresholds (nosebleeds, worsening breathing) are app-authored."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "P3 \"Limpia o reemplaza los filtros según el manual\" drops \"on the schedule\"; meaning mostly kept."
+      ],
+      "mediaNotes": [
+        "image-registry m9-08-congestion.jpg: shows a person in bed adjusting a nasal-pillow mask. Alt text \"experiencing congestion\" is not visibly shown (minor). License unknown/user-provided."
+      ]
+    },
+    {
+      "screenId": "m9-09",
+      "title": "I’m Burping or Feeling Bloated",
+      "claims": [
+        {
+          "field": "title",
+          "text": "I’m Burping or Feeling Bloated",
+          "ciasLocator": "p23",
+          "ciasQuote": "What if I’m burping a lot or feeling bloated?",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s1",
+          "text": "Burping or bloating may be a sign of swallowing air.",
+          "ciasLocator": "p23",
+          "ciasQuote": "That could be a sign you are swallowing air (going down your esophagus) instead of your trachea (windpipe).",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "The esophagus-vs-windpipe explanation is omitted."
+        },
+        {
+          "field": "paragraphs[0].s2",
+          "text": "Some PAP devices have a ramp feature that reduces pressure while falling asleep.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Some CPAP machines have a “ramp feature” that helps reduce the pressure that the device delivers while you’re falling asleep.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s3",
+          "text": "Discuss pressure changes with the healthcare provider rather than making them independently.",
+          "ciasLocator": "p10; p23",
+          "ciasQuote": "Speak to your healthcare provider to adjust your CPAP pressure and keep the head of the bed up if you can. | only a physician can determine the pressure amount needed",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[1].s1",
+          "text": "Changing your sleeping position or pillow arrangement may help some people.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Speak to your healthcare provider to adjust your CPAP pressure and keep the head of the bed up if you can.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "The specific CIAS advice \"keep the head of the bed up if you can\" is made more general (see omissions)."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "If available on your device, a ramp can lower the starting pressure while you fall asleep; ask the care team how to use it.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Some CPAP machines have a “ramp feature” that helps reduce the pressure that the device delivers while you’re falling asleep.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[2].s1",
+          "text": "Persistent, painful, or worsening bloating needs prompt review of the mask, pressure, and device mode.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "Safety-net threshold is app-authored."
+        },
+        {
+          "field": "paragraphs[2].s2",
+          "text": "The clinician may consider an expiratory comfort feature, auto-PAP, or bilevel PAP when appropriate—these are not self-directed changes.",
+          "ciasLocator": "ABSENT as stated; related context p10",
+          "ciasQuote": "Other PAP machines (which would be used instead of CPAP) that work similarly to treat OSA include Auto-CPAP, BIPAP, Auto-BIPAP, or ASV",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "CIAS p10 lists Auto-CPAP and BIPAP as machines the prescriber chooses but does not link them to bloating. The expiratory comfort feature is not in CIAS."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Do not keep lowering or raising prescribed pressure to chase a symptom.",
+          "ciasLocator": "p10",
+          "ciasQuote": "only a physician can determine the pressure amount needed",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Contact the care team if bloating is painful, recurrent, or stopping you from using PAP.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Speak to your healthcare provider to adjust your CPAP pressure and keep the head of the bed up if you can.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Thresholds are app-added."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "\"mientras te quedas dormido\" (twice) uses the masculine form in a module for pregnant users. Localization note, not a change in meaning. Em dash in EN P3 is rendered as \";\"."
+      ],
+      "mediaNotes": [
+        "image-registry m9-09-sleep-bloating.jpg: alt text says \"Person sleeping ...\" but the image shows an awake pregnant person sitting on a couch with a hand over her mouth and no PAP. Alt text is wrong (see fixes). License unknown/user-provided."
+      ]
+    },
+    {
+      "screenId": "m9-10",
+      "title": "The Air Feels Too Cold",
+      "claims": [
+        {
+          "field": "title",
+          "text": "The Air Feels Too Cold",
+          "ciasLocator": "p23",
+          "ciasQuote": "What if I find using the CPAP to be too cold?",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0]",
+          "text": "Changing room temperature or using heated humidification when available may help.",
+          "ciasLocator": "p23",
+          "ciasQuote": "You can change the overall room temperature or explore using heated humidification as part of the CPAP machine.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "The CIAS lead-in \"The air coming from the CPAP can be cold.\" is implied by the title."
+        },
+        {
+          "field": "paragraphs[1].s1(a)",
+          "text": "You can also ask about a heated tube",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "paragraphs[1].s1(b)",
+          "text": "or an insulating tube cover.",
+          "ciasLocator": "p21",
+          "ciasQuote": "You can try a “tube cozy” to warm the area around the tube.",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "CIAS offers the \"tube cozy\" for condensation (p21), not for cold air."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "Routing the tubing over your chest or under a blanket may reduce heat loss when the device instructions allow it.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen."
+        },
+        {
+          "field": "paragraphs[2]",
+          "text": "If cold air comes with a leak, whistling, or nasal irritation, check the mask seal and connections and ask the equipment team to review the setup.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Use only heated tubing or humidification options made for your device.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored."
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Comfort changes should not replace a fit check when symptoms continue.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "OK",
+      "spanishNotes": [
+        "\"revise la preparación\" for \"review the setup\" (\"preparación\" means preparation); minor wording."
+      ],
+      "mediaNotes": [
+        "image-registry m9-10-cpap-device.jpg: alt text accurate (device with heated tubing and humidifier chamber; label suggests a bilevel model); license unknown/user-provided."
+      ]
+    },
+    {
+      "screenId": "m9-q2",
+      "title": "Check Your Understanding",
+      "claims": [
+        {
+          "field": "prompt",
+          "text": "A person using PAP has frequent burping and bloating. They think the easiest solution is to lower the prescribed pressure themselves. What should they do instead?",
+          "ciasLocator": "p23",
+          "ciasQuote": "Speak to your healthcare provider to adjust your CPAP pressure and keep the head of the bed up if you can.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "choices.c1",
+          "text": "Lower the prescribed pressure on their own, then keep adjusting it until the bloating stops.",
+          "ciasLocator": "p10; p23",
+          "ciasQuote": "Speak to your healthcare provider to adjust your CPAP pressure and keep the head of the bed up if you can. | only a physician can determine the pressure amount needed",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Distractor. CIAS supports it being wrong."
+        },
+        {
+          "field": "choices.c2",
+          "text": "Stop PAP each time bloating occurs and wait to restart until the discomfort has completely resolved.",
+          "ciasLocator": "p20",
+          "ciasQuote": "try to use your CPAP every time you sleep",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Distractor. CIAS supports it being wrong."
+        },
+        {
+          "field": "choices.c3",
+          "text": "Check for a ramp feature and review symptoms and prescribed settings with the care team.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Some CPAP machines have a “ramp feature” that helps reduce the pressure that the device delivers while you’re falling asleep. | Speak to your healthcare provider to adjust your CPAP pressure and keep the head of the bed up if you can.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Keyed correct; supported."
+        },
+        {
+          "field": "choices.c4",
+          "text": "Tighten the mask as much as possible to prevent swallowed air.",
+          "ciasLocator": "p21",
+          "ciasQuote": "The mask should not be too tight on the face or leave long lasting facial marks in the morning after nightly use.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Distractor. CIAS says the mask should not be too tight."
+        },
+        {
+          "field": "correctChoiceId",
+          "text": "c3",
+          "ciasLocator": "p23",
+          "ciasQuote": "Some CPAP machines have a “ramp feature” that helps reduce the pressure that the device delivers while you’re falling asleep. | Speak to your healthcare provider to adjust your CPAP pressure and keep the head of the bed up if you can.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Supported by CIAS p23 and by m9-09. Not debatable."
+        },
+        {
+          "field": "questionFeedback.generalExplanation",
+          "text": "A ramp feature may help comfort, while symptoms and prescribed settings should be discussed with the prescribing healthcare provider.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Some CPAP machines have a “ramp feature” that helps reduce the pressure that the device delivers while you’re falling asleep. | Speak to your healthcare provider to adjust your CPAP pressure and keep the head of the bed up if you can.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "questionFeedback.correctSummary/incorrectSummary",
+          "text": "Correct. / Not quite.",
+          "ciasLocator": "N/A",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Generic UI feedback."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals prompt + the 4 choice labels, in order; feedback is correctly left out (shown only after answering). Screen title is not narrated, the same as on every screen. ES narrationText does NOT match: it adds the generalExplanation at the end (see fixes).",
+      "spanishParity": "ISSUE",
+      "spanishNotes": [
+        "narrationText adds the generalExplanation at the end (answer read aloud before answering). See fixes.",
+        "c4 \"Apretar más la mascarilla ...\" drops \"as much as possible\", which makes the distractor less obviously wrong.",
+        "c3 \"la presión indicada\" narrows EN \"prescribed settings\"; the ES explanation says \"configuraciones indicadas\", so c3 and the explanation do not match.",
+        "c2 adds a redundant \"posponer el reinicio\"; meaning kept.",
+        "Choice IDs c1-c4 and answer key c3 match EN."
+      ]
+    },
+    {
+      "screenId": "m9-11",
+      "title": "Cleaning PAP Equipment",
+      "claims": [
+        {
+          "field": "title",
+          "text": "Cleaning PAP Equipment",
+          "ciasLocator": "p23; p24",
+          "ciasQuote": "How often should I clean the CPAP machine? | How do I clean my CPAP machine?",
+          "status": "ORGANIZATIONAL",
+          "action": "NO_ACTION",
+          "note": "Merges two CIAS questions: how often to clean (p23-24) and how to clean (p24)."
+        },
+        {
+          "field": "paragraphs[0].s1",
+          "text": "Follow the manufacturer’s instructions first.",
+          "ciasLocator": "p23; p24",
+          "ciasQuote": "Check your machine’s manual for instructions on cleaning and frequency. | Check your machine’s manual for instructions on cleaning.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s2(a)",
+          "text": "Compatible general guidance includes mild soap, thorough rinsing, and air drying relevant mask and humidifier components,",
+          "ciasLocator": "p24",
+          "ciasQuote": "Detach the mask and wash the surfaces with mild soap, rinse, and allow to air dry (outside of direct sunlight). | regular cleaning of the mask and humidifier components daily, and tubing on a weekly basis is recommended to promote your health and machine longevity.",
+          "status": "OMISSION",
+          "action": "CLINICAL_REVIEW",
+          "note": "The method matches CIAS, but the CIAS frequency for mask and humidifier components (\"daily\") is dropped."
+        },
+        {
+          "field": "paragraphs[0].s2(b)",
+          "text": "with weekly tubing cleaning",
+          "ciasLocator": "p24",
+          "ciasQuote": "regular cleaning of the mask and humidifier components daily, and tubing on a weekly basis is recommended to promote your health and machine longevity.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "paragraphs[0].s2(c)",
+          "text": "and periodic broader cleaning",
+          "ciasLocator": "p24",
+          "ciasQuote": "All of the components of your machine should be sanitized at least once a month.",
+          "status": "OMISSION",
+          "action": "CLINICAL_REVIEW",
+          "note": "CIAS says to sanitize all components at least once a month. \"Periodic\" loses that minimum. The CIAS sanitizing method (vinegar soak) is also omitted."
+        },
+        {
+          "field": "paragraphs[0].s2(d)",
+          "text": "as recommended by the CIAS source.",
+          "ciasLocator": "N/A (authoring artifact)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "FIX_UNAMBIGUOUS",
+          "note": "An internal source label shows up in learner-facing text and narration. It is the only place \"CIAS source\" appears in the app content (same in Spanish). See fixes."
+        },
+        {
+          "field": "paragraphs[0].s3",
+          "text": "Use distilled water in the humidifier as directed.",
+          "ciasLocator": "p24",
+          "ciasQuote": "It’s important to always use distilled water or boiled water (allow to cool first) in the PAP humidifier.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "CIAS says \"always\". The boiled-and-cooled water alternative and the mineral-deposit fallback are omitted."
+        },
+        {
+          "field": "paragraphs[1].s1(a)",
+          "text": "A practical routine is to empty the humidifier chamber each morning, refill it with fresh distilled water before sleep,",
+          "ciasLocator": "p23; p24",
+          "ciasQuote": "Use distilled water in the CPAP humidifier and change it daily | Replace the water in the humidification chamber. Wash with soap. Allow to air dry outside of direct sunlight.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Matches \"change it daily\". The CIAS daily step to wash the chamber with soap and air-dry it is not stated."
+        },
+        {
+          "field": "paragraphs[1].s1(b)",
+          "text": "and wipe or wash the mask cushion as the manual directs.",
+          "ciasLocator": "p24",
+          "ciasQuote": "Detach the mask and wash the surfaces with mild soap, rinse, and allow to air dry (outside of direct sunlight).",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Leaves the frequency to the manual; CIAS says daily."
+        },
+        {
+          "field": "paragraphs[1].s2",
+          "text": "Wash mask parts, tubing, and headgear with warm water and mild soap on the schedule supplied with your device, then rinse and air-dry away from direct heat or sunlight.",
+          "ciasLocator": "p24",
+          "ciasQuote": "Detach the mask and wash the surfaces with mild soap, rinse, and allow to air dry (outside of direct sunlight). | Remove the tubing and wash with mild soap, rinse well, and allow to air dry over a shower rod.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Soap, rinse, air-dry and sunlight points match. \"Warm water\", \"headgear\" and \"direct heat\" are app-added. Drying tubing \"over a shower rod\" is omitted. Schedule left to the device."
+        },
+        {
+          "field": "paragraphs[2].s1",
+          "text": "Wipe the outside of the machine as directed, and clean or replace filters and other supplies on the manufacturer schedule.",
+          "ciasLocator": "ABSENT as stated; related context p23",
+          "ciasQuote": "Change your CPAP filters often",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "The exterior wipe is app-added. The filter point comes from p23 (ORGANIZATIONAL)."
+        },
+        {
+          "field": "paragraphs[2].s2",
+          "text": "Do not immerse the machine or use bleach, alcohol, harsh cleaners, household wipes, or an unapproved cleaning device on PAP equipment.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "CLINICAL_REVIEW",
+          "note": "App-authored or from ATS supplement (pending clinical approval); grouped in clinicalReview for this screen. The only sanitizer CIAS names is a white vinegar and water solution, which the app neither includes nor rules out."
+        },
+        {
+          "field": "paragraphs[3]",
+          "text": "Parts and materials vary, so the manufacturer instructions take priority over a universal online schedule.",
+          "ciasLocator": "p24",
+          "ciasQuote": "Check your machine’s manual for instructions on cleaning. | In general, you can follow the steps below to clean components regularly:",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": "Consistent with CIAS: manual first, then its \"In general\" steps."
+        },
+        {
+          "field": "keyPoints[0]",
+          "text": "Fresh distilled water and a consistent empty-and-refill routine help reduce buildup in the humidifier chamber.",
+          "ciasLocator": "p24",
+          "ciasQuote": "If this isn’t possible, remember to regularly remove any white buildup (mineral deposits) as this may damage the humidifier over time.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "keyPoints[1]",
+          "text": "Never put the machine itself in water; ask the equipment team when a part is damaged or overdue for replacement.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "App-authored."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals paragraphs + keyPoints, in order, word for word. ES narrationText also matches its own visible text.",
+      "spanishParity": "ISSUE",
+      "spanishNotes": [
+        "P1 contains the same internal label \"según la fuente CIAS\". See fixes.",
+        "keyPoints[1] \"pregunta al equipo cuándo una pieza está dañada o debe reemplazarse\" changes EN \"ask the team when [if] a part is damaged\" into \"ask the team at what point a part is damaged or should be replaced\".",
+        "\"lejía\" is the Spain term for bleach; Latin American Spanish usually says \"cloro\". Localization note."
+      ],
+      "mediaNotes": [
+        "image-registry m9-11-clean-mask.jpg: shows hands washing headgear in a soapy sink; alt text accurate; license unknown/user-provided."
+      ]
+    },
+    {
+      "screenId": "m9-q3",
+      "title": "Check Your Understanding",
+      "claims": [
+        {
+          "field": "prompt",
+          "text": "A PAP user wants to clean the equipment correctly but finds instructions online that differ from the instructions supplied with the machine. What should guide the cleaning routine first?",
+          "ciasLocator": "p24",
+          "ciasQuote": "Check your machine’s manual for instructions on cleaning.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "choices.c1",
+          "text": "Choose the online method that uses the strongest cleaning solution.",
+          "ciasLocator": "ABSENT from CIAS (searched pp1-30)",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Distractor. Its wrongness rests on m9-11 P3 (no harsh cleaners), not on CIAS."
+        },
+        {
+          "field": "choices.c2",
+          "text": "Start with the manufacturer’s instructions; use compatible general guidance only as a supplement.",
+          "ciasLocator": "p24",
+          "ciasQuote": "Check your machine’s manual for instructions on cleaning. | In general, you can follow the steps below to clean components regularly:",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Keyed correct; supported."
+        },
+        {
+          "field": "choices.c3",
+          "text": "Use one universal PAP cleaning schedule because all devices require the same products, timing, and steps.",
+          "ciasLocator": "p23",
+          "ciasQuote": "Check your machine’s manual for instructions on cleaning and frequency.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Distractor. CIAS points to the device manual first. (CIAS does give a general schedule, but as secondary.)"
+        },
+        {
+          "field": "choices.c4",
+          "text": "Clean the equipment only when it looks visibly dirty or smells unusual.",
+          "ciasLocator": "p24",
+          "ciasQuote": "regular cleaning of the mask and humidifier components daily, and tubing on a weekly basis is recommended to promote your health and machine longevity.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Distractor. CIAS sets regular daily, weekly and monthly cleaning."
+        },
+        {
+          "field": "correctChoiceId",
+          "text": "c2",
+          "ciasLocator": "p23; p24",
+          "ciasQuote": "Check your machine’s manual for instructions on cleaning and frequency. | Check your machine’s manual for instructions on cleaning.",
+          "status": "MATCH",
+          "action": "NO_ACTION",
+          "note": "Supported. Not debatable."
+        },
+        {
+          "field": "questionFeedback.generalExplanation",
+          "text": "Manufacturer instructions are primary because cleaning requirements can differ by device.",
+          "ciasLocator": "p24",
+          "ciasQuote": "Check your machine’s manual for instructions on cleaning.",
+          "status": "PARAPHRASE_OK",
+          "action": "NO_ACTION",
+          "note": ""
+        },
+        {
+          "field": "questionFeedback.correctSummary/incorrectSummary",
+          "text": "Correct. / Not quite.",
+          "ciasLocator": "N/A",
+          "ciasQuote": "",
+          "status": "NOT_IN_CIAS",
+          "action": "NO_ACTION",
+          "note": "Generic UI feedback."
+        }
+      ],
+      "narrationMatch": true,
+      "narrationNote": "EN narrationText equals prompt + the 4 choice labels, in order; feedback is correctly left out (shown only after answering). Screen title is not narrated, the same as on every screen. ES narrationText does NOT match: it adds the generalExplanation at the end (see fixes).",
+      "spanishParity": "ISSUE",
+      "spanishNotes": [
+        "narrationText adds the generalExplanation at the end (answer read aloud before answering). See fixes.",
+        "Choice IDs c1-c4 and answer key c2 match EN; c3 adds \"exactamente\", meaning kept."
+      ]
+    }
+  ],
+  "omissions": [
+    {
+      "ciasPage": 21,
+      "ciasQuote": "Renting a CPAP machine might be a good option for you since you can try out different types of machines before making a purchase.",
+      "note": "Rental option to try machines is absent from m9 (appears twice in CIAS, under mask-comfort and leak questions)."
+    },
+    {
+      "ciasPage": 21,
+      "ciasQuote": "Health insurance plans differ on renting CPAP machines, ranging from some plans that require a rental-to-own plan while others only cover purchases.",
+      "note": "Insurance rental-vs-purchase differences are absent."
+    },
+    {
+      "ciasPage": 21,
+      "ciasQuote": "Click here to learn more about different CPAP mask styles. Learn more about ensuring proper mask fit.",
+      "note": "CIAS links to mask-style and mask-fit resources (also on p22) are not present in m9. Other CIAS links are also missing: \"Learn more about troubleshooting CPAP humidity\" (p21), nasal-spray technique video (p23), \"Click to learn more\"/\"See more\" (p24), TSA guidance (p24)."
+    },
+    {
+      "ciasPage": 21,
+      "ciasQuote": "You might be able to hear or feel an air leak around the mask.",
+      "note": "Detection cue (hear or feel a leak) is absent. The reason leaks matter (p21 \"air might not be reaching your airway\") is softened in m9-03."
+    },
+    {
+      "ciasPage": 21,
+      "ciasQuote": "Some masks cover just the nose or just the mouth and others cover both the nose and mouth.",
+      "note": "Partial: m9-02 names nasal pillows, nasal and full-face masks; CIAS mentions mouth-only masks too."
+    },
+    {
+      "ciasPage": 21,
+      "ciasQuote": "Try turning down the setting or switching back to “auto” if on a fixed setting.",
+      "note": "\"Switch back to auto if on a fixed setting\" is absent (m9-04 has only \"lower the setting\")."
+    },
+    {
+      "ciasPage": 21,
+      "ciasQuote": "There might be too much humidification causing water to condense (which can also cause whistling sounds).",
+      "note": "The CIAS link between condensation and whistling is not stated; m9-04 gives leak, connection, vent and cushion causes instead."
+    },
+    {
+      "ciasPage": 22,
+      "ciasQuote": "Another option would be to place the CPAP machine on the floor rather than on an elevated surface. This can draw any condensation down",
+      "note": "The tip to put the machine on the floor to reduce condensation is absent. It conflicts with CIAS p23 (\"If your CPAP machine is on the floor, try to elevate it away from dust\"), so it needs clinical review before being restored."
+    },
+    {
+      "ciasPage": 22,
+      "ciasQuote": "You can also use petroleum creams (e.g., Vaseline, Aquaphor) to help reduce friction on your face.",
+      "note": "Petroleum creams for facial friction are absent, and m9-05 keyPoints[1] points the other way. CLINICAL_REVIEW."
+    },
+    {
+      "ciasPage": 22,
+      "ciasQuote": "Make sure you have a hypoallergenic mask made of silicone.",
+      "note": "Hypoallergenic silicone mask advice is absent."
+    },
+    {
+      "ciasPage": 22,
+      "ciasQuote": "For example, a nasal pillow type mask might reduce skin contact and be easier to use for you.",
+      "note": "Partial: the specific skin-contact benefit of nasal pillows (stated in both the mask-comfort and skin questions) is made more general in m9-02 and absent from m9-05."
+    },
+    {
+      "ciasPage": 22,
+      "ciasQuote": "You can use a nasal saline spray before sleep at night or there are several humidifier options (pass-over humidifier or heated humidifier)",
+      "note": "Partial: humidifier types (pass-over vs heated) and saline \"before sleep\" timing are not carried over."
+    },
+    {
+      "ciasPage": 22,
+      "ciasQuote": "Often placing an additional humidifier in the room can help, as your machine will run already humidified air.",
+      "note": "Extra room humidifier tip is absent."
+    },
+    {
+      "ciasPage": 22,
+      "ciasQuote": "Sometimes a chin strap or mouth tape like Somnofix can help keep your mouth closed, helping with the sensation of dry mouth.",
+      "note": "Mouth tape (Somnofix) is absent; only the chin strap is kept."
+    },
+    {
+      "ciasPage": 22,
+      "ciasQuote": "We would not recommend using a mouth tape without checking with your doctor to ensure that your nasal passages are healthy.",
+      "note": "Mouth-tape safety caveat is absent (it goes with the omitted mouth-tape option)."
+    },
+    {
+      "ciasPage": 22,
+      "ciasQuote": "To ensure CPAP pressure is optimal, you may need to get a full-face mask.",
+      "note": "Partial: the reason for a full-face mask (\"to ensure CPAP pressure is optimal\") is omitted."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "Sometimes CPAP can worsen nasal allergies",
+      "note": "Statement that CPAP can worsen nasal allergies is absent."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "If your CPAP machine is on the floor, try to elevate it away from dust or where allergens might collect.",
+      "note": "Lift the machine off the floor away from dust: absent."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "Remove known allergens (including pets) from where you sleep ○ Vacuum to remove dust and allergens",
+      "note": "Partial: pets and vacuuming specifics left out (m9-08 says \"reduce allergens/dust\")."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "Lastly, taking a nasal spray or oral allergy medicine before sleep might help. Please speak to your healthcare provider prior to starting.",
+      "note": "Partial: oral allergy medicine is not named; m9-08 says \"discuss medications\"."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "A saline spray is an over the counter spray and can help reduce congestion and is safe to use in pregnancy",
+      "note": "Pregnancy-specific safety statement absent. CLINICAL_REVIEW."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "Nasal steroids are also safe to use in pregnancy and some are found over the counter.",
+      "note": "Pregnancy-specific nasal steroid statement absent. CLINICAL_REVIEW."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "These options are preferred to oral medications and can be used as a first line.",
+      "note": "Preference for nasal sprays over oral medications is absent. CLINICAL_REVIEW."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "Watch this short video to learn how.",
+      "note": "Nasal spray technique video is absent."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "Consider using a small amount of a non-petroleum-based cream in your nostrils, regular vaseline can help.",
+      "note": "Nostril cream advice is absent. The CIAS sentence contradicts itself (non-petroleum cream vs \"regular vaseline\", which is petroleum jelly), so it needs clinical resolution if restored."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "That could be a sign you are swallowing air (going down your esophagus) instead of your trachea (windpipe).",
+      "note": "Partial: the esophagus-vs-windpipe explanation is omitted."
+    },
+    {
+      "ciasPage": 23,
+      "ciasQuote": "Speak to your healthcare provider to adjust your CPAP pressure and keep the head of the bed up if you can.",
+      "note": "Partial: \"keep the head of the bed up if you can\" is made general in m9-09 (\"sleeping position or pillow arrangement\")."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "All of the components of your machine should be sanitized at least once a month.",
+      "note": "Cleaning frequency: monthly sanitizing of all components is absent; m9-11 says only \"periodic broader cleaning\". CLINICAL_REVIEW."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "regular cleaning of the mask and humidifier components daily, and tubing on a weekly basis is recommended to promote your health and machine longevity.",
+      "note": "Cleaning frequency: \"daily\" for mask and humidifier is absent (weekly tubing is kept). m9-11 leaves the mask/cushion schedule to the manual."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "Replace the water in the humidification chamber. Wash with soap. Allow to air dry outside of direct sunlight.",
+      "note": "Partial: the daily water change is kept; daily soap washing and air-drying of the chamber is not stated."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "Remove the tubing and wash with mild soap, rinse well, and allow to air dry over a shower rod.",
+      "note": "Partial: drying the tubing over a shower rod is absent."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "sanitize by filling the chamber with a mixture of 1 part white vinegar to 1 part water. Allow to sit for 15-20 minutes",
+      "note": "Cleaning method: weekly humidifier sanitizing with 1:1 white vinegar and water for 15-20 minutes is absent."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "soak each part in a solution of 1 white vinegar and 1 part water for 20 minutes. Rinse and then air dry.",
+      "note": "Cleaning method: monthly vinegar soak of all parts for 20 minutes is absent. CIAS typo: \"1 white vinegar\" should read \"1 part white vinegar\" if restored."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "It’s important to always use distilled water or boiled water (allow to cool first) in the PAP humidifier.",
+      "note": "Partial: the boiled-and-cooled water alternative is absent; \"always\" softened to \"as directed\"."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "If this isn’t possible, remember to regularly remove any white buildup (mineral deposits) as this may damage the humidifier over time.",
+      "note": "Partial: the fallback (remove white mineral buildup that can damage the humidifier) is reduced to \"reduce buildup\"."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "You can rent or purchase a travel CPAP machine.",
+      "note": "TRAVEL: the CIAS question \"How do I continue CPAP if I'm traveling?\" is missing from m9 entirely. Elsewhere in the app, only m8 says \"Use PAP whenever sleeping, including ... travel\"."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "Travel CPAP machines are smaller devices that can often hold a charge without requiring power from a wall outlet.",
+      "note": "TRAVEL: battery-capable travel machines are absent."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "Some versions may be compatible with the electricity available in RVs as well.",
+      "note": "TRAVEL: RV power compatibility is absent."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "You can bring a CPAP machine and tubing with you in your carry-on luggage aboard the plane or place it in checked luggage.",
+      "note": "FLYING: the CIAS question \"Can I fly with a CPAP machine?\" is missing from m9 entirely; carry-on and checked luggage guidance is absent."
+    },
+    {
+      "ciasPage": 24,
+      "ciasQuote": "CPAP machines must be removed for x-ray screening from your carry-on luggage. View TSA guidance here and here.",
+      "note": "FLYING: x-ray screening requirement and TSA guidance links are absent."
+    }
+  ],
+  "fixes": [
+    {
+      "screenId": "m9-11",
+      "lang": "en",
+      "field": "paragraphs[0]",
+      "current": "with weekly tubing cleaning and periodic broader cleaning as recommended by the CIAS source.",
+      "proposed": "with weekly tubing cleaning and periodic broader cleaning.",
+      "justification": "Implementation/formatting error: an internal source label (\"the CIAS source\") is in learner-facing text. It appears nowhere else in app content, and source tracking already lives in sourceIds. This removes the label only and changes no medical content. Whether \"periodic\" should state the CIAS \"at least once a month\" is a separate CLINICAL_REVIEW item; if the reviewer rewrites the sentence, this fix is covered by that rewrite."
+    },
+    {
+      "screenId": "m9-11",
+      "lang": "en",
+      "field": "narrationText",
+      "current": "with weekly tubing cleaning and periodic broader cleaning as recommended by the CIAS source.",
+      "proposed": "with weekly tubing cleaning and periodic broader cleaning.",
+      "justification": "Keeps narration matched to the fixed paragraph."
+    },
+    {
+      "screenId": "m9-11",
+      "lang": "es",
+      "field": "paragraphs[0]",
+      "current": "limpieza semanal del tubo y una limpieza más amplia periódica según la fuente CIAS.",
+      "proposed": "limpieza semanal del tubo y una limpieza más amplia periódica.",
+      "justification": "Spanish version of the same internal-label removal."
+    },
+    {
+      "screenId": "m9-11",
+      "lang": "es",
+      "field": "narrationText",
+      "current": "limpieza semanal del tubo y una limpieza más amplia periódica según la fuente CIAS.",
+      "proposed": "limpieza semanal del tubo y una limpieza más amplia periódica.",
+      "justification": "Keeps narration matched to the fixed paragraph."
+    },
+    {
+      "screenId": "m9-q1",
+      "lang": "es",
+      "field": "narrationText",
+      "current": "Una persona que usa PAP despierta con los ojos rojos y doloridos y nota que sale aire cerca del borde superior de la mascarilla. Según este módulo, ¿cuál es la mejor primera interpretación y respuesta? Bajar de inmediato la presión indicada y volver a evaluar después de una noche. Revisar el ajuste de la mascarilla y buscar apoyo sobre la mascarilla si la fuga continúa. Suspender PAP por completo porque cualquier irritación ocular significa que el tratamiento no es seguro. Aumentar la humidificación antes de comprobar si hay una fuga de aire. El aire cerca de la parte superior de la mascarilla puede indicar una fuga. Primero revisa el ajuste y busca apoyo sobre la mascarilla si persiste.",
+      "proposed": "Una persona que usa PAP despierta con los ojos rojos y doloridos y nota que sale aire cerca del borde superior de la mascarilla. Según este módulo, ¿cuál es la mejor primera interpretación y respuesta? Bajar de inmediato la presión indicada y volver a evaluar después de una noche. Revisar el ajuste de la mascarilla y buscar apoyo sobre la mascarilla si la fuga continúa. Suspender PAP por completo porque cualquier irritación ocular significa que el tratamiento no es seguro. Aumentar la humidificación antes de comprobar si hay una fuga de aire.",
+      "justification": "Implementation error: the ES question narration adds questionFeedback.generalExplanation at the end, so the answer is read aloud before the learner chooses. EN narration (prompt + choices) does not. Cause: src/content/es/localize.ts line 93 builds narrationText from draft.body.join(' '), and draft.body includes the explanation at index choices.length+1 (the EN helper in src/content/helpers.ts line 134 uses [prompt, ...labels]). The same pattern affects m5-es (q3, q5, q9, q11), m7-es (r1) and m8-es (q1, q2), which are outside this m9 audit."
+    },
+    {
+      "screenId": "m9-q2",
+      "lang": "es",
+      "field": "narrationText",
+      "current": "Una persona que usa PAP tiene eructos e hinchazón frecuentes. Piensa que la solución más fácil es bajar por su cuenta la presión indicada. ¿Qué debería hacer en su lugar? Bajar por su cuenta la presión indicada y seguir ajustándola hasta que se detenga la hinchazón. Dejar de usar PAP cada vez que aparezca hinchazón, posponer el reinicio y esperar hasta que la molestia haya desaparecido por completo. Revisar si hay una función de rampa y hablar sobre los síntomas y la presión indicada con el equipo de salud. Apretar más la mascarilla para impedir que entre aire al estómago. Una función de rampa puede ayudar con la comodidad, mientras que los síntomas y las configuraciones indicadas deben hablarse con el profesional de salud que indicó el tratamiento.",
+      "proposed": "Una persona que usa PAP tiene eructos e hinchazón frecuentes. Piensa que la solución más fácil es bajar por su cuenta la presión indicada. ¿Qué debería hacer en su lugar? Bajar por su cuenta la presión indicada y seguir ajustándola hasta que se detenga la hinchazón. Dejar de usar PAP cada vez que aparezca hinchazón, posponer el reinicio y esperar hasta que la molestia haya desaparecido por completo. Revisar si hay una función de rampa y hablar sobre los síntomas y la presión indicada con el equipo de salud. Apretar más la mascarilla para impedir que entre aire al estómago.",
+      "justification": "Implementation error: the ES question narration adds questionFeedback.generalExplanation at the end, so the answer is read aloud before the learner chooses. EN narration (prompt + choices) does not. Cause: src/content/es/localize.ts line 93 builds narrationText from draft.body.join(' '), and draft.body includes the explanation at index choices.length+1 (the EN helper in src/content/helpers.ts line 134 uses [prompt, ...labels]). The same pattern affects m5-es (q3, q5, q9, q11), m7-es (r1) and m8-es (q1, q2), which are outside this m9 audit."
+    },
+    {
+      "screenId": "m9-q3",
+      "lang": "es",
+      "field": "narrationText",
+      "current": "Una persona que usa PAP quiere limpiar correctamente el equipo, pero encuentra instrucciones en línea que difieren de las instrucciones que venían con la máquina. ¿Qué debe guiar primero la rutina de limpieza? Elegir el método en línea que use la solución de limpieza más fuerte. Empezar con las instrucciones del fabricante y usar orientación general compatible solo como complemento. Usar un calendario universal porque todos los dispositivos requieren exactamente los mismos productos, tiempos y pasos. Omitir la limpieza a menos que el equipo se vea sucio o huela mal. Las instrucciones del fabricante son lo principal porque los requisitos de limpieza pueden variar según el dispositivo.",
+      "proposed": "Una persona que usa PAP quiere limpiar correctamente el equipo, pero encuentra instrucciones en línea que difieren de las instrucciones que venían con la máquina. ¿Qué debe guiar primero la rutina de limpieza? Elegir el método en línea que use la solución de limpieza más fuerte. Empezar con las instrucciones del fabricante y usar orientación general compatible solo como complemento. Usar un calendario universal porque todos los dispositivos requieren exactamente los mismos productos, tiempos y pasos. Omitir la limpieza a menos que el equipo se vea sucio o huela mal.",
+      "justification": "Implementation error: the ES question narration adds questionFeedback.generalExplanation at the end, so the answer is read aloud before the learner chooses. EN narration (prompt + choices) does not. Cause: src/content/es/localize.ts line 93 builds narrationText from draft.body.join(' '), and draft.body includes the explanation at index choices.length+1 (the EN helper in src/content/helpers.ts line 134 uses [prompt, ...labels]). The same pattern affects m5-es (q3, q5, q9, q11), m7-es (r1) and m8-es (q1, q2), which are outside this m9 audit."
+    },
+    {
+      "screenId": "m9-09",
+      "lang": "en",
+      "field": "image-registry altText (m9-09-sleep-bloating)",
+      "current": "Person sleeping while illustrating a PAP-related comfort concern.",
+      "proposed": "Pregnant person sitting on a couch with a hand over her mouth, looking uncomfortable.",
+      "justification": "Implementation/accessibility error: the image shows an awake, seated pregnant person with a hand over her mouth and no PAP device, not a sleeping person. Not a CIAS content issue. File: src/content/image-registry.ts line 78."
+    },
+    {
+      "screenId": "m9-09",
+      "lang": "es",
+      "field": "image-registry altText (m9-09-sleep-bloating)",
+      "current": "Persona durmiendo mientras se ilustra una preocupación de comodidad relacionada con PAP.",
+      "proposed": "Persona embarazada sentada en un sofá con la mano sobre la boca y expresión de malestar.",
+      "justification": "Same alt-text correction in Spanish; a bilingual reviewer should confirm the wording."
+    }
+  ],
+  "clinicalReview": [
+    {
+      "screenId": "ALL",
+      "issue": "All 14 m9 screens, including the 3 quizzes, list the same sourceIds: cias-ez-pap-document plus ats-pap-overview, ats-pap-troubleshooting and ats-pap-care-cleaning. The repo docs (CLINICAL_SOURCE_REGISTRY.md, CIAS_SOURCE_TRACEABILITY.md) say the three ATS IDs are not yet clinically approved, and there is no statement-level mapping. Every NOT_IN_CIAS instruction in this audit depends on those unapproved sources or is app-authored. Context: CIAS itself lists the ATS PAP troubleshooting PDF under \"Section IV: Resources to Incorporate or Link to\" (p27). That may bear on approving ats-pap-troubleshooting, but not the other two."
+    },
+    {
+      "screenId": "m9-02",
+      "issue": "Threshold drift: CIAS says the mask should not be \"too tight\" and, if it must be \"very tight\", to ask the healthcare provider about a different type of mask. The app says \"painfully tight\" and \"ask for a refit\". App-added fitting technique (fit with airflow on, one strap at a time, overtightening worsens leaks) is not in CIAS."
+    },
+    {
+      "screenId": "m9-03",
+      "issue": "App-added leak technique not in CIAS: lift-and-reseal with airflow on, checking for a folded cushion and seated connectors, routing tubing over the chest or using a holder, not blocking vents."
+    },
+    {
+      "screenId": "m9-04",
+      "issue": "Whistling cause differs: CIAS says whistling can come from condensation caused by too much humidification; the app gives leak, connection, vent and cushion causes and never states the CIAS cause. Heated-tubing advice and the vent warning are not in CIAS. Omitted CIAS tips: switch to \"auto\", and put the machine on the floor (which conflicts with the CIAS p23 advice to lift it away from dust)."
+    },
+    {
+      "screenId": "m9-05",
+      "issue": "CONTRADICTION (implied): CIAS p22 suggests petroleum creams (Vaseline, Aquaphor) on the face to reduce friction. m9-05 leaves this out and says \"Do not apply an unapproved product to the mask or skin without checking the manufacturer or care team.\" CIAS \"hypoallergenic mask made of silicone\" is omitted. The mask liner, face/mask cleaning for seal, and skin safety-net thresholds are not in CIAS."
+    },
+    {
+      "screenId": "m9-06",
+      "issue": "App-added: check for a leak first, heated tubing, saline gel, and asking before a chin strap. CIAS treats humidification as something the user adjusts; the app says to ask first. Omitted: extra room humidifier, humidifier types."
+    },
+    {
+      "screenId": "m9-07",
+      "issue": "CIAS offers mouth tape (Somnofix) with a \"check with your doctor\" caveat; the app leaves both out. A clinical decision is needed on whether the omission is intentional."
+    },
+    {
+      "screenId": "m9-08",
+      "issue": "PREGNANCY-SPECIFIC: CIAS p23 says saline spray is safe in pregnancy and the recommended first option, nasal steroids are also safe in pregnancy (some are over the counter), and both are preferred to oral medicines. m9-08 leaves all of this out and adds \"especially during pregnancy\" as a caution. App-added thresholds: nosebleeds, worsening breathing. If the CIAS nostril-cream advice is restored, its self-contradiction (non-petroleum cream vs Vaseline) needs resolving."
+    },
+    {
+      "screenId": "m9-09",
+      "issue": "App-added therapy content not in CIAS Section III: the clinician may consider an expiratory comfort feature, auto-PAP or bilevel PAP (CIAS p10 lists these only as prescriber-chosen machine types), and the \"prompt review\" threshold. The specific CIAS advice \"keep the head of the bed up if you can\" is made more general."
+    },
+    {
+      "screenId": "m9-10",
+      "issue": "App-added: heated tube, and routing tubing over the chest or under a blanket to reduce heat loss. Not in CIAS."
+    },
+    {
+      "screenId": "m9-11",
+      "issue": "Cleaning frequency and method are blurred against CIAS p24, which says: mask and humidifier components daily; tubing weekly; humidifier sanitized weekly with 1:1 white vinegar and water for 15-20 minutes; all components sanitized at least once a month (20-minute vinegar soak); always distilled or boiled-and-cooled water. The app keeps only \"weekly tubing\" and leaves the rest to the manufacturer (\"periodic broader cleaning\"). The ATS-derived bans (immersion, bleach, alcohol, harsh cleaners, household wipes, unapproved cleaning devices) are not in CIAS. A reviewer needs to decide whether to restore the CIAS frequencies and vinegar method within the manufacturer-first framing (CIAS typo \"1 white vinegar\" if restored)."
+    },
+    {
+      "screenId": "m9 (missing screens)",
+      "issue": "TRAVEL and FLYING: the CIAS p24 questions \"How do I continue CPAP if I'm traveling?\" (travel or battery machines, RV power) and \"Can I fly with a CPAP machine?\" (carry-on or checked luggage, removal for x-ray screening, TSA links) are not in m9. In the whole app, only m8 has a brief \"including ... travel\" line. This is CIAS-sourced content, not new advice; the decision whether to add it belongs to the content owner or clinical reviewer."
+    },
+    {
+      "screenId": "m9 (omissions)",
+      "issue": "Other Section III content is omitted (rental and insurance, mask-style/fit/humidity links, CPAP can worsen allergies, lift the machine away from dust, pets and vacuuming, oral allergy medicine, esophagus explanation). See the omissions list. The reviewer should decide which to restore."
+    }
+  ]
+}
