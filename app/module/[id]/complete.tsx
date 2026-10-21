@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { getModules, getModule } from '@/src/content';
 import { useApp } from '@/src/state/AppProvider';
 import { ActionButton, AppScreen, Card, ProgressMeter, StatusPill, elevation } from '@/src/components/ui';
-import { chooseVoice, speakScreen, stopNarration } from '@/src/services/narration';
+import { speakScreen, stopNarration } from '@/src/services/narration';
 import { useReducedMotion } from '@/src/hooks/useReducedMotion';
 import { fontFamily, palette, radius, spacing, touchTarget, type as typeScale } from '@/src/theme/tokens';
 
@@ -42,8 +42,7 @@ export default function ModuleCompletionScreen() {
   };
   const listen = async () => {
     if (!lastScreen || !state.narrationEnabled) return;
-    const voice = await chooseVoice(state.language, state.voiceByLocale[state.language]);
-    if (voice) await speakScreen(lastScreen, state.language, state.narrationRate, voice, state.narrationPitch);
+    await speakScreen(lastScreen, state.language, state.narrationRate, state.voiceByLocale[state.language], state.narrationPitch);
   };
   const continueLabel = next ? t('continueToNextModule', { module: next.shortTitle }) : t('backToModules');
   const reviewModuleLabel = es ? 'Repasar módulo' : 'Review Module';
