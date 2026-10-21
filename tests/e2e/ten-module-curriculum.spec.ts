@@ -8,6 +8,7 @@ const isScored = (screen: LessonScreen) =>
   (screen.type === 'singleChoice' && Boolean(screen.correctChoiceId)) ||
   (screen.type === 'multiSelect' && Boolean(screen.correctChoiceIds?.length));
 
+
 async function seed(page: Page, state: Record<string, unknown>) {
   await page.addInitScript(([key, value]) => {
     if (!sessionStorage.getItem('seeded')) {
@@ -17,15 +18,18 @@ async function seed(page: Page, state: Record<string, unknown>) {
   }, [STORAGE_KEY, JSON.stringify(state)] as const);
 }
 
-test('the home path lists all ten modules in order in English and Spanish', async ({ page }) => {
+test('the home path lists all ten modules in order in English and Spanish', async ({ browser }) => {
   for (const [language, modules] of [['en', englishModules], ['es', spanishModules]] as const) {
+    // A fresh context per language, seeded before any app code runs, so the app cannot persist over it.
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await seed(page, { language });
     await page.goto('/');
-    await page.evaluate(([key, lang]) => { localStorage.clear(); localStorage.setItem(key, JSON.stringify({ language: lang })); }, [STORAGE_KEY, language] as const);
-    await page.reload();
     for (const module of modules) {
       await expect(page.getByRole('button', { name: new RegExp(`^${module.order}\\. ${module.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\.`) })).toBeVisible();
     }
     await expect(page.getByRole('button', { name: /^11\. / })).toHaveCount(0);
+    await context.close();
   }
 });
 
@@ -38,8 +42,7 @@ for (const language of ['en', 'es'] as const) {
   test(`every ${language === 'en' ? 'English' : 'Spanish'} module is reachable and completable by clicking through every screen`, async ({ page }) => {
     test.setTimeout(900_000);
     const t = ui[language];
-    await page.goto('/');
-    await page.evaluate(([key, lang]) => { localStorage.clear(); localStorage.setItem(key, JSON.stringify({ language: lang })); }, [STORAGE_KEY, language] as const);
+    await seed(page, { language });
     for (const [moduleIndex, module] of t.modules.entries()) {
       await page.goto(`/module/${module.id}`);
       await expect(page.getByRole('heading', { name: module.title })).toBeVisible();
