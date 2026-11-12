@@ -14,6 +14,7 @@ import { LessonVideoCard } from './LessonVideoCard';
 import { imagesForLesson } from '@/src/content/image-registry';
 import { useReducedMotion } from '@/src/hooks/useReducedMotion';
 import { richPresentation } from '@/src/content/rich-presentation';
+import { boilerplateQuestionCopy, normalizeQuestionCopy } from '@/src/utils/question-copy';
 
 const ChoicePressable = Pressable as React.ComponentType<any>;
 const RichListItemView = View as React.ComponentType<any>;
@@ -142,7 +143,7 @@ export function LessonRenderer({ screen, onSubmitted, onEditingChange }: { scree
       : <View key={index} accessibilityRole="list" accessibilityLabel={t('listItems', { count: block.items.length })} style={styles.unorderedList}>{block.items.map((item, itemIndex) => <RichListItemView key={itemIndex} role="listitem" style={styles.unorderedItem}><Text accessible={false} style={styles.unorderedBullet}>•</Text><Text style={styles.unorderedText}>{item.map((segment, segmentIndex) => <Text key={segmentIndex} style={segment.bold ? styles.boldText : undefined}>{segment.text}</Text>)}</Text></RichListItemView>)}</View>)}
     {screen.orderedList ? <View accessibilityRole="list" accessibilityLabel={t('orderedListItems', { count: screen.orderedList.length })} style={styles.orderedList}>{screen.orderedList.map((item, index) => <RichListItemView key={item} role="listitem" style={styles.orderedItem}><Text style={styles.orderedNumber}>{index + 1}.</Text><Text style={styles.orderedText}>{item}</Text></RichListItemView>)}</View> : null}
     {screen.keyPoints?.length ? <View style={styles.takeaway}><View style={styles.takeawayHeader}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="lightbulb-on-outline" size={17} color={palette.dawnInk} /><Text style={styles.takeawayLabel}>{t('keyPoint')}</Text></View>{screen.keyPoints.map((point, index) => <View key={index} style={styles.point}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="check-circle-outline" size={22} color={palette.primary} /><Text style={styles.pointText}>{point}</Text></View>)}</View> : null}
-    {screen.sourceVisibleLabels?.length ? <View style={styles.takeaway}><Text style={styles.takeawayLabel}>SOURCE-VISIBLE LABELS</Text>{screen.sourceVisibleLabels.map((label, index) => <View key={index} style={styles.point}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="label-outline" size={22} color={palette.primary} /><Text style={styles.pointText}>{label}</Text></View>)}</View> : null}
+    {screen.sourceVisibleLabels?.length ? <View style={styles.takeaway}>{screen.sourceVisibleLabels.map((label, index) => <View key={index} style={styles.point}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="label-outline" size={22} color={palette.primary} /><Text style={styles.pointText}>{label}</Text></View>)}</View> : null}
     {['m1-01', 'm1-07'].includes(screen.id) ? <Pressable accessibilityRole="link" accessibilityLabel={t('supportingSourceNhlbi')} onPress={() => void Linking.openURL('https://www.nhlbi.nih.gov/health/sleep-apnea')} style={styles.sourceLinkButton}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="open-in-new" size={17} color={palette.primary} /><Text style={styles.sourceLink}>{t('supportingSourceNhlbi')}</Text></Pressable> : null}
     </View>
   </View>;
@@ -150,7 +151,7 @@ export function LessonRenderer({ screen, onSubmitted, onEditingChange }: { scree
 
   if (screen.type === 'summary') return <View style={styles.stack}><Text accessibilityRole="header" style={styles.lessonTitle}>{screen.title}</Text>{imagesForLesson(screen.id).filter((asset) => !screen.sourceIds?.includes('cias-screenshot-recovery') || asset.displayOnSourceRecovered).map((asset) => <CurriculumImage key={asset.id} asset={asset} locale={state.language} />)}<View style={styles.summaryList}>{screen.keyPoints.map((point, index) =>
     <View key={index} style={styles.summaryRow}><View style={styles.summaryCheck}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="check" size={16} color={palette.white} /></View><Text style={styles.pointText}>{point}</Text></View>)}
-  </View>{screen.sourceVisibleLabels?.length ? <View style={styles.takeaway}><Text style={styles.takeawayLabel}>SOURCE-VISIBLE LABELS</Text>{screen.sourceVisibleLabels.map((label, index) => <View key={index} style={styles.point}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="label-outline" size={22} color={palette.primary} /><Text style={styles.pointText}>{label}</Text></View>)}</View> : null}</View>;
+  </View>{screen.sourceVisibleLabels?.length ? <View style={styles.takeaway}>{screen.sourceVisibleLabels.map((label, index) => <View key={index} style={styles.point}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="label-outline" size={22} color={palette.primary} /><Text style={styles.pointText}>{label}</Text></View>)}</View> : null}</View>;
 
   if (screen.type === 'reflection') return <LocalReflectionRenderer screen={screen} onSubmitted={() => onSubmitted()} />;
 
@@ -158,8 +159,6 @@ export function LessonRenderer({ screen, onSubmitted, onEditingChange }: { scree
   const isUnscoredSourceQuestion = question.answerBehaviorProvenance === 'CIAS_ANSWER_KEY_NOT_RECOVERED';
   const isChoiceReflection = question.questionKind === 'reflection' || isUnscoredSourceQuestion;
   const isSavedResponse = isChoiceReflection;
-  const normalizeQuestionCopy = (value: string) => value.toLocaleLowerCase().replace(/[¿?¡!():,;.…]+/g, ' ').replace(/\s+/g, ' ').trim();
-  const boilerplateQuestionCopy = /^(knowledge check|question time|check your understanding|comprehension check(?: \d+)?(?: .*)?|comprobaci[oó]n de conocimientos|comprobar comprensi[oó]n|verificaci[oó]n de comprensi[oó]n(?: \d+)?(?: .*)?|select the right answer|seleccione la respuesta correcta|true or false|verdadero o falso)( this question is for learning not a comprehension check)?$/;
   const normalizedTitle = normalizeQuestionCopy(question.title);
   const normalizedPrompt = normalizeQuestionCopy(question.prompt);
   const hasDuplicateQuestionCopy = normalizedTitle === normalizedPrompt;

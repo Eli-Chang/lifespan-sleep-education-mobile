@@ -1,0 +1,670 @@
+[
+ {
+  "id": "F01",
+  "screenId": "m3-04",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "SOURCE-VISIBLE LABELS (heading rendered above \"Consistent PAP treatment for sleep apnea\", \"Well-controlled stress levels\", ...)",
+  "problem": "An internal authoring heading is shown to learners. LessonRenderer renders the hard-coded English text \"SOURCE-VISIBLE LABELS\" whenever a screen has sourceVisibleLabels; m3-04 is the only screen that has them, so both English and Spanish learners see this internal label (and Spanish learners see it in English).",
+  "proposedFix": "In src/components/LessonRenderer.tsx (content branch line 145, summary branch line 153), drop the \"SOURCE-VISIBLE LABELS\" heading text and render the label list without it, or swap it for an existing localized learner-facing label via t(). No curriculum text changes.",
+  "classification": "safe-editorial-fix",
+  "evidence": "C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/src/components/LessonRenderer.tsx:145 and :153 (still hard-coded after the UI-strings move; not in src/i18n/strings.ts). Snapshot: m3-04 sourceVisibleLabels length 5 in EN and ES; no other screen has them. grep of docs/ and tests/ finds no mention of the heading."
+ },
+ {
+  "id": "F02",
+  "screenId": "m5-q9, m5-q3",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "EN m5-q9: \"This source activity is pointing to stronger day–night cues...\"; EN m5-q3: \"This source activity highlights individual differences...\"; ES: \"Esta actividad de la fuente se refiere a...\" / \"Esta actividad de la fuente destaca...\"",
+  "problem": "Authoring/provenance wording (\"source activity\", \"de la fuente\") appears in learner-facing feedback shown after answering. Same kind of leak as the \"as recommended by the CIAS source\" label already removed from m9-11.",
+  "proposedFix": "EN m5-q9: \"This source activity is pointing to\" -> \"This activity points to\". EN m5-q3: \"This source activity highlights\" -> \"This activity highlights\". ES m5-q9: \"Esta actividad de la fuente se refiere a\" -> \"Esta actividad se refiere a\". ES m5-q3: \"Esta actividad de la fuente destaca\" -> \"Esta actividad destaca\". (m5-q9 explanation content is separately flagged for clinical review.)",
+  "classification": "safe-editorial-fix",
+  "evidence": "C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/src/content/en/modules/module-05.ts:14 (m5-q9) and :19 (m5-q3); src/content/es/modules/module-05.ts:21 (m5-q9) and :15 (m5-q3). Precedent: docs/curriculum-audit-20261021/README.md section 3 (m9-11 label removal)."
+ },
+ {
+  "id": "F03",
+  "screenId": "m6-01",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "EN: \"The image here shows a woman blowing her nose, another woman who is holding her chest and looks uncomfortable, and a third woman is holding her head and appears worried and anxious.\" ES: \"La imagen muestra a una mujer sonándose la nariz, a otra que se sostiene el pecho...\"",
+  "problem": "Body text describes a three-woman composite image from the CIAS screenshot that is not in the app. The only image displayed on m6-01 is m6-01-pregnancy-congestion.webp, one pregnant woman blowing her nose on a couch (alt: \"Pregnant person seated while experiencing nasal symptoms.\"). cpap-patient is mapped too but hidden on CIAS-recovered screens. Text contradicts the picture and its alt text.",
+  "proposedFix": "Delete paragraphs[5] in EN (src/content/en/cias-source.ts:73) and the matching last paragraph in ES (src/content/es/cias-translations.ts m6-01 entry, line 276). Paragraph counts stay equal (6 -> 5 in both).",
+  "classification": "safe-editorial-fix",
+  "evidence": "Image viewed: C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-6/m6-01-pregnancy-congestion.webp. Display filter: LessonRenderer.tsx:133 (CIAS-recovered screens show only images with displayOnSourceRecovered; cpap-patient at image-registry.ts:59 lacks it). Source of the sentence: CIAS-SCREENSHOT-SOURCE-ARCHIVE.json record 6.1 (172134)."
+ },
+ {
+  "id": "F04",
+  "screenId": "m5-21",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "EN: \"Here's a link to the American College of Obstetricians and Gynecologists page about exercise during pregnancy.\" ES: \"Aquí hay un enlace a la página del American College of Obstetricians and Gynecologists...\"",
+  "problem": "The sentence promises a link that does not exist. The renderer adds a tappable link only on m1-01 and m1-07 (NHLBI); m5-21 shows plain text. The CIAS archive notes the link destination was never visible.",
+  "proposedFix": "Minimal: delete paragraphs[3] in EN (cias-source.ts:64) and ES (cias-translations.ts m5-21 entry, line 247). Alternative for the owner: add a real ACOG link using the same mechanism as the NHLBI link (needs a chosen URL).",
+  "classification": "safe-editorial-fix",
+  "evidence": "LessonRenderer.tsx:146 (link only for ['m1-01','m1-07']). CIAS archive record 5.25 structural note: \"The word link is visibly styled as a link; destination is not visible.\""
+ },
+ {
+  "id": "F05",
+  "screenId": "m2-04",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "EN: \"Untreated sleep apnea can have drastic effects on both the mother and the baby, as we learned in the previous modules.\" ES: \"...como aprendimos en los módulos anteriores.\"",
+  "problem": "Wrong cross-reference. m2 is module 2; effects on mother and baby are taught in m3 (module 3) and m4 (module 4), which come after it. m1 does not cover them. (Inherited from the CIAS text, which had the same order.)",
+  "proposedFix": "EN: \"as we learned in the previous modules.\" -> \"as you will learn in the next modules.\" ES: \"como aprendimos en los módulos anteriores.\" -> \"como verá en los próximos módulos.\"",
+  "classification": "safe-editorial-fix",
+  "evidence": "Snapshot module order: 1 m1, 2 m2, 3 m3, 4 m4. Source: src/content/en/cias-source.ts:15; src/content/es/cias-translations.ts:50."
+ },
+ {
+  "id": "F06",
+  "screenId": "m2-04",
+  "locales": [
+   "en"
+  ],
+  "quote": "\"Studies show individual with partners actually experience better CPAP adherence\"",
+  "problem": "Typo (singular noun after \"Studies show\").",
+  "proposedFix": "\"individual with partners\" -> \"individuals with partners\". Spanish already reads correctly.",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:15 (verbatim from CIAS record 2.5)."
+ },
+ {
+  "id": "F07",
+  "screenId": "m2-05",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "EN title: \"How can CPAP help improve intimacy? (continued)\"; ES: \"¿Cómo puede CPAP mejorar la intimidad? (continuación)\"",
+  "problem": "Dangling \"(continued)\": no earlier \"How can CPAP help improve intimacy?\" screen exists in the app (previous screen is m2-03 about the partner's sleeping experience) or in the CIAS sequence.",
+  "proposedFix": "Remove \" (continued)\" from the EN title and \" (continuación)\" from the ES title.",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:14; src/content/es/cias-translations.ts:46-47. CIAS archive 2.3 vs 2.4 headings."
+ },
+ {
+  "id": "F08",
+  "screenId": "m2-q2",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "Prompt: \"Question time! Which of the following statements is correct? (select all that apply).\" then instructions: \"Which of the following statements is correct? (select all that apply).\"",
+  "problem": "The same sentence appears twice on screen. The renderer shows instructions unless they normalize to exactly the prompt, and \"Question time!\" makes them differ, so both lines render (EN and ES).",
+  "proposedFix": "Set m2-q2 instructions to undefined in EN (src/content/en/cias-source.ts:16, the instructions argument of ciasMulti) and remove the instructions line in ES (src/content/es/cias-translations.ts m2-q2, line 57). Title remains hidden as a duplicate of the prompt.",
+  "classification": "safe-editorial-fix",
+  "evidence": "LessonRenderer.tsx:167-169 (showInstructions logic) replicated by script against the snapshot; EN narration also reads the sentence three times."
+ },
+ {
+  "id": "F09",
+  "screenId": "m2-q2, m6-q1",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "m2-q2 c4: \"Using CPAP when sleeping with your partner may help your partner fall asleep faster\" (no final period; c1-c3 end with \".\"); m6-q1 c5: \"Consider using Afrin on a nightly basis.\" (only option with a period)",
+  "problem": "Inconsistent punctuation within one option list (low priority). m2-q2 c4 lacks the period in EN and ES; m6-q1 c5 has a stray period in EN only.",
+  "proposedFix": "Add \".\" to m2-q2 c4 in EN (cias-source.ts:16) and ES (cias-translations.ts:58). Remove the final \".\" from m6-q1 c5 in EN (cias-source.ts:77).",
+  "classification": "safe-editorial-fix",
+  "evidence": "Snapshot choices for m2-q2 and m6-q1."
+ },
+ {
+  "id": "F10",
+  "screenId": "m4-01, m5-01, m6-01",
+  "locales": [
+   "en"
+  ],
+  "quote": "\"Don't worry about getting them wrong- these questions are purely just for learning!\"",
+  "problem": "Broken punctuation: hyphen used as a dash with no space before it (\"wrong- these\"). Spanish already uses a colon.",
+  "proposedFix": "\"wrong- these\" -> \"wrong: these\" in all three screens.",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:30, :42, :73."
+ },
+ {
+  "id": "F11",
+  "screenId": "m5-04",
+  "locales": [
+   "en"
+  ],
+  "quote": "\"...leading to reduced stress and anxiety, and improve sleep quality, and even cognitive function.\"",
+  "problem": "Grammar error in the visible remainder paragraph (verb \"improve\" in a list of nouns).",
+  "proposedFix": "Replace with \"...leading to reduced stress and anxiety, improved sleep quality, and even improved cognitive function.\" Keep the \"Simply having a bedtime routine\" opening unchanged because rich-presentation.ts uses it as the split anchor.",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:47; src/content/rich-presentation.ts bedtimeRemainderStart."
+ },
+ {
+  "id": "F12",
+  "screenId": "m5-11",
+  "locales": [
+   "en"
+  ],
+  "quote": "\"If having trouble falling asleep last for more than 20 minutes\"",
+  "problem": "Subject-verb agreement typo.",
+  "proposedFix": "\"last for more than 20 minutes\" -> \"lasts for more than 20 minutes\".",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:51 (verbatim from CIAS record 5.10)."
+ },
+ {
+  "id": "F13",
+  "screenId": "m5-q10",
+  "locales": [
+   "en"
+  ],
+  "quote": "Prompt: \"What 3 pieces of advice you can implement regarding naps and sleeping position?\"",
+  "problem": "Ungrammatical question (missing verb). Spanish reads correctly.",
+  "proposedFix": "-> \"What are 3 pieces of advice you can implement regarding naps and sleeping position?\"",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:68."
+ },
+ {
+  "id": "F14",
+  "screenId": "m6-03, m6-q1",
+  "locales": [
+   "en"
+  ],
+  "quote": "m6-03: \"Consider starting with a simply saline spray before bed.\"; m6-q1 c2: \"Simply saline spray before bed\"",
+  "problem": "Typo \"simply\" for \"simple\" (Spanish already says \"solución salina simple\").",
+  "proposedFix": "m6-03: \"a simply saline spray\" -> \"a simple saline spray\". m6-q1 c2: \"Simply saline spray before bed\" -> \"Simple saline spray before bed\".",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:75 and :77."
+ },
+ {
+  "id": "F15",
+  "screenId": "m6-03",
+  "locales": [
+   "en"
+  ],
+  "quote": "\"you may use a topical decongestant sprays such as Afrin, but do not use it...\"; \"intranasal steroid sprays such as Fluticasone, or budesonide, which may be purchased...\"",
+  "problem": "Article/number mismatch (\"a ... sprays\") and inconsistent drug-name capitalization plus stray comma (\"Fluticasone, or budesonide\"); m6-q1 c3 writes \"fluticasone or budesonide\".",
+  "proposedFix": "\"a topical decongestant sprays such as Afrin\" -> \"a topical decongestant spray such as Afrin\". \"such as Fluticasone, or budesonide, which\" -> \"such as fluticasone or budesonide, which\". No change to drug content.",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:75."
+ },
+ {
+  "id": "F16",
+  "screenId": "m6-05",
+  "locales": [
+   "en"
+  ],
+  "quote": "\"which can cause people to take off overnight or use it less overall. Helpful strategies to getting accustomed to the mask...\"",
+  "problem": "Missing object (\"take off\" what) and wrong preposition. Spanish reads correctly (\"se la quiten\").",
+  "proposedFix": "\"take off overnight\" -> \"take it off overnight\"; \"Helpful strategies to getting accustomed\" -> \"Helpful strategies for getting accustomed\".",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:79."
+ },
+ {
+  "id": "F17",
+  "screenId": "m6-q2",
+  "locales": [
+   "en"
+  ],
+  "quote": "c5: \"Take antacids medications before lifestyle modifications\"",
+  "problem": "Typo \"antacids medications\" (distractor; meaning unchanged).",
+  "proposedFix": "-> \"Take antacid medications before lifestyle modifications\".",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:80."
+ },
+ {
+  "id": "F18",
+  "screenId": "m5-21, m6-02, m7-06",
+  "locales": [
+   "en"
+  ],
+  "quote": "\"moderate–intensity aerobic activity\" (m5-21); \"Body–fluid changes\" (m6-02); \"a negative body–image perception\" (m7-06)",
+  "problem": "En dash used inside compound words where a hyphen belongs (ranges such as 60–68°F are correct and are not included).",
+  "proposedFix": "\"moderate–intensity\" -> \"moderate-intensity\"; \"Body–fluid\" -> \"Body-fluid\"; \"body–image\" -> \"body-image\".",
+  "classification": "safe-editorial-fix",
+  "evidence": "src/content/en/cias-source.ts:64, :74, :91. m7 is owner-reviewed material, so the m7-06 change is cosmetic only."
+ },
+ {
+  "id": "F19",
+  "screenId": "m3-q3, m3-q4, m5-q5, m5-q6, m5-q7, m5-q1, m5-q9, m5-q4, m5-q3, m5-q2, m5-q11, m5-q8, m5-q10, m6-q1, m6-q2, m6-q3, m7-04, m7-q2",
+  "locales": [
+   "es"
+  ],
+  "quote": "ES m3-q3/m3-q4 show \"Seleccione la respuesta correcta: (Esta pregunta es para aprender, no es una comprobación de conocimientos)\" twice (title and instructions); ES titles such as \"Comprobación de conocimientos 6: la importancia de la luz solar\" are visible while EN hides \"Comprehension Check 6: ...\"",
+  "problem": "The boilerplate filter that hides question titles/instructions has English variants only for numbered checks and the \"(This question is for learning...)\" suffix. Result: (1) Spanish m3-q3/m3-q4 show the same sentence twice while English shows neither; (2) 16 Spanish screens show \"Comprobación de conocimientos N: ...\" titles that English hides, exposing out-of-sequence numbers (Part 1 shows 1, 2, 3, 4, 6, 5; Part 2 shows 8, 7, 10, 9, 12).",
+  "proposedFix": "In src/components/LessonRenderer.tsx:162 change the Spanish alternative \"comprobaci[oó]n de conocimientos\" to \"comprobaci[oó]n de conocimientos(?: \\d+)?(?: .*)?\" and the trailing optional group to \"( this question is for learning not a comprehension check| esta pregunta es para aprender no es una comprobaci[oó]n de conocimientos)?\". Renderer-only; no content change.",
+  "classification": "safe-editorial-fix",
+  "evidence": "Renderer logic (LessonRenderer.tsx:161-169) replicated by script over the snapshot; EN/ES visibility differs on exactly these 18 screens. The m7-04/m7-q2 part is already noted in docs/curriculum-audit-20261021/audit-m7-readonly.md section 3; m3 and m5/m5b/m6 effects are not documented."
+ },
+ {
+  "id": "F20",
+  "screenId": "m4-06, m6-07",
+  "locales": [
+   "es",
+   "en"
+  ],
+  "quote": "boldPhrases es m4-06 \"daño orgánico\" (text says \"daño a órganos\"); en m6-07 \"diet changes and bed adjustments\" (text says \"dietary changes and bed adjustments\") and \"consult your doctor\" (text says \"consult with your doctor\")",
+  "problem": "Bold emphasis silently fails to match: Spanish m4-06 bolds 2 of 3 phrases; English m6-07 bolds nothing while Spanish m6-07 bolds both phrases.",
+  "proposedFix": "src/content/rich-presentation.ts:16 es m4-06 \"daño orgánico\" -> \"daño a órganos\"; :9 en m6-07 -> [\"dietary changes and bed adjustments\", \"consult with your doctor\"].",
+  "classification": "safe-editorial-fix",
+  "evidence": "Script check of every boldPhrases entry against the resolved paragraphs. m7-03/m7-06 English mismatches are already in audit-m7-readonly.md section 4 and are not repeated here."
+ },
+ {
+  "id": "F21",
+  "screenId": "m2-q1, m3-q1",
+  "locales": [
+   "en"
+  ],
+  "quote": "EN narrationText m2-q1: \"True or False? True or False? True False\"; m3-q1: \"True or False? (This question is for learning, not a comprehension check) True or False? (This question ...) True False\"",
+  "problem": "English narration never reads the statement being judged (it lives in contextParagraphs, which ciasSingle/ciasMulti leave out of narrationText). Spanish narration does read it. A learner using Listen hears only \"True or False?\" twice.",
+  "proposedFix": "src/content/helpers.ts:263 and :290: build narrationText as [title, ...(options.contextParagraphs ?? []), prompt, instructions, ...labels] (filter(Boolean)). Also matches the on-screen order (context, prompt, instructions).",
+  "classification": "safe-editorial-fix",
+  "evidence": "Snapshot narrationText for m2-q1/m3-q1 EN vs ES. Order problem for m7 already in audit-m7-readonly.md section 3; the missing statement is new."
+ },
+ {
+  "id": "F22",
+  "screenId": "m1-recap, m2-recap, m3-recap, m4-recap, m5-recap, m6-recap, m7-recap",
+  "locales": [
+   "es"
+  ],
+  "quote": "\"Espero que hayas aprendido que...\"",
+  "problem": "Each recap of modules 1-7 switches to informal tú (\"hayas\") while the rest of those modules uses usted.",
+  "proposedFix": "\"Espero que hayas aprendido\" -> \"Espero que haya aprendido\" in src/content/es/modules/module-01.ts:14, module-02.ts:11, module-03.ts:33, module-04.ts:12, module-05.ts:25, module-06.ts:12, module-07.ts:12. (m8/m9 use tú throughout and are a separate, documented decision.)",
+  "classification": "safe-editorial-fix",
+  "evidence": "Script scan of Spanish register markers per screen. m7-recap alone is already noted in audit-m7-readonly.md section 4; the other six are not."
+ },
+ {
+  "id": "F23",
+  "screenId": "m6-07",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "alt: \"Infographic with lifestyle suggestions for managing heartburn during pregnancy.\"",
+  "problem": "The infographic carries teaching text that m6-q2 depends on (smaller meals, raising the head of the bed), but the alt text names none of it, so screen-reader users cannot get the content. (Image content itself is flagged for clinical review separately.)",
+  "proposedFix": "EN alt -> \"Infographic titled How to manage heartburn during pregnancy: eat smaller meals more often; avoid eating 2 hours before exercising or going to bed; stay away from foods and drink that give you heartburn; avoid eating and drinking at the same time; sit up straight while eating and do not lie down right after a meal; raise the head of your bed or sleep on more pillows.\" ES alt draft (needs bilingual check) -> \"Infografía titulada Cómo controlar la acidez durante el embarazo: coma porciones más pequeñas con más frecuencia; evite comer 2 horas antes de hacer ejercicio o de acostarse; evite alimentos y bebidas que le causen acidez; evite comer y beber al mismo tiempo; siéntese derecha al comer y no se acueste justo después de comer; eleve la cabecera de la cama o duerma con más almohadas.\" Avoid apostrophes: tests/image-registry.test.ts parses alt text with a single-quote regex.",
+  "classification": "safe-editorial-fix",
+  "evidence": "Image viewed: C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-6/m6-07-heartburn-guidance.jpg. Registry: src/content/image-registry.ts:57."
+ },
+ {
+  "id": "F24",
+  "screenId": "m4-recap",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "alt: \"Educational graphic summarizing benefits of PAP treatment for obstructive breathing during sleep.\"",
+  "problem": "Alt text does not describe the image. The image is a hand-drawn flow diagram: \"Consistent PAP treatment for sleep apnea\" -> \"Well-controlled stress levels\" / \"Well-controlled stress hormones\" -> \"Well-controlled blood pressure\" and \"Well-controlled blood sugar\". It says nothing about obstructive breathing. (Whether this image should stay is a clinical-review item.)",
+  "proposedFix": "EN alt -> \"Hand-drawn flow diagram: consistent PAP treatment for sleep apnea leads to well-controlled stress levels and stress hormones, which lead to well-controlled blood pressure and well-controlled blood sugar.\" ES alt -> \"Diagrama dibujado a mano: el tratamiento constante con PAP para la apnea del sueño lleva a niveles y hormonas del estrés bien controlados, que llevan a una presión arterial y una glucosa en sangre bien controladas.\" Apply only if the image is kept.",
+  "classification": "safe-editorial-fix",
+  "evidence": "Image viewed: C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-4/pap-treatment-benefits.jpg. Registry: src/content/image-registry.ts:34."
+ },
+ {
+  "id": "F25",
+  "screenId": "m3-q1",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "Visible prompt: \"True or False? (This question is for learning, not a comprehension check)\" under the \"CHECK YOUR UNDERSTANDING\" chip, followed by graded feedback \"Correct!\" / \"Well, not quite…\"",
+  "problem": "Contradictory labeling (low priority): the question is graded and badged as a comprehension check, but its visible prompt says it is not one. On m3-q3/m3-q4 the same parenthetical is hidden in English by the boilerplate filter.",
+  "proposedFix": "Set m3-q1 title and prompt to \"True or False?\" in EN (cias-source.ts:22) and \"¿Verdadero o falso?\" in ES (cias-translations.ts:71-73), the same pattern as m2-q1. The statement stays in contextParagraphs.",
+  "classification": "safe-editorial-fix",
+  "evidence": "LessonRenderer.tsx:271 (cue), :275 (prompt always shown); snapshot m3-q1 questionKind objective, correctChoiceId c1."
+ },
+ {
+  "id": "F26",
+  "screenId": "m1-q1",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "EN: \"True or false? You have obstructive sleep apnea even if you don’t snore.\" ES: \"¿Verdadero o falso? Puede tener apnea obstructiva del sueño aunque no ronque.\"",
+  "problem": "EN and ES say different things: EN (verbatim CIAS) reads as an assertion that the learner has OSA; ES says \"can have\". The answer options in both languages assume \"can have\".",
+  "proposedFix": "Recommended: change EN title and prompt (cias-source.ts:7, both, so the duplicate-title rule still hides the title) to \"True or false? You can have obstructive sleep apnea even if you don’t snore.\" Needs owner sign-off because it edits a verbatim CIAS stem.",
+  "classification": "translation-review",
+  "evidence": "CIAS archive record 1.4 (171424) stem; snapshot m1-q1."
+ },
+ {
+  "id": "F27",
+  "screenId": "m4-q1",
+  "locales": [
+   "es"
+  ],
+  "quote": "EN: \"Which of the following conditions are you at risk of if you have sleep apnea during pregnancy?\" ES: \"¿Cuál de las siguientes afecciones puede estar asociada con la apnea del sueño durante el embarazo?\"",
+  "problem": "Spanish reframes personal risk as a population association. The softening may be intentional (app policy elsewhere uses association wording) but the English was not changed, so the languages ask different questions.",
+  "proposedFix": "Bilingual/content decision: either translate EN literally or soften EN to match.",
+  "classification": "translation-review",
+  "evidence": "Snapshot m4-q1 title and prompt."
+ },
+ {
+  "id": "F28",
+  "screenId": "m2 (module), m4 (module)",
+  "locales": [
+   "es"
+  ],
+  "quote": "m2 EN: \"Understand shared-sleep effects and supportive, blame-free PAP problem solving.\" ES: \"Comprenda el sueño compartido y el apoyo sin culpa.\" m4 EN: \"...without deterministic or frightening conclusions.\" ES: \"...sin conclusiones deterministas.\"",
+  "problem": "Module descriptions drop meaning in Spanish (m2 loses \"effects\" and \"PAP problem solving\"; m4 loses \"or frightening\").",
+  "proposedFix": "Draft for review: m2 \"Comprenda los efectos del sueño compartido y cómo resolver problemas con PAP con apoyo y sin culpas.\" m4 \"Comprenda las asociaciones del embarazo sin conclusiones deterministas ni alarmantes.\"",
+  "classification": "translation-review",
+  "evidence": "Snapshot module metadata (es.m2.description, es.m4.description)."
+ },
+ {
+  "id": "F29",
+  "screenId": "m1-03, m2-03, m2-04, m2-q2, m5-05, m5-13, m6-04",
+  "locales": [
+   "es"
+  ],
+  "quote": "m1-03 \"causing poor quality of life\" -> \"puede reducir la calidad de vida\"; m2-03 \"allowing for a better experience\" -> \"puede ofrecer una mejor experiencia\"; m2-04 \"your partner can help keep you accountable!\" -> \"contar con su pareja puede ayudar a mantenerla\"; m2-q2 c1 \"helps ensure\" -> \"garantiza\"; m5-05 \"is very bad for your sleep\" -> \"puede perjudicar el sueño\"; m5-13 \"keeping the same bedtime and wake times\" -> \"mantener horarios similares\"; m6-04 \"This lower tone can increase the likelihood\" -> \"Esto aumenta la probabilidad\"",
+  "problem": "Spanish changes claim strength (adds or removes hedges, \"same\" becomes \"similar\", \"helps ensure\" becomes \"guarantees\"). Individually small; none changes a correct answer, but they should match the English.",
+  "proposedFix": "Bilingual reviewer to align each phrase with the English strength.",
+  "classification": "translation-review",
+  "evidence": "Side-by-side dump of the snapshot (EN vs ES paragraphs/choices)."
+ },
+ {
+  "id": "F30",
+  "screenId": "m1-06, m1-recap, m5-recap",
+  "locales": [
+   "es"
+  ],
+  "quote": "m1-06 EN \"Symptoms can raise concern for sleep apnea, but they cannot confirm it on their own.\" ES \"...pueden causar preocupación, pero por sí solos no confirman un diagnóstico.\"; m1-recap EN \"...with pressurized air through a mask.\" ES \"...con aire presurizado.\"; m5-recap EN \"...not be enough for persistent insomnia or other health problems.\" ES \"...ni siempre bastan para el insomnio u otros problemas.\"",
+  "problem": "Words dropped in Spanish (\"sleep apnea\", \"through a mask\", \"persistent\", \"health\").",
+  "proposedFix": "Draft: m1-06 \"...pueden causar sospecha de apnea del sueño, pero por sí solos no la confirman.\"; m1-recap add \"a través de una mascarilla\"; m5-recap \"...para el insomnio persistente u otros problemas de salud.\"",
+  "classification": "translation-review",
+  "evidence": "Snapshot side-by-side."
+ },
+ {
+  "id": "F31",
+  "screenId": "m1-05, m1-recap, m3-01, m4-recap, m6-07, m6-08, m8-10",
+  "locales": [
+   "es"
+  ],
+  "quote": "English text baked into images, e.g. \"Nighttime symptoms of sleep apnea may include:\" (m1-05), \"How to manage heartburn during pregnancy\" (m6-07), \"How To Handle Anxiety DURING PREGNANCY\" (m6-08)",
+  "problem": "Informative images with English-only text are shown unchanged on Spanish screens. For m6-07 the English text is the only place the content needed for m6-q2 appears. (m9-04 is already documented in audit-m9.md; m8-10 is now withheld on the working tree, see F36.)",
+  "proposedFix": "Bilingual/content decision: Spanish image variants, or move the content into translated text. At minimum, Spanish alt text should carry the content (see the m6-07 alt fix).",
+  "classification": "translation-review",
+  "evidence": "Images viewed in C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum: module-1/symptoms-nighttime.png, module-1/sleep-apnea-symptoms-pregnancy.webp, module-3/m3-01-pregnancy-outcomes.webp, module-4/pap-treatment-benefits.jpg, module-6/m6-07-heartburn-guidance.jpg, module-6/m6-08-anxiety-coping.png, module-8/m8-11-settings-chart.png. symptoms-daytime.png assumed similar from its alt text (not opened)."
+ },
+ {
+  "id": "F32",
+  "screenId": "m5-q11",
+  "locales": [
+   "es"
+  ],
+  "quote": "c11 EN \"Chips\" / ES \"Chips\"; c10 EN \"French fries\" / ES \"Papas fritas\"",
+  "problem": "English loanword left as-is; many US Spanish speakers call both items \"papas fritas\", which blurs c10 and c11 (both distractors).",
+  "proposedFix": "Reviewer choice, e.g. \"Papitas fritas de bolsa\" for c11.",
+  "classification": "translation-review",
+  "evidence": "Snapshot m5-q11 choices."
+ },
+ {
+  "id": "F33",
+  "screenId": "m5-q9",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "Keyed correct: c2 \"It boosts nighttime melatonin (sleepy chemical) production by strengthening day–night light cues\", c5 \"...by increasing daytime alertness and nighttime sleep drive\". Feedback: \"...it does not guarantee more nighttime melatonin. Sleep pressure builds mainly with time awake, not from light itself.\"",
+  "problem": "The feedback contradicts two of the three keyed answers. The teaching screen m5-14 never mentions melatonin, so c2 is also not supported by the module text. A learner who picks the key is told \"Correct\" and then that the claim is not reliable.",
+  "proposedFix": "None proposed (clinical decision on the key and the explanation).",
+  "classification": "clinical-review",
+  "evidence": "src/content/en/modules/module-05.ts:14; snapshot m5-q9 and m5-14."
+ },
+ {
+  "id": "F34",
+  "screenId": "m5-q6",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "\"What are some of the consequences of getting poor sleep during pregnancy?\" (Hint: 3 correct) options include \"Increased chance of needing a C-section\", \"Higher chance of longer labors\", \"Increased risk of preterm birth\"",
+  "problem": "The question assumes facts no screen teaches: m5-02 says only \"poor sleep is linked to poor outcomes in pregnancy\". Labor length appears nowhere else in the curriculum; preterm birth appears only as an m4-q4 option about gestational diabetes and in the m3-01 image; C-section is taught only as an OSA association (m3). No citation. (Unscored, so learners never see which answers were intended.)",
+  "proposedFix": "None proposed.",
+  "classification": "clinical-review",
+  "evidence": "src/content/en/cias-source.ts:46; full-text search of the English snapshot screens for \"labor\" and \"preterm\" (hits only in m5-q6)."
+ },
+ {
+  "id": "F35",
+  "screenId": "m6-07, m6-q2",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "m6-07 list now: \"less caffeine...\", \"Sleeping on your left side\", \"Antacids\". m6-q2: \"(Hint: there are 4 correct answers.)\" with \"Eating smaller meals with LOW fat content\" and \"Elevating the head of the bed\"",
+  "problem": "Four of the seven CIAS GERD bullets are not in the current text: \"smaller meals with reduced fat content of meals\", \"Finishing your last meal 3–4 hours before bedtime\", \"Consider avoiding common trigger foods...\", \"Elevating the head of the bed 6–10 inches ... Elevating just your head with pillows does not necessarily change stomach positioning.\" The 2026-08-19 bilingual packet (marked approved) contains all seven in EN and ES. m6-q2 still expects smaller meals and head-of-bed elevation, which now appear only in the English infographic, and that infographic says \"Avoid eating 2 hours before ... going to bed\" and \"Raise the head of your bed or sleep on more pillows\", which conflicts with the removed CIAS caveat about pillows. \"Antacids\" also sits under \"dietary changes and bed adjustments\". No documented decision for the removal was found.",
+  "proposedFix": "Clinical/content decision: restore the CIAS bullets (approved EN and ES text exists in docs/BILINGUAL-CLINICAL-LANGUAGE-REVIEW.json) or revise m6-q2 and the image.",
+  "classification": "clinical-review",
+  "evidence": "src/content/en/cias-source.ts:78; CIAS archive record 6.6 (172156); docs/BILINGUAL-CLINICAL-LANGUAGE-REVIEW.json m6-07 learner fields; docs/CIAS-TO-SLEEP-APP-CONTENT-GAP-AUDIT.md M6-S06 (\"SAFE_TO_RESTORE\"); git history (file first appears in b87023f already without the bullets)."
+ },
+ {
+  "id": "F36",
+  "screenId": "m8-10",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "Image m8-11-settings-chart.png, alt \"Chart showing flow rate, pressure, oxygen, and cylinder duration.\"",
+  "problem": "The picture is an oxygen-delivery table (flow rate L/min, pressure cmH2O, oxygen %, D-tank cylinder duration in minutes), apparently for an oxygen-driven CPAP device. On \"Who Adjusts My PAP Settings?\" it implies home PAP involves oxygen cylinders and pressure/oxygen settings, contradicting m1-07 (\"it is not the same as receiving supplemental oxygen\") and the m1-q2 distractor about oxygen. Registry says it was added at user request.",
+  "proposedFix": "Already handled on the working tree: the image is withheld from learners (WITHHELD_IMAGES in src/content/image-registry.ts, uncommitted at audit time). Confirm it ships withheld; any replacement is an owner decision.",
+  "classification": "already-documented",
+  "evidence": "docs/PAP_PREGNANCY_CONTENT_AUDIT.md (written concurrently, 21:15) change table and item 1; tests/withheld-images.test.ts. Independently confirmed by viewing C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-8/m8-11-settings-chart.png; docs/IMAGE_SOURCE_REGISTRY.md line 52 says it was added at user request. The snapshot in this folder predates the withholding."
+ },
+ {
+  "id": "F37",
+  "screenId": "m4-recap, m3-04",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "Diagram: \"Consistent PAP treatment for sleep apnea\" -> \"Well-controlled stress levels/stress hormones\" -> \"Well-controlled blood pressure\", \"Well-controlled blood sugar\" (same labels listed as text on m3-04)",
+  "problem": "Implies PAP controls blood pressure and blood sugar. This sits next to m4-recap text saying PAP \"does not guarantee prevention or relief of pregnancy complications\", and against the documented decision to remove claims that PAP prevents pregnancy complications. The migration policy for this diagram (M3-S06) was to show labels \"without inferring diagram branch relationships\", yet the full arrowed diagram is displayed on m4-recap.",
+  "proposedFix": "None proposed. (The alt-text correction is separate: F24.)",
+  "classification": "already-documented",
+  "evidence": "docs/PAP_PREGNANCY_CONTENT_AUDIT.md line 136 (written concurrently) records the m4-recap arrows as unsupported. Also: image viewed (assets/curriculum/module-4/pap-treatment-benefits.jpg); docs/CURRICULUM_REVIEW_GAPS.md row \"Claims that PAP prevents pregnancy complications ... Removed\"; docs/CIAS-CONTENT-MIGRATION-IMPLEMENTATION.md (M3-S06 policy)."
+ },
+ {
+  "id": "F38",
+  "screenId": "m3-01",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "Infographic text: \"Can result in Preterm Birth\", \"Potential to cause Low Birth Weight\", \"May lead to Growth Restriction\", \"Could contribute to Metabolic Programming\"",
+  "problem": "Causal wording in the image conflicts with the screen text \"Associations describe patterns across groups; they do not predict what will happen to you or your baby.\" Preterm birth and metabolic programming are not taught anywhere else. The image also carries a retailer logo (see the image-licensing item).",
+  "proposedFix": "None proposed.",
+  "classification": "clinical-review",
+  "evidence": "Image viewed: assets/curriculum/module-3/m3-01-pregnancy-outcomes.webp; snapshot m3-01 paragraphs[1]."
+ },
+ {
+  "id": "F39",
+  "screenId": "m5-q8",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "c5 \"Eat breakfast like a king, lunch like a prince, and dinner like a peasant.\"; c6 \"The human body processes food better earlier in the day, from a metabolic, hormonal, and fullness standpoint.\"",
+  "problem": "The question tests CIAS chrononutrition advice that was removed from the teaching screen. m5-08 now says \"There is no single required meal schedule for sleep\" and no longer contains the proverb or the metabolism claim. (Unscored.)",
+  "proposedFix": "None proposed.",
+  "classification": "clinical-review",
+  "evidence": "src/content/en/cias-source.ts:63; snapshot m5-08; BILINGUAL packet shows the earlier m5-08 text."
+ },
+ {
+  "id": "F40",
+  "screenId": "m5-q11",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "Keyed correct: Oatmeal, Leafy greens, Boiled potatoes, Berries, Chicken, Greek yogurt",
+  "problem": "Low priority. m5-18 names fruit, vegetables, lean proteins and whole grains; \"Greek yogurt\" and \"Boiled potatoes\" are keyed correct without being covered, and the explanation says no food is universally healthy. The key is app-authored (curriculum-master-v3), not CIAS.",
+  "proposedFix": "None proposed.",
+  "classification": "clinical-review",
+  "evidence": "src/content/en/modules/module-05.ts:20; snapshot m5-18."
+ },
+ {
+  "id": "F41",
+  "screenId": "m7-03, m2 (all), m6-02, m7-04/m7-06/m7-q2",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "m7-03: \"PAP therapy should not prevent you...\" / \"...importance of using PAP therapy.\" / \"It is common to believe that CPAP may impact your partner...\"",
+  "problem": "CPAP and PAP are mixed: within m7-03 (PAP twice, CPAP once), across m2 (CIAS screens say CPAP, recap says PAP), m6-02 (CPAP throughout in a PAP module), and m7 (m7-04 \"PAP mask\" vs m7-06/m7-q2 \"CPAP\"). Not a pure editorial swap, because the statistics on m2-05 and m7-03 come from CPAP studies.",
+  "proposedFix": "None proposed (terminology decision).",
+  "classification": "clinical-review",
+  "evidence": "Script count of CPAP/PAP per screen over the snapshot."
+ },
+ {
+  "id": "F42",
+  "screenId": "m2-05, m2-q1",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "\"CPAP has been shown to increase intimacy between couples! One study showed that 41% of bed partners reported increased relationship satisfaction (47% said no change), and 71% said that their sleep quality improved.\"",
+  "problem": "The headline claim (increased intimacy) is stronger than the cited figures (relationship satisfaction, with almost half reporting no change), and the study is not identified. m2-q1 asks a true/false about the same topic but is unscored, so learners never get the resolution.",
+  "proposedFix": "None proposed.",
+  "classification": "clinical-review",
+  "evidence": "src/content/en/cias-source.ts:14 and the m2-q1 entry; docs/CLINICAL_REVIEW.md lists partner-satisfaction statistics generally but not this mismatch."
+ },
+ {
+  "id": "F43",
+  "screenId": "30 screens absent from the packet; 10 changed",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "docs/BILINGUAL-CLINICAL-LANGUAGE-REVIEW.md: \"Final packet disposition: APPROVED_READY_FOR_DEPLOYMENT\" (generated 2026-08-19, 101 screens)",
+  "problem": "The approval packet no longer matches the curriculum. Not in the packet at all: m3-05, m3-q5, m5-q9, m5-q11, all 12 m8 screens, all 14 m9 screens. Text changed since the packet: m3-01, m3-04, m3-recap, m4-recap, m5-07, m5-08, m5-q3, m5-q5, m5-recap, m6-07 (plus recap rewording in m1, m2, m6, m7). The packet approval cannot be read as covering current text.",
+  "proposedFix": "None proposed (review scope decision).",
+  "classification": "already-documented",
+  "evidence": "docs/PAP_PREGNANCY_CONTENT_AUDIT.md lines 86 and 188 (written concurrently) record the conflicting approval. The exact screen lists here come from a script comparison of the packet screenPairs learner fields against the snapshot and add detail."
+ },
+ {
+  "id": "F44",
+  "screenId": "m1-q1, m2-r1, m2-q2, m2-q1, m4-q1, m4-04, m4-q4, m4-q6, m5-q6, m5-q7, m5-q1, m5-q4, m5-q2, m5-q8, m5-q10, m6-q1, m6-q2, m6-q3, m7-04, m7-q2",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "\"(Hint: There are 3 correct answers.)\" shown with \"Select any that apply. This response is never graded.\"",
+  "problem": "20 CIAS questions have no recovered key and render as never-graded reflections; 16 of them still say how many answers are correct. Module intros (m4-01, m5-01, m6-01) promise questions that \"help you understand the content\".",
+  "proposedFix": "None (key recovery needs source evidence and clinical approval).",
+  "classification": "already-documented",
+  "evidence": "docs/QUESTION_REVIEW.md; docs/BILINGUAL-CLINICAL-LANGUAGE-REVIEW.md review instructions (restored CIAS questions remain unscored); docs/curriculum-audit-20261021/audit-m7-readonly.md sections 2 and 5. Count re-verified from the snapshot (answerBehaviorProvenance CIAS_ANSWER_KEY_NOT_RECOVERED)."
+ },
+ {
+  "id": "F45",
+  "screenId": "m2-05, m7-03, m6-02, m6-04, m6-05, m5-07, m5-17, m5-q2, m5-21, m5-10, m5-11, m5-20, m6-03, m6-07, m5-18, m6-04",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "e.g. \"41% ... 47% ... 71%\", \"90% ... 75%\", \"up to 42% of pregnancies\", \"30–80%\", \"~20%\", \"below 200 mg per day\", \"around 65°F\", \"≥150 minutes/week\", \"6 hours\", \"20-minute nap\", \"After 28 weeks\", \"no more than 2–3 days\" (Afrin), H2 blockers/PPIs \"not the cause of birth defects\"",
+  "problem": "Clinical statistics and numeric guidance carry no citation. CIAS screens are tagged only with cias-screenshot-recovery; there is no statement-level source mapping. Mechanism claims without citation also appear on m5-18 (nutrition reduces night-time blood sugar swings) and m6-04 (negative pressure pulls stomach contents up).",
+  "proposedFix": "None (record only).",
+  "classification": "already-documented",
+  "evidence": "docs/CLINICAL_REVIEW.md (statistics, caffeine, temperature, exercise, naps, 28 weeks, medications); docs/CURRICULUM_REVIEW_GAPS.md open item \"Source-registry linkage at statement level\"; audit-m7-readonly.md item 3 (90%/75%)."
+ },
+ {
+  "id": "F46",
+  "screenId": "m6-03, m6-05 (with m8-05, m8-08, m9-04, m9-06)",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "m6-03 \"consider turning on the heat and/or humidifier elements\"; m6-05 \"adjusting the humidity and ramp settings\"; m8-08 \"These are care-team and device decisions.\"; m8-05 \"These settings should be reviewed with the sleep-care team rather than changed independently.\"",
+  "problem": "Modules disagree on whether learners may adjust humidification and ramp themselves. m6 adds two more screens to the documented m8 vs m9 conflict.",
+  "proposedFix": "None.",
+  "classification": "already-documented",
+  "evidence": "docs/curriculum-audit-20261021/README.md section 3, m8 item 2 (m8 vs m9); m6 evidence is new."
+ },
+ {
+  "id": "F47",
+  "screenId": "m6-03 vs m9-08",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "m6-03 \"They consist of salt and water and are safe to use in pregnancy.\" / \"These nasal sprays are also considered safe to use in pregnancy.\" vs m9-08 \"ask the healthcare provider whether a nasal spray is appropriate when congestion persists, especially during pregnancy.\"",
+  "problem": "Cross-module difference in nasal-spray safety framing.",
+  "proposedFix": "None.",
+  "classification": "already-documented",
+  "evidence": "docs/curriculum-audit-20261021/README.md section 3, m9 item 3 (m9-08 vs CIAS p23); m6-03 is the in-app counterpart."
+ },
+ {
+  "id": "F48",
+  "screenId": "m9-02, m9-04, m9-06, m9-q2, m9-11",
+  "locales": [
+   "es"
+  ],
+  "quote": "m9-04 keyPoints[0] \"El agua en el tubo suele llamarse condensación\"; m9-q2 c4 \"Apretar más la mascarilla...\"; m9-06 \"demasiada humedad puede causar humedad no deseada\"; m9-11 \"lejía\"",
+  "problem": "Spanish drift items from the m9 audit remain in the current text (verified).",
+  "proposedFix": "As in audit-m9.md.",
+  "classification": "already-documented",
+  "evidence": "docs/curriculum-audit-20261021/audit-m9.md, \"Narration and Spanish parity by screen\"."
+ },
+ {
+  "id": "F49",
+  "screenId": "m7-03, m7-04, m7-06, m7-q2, m7-r1, m7-recap",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "m7-03 EN \"...75% would recommend it to others\" (no final period); ES \"quedarse dormido\"; bold-phrase mismatches on m7-03/m7-06",
+  "problem": "m7 items from the read-only audit remain open (verified).",
+  "proposedFix": "As in audit-m7-readonly.md (report-only; m7 is owner-reviewed).",
+  "classification": "already-documented",
+  "evidence": "docs/curriculum-audit-20261021/audit-m7-readonly.md sections 3-5."
+ },
+ {
+  "id": "F50",
+  "screenId": "m8 (all), m9 (all)",
+  "locales": [
+   "es"
+  ],
+  "quote": "m8/m9 Spanish uses tú (\"Practica\", \"Pregunta\", \"tu dispositivo\"); masculine forms (\"despierto\", \"dormido\", \"cansado\") across modules",
+  "problem": "Register and gender conventions differ from m1-m7.",
+  "proposedFix": "Bilingual review.",
+  "classification": "already-documented",
+  "evidence": "docs/curriculum-audit-20261021/README.md section 8; audit-m8.md parity notes."
+ },
+ {
+  "id": "F51",
+  "screenId": "m1-recap, m3-01 (and all user-provided images)",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "Infographics show a \"CPAP DISCOUNT WAREHOUSE\" logo",
+  "problem": "Image licensing is unconfirmed for all user-provided images. New details: (1) two infographics carry a retailer logo, which reads as a vendor endorsement in a research app; (2) 23 of the images now mapped in src/content/image-registry.ts have no row in docs/IMAGE_SOURCE_REGISTRY.md (all m3 images, all m4 images, and the 17 m5/m5b images, including m3-pregnancy-outcomes), so their provenance is not recorded anywhere; the doc still lists an OpenMoji alarm icon for m3-01 to m3-03.",
+  "proposedFix": "None (licensing/owner decision). Adding the missing registry rows is documentation work, not a learner-facing fix.",
+  "classification": "already-documented",
+  "evidence": "docs/curriculum-audit-20261021/README.md section 8 (image licensing); docs/IMAGE_SOURCE_REGISTRY.md line 20 (m1-recap-symptoms) and line 27 (stale m3 row). Logo seen in assets/curriculum/module-1/sleep-apnea-symptoms-pregnancy.webp and module-3/m3-01-pregnancy-outcomes.webp. Missing rows found by checking every image id in image-registry.ts against the doc."
+ },
+ {
+  "id": "F52",
+  "screenId": "m5-01, m5-03",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "\"In this module, we'll learn about...\" / \"The elements of sleep hygiene we will go over in this module include:\" (lists Part 2 topics)",
+  "problem": "Part 1 intro describes topics that continue in Part 2; check numbering skips 11.",
+  "proposedFix": "None (kept on purpose).",
+  "classification": "already-documented",
+  "evidence": "docs/curriculum-audit-20261021/README.md section 4 (\"Known cosmetic items kept on purpose\"). The Spanish-visible numbering is covered by the boilerplate-filter fix above."
+ },
+ {
+  "id": "F53",
+  "screenId": "m8-02, m8-03, m8-04, m8-08, m8-09, m9-02 to m9-11",
+  "locales": [
+   "en",
+   "es"
+  ],
+  "quote": "m8-02 \"With the machine running, adjust the straps...\"; m8-09 \"ask your healthcare team how to handle that situation safely\"; m9-05 \"Do not apply an unapproved product to the mask or skin...\"",
+  "problem": "All README section 3 clinical items are still present in the current text (spot-verified).",
+  "proposedFix": "None.",
+  "classification": "already-documented",
+  "evidence": "docs/curriculum-audit-20261021/README.md section 3; audit-m8.md and audit-m9.md CLINICAL_REVIEW sections."
+ }
+]

@@ -260,7 +260,7 @@ export const ciasSingle = (
   questionKind: 'objective',
   questionFeedback: ciasQuestionFeedback,
   ...ciasMeta(timestamp, options.confidence ?? 'HIGH', options.uncertainties ?? [], options.policy, 'CIAS_ANSWER_KEY_NOT_RECOVERED'),
-  narrationText: [title, instructions, prompt, ...labels].filter(Boolean).join(' '),
+  narrationText: [title, instructions, ...(options.contextParagraphs ?? []), prompt, ...labels].filter(Boolean).join(' '),
 });
 
 export const ciasMulti = (
@@ -287,7 +287,7 @@ export const ciasMulti = (
   questionKind: 'objective',
   questionFeedback: ciasQuestionFeedback,
   ...ciasMeta(timestamp, options.confidence ?? 'HIGH', options.uncertainties ?? [], options.policy, 'CIAS_ANSWER_KEY_NOT_RECOVERED'),
-  narrationText: [title, instructions, prompt, ...labels].filter(Boolean).join(' '),
+  narrationText: [title, instructions, ...(options.contextParagraphs ?? []), prompt, ...labels].filter(Boolean).join(' '),
 });
 
 export const ciasSummary = (
