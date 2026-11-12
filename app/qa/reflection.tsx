@@ -30,12 +30,12 @@ export default function ReflectionPreview() {
   return <AppScreen contentStyle={{ paddingTop: 54, gap: 10 }}>
     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
       <Pressable accessibilityRole="button" accessibilityLabel={t('backToModule')} onPress={() => router.replace('/' as Href)} style={{ minHeight: 44, width: 132, flexDirection: 'row', alignItems: 'center', gap: 4 }}><MaterialCommunityIcons name="arrow-left" size={20} color={palette.ink} /><Text style={{ color: palette.ink, fontSize: 14, fontWeight: '600' }}>{state.language === 'es' ? 'Módulo 1' : 'Module 1'}</Text></Pressable>
-      <Text style={{ color: palette.inkMuted, fontSize: 12, fontWeight: '600' }}>{state.language === 'es' ? 'Paso 10 de 19' : 'Step 10 of 19'}</Text>
+      <Text style={{ color: palette.inkMuted, fontSize: 12, fontWeight: '600' }}>{t('stepOf', { current: 10, total: 19 })}</Text>
     </View>
-    <ProgressMeter compact value={53} label={state.language === 'es' ? 'Paso 10 de 19' : 'Step 10 of 19'} />
+    <ProgressMeter compact value={53} label={t('stepOf', { current: 10, total: 19 })} />
     <View style={{ flexDirection: 'row', gap: 6 }}>
       <ActionButton wrapperStyle={{ flex: 1 }} buttonStyle={{ paddingHorizontal: 4 }} variant="secondary" label={t('previous')} icon="arrow-left" onPress={() => undefined} />
-      <ActionButton wrapperStyle={{ flex: 0.68 }} buttonStyle={{ paddingHorizontal: 4 }} label={state.language === 'es' ? 'Escuchar' : 'Listen'} icon="volume-high" onPress={() => undefined} />
+      <ActionButton wrapperStyle={{ flex: 0.68 }} buttonStyle={{ paddingHorizontal: 4 }} label={t('listen')} icon="volume-high" onPress={() => undefined} />
       <ActionButton wrapperStyle={{ flex: 1 }} buttonStyle={{ paddingHorizontal: 4 }} label={t('skipOptional')} icon="arrow-right" iconPosition="trailing" onPress={() => undefined} />
     </View>
     <LessonRenderer screen={screen} onSubmitted={() => undefined} />

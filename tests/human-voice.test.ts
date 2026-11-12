@@ -55,9 +55,11 @@ describe('human voice copy audit', () => {
   });
 
   it('retains the supporting-source route', () => {
+    // The link target stays in the renderer; its labels now live in the shared UI string table.
     const renderer = readFileSync('src/components/LessonRenderer.tsx', 'utf8');
     assert.match(renderer, /https:\/\/www\.nhlbi\.nih\.gov\/health\/sleep-apnea/);
-    assert.match(renderer, /NHLBI Sleep Apnea/);
-    assert.match(renderer, /Lista ordenada de \$\{screen\.orderedList\.length\} elementos/);
+    assert.match(renderer, /t\('supportingSourceNhlbi'\)/);
+    assert.match(ui.en.translation.supportingSourceNhlbi, /NHLBI Sleep Apnea/);
+    assert.equal(ui.es.translation.orderedListItems, 'Lista ordenada de {{count}} elementos');
   });
 });

@@ -1,11 +1,13 @@
 import { Image } from 'expo-image';
 import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import type { LessonVideo, SupportedLocale } from '@/src/types/content';
 import { fontFamily, palette, radius, spacing, touchTarget } from '@/src/theme/tokens';
 
 export function LessonVideoCard({ video, locale }: { video: LessonVideo; locale: SupportedLocale }) {
   const title = video.title[locale];
-  const watchLabel = locale === 'es' ? 'Ver en YouTube' : 'Watch on YouTube';
+  const { t } = useTranslation();
+  const watchLabel = t('watchOnYouTube');
   return <View style={styles.card}>
     <Pressable
       testID="lesson-video-link"

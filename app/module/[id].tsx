@@ -18,17 +18,13 @@ const stepKind = (screen: LessonScreen): StepKind => screen.type === 'content' ?
   : screen.type === 'reflection' || ('questionKind' in screen && screen.questionKind === 'reflection')
     || ('answerBehaviorProvenance' in screen && screen.answerBehaviorProvenance === 'CIAS_ANSWER_KEY_NOT_RECOVERED') ? 'reflection' : 'question';
 const stepIcons = { lesson: 'book-open-page-variant-outline', question: 'help-circle-outline', reflection: 'heart-outline', recap: 'flag-checkered' } as const;
-const stepLabels = {
-  en: { lesson: 'Lesson', question: 'Question', reflection: 'Reflection', recap: 'Recap' },
-  es: { lesson: 'Lección', question: 'Pregunta', reflection: 'Reflexión', recap: 'Resumen' },
-} as const;
+const stepKindKeys = { lesson: 'stepKindLesson', question: 'stepKindQuestion', reflection: 'stepKindReflection', recap: 'stepKindRecap' } as const;
 
 export default function ModuleOverviewScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { state, saveNow } = useApp();
-  const es = state.language === 'es';
   const leaveModule = () => {
     void (async () => {
       await saveNow();
@@ -38,11 +34,11 @@ export default function ModuleOverviewScreen() {
     })();
   };
   const module = getModule(state.language, id);
-  if (!module) return <AppScreen><Header title={es ? 'Módulo no encontrado' : 'Module not found'} /><ActionButton label={t('backToModules')} icon="arrow-left" onPress={leaveModule} /></AppScreen>;
+  if (!module) return <AppScreen><Header title={t('moduleNotFound')} /><ActionButton label={t('backToModules')} icon="arrow-left" onPress={leaveModule} /></AppScreen>;
 
   const progress = moduleProgress(module, state.completedScreenIds);
   const startScreen = module.screens.find((screen) => !state.completedScreenIds.includes(screen.id)) ?? module.screens[0];
-  const action = progress.percentage === 100 ? (es ? 'Repasar módulo' : 'Review Module') : progress.percentage > 0 ? t('continue') : t('start');
+  const action = progress.percentage === 100 ? t('reviewModuleAction') : progress.percentage > 0 ? t('continue') : t('start');
   const nextIndex = Math.max(0, module.screens.findIndex((screen) => screen.id === startScreen.id));
   const minutes = Math.max(3, Math.ceil(module.screens.length * 1.25));
 
@@ -50,24 +46,24 @@ export default function ModuleOverviewScreen() {
     <NightSky moon={false} />
     <View style={styles.heroInner}>
       <NightPillButton label={t('backToModules')} icon="arrow-left" onPress={leaveModule} />
-      <Header tone="night" eyebrow={`${es ? 'Módulo' : 'Module'} ${module.order}`} title={module.title} subtitle={module.description} />
+      <Header tone="night" eyebrow={t('moduleNumber', { number: module.order })} title={module.title} subtitle={module.description} />
       <View style={styles.metaRow}>
-        <MetaChip icon="format-list-numbered" label={`${module.screens.length} ${es ? 'pasos' : 'steps'}`} />
+        <MetaChip icon="format-list-numbered" label={`${module.screens.length} ${t('stepsUnit')}`} />
         <MetaChip icon="clock-outline" label={`~${minutes} min`} />
-        <MetaChip icon={progress.percentage === 100 ? 'check-circle-outline' : 'chart-donut'} label={`${progress.percentage}% ${es ? 'completado' : 'complete'}`} />
+        <MetaChip icon={progress.percentage === 100 ? 'check-circle-outline' : 'chart-donut'} label={t('percentComplete', { percent: progress.percentage })} />
       </View>
     </View>
   </View>;
 
   return <AppScreen hero={hero} contentStyle={styles.content}>
     <Card style={[styles.nextCard, elevation('raised')]}>
-      <Text style={styles.nextLabel}>{progress.percentage === 100 ? (es ? 'REPASAR MÓDULO' : 'REVIEW MODULE') : (es ? 'SIGUIENTE PASO' : 'NEXT UP')}</Text>
+      <Text style={styles.nextLabel}>{progress.percentage === 100 ? t('reviewModuleKicker') : t('nextUpKicker')}</Text>
       <Text style={styles.nextTitle}>{startScreen.title}</Text>
-      <Text style={styles.nextMeta}>{es ? `Paso ${nextIndex + 1} de ${module.screens.length}` : `Step ${nextIndex + 1} of ${module.screens.length}`}</Text>
-      <ProgressMeter compact value={progress.percentage} label={es ? 'Progreso del módulo' : 'Module progress'} />
+      <Text style={styles.nextMeta}>{t('stepOf', { current: nextIndex + 1, total: module.screens.length })}</Text>
+      <ProgressMeter compact value={progress.percentage} label={t('moduleProgress')} />
       <ActionButton buttonStyle={styles.fullButton} label={action} icon="arrow-right" iconPosition="trailing" onPress={() => router.push(`/lesson/${module.id}?screenId=${encodeURIComponent(startScreen.id)}&direction=forward` as Href)} />
     </Card>
-    <SectionHeading title={es ? 'En este módulo' : 'In this module'} />
+    <SectionHeading title={t('inThisModule')} />
     <View style={styles.stepList}>{module.screens.map((lesson, index) => {
       const complete = state.completedScreenIds.includes(lesson.id);
       const current = lesson.id === startScreen.id && !complete;
@@ -81,13 +77,13 @@ export default function ModuleOverviewScreen() {
           <Text numberOfLines={2} style={[styles.stepTitle, complete && styles.stepTitleComplete]}>{lesson.title}</Text>
           <View style={styles.stepMeta}>
             <MaterialCommunityIcons accessible={false} importantForAccessibility="no" name={stepIcons[kind]} size={14} color={palette.inkMuted} />
-            <Text style={styles.stepKind}>{stepLabels[state.language][kind]}</Text>
-            {complete ? <Text style={styles.stepDone}>· {t('completed')}</Text> : current ? <Text style={styles.stepNext}>· {es ? 'Siguiente' : 'Up next'}</Text> : null}
+            <Text style={styles.stepKind}>{t(stepKindKeys[kind])}</Text>
+            {complete ? <Text style={styles.stepDone}>· {t('completed')}</Text> : current ? <Text style={styles.stepNext}>· {t('upNext')}</Text> : null}
           </View>
         </View>
       </View>;
     })}</View>
-    <View style={styles.noteRow}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="shield-check-outline" size={22} color={palette.primary} /><Text style={styles.note}>{es ? 'Puede salir, volver atrás y repasar cualquier paso. Las respuestas incorrectas no bloquean el progreso.' : 'You can leave, go back, and revisit any step. Incorrect answers never block progress.'}</Text></View>
+    <View style={styles.noteRow}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="shield-check-outline" size={22} color={palette.primary} /><Text style={styles.note}>{t('moduleOverviewNote')}</Text></View>
   </AppScreen>;
 }
 

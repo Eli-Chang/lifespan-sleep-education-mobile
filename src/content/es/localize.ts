@@ -87,7 +87,12 @@ export function draftSpanishModule(
     if (screen.type === 'summary') return { ...screen, ...review, title:draft.title, narrationText:draft.body.join(' '), keyPoints: draft.body };
     // Narrate only what is on screen (title and prompt), matching the English reflection narration.
     if (screen.type === 'reflection') return { ...screen, ...review, title:draft.title, narrationText:[draft.title, draft.body[0]].join(' '), prompt: draft.body[0] };
-    if (screen.type === 'scenario') return { ...screen, ...review, title:draft.title, narrationText:draft.body.join(' '), scenario: draft.body[0], prompt: draft.body[1] ?? screen.prompt };
+    // Fail closed: a missing Spanish string must stop the build instead of silently showing the English text.
+    if (screen.type === 'scenario') {
+      if (draft.body[1] === undefined) throw new Error(`Missing Spanish scenario prompt for ${screen.id}`);
+      return { ...screen, ...review, title:draft.title, narrationText:draft.body.join(' '), scenario: draft.body[0], prompt: draft.body[1] };
+    }
+    if (draft.body.length < screen.choices.length + 1) throw new Error(`Missing Spanish choice text for ${screen.id}`);
     const generalExplanation = draft.body[screen.choices.length + 1] ?? 'Revise la explicación y vuelva a intentarlo cuando quiera.';
     const isReflection = screen.questionKind === 'reflection';
     return {
@@ -96,7 +101,7 @@ export function draftSpanishModule(
       ...screen, ...review, title:draft.title, narrationText:draft.body.slice(0, screen.choices.length + 1).join(' '),
       prompt: draft.body[0],
       instructions: screen.instructions,
-      choices: screen.choices.map((choice, index) => ({ ...choice, label: draft.body[index + 1] ?? choice.label })),
+      choices: screen.choices.map((choice, index) => ({ ...choice, label: draft.body[index + 1] })),
       questionFeedback: isReflection
         ? { generalExplanation }
         : { ...screen.questionFeedback, correctSummary: 'Correcto.', incorrectSummary: 'Aún no.', generalExplanation },

@@ -6,13 +6,13 @@ import { AppScreen, Card, Header, IconButton } from '@/src/components/ui';
 import { fontFamily, palette, type as typeScale } from '@/src/theme/tokens';
 
 export default function AboutScreen() {
-  const { t, i18n } = useTranslation();
-  const es = i18n.language === 'es';
+  const { t } = useTranslation();
   return <AppScreen>
     <View style={styles.closeRow}><IconButton icon="close" accessibilityLabel={t('close')} onPress={() => router.back()} /></View>
-    <Header title={t('about')} subtitle={es ? 'Aplicación educativa sin cuentas, anuncios ni seguimiento.' : 'An education app with no accounts, ads, or tracking.'} />
-    <Card><View style={styles.headingRow}><View style={styles.iconTile}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="school-outline" size={20} color={palette.primary} /></View><Text accessibilityRole="header" style={styles.heading}>{es ? 'Aviso educativo' : 'Educational disclaimer'}</Text></View><Text style={styles.body}>{t('educationalDisclaimer')}</Text></Card>
-    <Card><View style={styles.headingRow}><View style={styles.iconTile}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="shield-lock-outline" size={20} color={palette.primary} /></View><Text accessibilityRole="header" style={styles.heading}>{es ? 'Privacidad y conexión' : 'Privacy & offline use'}</Text></View><Text style={styles.body}>{t('aboutPrivacyBody')}</Text></Card>
+    <Header title={t('about')} subtitle={t('aboutSubtitle')} />
+    <Card><View style={styles.headingRow}><View style={styles.iconTile}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="school-outline" size={20} color={palette.primary} /></View><Text accessibilityRole="header" style={styles.heading}>{t('disclaimerHeading')}</Text></View><Text style={styles.body}>{t('educationalDisclaimer')}</Text></Card>
+    <Card><View style={styles.headingRow}><View style={styles.iconTile}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="shield-lock-outline" size={20} color={palette.primary} /></View><Text accessibilityRole="header" style={styles.heading}>{t('privacyHeading')}</Text></View><Text style={styles.body}>{t('aboutPrivacyBody')}</Text></Card>
+    <Card testID="content-status"><View style={styles.headingRow}><View style={styles.iconTile}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="clipboard-alert-outline" size={20} color={palette.primary} /></View><Text accessibilityRole="header" style={styles.heading}>{t('contentStatusHeading')}</Text></View><Text style={styles.body}>{t('contentStatusBody')}</Text><Text style={styles.body}>{t('translationStatusBody')}</Text></Card>
     <Text style={styles.version}>Sleep Education · Development build 1.0.0</Text>
   </AppScreen>;
 }

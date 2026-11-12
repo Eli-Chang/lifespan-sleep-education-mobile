@@ -1,3 +1,5 @@
+import { isSupportedLocale } from '../i18n/locales';
+
 export const PERSISTED_LEARNING_KEYS = [
   'curriculumVersion', 'completedScreenIds', 'completedModuleIds', 'currentModuleId', 'lastScreenByModule',
   'answers', 'answerAttempts', 'reflectionDrafts', 'savedReflections', 'language', 'narrationEnabled',
@@ -16,7 +18,8 @@ function safeValue(key: PersistedKey, value: unknown): unknown {
   if (key === 'curriculumVersion' || key === 'narrationRate' || key === 'narrationPitch') return finiteNumber(value);
   if (key === 'completedScreenIds' || key === 'completedModuleIds') return stringArray(value);
   if (key === 'currentModuleId') return typeof value === 'string' ? value : undefined;
-  if (key === 'language') return value === 'en' || value === 'es' ? value : undefined;
+  // Only a locale with bundled content is restored; anything else is dropped so defaults apply.
+  if (key === 'language') return isSupportedLocale(value) ? value : undefined;
   if (['narrationEnabled', 'reduceMotion'].includes(key)) return typeof value === 'boolean' ? value : undefined;
   if (['lastScreenByModule', 'answers', 'answerAttempts', 'reflectionDrafts', 'savedReflections', 'voiceByLocale'].includes(key)) return record(value);
   return undefined;

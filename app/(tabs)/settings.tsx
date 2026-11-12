@@ -10,6 +10,9 @@ import { useApp } from '@/src/state/AppProvider';
 import { stopNarration } from '@/src/services/narration';
 import { fontFamily, palette, radius, spacing, touchTarget, type as typeScale } from '@/src/theme/tokens';
 import type { SupportedLocale } from '@/src/types/content';
+import i18n from '@/src/i18n';
+import { isSupportedLocale, localeDefinition } from '@/src/i18n/locales';
+import { learnerSelectableLocales } from '@/src/content';
 
 export default function SettingsScreen() {
   const { t } = useTranslation();
@@ -20,24 +23,24 @@ export default function SettingsScreen() {
   const confirmReset = () => setResetOpen(true);
   const applyReset = () => { resetProgress(); setResetOpen(false); };
 
-  const es = state.language === 'es';
   return <TabRouteBoundary><AppScreen contentStyle={styles.content}>
-    <Header title={t('settings')} subtitle={es ? 'Preferencias guardadas en este dispositivo.' : 'Preferences saved on this device.'} />
+    <Header title={t('settings')} subtitle={t('settingsSubtitle')} />
     <Card>
       <SettingHeading icon="translate" title={t('language')} />
-      {deviceLanguage === 'es' && state.language === 'en' ? <Text style={styles.help}>Español está disponible. You can switch without losing progress.</Text> : null}
+      {isSupportedLocale(deviceLanguage) && deviceLanguage !== state.language && learnerSelectableLocales.includes(deviceLanguage) ? <Text style={styles.help}>{i18n.getFixedT(deviceLanguage)('languageAvailable')} {t('switchKeepsProgress')}</Text> : null}
       <View accessibilityRole="radiogroup" accessibilityLabel={t('language')} style={styles.segment}>
-        {([['en', 'English'], ['es', 'Español']] as const).map(([locale, label]) => <Pressable key={locale} accessibilityRole="radio" accessibilityLabel={label} accessibilityState={{ selected: state.language === locale }} aria-checked={state.language === locale} onPress={() => changeLanguage(locale)} style={[styles.segmentButton, state.language === locale && styles.segmentActive]}>{state.language === locale ? <MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="check" size={18} color={palette.primary} /> : null}<Text style={[styles.segmentText, state.language === locale && styles.segmentTextActive]}>{label}</Text></Pressable>)}
+        {learnerSelectableLocales.map((locale) => [locale, localeDefinition(locale).nativeName] as const).map(([locale, label]) => <Pressable key={locale} accessibilityRole="radio" accessibilityLabel={label} accessibilityState={{ selected: state.language === locale }} aria-checked={state.language === locale} onPress={() => changeLanguage(locale)} style={[styles.segmentButton, state.language === locale && styles.segmentActive]}>{state.language === locale ? <MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="check" size={18} color={palette.primary} /> : null}<Text style={[styles.segmentText, state.language === locale && styles.segmentTextActive]}>{label}</Text></Pressable>)}
       </View>
+      <Text testID="language-status-note" style={styles.help}>{t('languageStatusNote')}</Text>
     </Card>
     <Card>
-      <View style={styles.settingRow}><View style={styles.settingCopy}><SettingHeading icon="volume-high" title={t('narration')} /><Text style={styles.help}>{es ? 'Usa una voz en español instalada en su dispositivo.' : 'Uses a compatible voice installed on your device.'}</Text></View><Switch accessibilityLabel={t('narration')} value={state.narrationEnabled} onValueChange={(enabled) => { if (!enabled) void stopNarration(); setNarrationEnabled(enabled); }} trackColor={{ false: palette.borderStrong, true: palette.primary }} thumbColor={palette.white} /></View>
+      <View style={styles.settingRow}><View style={styles.settingCopy}><SettingHeading icon="volume-high" title={t('narration')} /><Text style={styles.help}>{t('narrationHelp')}</Text></View><Switch accessibilityLabel={t('narration')} value={state.narrationEnabled} onValueChange={(enabled) => { if (!enabled) void stopNarration(); setNarrationEnabled(enabled); }} trackColor={{ false: palette.borderStrong, true: palette.primary }} thumbColor={palette.white} /></View>
       <View style={styles.divider} />
       <View style={styles.valueHeading}><Text style={styles.label}>{t('narrationRate')}</Text><Text style={styles.value}>{state.narrationRate.toFixed(1)}×</Text></View>
-      <ValueControl value={state.narrationRate} min={0.6} max={1.2} onChange={setNarrationRate} label={es ? 'velocidad de narración' : 'narration speed'} decreaseLabel={t('decrease')} increaseLabel={t('increase')} />
+      <ValueControl value={state.narrationRate} min={0.6} max={1.2} onChange={setNarrationRate} label={t('narrationSpeedLabel')} decreaseLabel={t('decrease')} increaseLabel={t('increase')} />
       <View style={styles.valueHeading}><Text style={styles.label}>{t('pitch')}</Text><Text style={styles.value}>{state.narrationPitch.toFixed(1)}</Text></View>
-      <ValueControl value={state.narrationPitch} min={0.7} max={1.3} onChange={setNarrationPitch} label={es ? 'tono de narración' : 'narration pitch'} decreaseLabel={t('decrease')} increaseLabel={t('increase')} />
-      <Text style={styles.help}>{es ? 'La narración no usará una voz inglesa como alternativa.' : 'Higher-quality en-US voices are preferred when available.'}</Text>
+      <ValueControl value={state.narrationPitch} min={0.7} max={1.3} onChange={setNarrationPitch} label={t('narrationPitchLabel')} decreaseLabel={t('decrease')} increaseLabel={t('increase')} />
+      <Text style={styles.help}>{t('narrationVoiceNote')}</Text>
     </Card>
     <Card><View style={styles.settingRow}><View style={styles.settingCopy}><SettingHeading icon="human" title={t('accessibility')} /><Text style={styles.help}>{t('reducedMotionBody')}</Text></View><Switch accessibilityLabel={t('reducedMotion')} value={state.reduceMotion} onValueChange={setReduceMotion} trackColor={{ false: palette.borderStrong, true: palette.primary }} thumbColor={palette.white} /></View></Card>
     <Pressable accessibilityRole="button" accessibilityLabel={t('about')} onPress={() => router.push('/about' as Href)} style={({ pressed }) => [styles.linkRow, pressed && styles.pressed]}>
@@ -45,7 +48,7 @@ export default function SettingsScreen() {
       <Text style={styles.linkText}>{t('about')}</Text>
       <MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="chevron-right" size={22} color={palette.inkMuted} />
     </Pressable>
-    <View style={styles.destructiveSection}><View style={styles.destructiveHeading}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="alert-outline" size={21} color={palette.danger} /><Text accessibilityRole="header" style={styles.destructiveTitle}>{es ? 'Datos de aprendizaje' : 'Learning data'}</Text></View><Text style={styles.help}>{es ? 'Borre su progreso y respuestas guardadas en este dispositivo. Sus preferencias se conservarán.' : 'Clear saved progress and answers on this device. Your preferences will be kept.'}</Text><ActionButton variant="danger" label={t('reset')} icon="delete-outline" onPress={confirmReset} />{resetOpen ? <View accessibilityRole="alert" style={styles.resetDialog}><Text accessibilityRole="header" style={styles.label}>{t('resetTitle')}</Text><Text style={styles.help}>{t('resetBody')}</Text><View style={styles.dialogActions}><ActionButton variant="secondary" label={t('cancel')} onPress={() => setResetOpen(false)} /><ActionButton variant="danger" label={t('confirmReset')} onPress={applyReset} /></View></View> : null}</View>
+    <View style={styles.destructiveSection}><View style={styles.destructiveHeading}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="alert-outline" size={21} color={palette.danger} /><Text accessibilityRole="header" style={styles.destructiveTitle}>{t('learningData')}</Text></View><Text style={styles.help}>{t('learningDataBody')}</Text><ActionButton variant="danger" label={t('reset')} icon="delete-outline" onPress={confirmReset} />{resetOpen ? <View accessibilityRole="alert" style={styles.resetDialog}><Text accessibilityRole="header" style={styles.label}>{t('resetTitle')}</Text><Text style={styles.help}>{t('resetBody')}</Text><View style={styles.dialogActions}><ActionButton variant="secondary" label={t('cancel')} onPress={() => setResetOpen(false)} /><ActionButton variant="danger" label={t('confirmReset')} onPress={applyReset} /></View></View> : null}</View>
   </AppScreen></TabRouteBoundary>;
 }
 

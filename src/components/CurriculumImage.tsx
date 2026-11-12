@@ -1,10 +1,11 @@
 import { Image } from 'expo-image';
 import { StyleSheet, View } from 'react-native';
 import type { CurriculumImageAsset } from '@/src/content/image-registry';
+import type { SupportedLocale } from '@/src/types/content';
 import { useReducedMotion } from '@/src/hooks/useReducedMotion';
 import { palette, radius } from '@/src/theme/tokens';
 
-export function CurriculumImage({ asset, locale, compact = false }: { asset: CurriculumImageAsset; locale: 'en' | 'es'; compact?: boolean }) {
+export function CurriculumImage({ asset, locale, compact = false }: { asset: CurriculumImageAsset; locale: SupportedLocale; compact?: boolean }) {
   const reducedMotion = useReducedMotion();
   return <View style={[styles.frame, compact && styles.compact]}>
     <Image

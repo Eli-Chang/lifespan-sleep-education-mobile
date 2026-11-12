@@ -1,4 +1,7 @@
-export type SupportedLocale = 'en' | 'es';
+import type { SupportedLocale } from '@/src/i18n/locales';
+
+// The locale list is defined once in src/i18n/locales.ts; re-exported here for existing imports.
+export type { SupportedLocale };
 export type LessonScreenType = 'content' | 'singleChoice' | 'multiSelect' | 'scenario' | 'reflection' | 'summary';
 export type TranslationStatus = 'source' | 'machine_drafted' | 'translated_from_approved_english' | 'temporary_english_fallback';
 export type TranslationProvenance = 'approved-english-curriculum' | 'existing-app-spanish-draft';
@@ -16,8 +19,9 @@ export interface Choice {
 export interface LessonVideo {
   url: string;
   thumbnailUrl: string;
-  title: { en: string; es: string };
-  altText: { en: string; es: string };
+  // Every supported locale must supply its own title and description; a new locale is a compile error until it does.
+  title: Record<SupportedLocale, string>;
+  altText: Record<SupportedLocale, string>;
 }
 
 export interface QuestionFeedback {

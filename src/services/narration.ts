@@ -1,6 +1,10 @@
 import * as Speech from 'expo-speech';
 import type { Voice } from 'expo-speech';
 import type { LessonScreen, SupportedLocale } from '@/src/types/content';
+import { SUPPORTED_LOCALES, localeDefinition } from '@/src/i18n/locales';
+import { splitNarration } from './narration-text';
+
+export { splitNarration };
 
 export interface NarrationRequest {
   text: string;
@@ -30,9 +34,9 @@ export interface VoiceInventoryItem {
   isLocal?: boolean;
 }
 
-const localePrefix = (locale: SupportedLocale) => locale === 'es' ? 'es' : 'en';
+// Voice compatibility comes from the locale registry. A voice for another language is never used as a fallback.
 const isCompatible = (voice: Voice, locale: SupportedLocale) =>
-  voice.language.toLowerCase().startsWith(localePrefix(locale));
+  voice.language.toLowerCase().startsWith(localeDefinition(locale).narration.languagePrefix);
 const qualityScore = (voice: Voice) => {
   const quality = String(voice.quality ?? '').toLowerCase();
   const name = `${voice.name} ${voice.identifier}`.toLowerCase();
@@ -68,26 +72,14 @@ export async function chooseVoice(locale: SupportedLocale, selected?: string) {
   const compatible = voices.filter((voice) => isCompatible(voice, locale));
   const saved = compatible.find((voice) => voice.identifier === selected);
   if (saved) return saved.identifier;
-  const preferredLocale = locale === 'es' ? 'es-us' : 'en-us';
+  const preferred = localeDefinition(locale).narration.preferredVoiceTags;
+  const isPreferred = (voice: Voice) => preferred.includes(voice.language.toLowerCase());
   return [...compatible].sort((left, right) => {
-    const localeDelta = Number(right.language.toLowerCase() === preferredLocale) - Number(left.language.toLowerCase() === preferredLocale);
+    const localeDelta = Number(isPreferred(right)) - Number(isPreferred(left));
     return localeDelta || qualityScore(right) - qualityScore(left) || left.name.localeCompare(right.name);
   })[0]?.identifier;
 }
 
-const splitNarration = (text: string, max = 700) => {
-  const paragraphs = text.split(/\n{2,}/).map((value) => value.trim()).filter(Boolean);
-  const sections = paragraphs.length ? paragraphs : [text];
-  return sections.flatMap((section) => {
-    const sentences = section.match(/[^.!?]+[.!?]+|[^.!?]+$/g) ?? [section];
-    return sentences.reduce<string[]>((result, sentence) => {
-      const last = result[result.length - 1];
-      if (last && `${last} ${sentence}`.length <= max) result[result.length - 1] = `${last} ${sentence}`.trim();
-      else result.push(sentence.trim());
-      return result;
-    }, []);
-  });
-};
 
 export class DeviceSpeechNarrationProvider implements NarrationProvider {
   private lastRequest?: NarrationRequest;
@@ -102,7 +94,7 @@ export class DeviceSpeechNarrationProvider implements NarrationProvider {
     if (generation !== this.generation) return { status: 'cancelled' };
     if (!voice) return { status: 'unavailable' };
     this.lastRequest = { ...request, voice };
-    const language = request.locale === 'es' ? 'es-US' : 'en-US';
+    const language = localeDefinition(request.locale).bcp47;
     for (const text of splitNarration(request.text)) {
       Speech.speak(text, {
         language,
@@ -124,8 +116,8 @@ export class DeviceSpeechNarrationProvider implements NarrationProvider {
   }
 
   async isAvailable(locale: string) {
-    const supported = locale.toLowerCase().startsWith('es') ? 'es' : 'en';
-    return Boolean(await chooseVoice(supported));
+    const supported = SUPPORTED_LOCALES.find((code) => locale.toLowerCase().startsWith(localeDefinition(code).narration.languagePrefix));
+    return supported ? Boolean(await chooseVoice(supported)) : false;
   }
 }
 

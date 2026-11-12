@@ -20,7 +20,6 @@ export default function ModuleCompletionScreen() {
   const modules = getModules(state.language);
   const next = module ? modules.find((candidate) => candidate.order === module.order + 1) : undefined;
   const lastScreen = module?.screens.at(-1);
-  const es = state.language === 'es';
 
   useEffect(() => () => { void stopNarration(); }, []);
   useEffect(() => {
@@ -45,7 +44,7 @@ export default function ModuleCompletionScreen() {
     await speakScreen(lastScreen, state.language, state.narrationRate, state.voiceByLocale[state.language], state.narrationPitch);
   };
   const continueLabel = next ? t('continueToNextModule', { module: next.shortTitle }) : t('backToModules');
-  const reviewModuleLabel = es ? 'Repasar módulo' : 'Review Module';
+  const reviewModuleLabel = t('reviewModuleAction');
   const reviewModule = () => router.canDismiss() ? router.dismissTo(`/module/${module.id}` as Href) : router.replace(`/module/${module.id}` as Href);
   const badgeScale = reveal.interpolate({ inputRange: [0, 1], outputRange: [0.9, 1] });
   // The heading stays readable throughout the reveal; only a gentle fade/scale is added.
@@ -59,14 +58,14 @@ export default function ModuleCompletionScreen() {
   return <AppScreen width="reading" contentStyle={styles.content} footer={footer}>
     <View style={styles.topRow}>
       <ActionButton wrapperStyle={styles.backWrapper} buttonStyle={styles.back} variant="ghost" accessibilityLabel={`${t('backToModule')}: ${module.shortTitle}`} label={module.shortTitle} labelNumberOfLines={2} icon="arrow-left" textStyle={styles.backModule} onPress={reviewModule} />
-      <ActionButton buttonStyle={styles.listen} variant="quiet" label={es ? 'Escuchar' : 'Listen'} icon="volume-high" textStyle={styles.listenText} disabled={!state.narrationEnabled} onPress={() => void listen()} />
+      <ActionButton buttonStyle={styles.listen} variant="quiet" label={t('listen')} icon="volume-high" textStyle={styles.listenText} disabled={!state.narrationEnabled} onPress={() => void listen()} />
     </View>
-    <ProgressMeter compact value={100} label={es ? 'Módulo completado' : 'Module complete'} />
+    <ProgressMeter compact value={100} label={t('moduleComplete')} />
     <Animated.View style={[styles.hero, { opacity: heroOpacity, transform: [{ scale: badgeScale }] }]}>
       <View accessible={false} style={styles.ringOuter}><View style={styles.ringInner}>
         <View testID="completion-check" style={styles.check}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="check" size={44} color={palette.white} /></View>
       </View></View>
-      <Text style={styles.kicker}>{es ? `MÓDULO ${module.order} COMPLETADO` : `MODULE ${module.order} COMPLETE`}</Text>
+      <Text style={styles.kicker}>{t('moduleCompleteKicker', { number: module.order })}</Text>
       <Text accessibilityRole="header" style={styles.title}>{t('moduleComplete')}</Text>
       <Text style={styles.subtitle}>{module.title}</Text>
     </Animated.View>
@@ -75,9 +74,9 @@ export default function ModuleCompletionScreen() {
       <View style={styles.savedRow}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="cellphone-lock" size={20} color={palette.inkMuted} /><Text style={styles.savedCopy}>{t('completionSaved')}</Text></View>
     </Card>
     {next ? <Card style={[styles.nextCard, elevation('subtle')]}>
-      <Text style={styles.nextLabel}>{es ? 'SIGUIENTE' : 'UP NEXT'} · {es ? 'MÓDULO' : 'MODULE'} {next.order}</Text>
+      <Text style={styles.nextLabel}>{t('upNextKicker')} · {t('moduleKicker', { number: next.order })}</Text>
       <Text style={styles.nextTitle}>{next.title}</Text>
-      <Text style={styles.nextMeta}>{next.screens.length} {es ? 'pasos' : 'steps'} · ~{Math.max(3, Math.ceil(next.screens.length * 1.25))} min</Text>
+      <Text style={styles.nextMeta}>{next.screens.length} {t('stepsUnit')} · ~{Math.max(3, Math.ceil(next.screens.length * 1.25))} min</Text>
     </Card> : null}
     <View style={styles.secondaryActions}>
       {next ? <ActionButton label={t('backToModules')} icon="home-outline" variant="secondary" onPress={backToModules} /> : null}

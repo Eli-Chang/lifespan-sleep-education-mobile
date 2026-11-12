@@ -23,6 +23,9 @@ const boldPhrases: Record<SupportedLocale, Record<string, string[]>> = {
   },
 };
 
+// Where the m5-04 paragraph continues after the bedtime list, per locale (content-specific, not UI logic).
+const bedtimeRemainderStart: Record<SupportedLocale, string> = { en: 'Simply having a bedtime routine', es: 'Tener una rutina' };
+
 const bedtimeItems: Record<SupportedLocale, string[]> = {
   en: ['light (relatively boring) reading', 'stretching', 'taking a warm bath', 'listening to calming music', 'dimming the lights'],
   es: ['leer algo ligero y relativamente aburrido', 'estirarse', 'tomar un baño tibio', 'escuchar música tranquila', 'bajar las luces'],
@@ -52,7 +55,7 @@ export function richPresentation(screen: ContentLesson, locale: SupportedLocale)
   for (let index = 0; index < screen.paragraphs.length;) {
     const paragraph = screen.paragraphs[index];
     if (screen.id === 'm5-04' && index === 2) {
-      const remainderStart = paragraph.indexOf(locale === 'es' ? 'Tener una rutina' : 'Simply having a bedtime routine');
+      const remainderStart = paragraph.indexOf(bedtimeRemainderStart[locale]);
       blocks.push({ type: 'unorderedList', items: bedtimeItems[locale].map((item) => [{ text: item }]) });
       if (remainderStart >= 0) blocks.push({ type: 'paragraph', segments: segments(paragraph.slice(remainderStart), phrases) });
       index += 1;

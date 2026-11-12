@@ -1,10 +1,11 @@
 import { Image } from 'expo-image';
 import { StyleSheet, View } from 'react-native';
 import type { CurriculumImageAsset } from '@/src/content/image-registry';
+import type { SupportedLocale } from '@/src/types/content';
 import { useReducedMotion } from '@/src/hooks/useReducedMotion';
 import { palette, radius, spacing } from '@/src/theme/tokens';
 
-export function LessonImageRow({ assets, locale }: { assets: CurriculumImageAsset[]; locale: 'en' | 'es' }) {
+export function LessonImageRow({ assets, locale }: { assets: CurriculumImageAsset[]; locale: SupportedLocale }) {
   const reducedMotion = useReducedMotion();
 
   return <View style={styles.wrapper}>

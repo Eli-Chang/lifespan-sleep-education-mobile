@@ -4,9 +4,11 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { getModules } from '@/src/content';
+import { getModules, learnerSelectableLocales } from '@/src/content';
 import { useApp } from '@/src/state/AppProvider';
 import { stopNarration } from '@/src/services/narration';
+import i18n from '@/src/i18n';
+import { localeDefinition } from '@/src/i18n/locales';
 import { moduleProgress, overallProgress } from '@/src/utils/progress';
 import { ActionButton, AppScreen, Card, Header, NightPillButton, ProgressMeter, SectionHeading, StatusPill, elevation } from '@/src/components/ui';
 import { NightSky } from '@/src/components/NightSky';
@@ -27,23 +29,25 @@ export default function HomeScreen() {
   const [focusedModuleId, setFocusedModuleId] = useState<string | null>(null);
   const modules = getModules(state.language);
   const overall = overallProgress(modules, state.completedScreenIds);
-  const es = state.language === 'es';
   if (!loaded) return <TabRouteBoundary><AppScreen><Header title={t('loading')} /></AppScreen></TabRouteBoundary>;
   const current = modules.find((module) => module.id === state.currentModuleId);
 
   const pathModule = modules.find((module) => moduleProgress(module, state.completedScreenIds).percentage < 100) ?? (overall.percentage < 100 ? current ?? modules[0] : undefined);
   const pathProgress = pathModule ? moduleProgress(pathModule, state.completedScreenIds) : undefined;
   const pathScreen = pathModule?.screens.find((screen) => !state.completedScreenIds.includes(screen.id)) ?? pathModule?.screens[0];
-  const switchLanguage = () => { void stopNarration(); setLanguage(es ? 'en' : 'es'); };
+  // With exactly two learner-selectable languages the pill toggles between them; with more, it opens Settings.
+  const otherLocales = learnerSelectableLocales.filter((locale) => locale !== state.language);
+  const toggleTarget = otherLocales.length === 1 ? otherLocales[0] : undefined;
+  const switchLanguage = () => { if (!toggleTarget) { router.push('/settings' as Href); return; } void stopNarration(); setLanguage(toggleTarget); };
 
   const hero = <View style={[styles.hero, { paddingTop: insets.top + 14 }]}>
     <NightSky moon={false} />
     <View style={styles.heroInner}>
       <View style={styles.heroTop}>
         <View style={styles.brand}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="weather-night" size={18} color={palette.moon} /><Text style={styles.brandText}>{t('appName')}</Text></View>
-        <NightPillButton label={es ? 'English' : 'Español'} icon="translate" accessibilityLabel={es ? 'Switch to English' : 'Cambiar a español'} accessibilityLanguage={es ? 'en' : 'es'} onPress={switchLanguage} />
+        {toggleTarget ? <NightPillButton label={localeDefinition(toggleTarget).nativeName} icon="translate" accessibilityLabel={i18n.getFixedT(toggleTarget)('switchToThisLanguage')} accessibilityLanguage={toggleTarget} onPress={switchLanguage} /> : otherLocales.length ? <NightPillButton label={t('language')} icon="translate" accessibilityLabel={t('language')} onPress={switchLanguage} /> : null}
       </View>
-      <Header tone="night" title={es ? 'Empiece por comprender su sueño.' : 'Start by understanding sleep.'} subtitle={t('welcome')} />
+      <Header tone="night" title={t('homeTitle')} subtitle={t('welcome')} />
     </View>
   </View>;
 
@@ -54,17 +58,17 @@ export default function HomeScreen() {
       <Text style={styles.pathStep}>{t('reviewModules')}</Text>
     </Card> : pathModule && pathProgress && pathScreen ? <Card style={[styles.pathCard, elevation('raised')]}>
       <View style={styles.pathHeader}>
-        <Text style={styles.pathLabel}>{overall.completed ? (es ? 'CONTINUAR APRENDIENDO' : 'CONTINUE LEARNING') : (es ? 'EMPEZAR A APRENDER' : 'START LEARNING')}</Text>
-        <Text style={styles.pathModuleNumber}>{es ? 'Módulo' : 'Module'} {pathModule.order}</Text>
+        <Text style={styles.pathLabel}>{overall.completed ? t('continueLearningKicker') : t('startLearningKicker')}</Text>
+        <Text style={styles.pathModuleNumber}>{t('moduleNumber', { number: pathModule.order })}</Text>
       </View>
       <Text accessibilityRole="header" style={styles.pathTitle}>{pathModule.title}</Text>
-      <Text style={styles.pathStep}>{overall.completed ? `${es ? 'Paso' : 'Step'} ${pathProgress.completed + 1} · ${pathScreen.title}` : `${es ? 'Comience con' : 'Start with'} ${pathModule.shortTitle}`}</Text>
-      <View style={styles.pathMeterRow}><Text style={styles.pathProgressSummary}>{overall.completed} / {overall.total} {es ? 'pasos' : 'steps'}</Text><Text style={styles.pathPercent}>{overall.percentage}%</Text></View>
-      <ProgressMeter compact value={overall.percentage} label={es ? 'Progreso total' : 'Overall progress'} />
-      <ActionButton buttonStyle={styles.pathAction} label={`${overall.completed ? t('continue') : t('start')} ${es ? 'módulo' : 'Module'} ${pathModule.order}`} icon="arrow-right" iconPosition="trailing" onPress={() => router.push(`/module/${pathModule.id}` as Href)} />
+      <Text style={styles.pathStep}>{overall.completed ? t('stepWithTitle', { number: pathProgress.completed + 1, title: pathScreen.title }) : t('startWith', { module: pathModule.shortTitle })}</Text>
+      <View style={styles.pathMeterRow}><Text style={styles.pathProgressSummary}>{overall.completed} / {overall.total} {t('stepsUnit')}</Text><Text style={styles.pathPercent}>{overall.percentage}%</Text></View>
+      <ProgressMeter compact value={overall.percentage} label={t('overallProgress')} />
+      <ActionButton buttonStyle={styles.pathAction} label={`${overall.completed ? t('continue') : t('start')} ${t('moduleInline')} ${pathModule.order}`} icon="arrow-right" iconPosition="trailing" onPress={() => router.push(`/module/${pathModule.id}` as Href)} />
     </Card> : null}
 
-    <SectionHeading title={es ? 'Su ruta de aprendizaje' : 'Your learning path'} hint={`${modules.length} ${es ? 'módulos' : 'modules'}`} />
+    <SectionHeading title={t('learningPath')} hint={`${modules.length} ${t('modulesUnit')}`} />
     <View style={styles.list}>{modules.map((module, index) => {
       const progress = moduleProgress(module, state.completedScreenIds);
       const complete = progress.percentage === 100;
@@ -82,12 +86,12 @@ export default function HomeScreen() {
         <Pressable accessibilityRole="button" accessibilityLabel={`${module.order}. ${module.title}. ${status}`} onFocus={() => setFocusedModuleId(module.id)} onBlur={() => setFocusedModuleId(null)} onPress={() => router.push(`/module/${module.id}` as Href)} style={({ pressed, hovered }: { pressed: boolean; hovered?: boolean }) => [styles.moduleCard, isNext && styles.moduleCardNext, hovered && styles.moduleCardHover, focusedModuleId === module.id && styles.focusedRow, pressed && styles.pressedRow]}>
           <View style={styles.moduleCardHeader}>
             <View style={styles.moduleCopy}>
-              <Text style={styles.moduleKicker}>{es ? 'MÓDULO' : 'MODULE'} {module.order}</Text>
+              <Text style={styles.moduleKicker}>{t('moduleKicker', { number: module.order })}</Text>
               <Text style={styles.moduleTitle}>{module.title}</Text>
             </View>
             <View accessible={false} style={[styles.moduleIcon, complete && styles.moduleIconDone]}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name={moduleIcons[module.id] ?? 'book-open-variant'} size={22} color={complete ? palette.success : palette.primary} /></View>
           </View>
-          <View style={styles.moduleMeta}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="format-list-numbered" size={15} color={palette.inkMuted} /><Text style={styles.progressLabel}>{progress.total} {es ? 'pasos' : 'steps'}</Text><Text style={styles.metaDot}>·</Text><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="clock-outline" size={15} color={palette.inkMuted} /><Text style={styles.progressLabel}>~{Math.max(3, Math.ceil(module.screens.length * 1.25))} min</Text></View>
+          <View style={styles.moduleMeta}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="format-list-numbered" size={15} color={palette.inkMuted} /><Text style={styles.progressLabel}>{progress.total} {t('stepsUnit')}</Text><Text style={styles.metaDot}>·</Text><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="clock-outline" size={15} color={palette.inkMuted} /><Text style={styles.progressLabel}>~{Math.max(3, Math.ceil(module.screens.length * 1.25))} min</Text></View>
           {started && !complete ? <View style={styles.miniTrack}><View style={[styles.miniFill, { width: `${progress.percentage}%` }]} /></View> : null}
           <View style={styles.moduleFooter}>
             <StatusPill label={started && !complete ? `${status} · ${progress.completed}/${progress.total}` : status} tone={complete ? 'complete' : started ? 'progress' : 'neutral'} />

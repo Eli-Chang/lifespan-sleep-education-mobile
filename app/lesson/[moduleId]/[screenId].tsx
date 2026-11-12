@@ -132,7 +132,7 @@ export default function LessonScreen() {
     return () => { show.remove(); hide.remove(); back.remove(); };
   }, [keyboardVisible, moduleId, saveNow]);
   if (legacyLessonHref) return <Redirect href={legacyLessonHref} />;
-  if (!module || !screen || index < 0) return <AppScreen><Text style={styles.title}>{state.language === 'es' ? 'Lección no encontrada' : 'Lesson not found'}</Text><ActionButton label={t('backToModules')} icon="arrow-left" onPress={backToModules} /></AppScreen>;
+  if (!module || !screen || index < 0) return <AppScreen><Text style={styles.title}>{t('lessonNotFound')}</Text><ActionButton label={t('backToModules')} icon="arrow-left" onPress={backToModules} /></AppScreen>;
   const previous = module.screens[index - 1];
   const next = module.screens[index + 1];
   const isReflection = screen.type === 'reflection' || ('questionKind' in screen && screen.questionKind === 'reflection');
@@ -158,14 +158,14 @@ export default function LessonScreen() {
     const outcome = await speakScreen(screen, state.language, state.narrationRate, state.voiceByLocale[state.language], state.narrationPitch);
     if (outcome.status === 'speaking') { if (state.voiceByLocale[state.language] !== outcome.voice) setVoice(state.language, outcome.voice); setNarrationState('pause'); }
     else if (outcome.status === 'unavailable') Alert.alert(
-      state.language === 'es' ? 'Voz no disponible' : 'Narration voice unavailable',
-      state.language === 'es' ? 'Revise los ajustes de idioma o voz del dispositivo. Puede continuar leyendo la lección.' : 'Check the device language or speech settings. You can continue reading the lesson.',
+      t('voiceUnavailableTitle'),
+      t('voiceUnavailableBody'),
     );
   };
-  const narrationLabel = narrationState === 'pause' ? t('stop') : narrationState === 'replay' ? t('replay') : state.language === 'es' ? 'Escuchar' : 'Listen';
+  const narrationLabel = narrationState === 'pause' ? t('stop') : narrationState === 'replay' ? t('replay') : t('listen');
   // When narration is on but this device has no voice for the lesson language, say so to screen readers.
   const narrationAccessibilityLabel = state.narrationEnabled && narrationState === 'unavailable'
-    ? (state.language === 'es' ? 'Escuchar: no hay una voz en español disponible en este dispositivo' : 'Listen: no English voice is available on this device')
+    ? t('listenNoVoice')
     : narrationLabel;
   const narrationIcon = narrationState === 'pause' ? 'pause' : narrationState === 'replay' ? 'replay' : narrationState === 'unavailable' ? 'volume-off' : 'volume-high';
   const nextLabel = isReflection && !submittedNow ? t('skipOptional') : next ? t('next') : t('completeModule');
@@ -194,7 +194,7 @@ export default function LessonScreen() {
   const activeTransform = transition.interpolate({ inputRange: [0, 1], outputRange: [entryOffset, 0] });
   const outgoingTransform = transition.interpolate({ inputRange: [0, 1], outputRange: [0, outgoingOffset] });
   const incomingTransform = transition.interpolate({ inputRange: [0, 1], outputRange: [incomingOffset, 0] });
-  const stepLabel = `${state.language === 'es' ? 'Paso' : 'Step'} ${index + 1} ${state.language === 'es' ? 'de' : 'of'} ${module.screens.length}`;
+  const stepLabel = t('stepOf', { current: index + 1, total: module.screens.length });
   const footer = <View style={styles.controls}>
     {previous ? <ActionButton wrapperStyle={compactControls ? undefined : styles.controlSlot} buttonStyle={styles.footerButton} compact={compactControls} variant="secondary" accessibilityLabel={t('previous')} label={t('previous')} labelNumberOfLines={2} icon="arrow-left" onPress={() => navigate(previous.id, 'backward')} /> : null}
     <ActionButton wrapperStyle={styles.controlNext} buttonStyle={styles.footerButton} label={nextLabel} icon={isReflection && !submittedNow ? 'arrow-right' : next ? 'arrow-right' : 'check'} iconPosition="trailing" labelNumberOfLines={2} disabled={!canContinue} onPress={continueNext} />
@@ -205,7 +205,7 @@ export default function LessonScreen() {
       <ActionButton buttonStyle={styles.listen} variant="quiet" label={narrationLabel} accessibilityLabel={narrationAccessibilityLabel} icon={narrationIcon} textStyle={styles.listenText} disabled={!state.narrationEnabled || narrationState === 'unavailable'} onPress={() => void play()} />
     </View>
     <View style={styles.progressBlock}>
-      <View style={styles.progressLabels}><Text style={styles.moduleLabel}>{state.language === 'es' ? 'Módulo' : 'Module'} {module.order}</Text><Text style={styles.step}>{stepLabel}</Text></View>
+      <View style={styles.progressLabels}><Text style={styles.moduleLabel}>{t('moduleNumber', { number: module.order })}</Text><Text style={styles.step}>{stepLabel}</Text></View>
       <ProgressMeter compact steps={{ total: module.screens.length, current: index + 1 }} value={Math.round(((index + 1) / module.screens.length) * 100)} label={stepLabel} />
     </View>
     <View testID="lesson-surface" style={styles.lessonSurfaceViewport}>
