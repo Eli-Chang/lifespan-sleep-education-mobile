@@ -2,7 +2,8 @@ import { test, expect } from '@playwright/test';
 import { spanishModules } from '../../src/content/es';
 
 test('all active Spanish learner routes render translated screen titles without fallback text', async ({ page }) => {
-  test.setTimeout(240_000);
+  // 113 full page loads against the dev server take about 260 s on the 2026-11 Windows PC; 240 s was too tight.
+  test.setTimeout(480_000);
   const consoleErrors: string[] = [];
   page.on('console', (message) => { if (message.type() === 'error') consoleErrors.push(message.text()); });
   await page.addInitScript(() => {

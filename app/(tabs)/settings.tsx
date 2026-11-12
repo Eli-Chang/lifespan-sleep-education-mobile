@@ -11,7 +11,7 @@ import { stopNarration } from '@/src/services/narration';
 import { fontFamily, palette, radius, spacing, touchTarget, type as typeScale } from '@/src/theme/tokens';
 import type { SupportedLocale } from '@/src/types/content';
 import i18n from '@/src/i18n';
-import { isSupportedLocale, localeDefinition } from '@/src/i18n/locales';
+import { SOURCE_LOCALE, isSupportedLocale, localeDefinition } from '@/src/i18n/locales';
 import { learnerSelectableLocales } from '@/src/content';
 
 export default function SettingsScreen() {
@@ -27,7 +27,7 @@ export default function SettingsScreen() {
     <Header title={t('settings')} subtitle={t('settingsSubtitle')} />
     <Card>
       <SettingHeading icon="translate" title={t('language')} />
-      {isSupportedLocale(deviceLanguage) && deviceLanguage !== state.language && learnerSelectableLocales.includes(deviceLanguage) ? <Text style={styles.help}>{i18n.getFixedT(deviceLanguage)('languageAvailable')} {t('switchKeepsProgress')}</Text> : null}
+      {isSupportedLocale(deviceLanguage) && deviceLanguage !== SOURCE_LOCALE && state.language === SOURCE_LOCALE && learnerSelectableLocales.includes(deviceLanguage) ? <Text style={styles.help}>{i18n.getFixedT(deviceLanguage)('languageAvailable')} {t('switchKeepsProgress')}</Text> : null}
       <View accessibilityRole="radiogroup" accessibilityLabel={t('language')} style={styles.segment}>
         {learnerSelectableLocales.map((locale) => [locale, localeDefinition(locale).nativeName] as const).map(([locale, label]) => <Pressable key={locale} accessibilityRole="radio" accessibilityLabel={label} accessibilityState={{ selected: state.language === locale }} aria-checked={state.language === locale} onPress={() => changeLanguage(locale)} style={[styles.segmentButton, state.language === locale && styles.segmentActive]}>{state.language === locale ? <MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="check" size={18} color={palette.primary} /> : null}<Text style={[styles.segmentText, state.language === locale && styles.segmentTextActive]}>{label}</Text></Pressable>)}
       </View>
