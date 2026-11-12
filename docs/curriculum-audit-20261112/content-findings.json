@@ -10,7 +10,7 @@
   "problem": "An internal authoring heading is shown to learners. LessonRenderer renders the hard-coded English text \"SOURCE-VISIBLE LABELS\" whenever a screen has sourceVisibleLabels; m3-04 is the only screen that has them, so both English and Spanish learners see this internal label (and Spanish learners see it in English).",
   "proposedFix": "In src/components/LessonRenderer.tsx (content branch line 145, summary branch line 153), drop the \"SOURCE-VISIBLE LABELS\" heading text and render the label list without it, or swap it for an existing localized learner-facing label via t(). No curriculum text changes.",
   "classification": "safe-editorial-fix",
-  "evidence": "C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/src/components/LessonRenderer.tsx:145 and :153 (still hard-coded after the UI-strings move; not in src/i18n/strings.ts). Snapshot: m3-04 sourceVisibleLabels length 5 in EN and ES; no other screen has them. grep of docs/ and tests/ finds no mention of the heading."
+  "evidence": "<User home>/Projects/lifespan-sleep-education-mobile-wt-20261111/src/components/LessonRenderer.tsx:145 and :153 (still hard-coded after the UI-strings move; not in src/i18n/strings.ts). Snapshot: m3-04 sourceVisibleLabels length 5 in EN and ES; no other screen has them. grep of docs/ and tests/ finds no mention of the heading."
  },
  {
   "id": "F02",
@@ -23,7 +23,7 @@
   "problem": "Authoring/provenance wording (\"source activity\", \"de la fuente\") appears in learner-facing feedback shown after answering. Same kind of leak as the \"as recommended by the CIAS source\" label already removed from m9-11.",
   "proposedFix": "EN m5-q9: \"This source activity is pointing to\" -> \"This activity points to\". EN m5-q3: \"This source activity highlights\" -> \"This activity highlights\". ES m5-q9: \"Esta actividad de la fuente se refiere a\" -> \"Esta actividad se refiere a\". ES m5-q3: \"Esta actividad de la fuente destaca\" -> \"Esta actividad destaca\". (m5-q9 explanation content is separately flagged for clinical review.)",
   "classification": "safe-editorial-fix",
-  "evidence": "C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/src/content/en/modules/module-05.ts:14 (m5-q9) and :19 (m5-q3); src/content/es/modules/module-05.ts:21 (m5-q9) and :15 (m5-q3). Precedent: docs/curriculum-audit-20261021/README.md section 3 (m9-11 label removal)."
+  "evidence": "<User home>/Projects/lifespan-sleep-education-mobile-wt-20261111/src/content/en/modules/module-05.ts:14 (m5-q9) and :19 (m5-q3); src/content/es/modules/module-05.ts:21 (m5-q9) and :15 (m5-q3). Precedent: docs/curriculum-audit-20261021/README.md section 3 (m9-11 label removal)."
  },
  {
   "id": "F03",
@@ -36,7 +36,7 @@
   "problem": "Body text describes a three-woman composite image from the CIAS screenshot that is not in the app. The only image displayed on m6-01 is m6-01-pregnancy-congestion.webp, one pregnant woman blowing her nose on a couch (alt: \"Pregnant person seated while experiencing nasal symptoms.\"). cpap-patient is mapped too but hidden on CIAS-recovered screens. Text contradicts the picture and its alt text.",
   "proposedFix": "Delete paragraphs[5] in EN (src/content/en/cias-source.ts:73) and the matching last paragraph in ES (src/content/es/cias-translations.ts m6-01 entry, line 276). Paragraph counts stay equal (6 -> 5 in both).",
   "classification": "safe-editorial-fix",
-  "evidence": "Image viewed: C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-6/m6-01-pregnancy-congestion.webp. Display filter: LessonRenderer.tsx:133 (CIAS-recovered screens show only images with displayOnSourceRecovered; cpap-patient at image-registry.ts:59 lacks it). Source of the sentence: CIAS-SCREENSHOT-SOURCE-ARCHIVE.json record 6.1 (172134)."
+  "evidence": "Image viewed: <User home>/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-6/m6-01-pregnancy-congestion.webp. Display filter: LessonRenderer.tsx:133 (CIAS-recovered screens show only images with displayOnSourceRecovered; cpap-patient at image-registry.ts:59 lacks it). Source of the sentence: CIAS-SCREENSHOT-SOURCE-ARCHIVE.json record 6.1 (172134)."
  },
  {
   "id": "F04",
@@ -283,7 +283,7 @@
   "problem": "The infographic carries teaching text that m6-q2 depends on (smaller meals, raising the head of the bed), but the alt text names none of it, so screen-reader users cannot get the content. (Image content itself is flagged for clinical review separately.)",
   "proposedFix": "EN alt -> \"Infographic titled How to manage heartburn during pregnancy: eat smaller meals more often; avoid eating 2 hours before exercising or going to bed; stay away from foods and drink that give you heartburn; avoid eating and drinking at the same time; sit up straight while eating and do not lie down right after a meal; raise the head of your bed or sleep on more pillows.\" ES alt draft (needs bilingual check) -> \"Infografía titulada Cómo controlar la acidez durante el embarazo: coma porciones más pequeñas con más frecuencia; evite comer 2 horas antes de hacer ejercicio o de acostarse; evite alimentos y bebidas que le causen acidez; evite comer y beber al mismo tiempo; siéntese derecha al comer y no se acueste justo después de comer; eleve la cabecera de la cama o duerma con más almohadas.\" Avoid apostrophes: tests/image-registry.test.ts parses alt text with a single-quote regex.",
   "classification": "safe-editorial-fix",
-  "evidence": "Image viewed: C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-6/m6-07-heartburn-guidance.jpg. Registry: src/content/image-registry.ts:57."
+  "evidence": "Image viewed: <User home>/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-6/m6-07-heartburn-guidance.jpg. Registry: src/content/image-registry.ts:57."
  },
  {
   "id": "F24",
@@ -296,7 +296,7 @@
   "problem": "Alt text does not describe the image. The image is a hand-drawn flow diagram: \"Consistent PAP treatment for sleep apnea\" -> \"Well-controlled stress levels\" / \"Well-controlled stress hormones\" -> \"Well-controlled blood pressure\" and \"Well-controlled blood sugar\". It says nothing about obstructive breathing. (Whether this image should stay is a clinical-review item.)",
   "proposedFix": "EN alt -> \"Hand-drawn flow diagram: consistent PAP treatment for sleep apnea leads to well-controlled stress levels and stress hormones, which lead to well-controlled blood pressure and well-controlled blood sugar.\" ES alt -> \"Diagrama dibujado a mano: el tratamiento constante con PAP para la apnea del sueño lleva a niveles y hormonas del estrés bien controlados, que llevan a una presión arterial y una glucosa en sangre bien controladas.\" Apply only if the image is kept.",
   "classification": "safe-editorial-fix",
-  "evidence": "Image viewed: C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-4/pap-treatment-benefits.jpg. Registry: src/content/image-registry.ts:34."
+  "evidence": "Image viewed: <User home>/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-4/pap-treatment-benefits.jpg. Registry: src/content/image-registry.ts:34."
  },
  {
   "id": "F25",
@@ -382,7 +382,7 @@
   "problem": "Informative images with English-only text are shown unchanged on Spanish screens. For m6-07 the English text is the only place the content needed for m6-q2 appears. (m9-04 is already documented in audit-m9.md; m8-10 is now withheld on the working tree, see F36.)",
   "proposedFix": "Bilingual/content decision: Spanish image variants, or move the content into translated text. At minimum, Spanish alt text should carry the content (see the m6-07 alt fix).",
   "classification": "translation-review",
-  "evidence": "Images viewed in C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum: module-1/symptoms-nighttime.png, module-1/sleep-apnea-symptoms-pregnancy.webp, module-3/m3-01-pregnancy-outcomes.webp, module-4/pap-treatment-benefits.jpg, module-6/m6-07-heartburn-guidance.jpg, module-6/m6-08-anxiety-coping.png, module-8/m8-11-settings-chart.png. symptoms-daytime.png assumed similar from its alt text (not opened)."
+  "evidence": "Images viewed in <User home>/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum: module-1/symptoms-nighttime.png, module-1/sleep-apnea-symptoms-pregnancy.webp, module-3/m3-01-pregnancy-outcomes.webp, module-4/pap-treatment-benefits.jpg, module-6/m6-07-heartburn-guidance.jpg, module-6/m6-08-anxiety-coping.png, module-8/m8-11-settings-chart.png. symptoms-daytime.png assumed similar from its alt text (not opened)."
  },
  {
   "id": "F32",
@@ -446,7 +446,7 @@
   "problem": "The picture is an oxygen-delivery table (flow rate L/min, pressure cmH2O, oxygen %, D-tank cylinder duration in minutes), apparently for an oxygen-driven CPAP device. On \"Who Adjusts My PAP Settings?\" it implies home PAP involves oxygen cylinders and pressure/oxygen settings, contradicting m1-07 (\"it is not the same as receiving supplemental oxygen\") and the m1-q2 distractor about oxygen. Registry says it was added at user request.",
   "proposedFix": "Already handled on the working tree: the image is withheld from learners (WITHHELD_IMAGES in src/content/image-registry.ts, uncommitted at audit time). Confirm it ships withheld; any replacement is an owner decision.",
   "classification": "already-documented",
-  "evidence": "docs/PAP_PREGNANCY_CONTENT_AUDIT.md (written concurrently, 21:15) change table and item 1; tests/withheld-images.test.ts. Independently confirmed by viewing C:/Users/Eli/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-8/m8-11-settings-chart.png; docs/IMAGE_SOURCE_REGISTRY.md line 52 says it was added at user request. The snapshot in this folder predates the withholding."
+  "evidence": "docs/PAP_PREGNANCY_CONTENT_AUDIT.md (written concurrently, 21:15) change table and item 1; tests/withheld-images.test.ts. Independently confirmed by viewing <User home>/Projects/lifespan-sleep-education-mobile-wt-20261111/assets/curriculum/module-8/m8-11-settings-chart.png; docs/IMAGE_SOURCE_REGISTRY.md line 52 says it was added at user request. The snapshot in this folder predates the withholding."
  },
  {
   "id": "F37",

@@ -2,7 +2,7 @@
 
 A patient-facing Expo React Native education app about obstructive sleep apnea, pregnancy, PAP therapy, sleep health, relationships, and intimacy. It contains ten modules in English and Spanish (Healthy Sleep Hygiene is taught in two parts, followed by Pregnancy Comorbidities, Intimacy, Getting Started with PAP, and Troubleshooting PAP; see `docs/curriculum-audit-20261021/README.md`), offline written content, local progress, interactive questions, and device text-to-speech.
 
-Status: development build. The medical content is not clinically validated and the Spanish draft is not professionally reviewed.
+Status: development build. The medical content is not clinically validated and the Spanish draft is not professionally reviewed. Nothing here is approved for use with research participants. Start with `docs/RESEARCH_PILOT_READINESS.md` (what is done and what needs review), `docs/CANONICAL_PROJECT_AUDIT.md` (which copy of the project is canonical), and `docs/translation/README.md` (English, Spanish, Portuguese, and Creole).
 
 ## Visual and image system
 
@@ -97,13 +97,13 @@ tests/                       automated content/progress tests
 
 ## Content model and traceability
 
-Every lesson is typed as content, single choice, multi-select, scenario, or summary. Every screen has a stable ID such as `m5-s12` and at least one source screenshot ID. `src/content/source-manifest.ts` maps every one of the 77 PNG files to its module and lesson.
+Every lesson is typed as content, single choice, multi-select, scenario, reflection, or summary. Every screen has a stable ID such as `m5-04` or `m8-q1` and cites at least one source: a CIAS screenshot ID, `cias-screenshot-recovery`, the CIAS EZ-PAP document, an ATS supplement, or the app curriculum (`sourceIds`). `src/content/source-manifest.ts` maps every one of the 77 historical PNG files to its module and lesson. `docs/curriculum/CURRICULUM_INVENTORY.md` is a generated inventory of every module, screen type, image, and source.
 
 To add a lesson, create a typed item in the correct English module file, give it a unique ID and valid source ID, then add the same ID to the Spanish module. Add questions with ordered choices and only set `correctChoiceId`/`correctChoiceIds` when the source establishes the answer. Run content validation and tests.
 
 To add a module, add matching English and Spanish files, import both from their locale index, add every source to the manifest, and update the expected title/order list in the validator.
 
-To add a language, add a locale content index with identical IDs, add UI strings to `src/i18n/index.ts`, add it to `modulesByLocale`, and extend the language settings. Written content is bundled; no runtime translation occurs.
+To add a language, follow `docs/translation/README.md`: register it in `src/i18n/locales.ts`, add its interface strings to `src/i18n/strings.ts`, add its lesson modules to `modulesByLocale` in `src/content/index.ts`, and add alt text and video labels for it. The compiler and `tests/locale-infrastructure.test.ts` list anything missing, and a locale is offered to learners only when its content is complete. Written content is bundled; no runtime translation occurs.
 
 ## Progress and persistence
 
@@ -123,7 +123,7 @@ Before patient release, complete clinical review, source/citation verification, 
 
 ## Deterministic evaluation system
 
-The `evaluation/` directory contains ten fixed synthetic personas, a versioned scenario library covering all seven active modules, fixture and fail-closed live AI runners, Playwright browser tests, raw JSONL runs, SQLite/SQL analysis, a local workbook, human-review queues, and baseline/rerun comparison reports. Deterministic personas are repeatable test constructs; they are not real users and do not establish clinical effectiveness, real-user usability, PAP adherence, or patient understanding.
+The `evaluation/` directory contains ten fixed synthetic personas, a versioned scenario library written for the earlier seven-module curriculum (it has not been updated for the ten-module curriculum or the removal of in-app AI), fixture and fail-closed live AI runners, Playwright browser tests, raw JSONL runs, SQLite/SQL analysis, a local workbook, human-review queues, and baseline/rerun comparison reports. Deterministic personas are repeatable test constructs; they are not real users and do not establish clinical effectiveness, real-user usability, PAP adherence, or patient understanding.
 
 Run the safe fixture workflow in PowerShell:
 

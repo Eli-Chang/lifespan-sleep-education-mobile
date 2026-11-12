@@ -2,6 +2,8 @@
 
 Date: 2026-11-11. Branch `work/canonical-multilingual-20261111`. This is a development record, not a clinical, translation, institutional, or medical-device approval. No medical claim, statistic, answer key, or recommendation was added or changed. No PHI was found in any file read.
 
+`<Personal Drive>` means the My Drive folder of the personal Google account on the Windows PC; `<User home>` is the Windows user folder.
+
 ## What this audit answers
 
 The request referred to PAP and fetal-health modules as "Module 9, 10, or 11". In the code the PAP modules are `m8` (Getting Started with PAP, shown 9th) and `m9` (Troubleshooting PAP, shown 10th); pregnancy and baby health is `m4` (shown 4th) with outcome questions in `m3`; pregnancy comorbidities is `m6` (shown 7th). There is no `m10` or `m11` in the current curriculum. An older curriculum (before version 11) had PAP modules `m8` to `m10`; their content is not recorded anywhere and their saved progress is discarded by the migration.
@@ -39,12 +41,12 @@ The detailed tables below were produced by an independent read-only audit agent 
 | --- | --- | --- |
 | CIAS EZ-PAP document | `docs/CIAS App_ EZ-PAP .pdf`, `docs/CIAS App_ EZ-PAP extracted.txt` (page markers: p16 line 3010, p17 3384, p18 3676, p19 3991, p20 4529, p21 4932, p22 5279, p23 5605, p24 5965, p26 6643, p27 7078) | Section I pp.2-18 incl. "OSA Maternal & Fetal/Neonatal Outcomes" pp.16-19; Section II pp.19-20; Section III pp.21-24; Section V pp.25-27; Section VI pp.28-30 |
 | CIAS app screenshots | `docs/CIAS-SCREENSHOT-SOURCE-ARCHIVE.json` (77 records, CIAS app modules 1-7), transcribed in `src/content/en/cias-source.ts` | Source of m4 and m6 |
-| CIAS topic overview | `C:\Users\Eli\My Drive (eli.s.chang@gmail.com)\AIOS\References (1)\Lifespan References\Sleep_Apnea_CIAS_Overview.png` | 8 planned topic columns, labels only |
+| CIAS topic overview | `<Personal Drive>\AIOS\References (1)\Lifespan References\Sleep_Apnea_CIAS_Overview.png` | 8 planned topic columns, labels only |
 | Oct 21 audit | `docs/curriculum-audit-20261021/` | Claim-by-claim m8/m9 vs CIAS |
 | ATS supplements | `ats-pap-overview`, `ats-pap-troubleshooting`, `ats-pap-care-cleaning` | Candidates, "statement-level review pending" (`docs/CLINICAL_SOURCE_REGISTRY.md` lines 9-11). Not fetched or compared here |
 | Not accessible | Google Doc "Educational Modules Enhancing CPAP Adherence in Pregnant Women With Sleep Apnea" | `docs/curriculum-audit-20261021/README.md` line 12 |
 | Not found | Old Next.js prototype | No `next.config.*` or prototype folder in the AIOS Drive, `Documents\App Developments`, or `AppData\Local\LifespanSleepEducation` |
-| Checked, no clinical content | `C:\Users\Eli\Documents\App Developments\lifespan-sleep-education-media` (SOURCES.md, sources/SOURCE_POLICY.md) and the Sept 22 handoff (`BOURJEILY-EMAIL-DRAFT.md`, `HANDOFF-PROVENANCE.md`) | Media prototype covers only the m1 airway; handoff m4/m6/m8/m9 files match current except display order and one m9-11 label later removed |
+| Checked, no clinical content | `<User home>\Documents\App Developments\lifespan-sleep-education-media` (SOURCES.md, sources/SOURCE_POLICY.md) and the Sept 22 handoff (`BOURJEILY-EMAIL-DRAFT.md`, `HANDOFF-PROVENANCE.md`) | Media prototype covers only the m1 airway; handoff m4/m6/m8/m9 files match current except display order and one m9-11 label later removed |
 
 ## Module-by-module table
 
