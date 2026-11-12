@@ -2,8 +2,12 @@ import http from 'node:http';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 
-const publicPort = Number(process.env.WEB_PREVIEW_PORT ?? '8084');
-const expoPort = Number(process.env.EXPO_WEB_PORT ?? '8085');
+// `--port N` (passed by playwright.config.ts as `npm run web -- --port N`) overrides WEB_PREVIEW_PORT.
+// Without this the flag was ignored and the self-started test server listened on 8084 while tests waited on N.
+const portFlag = process.argv.indexOf('--port');
+const cliPort = portFlag >= 0 ? process.argv[portFlag + 1] : undefined;
+const publicPort = Number(cliPort ?? process.env.WEB_PREVIEW_PORT ?? '8084');
+const expoPort = Number(process.env.EXPO_WEB_PORT ?? String(publicPort + 1));
 
 function proxyExpo(request, response) {
   const upstreamRequest = http.request({
