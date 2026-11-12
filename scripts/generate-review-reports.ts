@@ -19,7 +19,7 @@ export async function buildReviewReports(): Promise<ReviewReports> {
   const { curriculumImages: imageRegistry } = await import('../src/content/image-registry');
   const { translationStatusReport } = await import('../src/content/translation-status');
   const { MODULE_CLINICAL_REVIEW } = await import('../src/content/clinical-review-register');
-  const { LOCALE_DEFINITIONS, PLANNED_LOCALE_TARGETS, SUPPORTED_LOCALES } = await import('../src/i18n/locales');
+  const { LOCALE_DEFINITIONS, LANGUAGE_VARIETY_DECISIONS, SUPPORTED_LOCALES } = await import('../src/i18n/locales');
   const english = modulesByLocale.en;
   const spanish = modulesByLocale.es;
 
@@ -70,8 +70,8 @@ export async function buildReviewReports(): Promise<ReviewReports> {
       return Object.entries(counts).filter(([, value]) => value > 0).map(([state, value]) => `${value} ${state.replace(/_/g, ' ')}`).join(', ');
     }).join(' | ')} |`);
   }
-  tr.push('', '## Undecided languages', '');
-  for (const target of PLANNED_LOCALE_TARGETS) tr.push(`- **${target.requestedAs}**: candidates ${target.candidateTags.map((candidate) => `\`${candidate.tag}\` ${candidate.name}`).join('; ')}. Decision needed: ${target.decisionNeeded}`);
+  tr.push('', '## Language varieties awaiting confirmation', '');
+  for (const target of LANGUAGE_VARIETY_DECISIONS) tr.push(`- **${target.requestedAs}**: implemented as working assumption \`${target.implementedAs}\` (status: ${target.status}); alternatives ${target.alternatives.map((alt) => `\`${alt.tag}\` ${alt.name}`).join('; ')}. Decision needed: ${target.decisionNeeded}`);
   tr.push('');
   return { inventory: inv.join('\n'), translation: tr.join('\n') };
 }

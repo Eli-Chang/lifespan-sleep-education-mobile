@@ -11,11 +11,11 @@ async function seed(page: Page, state: Record<string, unknown>) {
   }, [STORAGE_KEY, JSON.stringify(state)] as const);
 }
 
-test('Settings offers only complete languages and states their review status', async ({ page }) => {
+test('Settings offers every complete language and states the Spanish review status', async ({ page }) => {
   await seed(page, { language: 'es' });
   await page.goto('/settings');
   const radios = page.getByRole('radio');
-  await expect(radios).toHaveCount(2);
+  await expect(radios).toHaveCount(4);
   await expect(page.getByRole('radio', { name: 'English' })).toBeVisible();
   await expect(page.getByRole('radio', { name: 'Español' })).toBeVisible();
   await expect(page.getByTestId('language-status-note')).toContainText('borrador');

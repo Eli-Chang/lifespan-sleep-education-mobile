@@ -137,7 +137,7 @@ export function LessonRenderer({ screen, onSubmitted, onEditingChange }: { scree
     <Text accessibilityRole="header" style={styles.lessonTitle}>{screen.title}</Text>
     <View style={styles.contentCard}>
     {assets.length ? <View style={styles.mediaBleed}>{assets.length > 1 ? <LessonImageRow assets={assets} locale={state.language} /> : <CurriculumImage asset={assets[0]} locale={state.language} />}</View> : null}
-    {screen.video ? <LessonVideoCard video={screen.video} locale={state.language} /> : null}
+    {screen.video ? <LessonVideoCard screenId={screen.id} video={screen.video} locale={state.language} /> : null}
     {presentation.map((block, index) => block.type === 'paragraph'
       ? <Text key={index} style={styles.body}>{block.segments.map((segment, segmentIndex) => <Text key={segmentIndex} style={segment.bold ? styles.boldText : undefined}>{segment.text}</Text>)}</Text>
       : <View key={index} accessibilityRole="list" accessibilityLabel={t('listItems', { count: block.items.length })} style={styles.unorderedList}>{block.items.map((item, itemIndex) => <RichListItemView key={itemIndex} role="listitem" style={styles.unorderedItem}><Text accessible={false} style={styles.unorderedBullet}>•</Text><Text style={styles.unorderedText}>{item.map((segment, segmentIndex) => <Text key={segmentIndex} style={segment.bold ? styles.boldText : undefined}>{segment.text}</Text>)}</Text></RichListItemView>)}</View>)}

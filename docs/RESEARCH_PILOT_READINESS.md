@@ -22,7 +22,7 @@ Context: at the 2026-11-11 meeting, the agreed next steps were to polish the exi
 
 ## 2. Needs Dr. Bourjeily's decision (or the PI's)
 
-1. **Languages and varieties.** Which Portuguese (Brazilian `pt-BR` or European `pt-PT`) and which Creole (for example Haitian Creole `ht` or Cape Verdean Creole `kea`), based on the participants. Also whether audio is needed. See `docs/translation/README.md`.
+1. **Languages and varieties.** Confirm or replace the working assumptions made on 2026-11-12: Brazilian Portuguese (`pt-BR`, alternative `pt-PT`) and Haitian Creole (`ht`, alternative Cape Verdean Creole `kea`), based on the participants. Also whether audio is needed. See `docs/translation/README.md` and `docs/translation/TRANSLATION_QA.md`.
 2. **Study design.** Who the participants are, how they are recruited, what (if anything) is measured, and whether the study is a usability or educational evaluation. The app currently collects nothing.
 3. **The August "APPROVED" packet.** `docs/BILINGUAL-CLINICAL-LANGUAGE-REVIEW.md` says clinical and Spanish approval were finalized for 101 screens, with no reviewer recorded. The code treats everything as unreviewed until this is confirmed or withdrawn.
 4. **Withheld images.** Whether to replace or permanently drop the m8-10 oxygen-cylinder table and the m9-05 face photo (`docs/PAP_PREGNANCY_CONTENT_AUDIT.md`).
@@ -42,7 +42,7 @@ Every module is `not_reviewed`, and `m6` is `needs_revision`. The reviewer shoul
 ## 4. Needs a qualified language reviewer
 
 - **Spanish (all 113 screens):** professional medical translation review. Known issues: "tú" in m8 and m9 versus "usted" elsewhere; masculine forms addressing a pregnant audience; m1-q1 says "puede tener" where English is definite; m4-q1 softens "at risk of"; images with English text on Spanish screens (m6-07, m6-08, m9-04, and the m4 recap drawing); two English-only videos.
-- **Portuguese and Creole:** translation, then review, once the variety is decided.
+- **Portuguese (pt-BR) and Haitian Creole (ht):** complete Claude-drafted text exists for all 113 screens, written locally with no third-party service and checked only by Claude and automated tests, which is not independent review. A qualified medical translator for each language must review it. Some Creole equipment and medical terms are coinages or loanwords flagged in `docs/translation/TRANSLATION_QA.md`.
 - **New Spanish alt text:** m4 recap and m6-07 (written on this branch as drafts).
 
 ## 5. Needs institutional approval or a PI assignment

@@ -27,6 +27,8 @@ export function learnerVisibleText(screen: LessonScreen): Record<string, string>
     });
   }
   if (screen.type === 'summary') addList('keyPoints', screen.keyPoints);
+  // Labels transcribed from a source image are rendered under the lesson, so they are learner-visible text.
+  if (screen.type === 'content' || screen.type === 'summary') addList('sourceVisibleLabels', screen.sourceVisibleLabels);
   if (screen.type === 'reflection') { add('prompt', screen.prompt); add('instructions', screen.instructions); add('placeholder', screen.placeholder); addList('contextParagraphs', screen.contextParagraphs); }
   if (screen.type === 'scenario') {
     add('scenario', screen.scenario); add('prompt', screen.prompt); add('feedback', screen.feedback);

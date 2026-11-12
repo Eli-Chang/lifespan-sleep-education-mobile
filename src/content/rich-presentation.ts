@@ -21,14 +21,36 @@ const boldPhrases: Record<SupportedLocale, Record<string, string[]>> = {
     'm7-05': ['intimidad con apnea del sueño'],
     'm7-06': ['La apnea del sueño puede reducir el deseo sexual', 'mejora de la calidad del sueño'],
   },
+  'pt-BR': {
+    'm1-04': ['Apneia', 'Hipopneia', 'respiração típica', 'apneia obstrutiva do sono'],
+    'm4-06': ['danos a órgãos', 'pressão muito alta e danos aos rins', 'restrição de crescimento fetal'],
+    'm5-04': ['criar uma rotina relaxante antes de dormir, cerca de uma hora antes de ir para a cama'],
+    'm6-01': ['Congestão nasal', 'DRGE', 'Ansiedade'],
+    'm6-07': ['mudanças na alimentação e ajustes na cama', 'consulte o seu médico'],
+    'm7-03': ['terapia com PAP'],
+    'm7-05': ['intimidade quando se tem apneia do sono'],
+    'm7-06': ['apneia do sono pode reduzir seu desejo sexual', 'melhora da qualidade do sono'],
+  },
+  ht: {
+    'm1-04': ['Apne', 'Ipopne', 'respirasyon nòmal', 'apne obstriktif nan dòmi'],
+    'm4-06': ['domaj nan lòt ògàn', 'tansyon ki wo anpil ak domaj nan ren', 'reta kwasans fetis'],
+    'm5-04': ['mete yon woutin anvan dòmi ki detann ou, anviwon inèdtan anvan w al kouche'],
+    'm6-01': ['Nen bouche', 'GERD', 'Anksyete'],
+    'm6-07': ['chanjman nan manje ak ajisteman kabann', 'konsilte doktè ou'],
+    'm7-03': ['Terapi PAP'],
+    'm7-05': ['entimite lè w gen apne nan dòmi'],
+    'm7-06': ['Apne nan dòmi limenm ka diminye anvi fè sèks', 'amelyore kalite dòmi'],
+  }
 };
 
 // Where the m5-04 paragraph continues after the bedtime list, per locale (content-specific, not UI logic).
-const bedtimeRemainderStart: Record<SupportedLocale, string> = { en: 'Simply having a bedtime routine', es: 'Tener una rutina' };
+const bedtimeRemainderStart: Record<SupportedLocale, string> = { en: 'Simply having a bedtime routine', es: 'Tener una rutina', 'pt-BR': 'Simplesmente ter uma rotina', ht: 'Senpleman genyen yon woutin' };
 
 const bedtimeItems: Record<SupportedLocale, string[]> = {
   en: ['light (relatively boring) reading', 'stretching', 'taking a warm bath', 'listening to calming music', 'dimming the lights'],
   es: ['leer algo ligero y relativamente aburrido', 'estirarse', 'tomar un baño tibio', 'escuchar música tranquila', 'bajar las luces'],
+  'pt-BR': ['uma leitura leve (relativamente entediante)', 'alongamentos', 'um banho morno', 'ouvir música calma', 'diminuir as luzes'],
+  ht: ['yon bagay ki lejè (yon ti jan raz)', 'fè detire', 'pran yon beny tyèd', 'koute mizik ki kalme w', 'bese limyè yo']
 };
 
 function segments(text: string, phrases: string[]): RichTextSegment[] {

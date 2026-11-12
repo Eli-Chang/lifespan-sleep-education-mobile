@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getModule } from '@/src/content';
+import type { SupportedLocale } from '@/src/i18n/locales';
 import { useApp } from '@/src/state/AppProvider';
 
 export function WebDocumentTitle() {
@@ -18,7 +19,7 @@ export function WebDocumentTitle() {
   return null;
 }
 
-function getTitle(pathname: string, locale: 'en' | 'es', t: (key: string) => string) {
+function getTitle(pathname: string, locale: SupportedLocale, t: (key: string) => string) {
   if (pathname === '/' || pathname === '/index') return `${t('home')} · ${t('appName')}`;
   if (pathname === '/settings') return `${t('settings')} · ${t('appName')}`;
   if (pathname === '/about') return `${t('about')} · ${t('appName')}`;

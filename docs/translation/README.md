@@ -1,19 +1,19 @@
 # Translation workflow (English, Spanish, Portuguese, Creole)
 
-Status as of 2026-11-11. Current numbers are in [TRANSLATION_STATUS.md](TRANSLATION_STATUS.md), which is generated from the code.
+Status as of 2026-11-12. Current numbers are in [TRANSLATION_STATUS.md](TRANSLATION_STATUS.md), generated from the code. Method, QA results, and open items are in [TRANSLATION_QA.md](TRANSLATION_QA.md); terminology is in [GLOSSARY.md](GLOSSARY.md).
 
 ## Where things stand
 
 | Language | State | Learner can select it | What is missing |
 | --- | --- | --- | --- |
 | English (`en`) | Source language | Yes | Clinical review of every module |
-| Spanish (`es`) | Complete draft, not reviewed by a qualified translator | Yes, with an on-screen "borrador" (draft) notice in Settings and About | Professional medical translation review, then clinical review |
-| Portuguese | Requested; **variety not decided** | No | A decision on Brazilian (`pt-BR`) or European (`pt-PT`) Portuguese, then translation and both reviews |
-| Creole | Requested; **language not decided** | No | A decision on which Creole (for example Haitian Creole `ht` or Cape Verdean Creole `kea`), then translation and both reviews |
+| Spanish (`es`) | Complete draft, not reviewed by a qualified translator | Yes, with an on-screen "borrador" (draft) notice | Professional medical translation review, then clinical review |
+| Portuguese (Brazil) (`pt-BR`) | Complete draft written by Claude, 113 of 113 screens. **Brazilian variety is a working assumption**, not a decision by Dr. Bourjeily | Yes, with a draft notice that says an AI model wrote it | Variety confirmation, professional translation review, then clinical review |
+| Haitian Creole (`ht`) | Complete draft written by Claude, 113 of 113 screens. **Haitian Creole is a working assumption**, not a decision by Dr. Bourjeily | Yes, with a draft notice that says an AI model wrote it | Language confirmation, professional translation review, then clinical review |
 
-Why Portuguese and Creole are not implemented: the request (Dr. Bourjeily, 2026-11-11) was for "different languages". The meeting transcript records Eli asking which languages, but her answer was not captured. Nothing in the repository, the CIAS source, or the earlier handoffs names a Portuguese variety or a specific Creole. Picking one would be a guess that changes vocabulary, spelling, and in the Creole case the language itself, so no locale code was chosen. The candidates are recorded in `src/i18n/locales.ts` (`PLANNED_LOCALE_TARGETS`) and are never shown to learners.
+Implementation completeness (every screen exists and the structure matches English) is checked by tests. It says nothing about translation accuracy or clinical approval; no language has either.
 
-A commit message on 2026-08-17 (`e39e22c`) says "Clinical and Spanish-language approval finalized". No review record supports that, the README and `docs/TRANSLATION_REVIEW.md` both say the Spanish is unreviewed, and every Spanish screen carries `bilingualReviewStatus: 'not_reviewed'`. This workflow treats Spanish as an unreviewed draft.
+History: the request (Dr. Bourjeily, 2026-11-11) was for "different languages", and her answer about which ones was not captured in the meeting transcript. Brazilian Portuguese and Haitian Creole were implemented on 2026-11-12 as explicit working assumptions so draft work could proceed. A commit message on 2026-08-17 (`e39e22c`) says "Clinical and Spanish-language approval finalized"; no review record supports that, and the code treats Spanish as unreviewed.
 
 ## How the app keeps unreviewed or partial translations from looking approved
 
@@ -24,9 +24,9 @@ A commit message on 2026-08-17 (`e39e22c`) says "Clinical and Spanish-language a
 - **Honest labels.** Settings shows a status line for the current language. About has a "Content status" card. For Spanish both say the translation is a draft and the lessons have not completed clinical review.
 - **Narration never switches language.** Voice choice comes from the registry; if no voice exists for the lesson language, the Listen control says so and the text stays readable. A voice for another language is never used.
 
-## Adding Portuguese or Creole once the variety is decided
+## Adding or replacing a language
 
-1. **Decide the variety and record it.** Dr. Bourjeily or the study PI names the language and variety based on the participants. Note the decision and its source in this file.
+1. **Decide the variety and record it** (for pt-BR and ht this means confirming or replacing the working assumption in `LANGUAGE_VARIETY_DECISIONS`). Dr. Bourjeily or the study PI names the language and variety based on the participants. Note the decision and its source in this file.
 2. **Export the source text.** Run `npx tsx scripts/export-translation-source.ts --target <tag>`. It writes a JSON and a CSV to `artifacts/translation-export/` (git-ignored). Each row is one field of one screen, with its module, screen type, clinical domains, and, for answer choices, whether the choice is the keyed answer. The export contains the private curriculum: do not commit it, and do not upload it to a translation service unless that service is approved for this study.
 3. **Translate.** A qualified medical translator fluent in the chosen variety translates every unit. Keep choice order, keep numbers and units, keep the meaning of each keyed and unkeyed answer, and use the glossary (`docs/BILINGUAL_GLOSSARY.md` is the Spanish model; start a matching glossary for the new language).
 4. **Add the locale in code.** Add the code to `SUPPORTED_LOCALES` and `LOCALE_DEFINITIONS` (set `linguisticReview: 'draft_awaiting_native_review'`), add its interface strings to `src/i18n/strings.ts` (the compiler lists every missing key), add its lesson modules and its entry in `modulesByLocale`, and add alt text and video labels for the new code (also compiler-enforced).

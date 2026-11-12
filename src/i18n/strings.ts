@@ -7,6 +7,8 @@
  * Keep this file free of React and i18next imports so Node tests can load it directly.
  */
 import type { SupportedLocale } from './locales';
+import { ptBRCatalog } from '../content/translations/pt-BR';
+import { htCatalog } from '../content/translations/ht';
 
 const en = {
   home:'Home', settings:'Settings', appName:'Sleep Education', backToModules:'Back to Modules', backToModule:'Back to Module',
@@ -68,5 +70,6 @@ const es: Record<UiKey, string> = {
   supportingSourceNhlbi:'Fuente de apoyo: NHLBI sobre la apnea del sueño', watchOnYouTube:'Ver en YouTube',
 };
 
-export const UI_STRINGS: Record<SupportedLocale, Record<UiKey, string>> = { en, es };
+// Portuguese and Haitian Creole interface strings live in their generated catalogs with the lesson text.
+export const UI_STRINGS: Record<SupportedLocale, Record<UiKey, string>> = { en, es, 'pt-BR': ptBRCatalog.ui, ht: htCatalog.ui };
 export const UI_KEYS = Object.keys(en) as UiKey[];

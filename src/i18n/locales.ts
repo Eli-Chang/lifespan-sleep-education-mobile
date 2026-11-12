@@ -7,7 +7,7 @@
  */
 
 /** Languages with complete bundled content. Order is the order shown to learners. */
-export const SUPPORTED_LOCALES = ['en', 'es'] as const;
+export const SUPPORTED_LOCALES = ['en', 'es', 'pt-BR', 'ht'] as const;
 export type SupportedLocale = typeof SUPPORTED_LOCALES[number];
 
 /** The language every other locale is translated from. */
@@ -42,6 +42,13 @@ export interface LocaleDefinition {
   };
   linguisticReview: LinguisticReviewState;
   clinicalReview: ClinicalReviewState;
+  /** How the translation was produced. */
+  translationMethod: 'source' | 'existing_app_draft' | 'ai_draft_claude';
+  /**
+   * Whether the research team confirmed this exact language variety. 'working_assumption' means the code
+   * was chosen by the engineering team to make progress and must be confirmed (see LANGUAGE_VARIETY_DECISIONS).
+   */
+  varietyStatus: 'source' | 'confirmed' | 'working_assumption';
 }
 
 export const LOCALE_DEFINITIONS: Record<SupportedLocale, LocaleDefinition> = {
@@ -53,6 +60,8 @@ export const LOCALE_DEFINITIONS: Record<SupportedLocale, LocaleDefinition> = {
     narration: { preferredVoiceTags: ['en-us'], languagePrefix: 'en' },
     linguisticReview: 'source_language',
     clinicalReview: 'not_reviewed',
+    translationMethod: 'source',
+    varietyStatus: 'source',
   },
   es: {
     code: 'es',
@@ -62,6 +71,32 @@ export const LOCALE_DEFINITIONS: Record<SupportedLocale, LocaleDefinition> = {
     narration: { preferredVoiceTags: ['es-us'], languagePrefix: 'es' },
     linguisticReview: 'draft_awaiting_native_review',
     clinicalReview: 'not_reviewed',
+    translationMethod: 'existing_app_draft',
+    // Spanish was requested and built before this registry existed; the US Spanish tag is long-standing.
+    varietyStatus: 'confirmed',
+  },
+  'pt-BR': {
+    code: 'pt-BR',
+    bcp47: 'pt-BR',
+    nativeName: 'Português (Brasil)',
+    englishName: 'Portuguese (Brazil)',
+    narration: { preferredVoiceTags: ['pt-br'], languagePrefix: 'pt' },
+    linguisticReview: 'draft_awaiting_native_review',
+    clinicalReview: 'not_reviewed',
+    translationMethod: 'ai_draft_claude',
+    varietyStatus: 'working_assumption',
+  },
+  ht: {
+    code: 'ht',
+    bcp47: 'ht',
+    nativeName: 'Kreyòl ayisyen',
+    englishName: 'Haitian Creole',
+    // Haitian Creole voices are rare; never substitute French or another language's voice.
+    narration: { preferredVoiceTags: ['ht-ht', 'ht'], languagePrefix: 'ht' },
+    linguisticReview: 'draft_awaiting_native_review',
+    clinicalReview: 'not_reviewed',
+    translationMethod: 'ai_draft_claude',
+    varietyStatus: 'working_assumption',
   },
 };
 
@@ -71,37 +106,32 @@ export const isSupportedLocale = (value: unknown): value is SupportedLocale =>
 export const localeDefinition = (locale: SupportedLocale): LocaleDefinition => LOCALE_DEFINITIONS[locale];
 
 /**
- * Languages that have been requested but are not implemented because the exact language or regional
- * variety has not been decided. These are deliberately NOT SupportedLocale values: no locale code is
- * chosen, no content exists, and nothing here is shown to learners. See docs/translation/README.md.
+ * The research team asked for "Portuguese" and "Creole" without naming a variety, and no project record
+ * names one. The engineering team implemented Brazilian Portuguese and Haitian Creole as working
+ * assumptions so draft content could be built. Neither choice was made by Dr. Bourjeily or the PI; both
+ * must be confirmed before any participant use. See docs/translation/README.md.
  */
-export interface PlannedLocaleTarget {
-  id: 'portuguese' | 'creole';
+export interface LanguageVarietyDecision {
   requestedAs: string;
-  resolution: 'unresolved';
-  candidateTags: { tag: string; name: string; note: string }[];
+  implementedAs: SupportedLocale;
+  status: 'working_assumption' | 'confirmed';
+  alternatives: { tag: string; name: string }[];
   decisionNeeded: string;
 }
 
-export const PLANNED_LOCALE_TARGETS: PlannedLocaleTarget[] = [
+export const LANGUAGE_VARIETY_DECISIONS: LanguageVarietyDecision[] = [
   {
-    id: 'portuguese',
     requestedAs: 'Portuguese',
-    resolution: 'unresolved',
-    candidateTags: [
-      { tag: 'pt-BR', name: 'Brazilian Portuguese', note: 'Candidate only; not selected.' },
-      { tag: 'pt-PT', name: 'European Portuguese', note: 'Candidate only; not selected.' },
-    ],
-    decisionNeeded: 'Which Portuguese variety the intended participants read (Brazilian, European, or both as separate locales).',
+    implementedAs: 'pt-BR',
+    status: 'working_assumption',
+    alternatives: [{ tag: 'pt-PT', name: 'European Portuguese' }],
+    decisionNeeded: 'Confirm that the intended participants read Brazilian Portuguese (or name another variety).',
   },
   {
-    id: 'creole',
     requestedAs: 'Creole',
-    resolution: 'unresolved',
-    candidateTags: [
-      { tag: 'ht', name: 'Haitian Creole (Kreyòl ayisyen)', note: 'Candidate only; not selected.' },
-      { tag: 'kea', name: 'Cape Verdean Creole (Kabuverdianu)', note: 'Candidate only; not selected.' },
-    ],
-    decisionNeeded: 'Which Creole language is meant; other Creole languages are possible. Also whether participants prefer written text, audio, or both.',
+    implementedAs: 'ht',
+    status: 'working_assumption',
+    alternatives: [{ tag: 'kea', name: 'Cape Verdean Creole (Kabuverdianu)' }],
+    decisionNeeded: 'Confirm that "Creole" means Haitian Creole (other Creole languages are possible), and whether participants prefer written text, audio, or both.',
   },
 ];

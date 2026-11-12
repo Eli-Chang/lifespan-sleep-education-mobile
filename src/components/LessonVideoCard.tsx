@@ -2,10 +2,11 @@ import { Image } from 'expo-image';
 import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import type { LessonVideo, SupportedLocale } from '@/src/types/content';
+import { mediaText } from '@/src/content/media-text';
 import { fontFamily, palette, radius, spacing, touchTarget } from '@/src/theme/tokens';
 
-export function LessonVideoCard({ video, locale }: { video: LessonVideo; locale: SupportedLocale }) {
-  const title = video.title[locale];
+export function LessonVideoCard({ video, locale, screenId }: { video: LessonVideo; locale: SupportedLocale; screenId: string }) {
+  const title = mediaText(video.title, `video:${screenId}:title`, locale);
   const { t } = useTranslation();
   const watchLabel = t('watchOnYouTube');
   return <View style={styles.card}>
@@ -16,7 +17,7 @@ export function LessonVideoCard({ video, locale }: { video: LessonVideo; locale:
       onPress={() => void Linking.openURL(video.url)}
       style={({ pressed }) => [styles.thumbnailButton, pressed && styles.pressed]}
     >
-      <Image source={{ uri: video.thumbnailUrl }} accessibilityLabel={video.altText[locale]} contentFit="cover" style={styles.thumbnail} />
+      <Image source={{ uri: video.thumbnailUrl }} accessibilityLabel={mediaText(video.altText, `video:${screenId}:altText`, locale)} contentFit="cover" style={styles.thumbnail} />
       <View style={styles.playBadge}><Text style={styles.playIcon}>▶</Text></View>
     </Pressable>
     <Text style={styles.title}>{title}</Text>

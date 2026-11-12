@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import type { CurriculumImageAsset } from '@/src/content/image-registry';
 import type { SupportedLocale } from '@/src/types/content';
 import { useReducedMotion } from '@/src/hooks/useReducedMotion';
+import { mediaText } from '@/src/content/media-text';
 import { palette, radius } from '@/src/theme/tokens';
 
 export function CurriculumImage({ asset, locale, compact = false }: { asset: CurriculumImageAsset; locale: SupportedLocale; compact?: boolean }) {
@@ -10,7 +11,7 @@ export function CurriculumImage({ asset, locale, compact = false }: { asset: Cur
   return <View style={[styles.frame, compact && styles.compact]}>
     <Image
       source={asset.source}
-      accessibilityLabel={asset.decorative ? undefined : asset.altText[locale]}
+      accessibilityLabel={asset.decorative ? undefined : mediaText(asset.altText, `image:${asset.id}`, locale)}
       accessible={!asset.decorative}
       contentFit="contain"
       transition={reducedMotion ? 0 : 180}

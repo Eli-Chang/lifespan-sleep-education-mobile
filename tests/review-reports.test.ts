@@ -10,5 +10,6 @@ it('committed curriculum inventory and translation status match the code', async
   assert.equal(normalize(readFileSync('docs/curriculum/CURRICULUM_INVENTORY.md', 'utf8')), normalize(reports.inventory), 'rerun: npx tsx scripts/generate-review-reports.ts');
   assert.equal(normalize(readFileSync('docs/translation/TRANSLATION_STATUS.md', 'utf8')), normalize(reports.translation), 'rerun: npx tsx scripts/generate-review-reports.ts');
   assert.match(reports.translation, /\| Spanish \(`es`\) \| yes \| yes \| 0 \| 0 \| 113 \| 0 \| 113 of 113 \|/);
-  assert.match(reports.translation, /Portuguese \(variety not decided: pt-BR or pt-PT\) \| no \| no \| 0 \| 0 \| 0 \| 113 \|/);
+  assert.match(reports.translation, /| Portuguese (Brazil) (`pt-BR`) | no | yes | 0 | 0 | 113 | 0 | 113 of 113 |/);
+  assert.match(reports.translation, /| Haitian Creole (`ht`) | no | yes | 0 | 0 | 113 | 0 | 113 of 113 |/);
 });

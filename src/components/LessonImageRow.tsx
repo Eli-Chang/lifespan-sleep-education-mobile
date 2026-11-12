@@ -3,17 +3,18 @@ import { StyleSheet, View } from 'react-native';
 import type { CurriculumImageAsset } from '@/src/content/image-registry';
 import type { SupportedLocale } from '@/src/types/content';
 import { useReducedMotion } from '@/src/hooks/useReducedMotion';
+import { mediaText } from '@/src/content/media-text';
 import { palette, radius, spacing } from '@/src/theme/tokens';
 
 export function LessonImageRow({ assets, locale }: { assets: CurriculumImageAsset[]; locale: SupportedLocale }) {
   const reducedMotion = useReducedMotion();
 
   return <View style={styles.wrapper}>
-    <View style={styles.row} accessibilityRole="image" accessibilityLabel={assets.filter((asset) => !asset.decorative).map((asset) => asset.altText[locale]).join(' ')}>
+    <View style={styles.row} accessibilityRole="image" accessibilityLabel={assets.filter((asset) => !asset.decorative).map((asset) => mediaText(asset.altText, `image:${asset.id}`, locale)).join(' ')}>
       {assets.map((asset) => <View key={asset.id} style={styles.cell}>
         <Image
           source={asset.source}
-          accessibilityLabel={asset.decorative ? undefined : asset.altText[locale]}
+          accessibilityLabel={asset.decorative ? undefined : mediaText(asset.altText, `image:${asset.id}`, locale)}
           accessible={!asset.decorative}
           contentFit="contain"
           transition={reducedMotion ? 0 : 180}

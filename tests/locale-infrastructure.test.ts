@@ -7,7 +7,7 @@ import { localeContentGaps, looksUntranslated } from '../src/content/locale-comp
 import { CLINICAL_APPROVALS, LINGUISTIC_APPROVALS, reviewRegisterProblems } from '../src/content/review-register';
 import { localeScreenStatuses, translationStatusReport } from '../src/content/translation-status';
 import { draftSpanishModule } from '../src/content/es/localize';
-import { LOCALE_DEFINITIONS, PLANNED_LOCALE_TARGETS, SOURCE_LOCALE, SUPPORTED_LOCALES, isSupportedLocale, type SupportedLocale } from '../src/i18n/locales';
+import { LOCALE_DEFINITIONS, LANGUAGE_VARIETY_DECISIONS, SOURCE_LOCALE, SUPPORTED_LOCALES, isSupportedLocale, type SupportedLocale } from '../src/i18n/locales';
 import { UI_KEYS, UI_STRINGS } from '../src/i18n/strings';
 import { sanitizeLearningState } from '../src/state/learning-persistence';
 import { splitNarration } from '../src/services/narration-text';
@@ -16,8 +16,8 @@ import type { EducationModule } from '../src/types/content';
 const placeholders = (value: string) => [...value.matchAll(/\{\{(\w+)\}\}/g)].map((match) => match[1]).sort();
 
 describe('locale registry', () => {
-  it('ships English and Spanish only, with English as the source', () => {
-    assert.deepEqual([...SUPPORTED_LOCALES], ['en', 'es']);
+  it('ships exactly English, Spanish, Brazilian Portuguese, and Haitian Creole, with English as the source', () => {
+    assert.deepEqual([...SUPPORTED_LOCALES], ['en', 'es', 'pt-BR', 'ht']);
     assert.equal(SOURCE_LOCALE, 'en');
     for (const locale of SUPPORTED_LOCALES) {
       const definition = LOCALE_DEFINITIONS[locale];
@@ -28,26 +28,19 @@ describe('locale registry', () => {
       assert.equal(definition.clinicalReview, 'not_reviewed', `${locale} must not claim clinical approval`);
     }
     assert.equal(LOCALE_DEFINITIONS.en.linguisticReview, 'source_language');
-    assert.equal(LOCALE_DEFINITIONS.es.linguisticReview, 'draft_awaiting_native_review');
+    for (const locale of ['es', 'pt-BR', 'ht'] as const) assert.equal(LOCALE_DEFINITIONS[locale].linguisticReview, 'draft_awaiting_native_review');
   });
 
-  it('keeps Portuguese and Creole as undecided requests, not locales', () => {
-    assert.deepEqual(PLANNED_LOCALE_TARGETS.map((target) => target.id), ['portuguese', 'creole']);
-    for (const target of PLANNED_LOCALE_TARGETS) {
-      assert.equal(target.resolution, 'unresolved');
-      assert.ok(target.candidateTags.length >= 2, `${target.id} lists more than one candidate so none is silently chosen`);
-      for (const candidate of target.candidateTags) assert.equal(isSupportedLocale(candidate.tag), false);
-    }
-    for (const value of ['pt', 'pt-BR', 'pt-PT', 'ht', 'kea', 'fr', '', undefined, 3]) assert.equal(isSupportedLocale(value), false);
+  it('shows specific language names and records the two varieties as unconfirmed working assumptions', () => {
+    assert.equal(LOCALE_DEFINITIONS['pt-BR'].englishName, 'Portuguese (Brazil)');
+    assert.equal(LOCALE_DEFINITIONS.ht.englishName, 'Haitian Creole');
+    for (const locale of SUPPORTED_LOCALES) assert.notEqual(LOCALE_DEFINITIONS[locale].nativeName.trim().toLowerCase(), 'creole');
+    assert.equal(LOCALE_DEFINITIONS['pt-BR'].varietyStatus, 'working_assumption');
+    assert.equal(LOCALE_DEFINITIONS.ht.varietyStatus, 'working_assumption');
+    assert.equal(LOCALE_DEFINITIONS['pt-BR'].translationMethod, 'ai_draft_claude');
+    assert.deepEqual(LANGUAGE_VARIETY_DECISIONS.map((decision) => [decision.requestedAs, decision.implementedAs, decision.status]), [['Portuguese', 'pt-BR', 'working_assumption'], ['Creole', 'ht', 'working_assumption']]);
   });
 
-  it('never lets one language narrate another', () => {
-    const prefixes = SUPPORTED_LOCALES.map((locale) => LOCALE_DEFINITIONS[locale].narration.languagePrefix);
-    assert.equal(new Set(prefixes).size, prefixes.length);
-    for (const locale of SUPPORTED_LOCALES) {
-      for (const tag of LOCALE_DEFINITIONS[locale].narration.preferredVoiceTags) assert.ok(tag.startsWith(LOCALE_DEFINITIONS[locale].narration.languagePrefix));
-    }
-  });
 });
 
 describe('interface strings', () => {
@@ -71,6 +64,10 @@ describe('interface strings', () => {
   it('say plainly that Spanish is an unreviewed draft and nothing is clinically approved', () => {
     assert.match(UI_STRINGS.es.languageStatusNote, /borrador/);
     assert.match(UI_STRINGS.es.translationStatusBody, /borrador/);
+    for (const locale of ['pt-BR', 'ht'] as const) {
+      assert.match(UI_STRINGS[locale].languageStatusNote, /Claude/, `${locale} says an AI model drafted it`);
+      assert.match(UI_STRINGS[locale].translationStatusBody, /Claude/, `${locale} about-page note`);
+    }
     assert.match(UI_STRINGS.en.contentStatusBody, /not completed clinical review/);
     assert.match(UI_STRINGS.es.contentStatusBody, /no han completado la revisión clínica/);
     for (const locale of SUPPORTED_LOCALES) {
@@ -82,12 +79,13 @@ describe('interface strings', () => {
 describe('locale content completeness', () => {
   it('bundles content for every supported locale and offers only complete ones', () => {
     for (const locale of SUPPORTED_LOCALES) assert.ok(modulesByLocale[locale]?.length, `${locale} content`);
-    assert.deepEqual(learnerSelectableLocales, ['en', 'es']);
-    assert.deepEqual(localeContentGaps(englishModules, spanishModules), []);
+    assert.deepEqual(learnerSelectableLocales, ['en', 'es', 'pt-BR', 'ht']);
+    for (const locale of SUPPORTED_LOCALES.filter((code) => code !== SOURCE_LOCALE)) assert.deepEqual(localeContentGaps(englishModules, modulesByLocale[locale]), [], `${locale} gaps`);
   });
 
   it('has no silent fallback to another language', () => {
     assert.throws(() => getModules('pt' as SupportedLocale), /No bundled content/);
+    assert.throws(() => getModules('ht-HT' as SupportedLocale), /No bundled content/);
     assert.equal(getModules('es'), spanishModules);
   });
 
@@ -131,7 +129,9 @@ describe('saved language', () => {
   it('restores only languages that ship content', () => {
     assert.equal(sanitizeLearningState({ language: 'es' }).language, 'es');
     assert.equal(sanitizeLearningState({ language: 'pt' }).language, undefined);
-    assert.equal(sanitizeLearningState({ language: 'ht' }).language, undefined);
+    assert.equal(sanitizeLearningState({ language: 'pt-BR' }).language, 'pt-BR');
+    assert.equal(sanitizeLearningState({ language: 'ht' }).language, 'ht');
+    assert.equal(sanitizeLearningState({ language: 'fr' }).language, undefined);
   });
 });
 
@@ -139,15 +139,17 @@ describe('translation status', () => {
   const report = translationStatusReport(modulesByLocale, learnerSelectableLocales);
   const total = englishModules.reduce((sum, module) => sum + module.screens.length, 0);
 
-  it('reports English as source, Spanish as an unapproved draft, and Portuguese and Creole as undecided and missing', () => {
+  it('reports English as source and every other language as an unapproved draft with unconfirmed varieties for Portuguese and Creole', () => {
     const byTarget = Object.fromEntries(report.map((row) => [row.target, row]));
     assert.equal(byTarget.en.counts.source, total);
     assert.equal(byTarget.es.counts.draft_awaiting_native_review, total);
     assert.equal(byTarget.es.counts.approved, 0);
-    for (const id of ['portuguese', 'creole']) {
-      assert.equal(byTarget[id].decided, false);
-      assert.equal(byTarget[id].learnerSelectable, false);
-      assert.equal(byTarget[id].counts.missing, total);
+    for (const id of ['pt-BR', 'ht']) {
+      assert.equal(byTarget[id].decided, false, `${id} variety is not confirmed`);
+      assert.equal(byTarget[id].learnerSelectable, true);
+      assert.equal(byTarget[id].counts.draft_awaiting_native_review, total);
+      assert.equal(byTarget[id].counts.approved, 0);
+      assert.equal(byTarget[id].counts.missing, 0);
     }
     for (const row of report) assert.equal(row.clinicalReviewRequired, total, `${row.target} still needs clinical review`);
   });

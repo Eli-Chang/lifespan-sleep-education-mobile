@@ -197,10 +197,13 @@ test('switching language stops speech and the next lesson uses the new language 
   await seed(page, { narrationEnabled: true, language: 'en' });
   await page.goto('/');
   const switchAt = await now(page);
-  await page.getByRole('button', { name: 'Cambiar a español' }).click();
-  await expect(page.getByText('MÓDULO 1').first()).toBeVisible();
+  // With four languages the Home pill opens Settings instead of toggling between two.
+  await page.getByRole('button', { name: 'Language', exact: true }).click();
+  await page.getByRole('radio', { name: 'Español' }).click();
   expect((await calls(page)).some((call) => call.kind === 'cancel' && call.at >= switchAt)).toBe(true);
   expect(await activeSpeech(page)).toEqual([]);
+  await page.goto('/');
+  await expect(page.getByText('MÓDULO 1').first()).toBeVisible();
   await page.getByRole('button', { name: /^1\. Introducción a la apnea del sueño/ }).click();
   await page.getByRole('button', { name: /^(Comenzar|Continuar)/ }).first().click();
   const before = await now(page);

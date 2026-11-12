@@ -8,26 +8,26 @@ States: **source** is the authoring language. **approved** needs an entry in `sr
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | English (`en`) | yes | yes | 113 | 0 | 0 | 0 | 113 of 113 |
 | Spanish (`es`) | yes | yes | 0 | 0 | 113 | 0 | 113 of 113 |
-| Portuguese (variety not decided: pt-BR or pt-PT) | no | no | 0 | 0 | 0 | 113 | 113 of 113 |
-| Creole (variety not decided: ht or kea) | no | no | 0 | 0 | 0 | 113 | 113 of 113 |
+| Portuguese (Brazil) (`pt-BR`) | no | yes | 0 | 0 | 113 | 0 | 113 of 113 |
+| Haitian Creole (`ht`) | no | yes | 0 | 0 | 113 | 0 | 113 of 113 |
 
 ## By module
 
-| Module | en | es | portuguese | creole |
+| Module | en | es | pt-BR | ht |
 | --- | --- | --- | --- | --- |
-| `m1` | 10 source | 10 draft awaiting native review | 10 missing | 10 missing |
-| `m2` | 8 source | 8 draft awaiting native review | 8 missing | 8 missing |
-| `m3` | 8 source | 8 draft awaiting native review | 8 missing | 8 missing |
-| `m4` | 10 source | 10 draft awaiting native review | 10 missing | 10 missing |
-| `m5` | 14 source | 14 draft awaiting native review | 14 missing | 14 missing |
-| `m5b` | 17 source | 17 draft awaiting native review | 17 missing | 17 missing |
-| `m6` | 11 source | 11 draft awaiting native review | 11 missing | 11 missing |
-| `m7` | 9 source | 9 draft awaiting native review | 9 missing | 9 missing |
-| `m8` | 12 source | 12 draft awaiting native review | 12 missing | 12 missing |
-| `m9` | 14 source | 14 draft awaiting native review | 14 missing | 14 missing |
+| `m1` | 10 source | 10 draft awaiting native review | 10 draft awaiting native review | 10 draft awaiting native review |
+| `m2` | 8 source | 8 draft awaiting native review | 8 draft awaiting native review | 8 draft awaiting native review |
+| `m3` | 8 source | 8 draft awaiting native review | 8 draft awaiting native review | 8 draft awaiting native review |
+| `m4` | 10 source | 10 draft awaiting native review | 10 draft awaiting native review | 10 draft awaiting native review |
+| `m5` | 14 source | 14 draft awaiting native review | 14 draft awaiting native review | 14 draft awaiting native review |
+| `m5b` | 17 source | 17 draft awaiting native review | 17 draft awaiting native review | 17 draft awaiting native review |
+| `m6` | 11 source | 11 draft awaiting native review | 11 draft awaiting native review | 11 draft awaiting native review |
+| `m7` | 9 source | 9 draft awaiting native review | 9 draft awaiting native review | 9 draft awaiting native review |
+| `m8` | 12 source | 12 draft awaiting native review | 12 draft awaiting native review | 12 draft awaiting native review |
+| `m9` | 14 source | 14 draft awaiting native review | 14 draft awaiting native review | 14 draft awaiting native review |
 
-## Undecided languages
+## Language varieties awaiting confirmation
 
-- **Portuguese**: candidates `pt-BR` Brazilian Portuguese; `pt-PT` European Portuguese. Decision needed: Which Portuguese variety the intended participants read (Brazilian, European, or both as separate locales).
-- **Creole**: candidates `ht` Haitian Creole (Kreyòl ayisyen); `kea` Cape Verdean Creole (Kabuverdianu). Decision needed: Which Creole language is meant; other Creole languages are possible. Also whether participants prefer written text, audio, or both.
+- **Portuguese**: implemented as working assumption `pt-BR` (status: working_assumption); alternatives `pt-PT` European Portuguese. Decision needed: Confirm that the intended participants read Brazilian Portuguese (or name another variety).
+- **Creole**: implemented as working assumption `ht` (status: working_assumption); alternatives `kea` Cape Verdean Creole (Kabuverdianu). Decision needed: Confirm that "Creole" means Haitian Creole (other Creole languages are possible), and whether participants prefer written text, audio, or both.
 

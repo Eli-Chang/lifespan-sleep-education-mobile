@@ -1,4 +1,4 @@
-import type { SupportedLocale } from '@/src/types/content';
+import type { AuthoredLocaleText } from '@/src/types/content';
 
 export interface CurriculumImageAsset {
   id: string;
@@ -7,7 +7,7 @@ export interface CurriculumImageAsset {
   source: number;
   aspectRatio: number;
   // One description per supported locale; a new locale is a compile error until every image has one.
-  altText: Record<SupportedLocale, string>;
+  altText: AuthoredLocaleText;
   decorative: boolean;
   attribution: string;
   licenseStatus?: 'unknown/user-provided';

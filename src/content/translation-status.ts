@@ -4,7 +4,7 @@
  * Is the language even decided? Status comes from the content metadata plus src/content/review-register.ts;
  * nothing here can mark a translation approved on its own.
  */
-import { PLANNED_LOCALE_TARGETS, SOURCE_LOCALE, SUPPORTED_LOCALES, type SupportedLocale } from '@/src/i18n/locales';
+import { LOCALE_DEFINITIONS, SOURCE_LOCALE, SUPPORTED_LOCALES, type SupportedLocale } from '@/src/i18n/locales';
 import type { EducationModule, LessonScreen } from '@/src/types/content';
 import { CLINICAL_APPROVALS, LINGUISTIC_APPROVALS, reviewRegisterProblems, type ClinicalApproval, type LinguisticApproval } from './review-register';
 
@@ -80,15 +80,13 @@ function summarize(target: string, label: string, decided: boolean, learnerSelec
   };
 }
 
-/** Summary for every supported locale plus every requested-but-undecided language. */
+/** Summary for every supported locale; `decided` is false while the language variety is a working assumption. */
 export function translationStatusReport(modulesByLocale: Record<SupportedLocale, EducationModule[]>, selectable: SupportedLocale[]): LocaleTranslationSummary[] {
   const source = modulesByLocale[SOURCE_LOCALE];
   const moduleIds = source.map((module) => module.id);
-  const supported = SUPPORTED_LOCALES.map((locale) => summarize(locale, locale, true, selectable.includes(locale), localeScreenStatuses(source, modulesByLocale[locale], locale), moduleIds));
-  const planned = PLANNED_LOCALE_TARGETS.map((target) => summarize(
-    target.id, `${target.requestedAs} (variety not decided: ${target.candidateTags.map((candidate) => candidate.tag).join(' or ')})`, false, false,
-    source.flatMap((module) => module.screens.map((screen) => ({ moduleId: module.id, screenId: screen.id, state: 'missing' as const, clinicalReviewRequired: true }))),
-    moduleIds,
+  return SUPPORTED_LOCALES.map((locale) => summarize(
+    locale, locale, LOCALE_DEFINITIONS[locale].varietyStatus !== 'working_assumption', selectable.includes(locale),
+    localeScreenStatuses(source, modulesByLocale[locale], locale), moduleIds,
   ));
-  return [...supported, ...planned];
+
 }
