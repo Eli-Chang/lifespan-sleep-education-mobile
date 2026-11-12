@@ -10,6 +10,7 @@ import { draftSpanishModule } from '../src/content/es/localize';
 import { LOCALE_DEFINITIONS, PLANNED_LOCALE_TARGETS, SOURCE_LOCALE, SUPPORTED_LOCALES, isSupportedLocale, type SupportedLocale } from '../src/i18n/locales';
 import { UI_KEYS, UI_STRINGS } from '../src/i18n/strings';
 import { sanitizeLearningState } from '../src/state/learning-persistence';
+import { splitNarration } from '../src/services/narration-text';
 import type { EducationModule } from '../src/types/content';
 
 const placeholders = (value: string) => [...value.matchAll(/\{\{(\w+)\}\}/g)].map((match) => match[1]).sort();
@@ -162,5 +163,13 @@ describe('translation status', () => {
     assert.equal(localeScreenStatuses(englishModules, spanishModules, 'es', undated).find((row) => row.screenId === screenId)?.state, 'draft_awaiting_native_review');
     assert.ok(reviewRegisterProblems([], [{ moduleId: 'm4', locale: 'en', reviewerRole: 'qualified medical translator', date: '2027-01-15', evidence: 'x' }]).length > 0);
     assert.ok(reviewRegisterProblems([{ ...valid[0], reviewerRole: 'study PI' }], []).length > 0);
+  });
+});
+
+describe('narration text', () => {
+  it('keeps closing quotes with their sentence', () => {
+    const chunks = splitNarration('She said “wait.” Then she slept.', 10);
+    assert.deepEqual(chunks, ['She said “wait.”', 'Then she slept.']);
+    assert.ok(!chunks.some((chunk) => /^[”’"]/.test(chunk)));
   });
 });
