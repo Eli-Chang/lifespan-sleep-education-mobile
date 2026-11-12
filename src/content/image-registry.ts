@@ -14,6 +14,21 @@ export interface CurriculumImageAsset {
   displayOnSourceRecovered?: boolean;
 }
 
+/**
+ * Images kept in the registry and on disk but not shown to learners until a reviewer resolves the stated reason.
+ * Remove an entry here to show the image again. Each reason is recorded in docs/PAP_PREGNANCY_CONTENT_AUDIT.md.
+ */
+export const WITHHELD_IMAGES: Record<string, { reason: string; reference: string }> = {
+  'm8-10-settings-chart': {
+    reason: 'Shows a flow-rate, pressure, oxygen-percentage, and oxygen-cylinder-duration table for a different device on the screen that tells learners not to change prescribed pressure; the numbers could be read as settings guidance. License not recorded.',
+    reference: 'docs/PAP_PREGNANCY_CONTENT_AUDIT.md',
+  },
+  'm9-05-skin-irritation': {
+    reason: 'Close-up photograph of a real person with a visible skin finding; origin, license, and any authorization from the person shown are not recorded.',
+    reference: 'docs/PAP_PREGNANCY_CONTENT_AUDIT.md',
+  },
+};
+
 export const curriculumImages: CurriculumImageAsset[] = [
   { id: 'cpap-open-airway', moduleId: 'm1', lessonIds: ['m1-01'], source: require('../../assets/curriculum/module-1/cpap-open-airway.svg'), aspectRatio: 6 / 7, altText: { en: 'Side-view diagram showing positive airway pressure helping hold the throat airway open.', es: 'Diagrama lateral que muestra cómo la presión positiva ayuda a mantener abierta la vía respiratoria de la garganta.' }, decorative: false, attribution: 'Michael Brenner / Wikimedia Commons, public domain' },
   { id: 'osa-breathing', moduleId: 'm1', lessonIds: ['m1-04'], source: require('../../assets/curriculum/module-1/osa-breathing.jpg'), aspectRatio: 632 / 825, altText: { en: 'Diagram comparing a typical open airway during sleep with an obstructed airway in obstructive sleep apnea.', es: 'Diagrama que compara una vía respiratoria abierta durante el sueño con una vía obstruida en la apnea obstructiva del sueño.' }, decorative: false, attribution: 'Mayo Foundation for Medical Education and Research; user-provided source image' },
@@ -83,6 +98,8 @@ export const curriculumImages: CurriculumImageAsset[] = [
   { id: 'm9-11-clean-mask', moduleId: 'm9', lessonIds: ['m9-11'], source: require('../../assets/curriculum/module-9/m9-11-clean-mask.jpg'), aspectRatio: 597 / 335, altText: { en: 'Person washing a PAP mask and headgear with soap and water.', es: 'Persona lavando una mascarilla y un arnés de PAP con agua y jabón.' }, decorative: false, attribution: 'User-provided image', licenseStatus: 'unknown/user-provided', displayOnSourceRecovered: true },
 ];
 
-export const imageForLesson = (lessonId: string) => curriculumImages.find((asset) => asset.lessonIds.includes(lessonId));
-export const imagesForLesson = (lessonId: string) => curriculumImages.filter((asset) => asset.lessonIds.includes(lessonId));
-export const imageForModule = (moduleId: string) => curriculumImages.find((asset) => asset.moduleId === moduleId);
+export const imageForLesson = (lessonId: string) => curriculumImages.find((asset) => asset.lessonIds.includes(lessonId) && !isImageWithheld(asset));
+export const isImageWithheld = (asset: CurriculumImageAsset) => Object.prototype.hasOwnProperty.call(WITHHELD_IMAGES, asset.id);
+/** Images shown on a lesson screen. Withheld images are never returned. */
+export const imagesForLesson = (lessonId: string) => curriculumImages.filter((asset) => asset.lessonIds.includes(lessonId) && !isImageWithheld(asset));
+export const imageForModule = (moduleId: string) => curriculumImages.find((asset) => asset.moduleId === moduleId && !isImageWithheld(asset));
