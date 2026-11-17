@@ -60,7 +60,7 @@ export const ciasSpanishTranslations: Record<string, CiasSpanishTranslation> = {
   'm2-q1': {
     title: '¿Verdadero o falso?',
     prompt: '¿Verdadero o falso?',
-    contextParagraphs: ['Los estudios han mostrado que, aunque usar CPAP al dormir con una pareja mejora la calidad del sueño de esta, la satisfacción en la relación no cambió para ninguna de las parejas.'],
+    contextParagraphs: ['Los estudios han mostrado que usar CPAP al dormir con una pareja mejora la calidad del sueño de esta, y algunas parejas también refieren una mayor satisfacción en la relación.'],
     choices: ['Verdadero', 'Falso'],
   },
 
