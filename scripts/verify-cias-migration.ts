@@ -59,8 +59,14 @@ for (const manifestRecord of restored) {
     assert.equal(screen!.prompt, record.source_question.stem, `${manifestRecord.cias_id} stem`);
     assert.equal(screen!.instructions ?? null, record.source_question.instructions ?? null, `${manifestRecord.cias_id} instructions`);
     assert.deepEqual(screen!.choices.map((choice) => choice.label), record.source_options, `${manifestRecord.cias_id} option order`);
-    assert.equal(screen!.answerBehaviorProvenance, 'CIAS_ANSWER_KEY_NOT_RECOVERED', `${manifestRecord.cias_id} answer provenance`);
-    assert.equal(screen!.type === 'singleChoice' ? screen!.correctChoiceId : screen!.correctChoiceIds, undefined, `${manifestRecord.cias_id} no answer key`);
+    if (screen!.id === 'm1-q1') {
+      // Product-owner decision 2026-11-19: the CIAS key was never recovered, so True (c1) is set as the key.
+      assert.equal(screen!.answerBehaviorProvenance, 'PRODUCT_OWNER_ANSWER_KEY', `${manifestRecord.cias_id} answer provenance`);
+      assert.equal(screen!.type === 'singleChoice' ? screen!.correctChoiceId : undefined, 'c1', `${manifestRecord.cias_id} product-owner answer key`);
+    } else {
+      assert.equal(screen!.answerBehaviorProvenance, 'CIAS_ANSWER_KEY_NOT_RECOVERED', `${manifestRecord.cias_id} answer provenance`);
+      assert.equal(screen!.type === 'singleChoice' ? screen!.correctChoiceId : screen!.correctChoiceIds, undefined, `${manifestRecord.cias_id} no answer key`);
+    }
   } else if (screen!.type === 'reflection') {
     const context = record.source_body_text.filter((line: string) => line !== record.source_question.stem && line !== record.source_question.instructions);
     assert.deepEqual(screen!.contextParagraphs, context, `${manifestRecord.cias_id} recap context`);

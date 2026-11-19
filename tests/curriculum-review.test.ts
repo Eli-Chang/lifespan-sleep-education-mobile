@@ -27,15 +27,24 @@ describe('English Curriculum Review (development-only)', () => {
     }
   });
 
-  it('reports the answer-key state of m1-q1, m2-q1, and m2-q2 as stored, without inventing a key', () => {
-    for (const id of ['m1-q1', 'm2-q1', 'm2-q2']) {
+  it('reports the answer-key state as stored, without inventing a key for m2-q1 or m2-q2', () => {
+    for (const id of ['m2-q1', 'm2-q2']) {
       const info = answerKeyInfo(findScreen(englishModules, id)!.screen);
       assert.equal(info.hasKey, false, `${id} has no stored key`);
       assert.equal(info.provenance, 'CIAS_ANSWER_KEY_NOT_RECOVERED');
       assert.match(info.behaviour, /not graded/);
     }
     const keyless = keylessObjectiveQuestions(englishModules).map((info) => info.screenId);
-    for (const id of ['m1-q1', 'm2-q1', 'm2-q2']) assert.ok(keyless.includes(id));
+    for (const id of ['m2-q1', 'm2-q2']) assert.ok(keyless.includes(id));
+  });
+
+  it('m1-q1 is a graded true/false question: True is correct, with the key marked as a product-owner decision', () => {
+    const info = answerKeyInfo(findScreen(englishModules, 'm1-q1')!.screen);
+    assert.equal(info.hasKey, true);
+    assert.equal(info.correctChoiceId, 'c1');
+    assert.equal(info.provenance, 'PRODUCT_OWNER_ANSWER_KEY');
+    assert.equal(info.behaviour, 'graded');
+    assert.ok(!keylessObjectiveQuestions(englishModules).some((item) => item.screenId === 'm1-q1'));
   });
 
   it('is development-only: redirects in production and is not linked from any learner screen', () => {

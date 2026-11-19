@@ -10,6 +10,7 @@ export type TranslationProvenance = 'approved-english-curriculum' | 'existing-ap
 export type AnswerBehaviorProvenance =
   | 'CURRENT_APP_EXISTING_BEHAVIOR'
   | 'CIAS_ANSWER_KEY_NOT_RECOVERED'
+  | 'PRODUCT_OWNER_ANSWER_KEY'
   | 'HELD_SOURCE_LIMITED_NO_CIAS_BEHAVIOR_PROMOTED'
   | 'NOT_APPLICABLE';
 

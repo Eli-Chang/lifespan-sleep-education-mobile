@@ -7,6 +7,7 @@ export interface CiasSpanishTranslation {
   contextParagraphs?: string[];
   choices?: string[];
   sourceVisibleLabels?: string[];
+  questionFeedback?: { correctSummary: string; incorrectSummary: string; generalExplanation: string; optionExplanations?: Record<string, string> };
 }
 
 export const ciasSpanishTranslations: Record<string, CiasSpanishTranslation> = {
@@ -28,6 +29,12 @@ export const ciasSpanishTranslations: Record<string, CiasSpanishTranslation> = {
     prompt: '¿Verdadero o falso? Puede tener apnea obstructiva del sueño aunque no ronque.',
     instructions: '¿Verdadero o falso? Díganos qué piensa a continuación.',
     choices: ['Verdadero: puede tener apnea del sueño sin roncar', 'Falso: tiene que roncar para tener apnea del sueño'],
+    questionFeedback: {
+      correctSummary: 'Correcto.',
+      incorrectSummary: 'Aún no.',
+      generalExplanation: 'Verdadero. No todas las personas con apnea obstructiva del sueño roncan. El ronquido es una señal frecuente, pero la apnea del sueño también puede manifestarse como pausas en la respiración, despertares frecuentes o cansancio durante el día.',
+      optionExplanations: { c2: 'El ronquido es frecuente en la apnea del sueño, pero no es obligatorio.' },
+    },
   },
 
   'm2-01': {

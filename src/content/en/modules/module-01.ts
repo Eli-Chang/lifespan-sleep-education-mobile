@@ -63,7 +63,20 @@ const currentScreens = [
 
 const preservedCurrentScreenIds = new Set(['m1-04', 'm1-05', 'm1-06', 'm1-07', 'm1-q2', 'm1-r1', 'm1-recap']);
 const merged = [...ciasScreensByModule.m1.filter((screen) => screen.id !== 'm1-recap'), ...currentScreens.filter((screen) => preservedCurrentScreenIds.has(screen.id))];
-const screens = [...merged.filter((screen) => screen.id !== 'm1-recap'), ...merged.filter((screen) => screen.id === 'm1-recap')];
+const ordered = [...merged.filter((screen) => screen.id !== 'm1-recap'), ...merged.filter((screen) => screen.id === 'm1-recap')];
+// Product-owner decision, 2026-11-19: the CIAS answer key for this true/false question was never recovered,
+// so the key is set here. True is correct. The prompt and choices stay verbatim from the CIAS capture.
+const screens = ordered.map((screen) => screen.id === 'm1-q1' && screen.type === 'singleChoice' ? {
+  ...screen,
+  correctChoiceId: 'c1',
+  answerBehaviorProvenance: 'PRODUCT_OWNER_ANSWER_KEY' as const,
+  questionFeedback: {
+    correctSummary: 'Correct.',
+    incorrectSummary: 'Not quite.',
+    generalExplanation: 'True. Not everyone with obstructive sleep apnea snores. Snoring is a common sign, but sleep apnea can also show up as pauses in breathing, frequent awakenings, or daytime tiredness.',
+    optionExplanations: { c2: 'Snoring is common in sleep apnea, but it is not required.' },
+  },
+} : screen);
 
 export const module01: EducationModule = {
   id: 'm1', order: 1, title: 'Intro to Sleep Apnea', shortTitle: 'Sleep Apnea',

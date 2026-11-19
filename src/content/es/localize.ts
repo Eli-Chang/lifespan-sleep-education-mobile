@@ -43,6 +43,8 @@ function translateCiasScreen(screen: LessonScreen, translation: CiasSpanishTrans
     if (!translation.prompt || !translation.choices || translation.choices.length !== screen.choices.length) {
       throw new Error(`Incomplete Spanish question translation for ${screen.id}`);
     }
+    // Fail closed: a question keyed in the English source must not show English feedback in Spanish.
+    if (screen.answerBehaviorProvenance === 'PRODUCT_OWNER_ANSWER_KEY' && !translation.questionFeedback) throw new Error(`Missing Spanish feedback for graded question ${screen.id}`);
     return {
       ...translated,
       type: screen.type,
@@ -51,7 +53,7 @@ function translateCiasScreen(screen: LessonScreen, translation: CiasSpanishTrans
       contextParagraphs: translation.contextParagraphs ?? [],
       choices: screen.choices.map((choice, index) => ({ ...choice, label: translation.choices![index] })),
       narrationText: [translation.prompt, translation.instructions, ...(translation.contextParagraphs ?? []), ...translation.choices].filter(Boolean).join(' '),
-      questionFeedback: screen.questionFeedback,
+      questionFeedback: translation.questionFeedback ?? screen.questionFeedback,
       feedback: screen.feedback,
     };
   }

@@ -38,7 +38,7 @@ export const REVIEW_ITEMS: ReviewItem[] = [
     title: 'OSA wording in the snoring question',
     affected: 'm1-q1 (Module 1, "Sleep Apnea")',
     reported: 'The prompt says "You have OSA" while the answer choices imply "you can have it".',
-    finding: 'FIXED 2026-11-16: prompt now reads "You can have obstructive sleep apnea even if you don’t snore". Reproduced as a wording mismatch, not as a flat contradiction. The prompt states "You have obstructive sleep apnea even if you don’t snore" as a statement about the reader, while the first choice says "you can totally have sleep apnea without snoring". The statement reads as "have", the choice as "can have". No correct answer is stored for this question (see item 3 for how the app treats that).',
+    finding: 'FIXED 2026-11-16: prompt now reads "You can have obstructive sleep apnea even if you don’t snore". Reproduced as a wording mismatch, not as a flat contradiction. The prompt states "You have obstructive sleep apnea even if you don’t snore" as a statement about the reader, while the first choice says "you can totally have sleep apnea without snoring". The statement reads as "have", the choice as "can have". ANSWER KEY SET 2026-11-19 (product-owner decision): True (the first choice) is correct and False is wrong, so the question is now graded with Correct and Not quite feedback in all four languages. The original CIAS answer key was never recovered, so the key is recorded as PRODUCT_OWNER_ANSWER_KEY, not as a CIAS key.',
     keyScreens: ['m1-q1'],
     screens: [
       { screenId: 'm1-03', role: 'context', why: 'Lesson screen immediately before the question' },
