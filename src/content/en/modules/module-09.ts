@@ -47,14 +47,14 @@ export const module09: EducationModule = {
     ]),
     c('m9-02', 'My Mask Feels Too Tight or Uncomfortable', [
       'The mask should not need to be painfully tight or leave persistent facial marks. Adjusting straps may help while maintaining a seal. If it only seals when extremely tight, ask about another mask style.',
-      'With the machine running, gently reseat the mask and adjust one strap at a time. The goal is a seal that stays in place without painful pressure; overtightening can make pressure points and leaks worse.',
+      'With the machine running, gently reseat the mask and adjust one strap at a time. The goal is a seal that stays in place without painful pressure. Overtightening can make pressure points and leaks worse.',
       'If comfort remains poor, ask the equipment team to check the size, cushion, headgear, and mask style. Nasal pillows, a nasal mask, and a full-face mask distribute contact differently.',
     ], [
       'Fit the mask with airflow on and use the smallest adjustment that improves the seal.',
       'Ask for a refit when the mask only works if it is painfully tight.',
     ]),
     c('m9-03', 'My Mask Leaks or Moves Around', [
-      'Air leaks may mean intended airflow is escaping. Check fit and straps. Red or sore eyes after waking can signal air leaking from the top of the mask. If it persists, another mask style may be needed.',
+      'A leak may mean that air meant for you is escaping. Check the fit and straps. Red or sore eyes after waking can be a sign of air leaking from the top of the mask. If the leak or eye irritation continues, you may need another mask style.',
       'While the machine is running, lift the mask slightly away from your face and let it reseal, then adjust the headgear gradually. Check that the cushion is not folded and that the tubing and connectors are seated.',
       'Reduce tugging by routing the tubing over your chest or using a tubing holder. A pillow designed with space for the mask may help some side sleepers. Persistent leaks or eye irritation deserve a mask-fit review.',
     ], [
@@ -90,7 +90,7 @@ export const module09: EducationModule = {
       'Air near the top of the mask can indicate a leak. Check fit first and seek mask support if it persists.',
     ),
     c('m9-06', 'My Nose or Mouth Feels Dry', [
-      'PAP airflow can feel drying. Nasal saline and PAP humidification may improve comfort, but too much humidity can cause unwanted moisture. Discuss persistent problems with the healthcare or equipment team.',
+      'PAP airflow can feel drying. Nasal saline and PAP humidification may improve comfort, but too much humidity can cause unwanted moisture. Talk with the healthcare or equipment team about problems that continue.',
       'Check for a mask or mouth leak first, especially if you use a nasal mask or nasal pillows. If your device has humidification, ask whether a higher heat setting or heated tubing is appropriate; balance comfort against condensation.',
       'Saline spray or gel can help some people with nasal dryness, and artificial-saliva products may help some people with dry mouth. Ask the care team before adding a chin strap or changing mask type.',
     ], [
@@ -114,9 +114,9 @@ export const module09: EducationModule = {
       'Persistent congestion, nosebleeds, or worsening breathing needs clinical review.',
     ]),
     c('m9-09', 'I’m Burping or Feeling Bloated', [
-      'Burping or bloating may be a sign of swallowing air. Some PAP devices have a ramp feature that reduces pressure while falling asleep. Discuss pressure changes with the healthcare provider rather than making them independently.',
+      'Burping or bloating may be a sign of swallowing air. Some PAP devices have a ramp feature that reduces pressure while falling asleep. Talk with the healthcare provider about pressure changes instead of making them yourself.',
       'Changing your sleeping position or pillow arrangement may help some people. If available on your device, a ramp can lower the starting pressure while you fall asleep; ask the care team how to use it.',
-      'Persistent, painful, or worsening bloating needs prompt review of the mask, pressure, and device mode. The clinician may consider an expiratory comfort feature, auto-PAP, or bilevel PAP when appropriate—these are not self-directed changes.',
+      'Persistent, painful, or worsening bloating needs prompt review of the mask, pressure, and device mode. The clinician may consider an expiratory comfort feature, auto-PAP, or bilevel PAP when appropriate. These are not changes to make on your own.',
     ], [
       'Do not keep lowering or raising prescribed pressure to chase a symptom.',
       'Contact the care team if bloating is painful, recurrent, or stopping you from using PAP.',

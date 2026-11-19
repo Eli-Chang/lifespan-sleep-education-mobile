@@ -1,0 +1,5 @@
+Upstream: https://github.com/blader/humanizer
+Version: 4.0.0
+Commit: b48c832f0f809c1b5658edbb838c2521b72f2413 (2026-11-09)
+Copied files: SKILL.md, LICENSE only (no scripts, hooks or plugin manifests).
+Reviewed 2026-11-19: no network calls, no executables, no allowed-tools, no hooks.
