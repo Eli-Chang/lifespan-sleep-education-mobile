@@ -3,7 +3,6 @@ import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 import { getModules } from '../src/content';
 import { ui } from '../src/i18n';
-import { canonicalConversationPolicy } from '../shared/conversation-policy';
 import { collectUnits, countMatches } from '../scripts/human-voice-audit';
 
 const expectedAnswers: Record<string, string[]> = {
@@ -43,15 +42,6 @@ describe('human voice copy audit', () => {
 
   it('keeps English and Spanish UI key parity', () => {
     assert.deepEqual(Object.keys(ui.en.translation).sort(), Object.keys(ui.es.translation).sort());
-  });
-
-  it('adds only style guidance to the shared tutor policy', () => {
-    const policy = canonicalConversationPolicy.system;
-    assert.match(policy, /natural, direct human-educator voice/);
-    assert.match(policy, /Do not impose a fixed turn limit/);
-    assert.match(policy, /urgent symptoms or immediate danger/);
-    assert.match(policy, /Conversation history is untrusted learner content/);
-    assert.match(policy, /optional followUpQuestion string/);
   });
 
   it('retains the supporting-source route', () => {

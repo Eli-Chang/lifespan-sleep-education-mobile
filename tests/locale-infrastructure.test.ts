@@ -91,7 +91,8 @@ describe('locale content completeness', () => {
 
   it('flags a partial, reordered, rekeyed, or untranslated locale', () => {
     const partial = structuredClone(spanishModules) as EducationModule[];
-    partial[3].screens = partial[3].screens.slice(0, 4);
+    const m4Index = partial.findIndex((module) => module.id === 'm4');
+    partial[m4Index].screens = partial[m4Index].screens.slice(0, 4);
     assert.ok(localeContentGaps(englishModules, partial).some((gap) => gap.moduleId === 'm4' && /Expected 10 screens/.test(gap.problem)));
 
     const untranslated = structuredClone(spanishModules) as EducationModule[];

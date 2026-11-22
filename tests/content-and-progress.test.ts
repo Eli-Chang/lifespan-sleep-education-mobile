@@ -68,7 +68,7 @@ test('Healthy Sleep Hygiene is two modules that together keep all 31 screens in 
     assert.deepEqual(m5.screens.map((screen) => screen.id), PART_ONE);
     assert.deepEqual(m5b.screens.map((screen) => screen.id), PART_TWO);
     assert.deepEqual(modules.map((module) => module.order), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    assert.deepEqual(modules.map((module) => module.id), ['m1', 'm2', 'm3', 'm4', 'm5', 'm5b', 'm6', 'm7', 'm8', 'm9']);
+    assert.deepEqual(modules.map((module) => module.id), ['m1', 'm3', 'm4', 'm2', 'm5', 'm5b', 'm6', 'm7', 'm8', 'm9']);
   }
 });
 

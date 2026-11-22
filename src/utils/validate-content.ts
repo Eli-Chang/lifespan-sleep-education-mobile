@@ -4,8 +4,9 @@ import { sourceManifest } from '@/src/content/source-manifest';
 export function validateContent(english: EducationModule[], spanish: EducationModule[]) {
   const errors: string[] = [];
   const expectedModules: [string, string][] = [
-    ['m1','Intro to Sleep Apnea'],['m2','How Does Sleep Apnea Impact My Partner?'],['m3','OSA Outcomes and Motivation'],
-    ['m4','Sleep Apnea and Health of Your Pregnancy and Baby'],['m5','Healthy Sleep Hygiene, Part 1: Routine and Light'],
+    // Learner order: outcomes (m3) and pregnancy (m4) come before the partner module (m2), which refers back to them.
+    ['m1','Intro to Sleep Apnea'],['m3','OSA Outcomes and Motivation'],
+    ['m4','Sleep Apnea and Health of Your Pregnancy and Baby'],['m2','How Does Sleep Apnea Impact My Partner?'],['m5','Healthy Sleep Hygiene, Part 1: Routine and Light'],
     ['m5b','Healthy Sleep Hygiene, Part 2: Environment and Daily Habits'],['m6','Pregnancy Comorbidities and PAP'],['m7','Intimacy'],
     ['m8','Getting Started with PAP'],['m9','Troubleshooting PAP'],
   ];

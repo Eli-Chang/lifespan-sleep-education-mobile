@@ -14,21 +14,17 @@ function Assert-Equal($Actual, $Expected, [string]$Message) {
 $listeners = @(
   [pscustomobject]@{ LocalPort = 8084; OwningProcess = 101 },
   [pscustomobject]@{ LocalPort = 8084; OwningProcess = 101 },
-  [pscustomobject]@{ LocalPort = 8789; OwningProcess = 202 },
   [pscustomobject]@{ LocalPort = 9000; OwningProcess = 303 }
 )
 
 Assert-Equal @(Get-UniqueListenerProcessIds $listeners 8084).Count 1 'Duplicate rows from one process must count as one Expo listener'
-Assert-Equal @(Get-UniqueListenerProcessIds $listeners 8789).Count 1 'Worker listener must be matched by exact port'
-Assert-Equal @(Get-UniqueListenerProcessIds $listeners 8787).Count 0 'Retired Worker port must not satisfy readiness'
-Assert-Equal (Test-WorkerHealthPayload ([pscustomobject]@{ ok = $true; configured = $true })) $true 'Configured healthy Worker must pass'
-Assert-Equal (Test-WorkerHealthPayload ([pscustomobject]@{ ok = $true; configured = $false })) $false 'configured:false must fail'
+Assert-Equal @(Get-UniqueListenerProcessIds $listeners 8081).Count 0 'Retired Expo port must not satisfy readiness'
 
-$ready = Get-CanonicalReadiness $listeners $true $true
-Assert-Equal $ready.Ready $true 'Both unique exact listeners and both HTTP probes must be required'
-$conflict = Get-CanonicalReadiness @($listeners + [pscustomobject]@{ LocalPort = 8789; OwningProcess = 404 }) $true $true
-Assert-Equal $conflict.Ready $false 'Multiple Worker listener processes must fail readiness'
-$deadExpo = Get-CanonicalReadiness $listeners $true $false
+$ready = Get-CanonicalReadiness $listeners $true
+Assert-Equal $ready.Ready $true 'One unique Expo listener and a passing HTTP probe must be ready'
+$conflict = Get-CanonicalReadiness @($listeners + [pscustomobject]@{ LocalPort = 8084; OwningProcess = 404 }) $true
+Assert-Equal $conflict.Ready $false 'Multiple Expo listener processes must fail readiness'
+$deadExpo = Get-CanonicalReadiness $listeners $false
 Assert-Equal $deadExpo.Ready $false 'Expo HTTP failure must prevent success'
 Assert-Equal $StartupTimeoutSeconds 120 'Default startup timeout must cover bounded cold starts'
 

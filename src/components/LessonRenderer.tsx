@@ -194,25 +194,33 @@ export function LessonRenderer({ screen, onSubmitted, onEditingChange }: { scree
     : currentResult === false
       ? t('notQuite')
       : t('reflectionSaved');
+  // Questions with a note for every choice explain each selected answer inside its own card, so the
+  // result card below only says whether the attempt was right and what to do next.
+  const choiceNote = (id: string) => question.questionFeedback?.optionExplanations?.[id]?.trim() || undefined;
+  const hasChoiceNotes = !unscored && question.choices.every((choice) => Boolean(choiceNote(choice.id)));
   const selectedWrongExplanation = currentResult === false
     ? selected.map((id) => question.questionFeedback?.optionExplanations?.[id]).find(Boolean)
     : undefined;
-  const explanation = selectedWrongExplanation
-    ?? (currentResult === false ? question.questionFeedback?.incorrectExplanation : undefined)
-    ?? question.questionFeedback?.generalExplanation
-    ?? question.feedback
-    ?? t('answerSaved');
+  const pickedAnyWrong = selected.some((id) => questionChoiceState(question, selected, id).incorrectSelected);
+  const explanation = hasChoiceNotes
+    ? currentResult === false ? (pickedAnyWrong ? t('choiceNotesRetry') : t('choiceNotesMissing')) : undefined
+    : selectedWrongExplanation
+      ?? (currentResult === false ? question.questionFeedback?.incorrectExplanation : undefined)
+      ?? question.questionFeedback?.generalExplanation
+      ?? question.feedback
+      ?? t('answerSaved');
 
   const choiceList = question.choices.map((choice) => {
       const active = selected.includes(choice.id);
       const showResults = submitted && !editing && objective && !unscored;
       const locked = submitted && !editing;
       const choiceState = questionChoiceState(question, selected, choice.id);
-      // A failed attempt may identify the learner's selected error, but it
-      // must not reveal any unselected correct choice or answer-key text.
+      // A submitted attempt marks each selected choice right or wrong and explains it, but it
+      // never reveals an unselected correct choice or its explanation.
       const missed = showResults && currentResult === true && choiceState.missed;
-      const incorrectSelected = showResults && currentResult === false && choiceState.incorrectSelected;
-      const correctSelected = showResults && currentResult === true && choiceState.correctSelected;
+      const incorrectSelected = showResults && choiceState.incorrectSelected;
+      const correctSelected = showResults && choiceState.correctSelected;
+      const note = showResults && active ? choiceNote(choice.id) : undefined;
       const resultLabel = correctSelected ? t('correctChoice') : incorrectSelected ? t('incorrectChoice') : missed ? t('missedCorrectChoice') : '';
       return <ChoicePressable
         key={choice.id}
@@ -258,7 +266,7 @@ export function LessonRenderer({ screen, onSubmitted, onEditingChange }: { scree
           {correctSelected ? <Text style={styles.correctLabel}>{t('correctChoice')}</Text> : null}
           {incorrectSelected ? <Text style={styles.incorrectLabel}>{t('incorrectChoice')}</Text> : null}
           {missed ? <Text style={styles.missedLabel}>{t('missedCorrectChoice')}</Text> : null}
-          {currentResult === true && question.questionFeedback?.optionExplanations?.[choice.id] ? <Text style={styles.optionExplanation}>{question.questionFeedback.optionExplanations[choice.id]}</Text> : null}
+          {note ? <Text testID={`choice-note-${question.id}-${choice.id}`} style={styles.optionExplanation}>{note}</Text> : null}
         </View>
       </ChoicePressable>;
      });
@@ -286,7 +294,7 @@ export function LessonRenderer({ screen, onSubmitted, onEditingChange }: { scree
         !isSavedResponse && currentResult === false && styles.feedbackIncorrect,
       ]}>
         <MaterialCommunityIcons accessible={false} importantForAccessibility="no" name={isSavedResponse || currentResult === true ? 'check-circle' : currentResult === false ? 'alert-circle' : 'heart-outline'} size={26} color={isSavedResponse || currentResult === true ? palette.success : currentResult === false ? palette.danger : palette.primaryDark} />
-        <View style={styles.feedbackCopy}><Text style={styles.feedbackTitle}>{isSavedResponse ? t('reflectionSaved') : summary}</Text>{!isSavedResponse ? <Text style={styles.feedbackText}>{explanation}</Text> : null}</View>
+        <View style={styles.feedbackCopy}><Text style={styles.feedbackTitle}>{isSavedResponse ? t('reflectionSaved') : summary}</Text>{!isSavedResponse && explanation ? <Text style={styles.feedbackText}>{explanation}</Text> : null}</View>
       </View>
       <ActionButton variant="secondary" accessibilityLabel={currentResult === false ? `${isChoiceReflection ? t('editReflection') : question.type === 'multiSelect' ? t('changeAnswers') : t('changeAnswer')} (${t('retry')})` : undefined} label={isChoiceReflection ? t('editReflection') : question.type === 'multiSelect' ? t('changeAnswers') : t('changeAnswer')} icon="arrow-right" iconPosition="trailing" onPress={() => { setEditing(true); onEditingChange?.(true); }} />
     </>}

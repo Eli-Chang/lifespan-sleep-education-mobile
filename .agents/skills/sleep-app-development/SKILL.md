@@ -1,6 +1,6 @@
 ---
 name: sleep-app-development
-description: Project workflow for substantial Lifespan Sleep Education Expo and React Native work involving lessons, modules, slides, navigation, UI, responsiveness, accessibility, English/Spanish localization, narration, progress, AsyncStorage, consent, teach-back, AI feedback, privacy, testing, or deployment readiness.
+description: Project workflow for substantial Lifespan Sleep Education Expo and React Native work involving lessons, modules, slides, navigation, UI, responsiveness, accessibility, English/Spanish localization, narration, progress, AsyncStorage, privacy, testing, or deployment readiness.
 ---
 
 # Sleep App Development
@@ -11,11 +11,12 @@ Never write outside the project root, expose secrets, use real health informatio
 
 ## Workflow
 
-1. Inspect boundary, package scripts, routes, content, state, persistence, AI, narration, tests, and environment.
+1. Inspect boundary, package scripts, routes, content, state, persistence, narration, tests, and environment.
 2. For substantial work, run `app_planner` before implementation and freeze the ledger.
 3. Route only relevant specialists; do not invoke every agent for every task.
 4. Use `app_implementer` as the sole overlapping application writer.
-5. Run focused tests, Playwright, visual, accessibility, privacy, clinical, reliability, and native checks as routed.
-6. Resolve defects and run `final_verifier` before reporting completion.
+5. When learner-visible text changes, apply `.agents/skills/humanizer/SKILL.md` and `.agents/skills/sleep-app-content-quality/SKILL.md`, then run `npm.cmd run check:content-quality`.
+6. Run focused tests, Playwright, visual, accessibility, privacy, clinical, reliability, and native checks as routed.
+7. Resolve defects and run `final_verifier` before reporting completion.
 
 See `references/agent-routing.md`, `references/qa-matrix.md`, and `references/app-safety-rules.md`.

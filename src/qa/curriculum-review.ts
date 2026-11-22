@@ -68,7 +68,7 @@ export const REVIEW_ITEMS: ReviewItem[] = [
     title: 'Answer keys for m2-q1 and m2-q2',
     affected: 'm2-q1 and m2-q2 (Module 2)',
     reported: 'm2-q1 and m2-q2 have no answer key.',
-    finding: 'NOT CHANGED 2026-11-16: answer keys left unset pending clinical review. Reproduced, with a precise reading of what it means. Neither question stores a correct answer (no correctChoiceId or correctChoiceIds). Both carry answerBehaviorProvenance "CIAS_ANSWER_KEY_NOT_RECOVERED": the original CIAS answer key was not recovered. The app has a supported behaviour for exactly this case: such questions are shown as saved-response questions with no right or wrong feedback and never block Next. In the running app they appear under a "Personal reflection" label with the text "Select one response. This response is never graded." and a Save response button, even though their questionKind is "objective" (they are not declared as reflections). The same applies to m1-q1, which the earlier report did not list, and to other questions listed at the bottom of this item.',
+    finding: 'CHANGED 2026-11-21: both questions are graded. The keys come from the CIAS editor screen recording (docs/curriculum/CIAS_FEEDBACK_TRANSCRIPT.md): m2-q2 is c2 and c4. m2-q1 is True, because its wording was changed on 2026-11-16 to say some couples report higher satisfaction; CIAS keyed its original wording False. Each choice now shows its own explanation after Submit, and Next stays locked until the answer is right.',
     keyScreens: ['m2-q1', 'm2-q2'],
     screens: [
       { screenId: 'm2-q2', role: 'affected', why: 'Multi-select question (select all that apply)' },

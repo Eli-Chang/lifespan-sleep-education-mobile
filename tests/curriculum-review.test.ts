@@ -27,15 +27,16 @@ describe('English Curriculum Review (development-only)', () => {
     }
   });
 
-  it('reports the answer-key state as stored, without inventing a key for m2-q1 or m2-q2', () => {
-    for (const id of ['m2-q1', 'm2-q2']) {
+  it('reports m2-q1 and m2-q2 as graded with the keys read from the CIAS screen recording', () => {
+    const expected: Record<string, string[]> = { 'm2-q1': ['c1'], 'm2-q2': ['c2', 'c4'] };
+    for (const [id, key] of Object.entries(expected)) {
       const info = answerKeyInfo(findScreen(englishModules, id)!.screen);
-      assert.equal(info.hasKey, false, `${id} has no stored key`);
-      assert.equal(info.provenance, 'CIAS_ANSWER_KEY_NOT_RECOVERED');
-      assert.match(info.behaviour, /not graded/);
+      assert.equal(info.hasKey, true, `${id} has a stored key`);
+      assert.equal(info.provenance, 'CIAS_SCREEN_RECORDING');
+      assert.deepEqual(info.correctChoiceIds ?? (info.correctChoiceId ? [info.correctChoiceId] : []), key);
     }
     const keyless = keylessObjectiveQuestions(englishModules).map((info) => info.screenId);
-    for (const id of ['m2-q1', 'm2-q2']) assert.ok(keyless.includes(id));
+    for (const id of Object.keys(expected)) assert.equal(keyless.includes(id), false);
   });
 
   it('m1-q1 is a graded true/false question: True is correct, with the key marked as a product-owner decision', () => {

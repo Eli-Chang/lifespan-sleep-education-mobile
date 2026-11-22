@@ -8,4 +8,6 @@ import { module07 } from './modules/module-07';
 import { module08 } from './modules/module-08';
 import { module09 } from './modules/module-09';
 
-export const spanishModules = [module01, module02, module03, module04, module05, module05b, module06, module07, module08, module09];
+import { withQuestionFeedback } from '@/src/content/question-feedback';
+
+export const spanishModules = withQuestionFeedback([module01, module03, module04, module02, module05, module05b, module06, module07, module08, module09], 'es');

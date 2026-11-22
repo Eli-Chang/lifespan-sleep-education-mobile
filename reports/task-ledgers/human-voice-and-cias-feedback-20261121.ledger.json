@@ -1,0 +1,375 @@
+{
+  "project": "sleep-app human-voice skills + CIAS per-choice feedback",
+  "schema_version": 1,
+  "status_values": [
+    "not_started",
+    "in_progress",
+    "implemented",
+    "tested",
+    "verified",
+    "blocked"
+  ],
+  "complete_when": "status === \"verified\"",
+  "last_updated": "2026-11-21T23:05:00.149Z",
+  "requirements": [
+    {
+      "id": "A1",
+      "requirement": "Actual repo, branch, remote and working tree verified before changes.",
+      "category": "A-skills",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [],
+      "evidence": [
+        "origin RangerX042/lifespan-sleep-education-mobile; branch work/english-review-demo-20261116"
+      ],
+      "tests": [
+        "git remote -v; git status; git worktree list"
+      ],
+      "verification": "git output read directly",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "A2",
+      "requirement": "Vela/Vera companion code, state, routes, tests and docs removed without breaking build.",
+      "category": "A-cleanup",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "A1"
+      ],
+      "evidence": [
+        "git rm cloudflare-worker, shared/conversation-policy.ts, tests/conversation-policy.test.ts, scripts/refresh-knowledge-source-hashes.ts, 6 AI docs; evaluation:* scripts removed; dev-canonical.ps1 Expo-only; README/SECURITY/IP boundary/orchestration/skill refs updated"
+      ],
+      "tests": [
+        "npm run typecheck",
+        "npm test",
+        "tests/dev-canonical.test.ps1 (6 checks)",
+        "npm run validate:content"
+      ],
+      "verification": "Fresh tsc and test processes pass; grep finds only intentional guards (privacy test, migration sanitizer)",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "A3",
+      "requirement": "humanizer skill updated from genuine blader/humanizer in .claude/skills and .agents/skills.",
+      "category": "A-skills",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "A1"
+      ],
+      "evidence": [
+        "SOURCE.txt commit a32f244; upstream diff reviewed (wording only, no tools/hooks)"
+      ],
+      "tests": [
+        "tests/content-quality-gate.test.ts: metadata, identical copies, MIT license, provenance"
+      ],
+      "verification": "Fresh Claude Code init lists 'humanizer'; Codex opened .agents/skills/humanizer/SKILL.md in 6/6 fixture runs",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "A4",
+      "requirement": "sleep-app-content-quality skill exists with valid metadata, scoped to static app content, in both agent skill dirs.",
+      "category": "A-skills",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "A1"
+      ],
+      "evidence": [
+        ".claude/skills/sleep-app-content-quality/SKILL.md",
+        ".agents/skills/sleep-app-content-quality/SKILL.md"
+      ],
+      "tests": [
+        "tests/content-quality-gate.test.ts"
+      ],
+      "verification": "Fresh Claude Code init lists the skill; Codex opened it in 6/6 fixture runs",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "A5",
+      "requirement": "Repo CLAUDE.md requires both skills for any patient-facing text change.",
+      "category": "A-routing",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "A4"
+      ],
+      "evidence": [
+        "CLAUDE.md imports @AGENTS.md and adds the Claude Code rule"
+      ],
+      "tests": [
+        "tests/content-quality-gate.test.ts"
+      ],
+      "verification": "Fresh claude -p sessions (sonnet) in an isolated fixture, prompts never naming the skills: 6/6 invoked Skill humanizer and Skill sleep-app-content-quality and attempted the gate (scratchpad/agent-cases/claude/*.jsonl)",
+      "blocker": null,
+      "last_updated": "2026-11-21T23:05:00.148Z"
+    },
+    {
+      "id": "A6",
+      "requirement": "AGENTS.md requires both skills for any patient-facing text change without conflicting rules.",
+      "category": "A-routing",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "A4"
+      ],
+      "evidence": [
+        "AGENTS.md section 'Patient-facing text'"
+      ],
+      "tests": [
+        "tests/content-quality-gate.test.ts"
+      ],
+      "verification": "Codex fixture runs (gpt-5.6-terra) read both skills unprompted in 6/6 cases",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "A7",
+      "requirement": "Path-scoped .claude/rules file covers text-bearing paths.",
+      "category": "A-routing",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "A4"
+      ],
+      "evidence": [
+        ".claude/rules/patient-facing-text.md"
+      ],
+      "tests": [
+        "tests/content-quality-gate.test.ts"
+      ],
+      "verification": "Fresh claude -p sessions (sonnet) in an isolated fixture, prompts never naming the skills: 6/6 invoked Skill humanizer and Skill sleep-app-content-quality and attempted the gate (scratchpad/agent-cases/claude/*.jsonl)",
+      "blocker": null,
+      "last_updated": "2026-11-21T23:05:00.149Z"
+    },
+    {
+      "id": "A8",
+      "requirement": "Content-quality gate script detects changed text files and runs deterministic integrity checks and tests.",
+      "category": "A-gate",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "A4"
+      ],
+      "evidence": [
+        "scripts/content-quality-gate.ts",
+        "scripts/content-units.ts",
+        "npm run check:content-quality"
+      ],
+      "tests": [
+        "tests/content-quality-gate.test.ts (16)",
+        "gate run on working tree: PASS with --reviewed"
+      ],
+      "verification": "Replayed a Codex quiz edit in an isolated fixture repo: gate flagged 'associated' qualifier removal, untouched translations, CIAS-source change, and failed until --reviewed",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "A9",
+      "requirement": "Skill invocation demonstrated with fresh Claude Code session on fixtures.",
+      "category": "A-verify",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "A5",
+        "A7"
+      ],
+      "evidence": [
+        "Fresh claude -p init in fixture lists humanizer and sleep-app-content-quality skills"
+      ],
+      "tests": [
+        "scratchpad/run-claude-cases.sh"
+      ],
+      "verification": "Fresh claude -p sessions (sonnet) in an isolated fixture, prompts never naming the skills: 6/6 invoked Skill humanizer and Skill sleep-app-content-quality and attempted the gate (scratchpad/agent-cases/claude/*.jsonl)",
+      "blocker": null,
+      "last_updated": "2026-11-21T23:05:00.149Z"
+    },
+    {
+      "id": "A10",
+      "requirement": "Skill invocation demonstrated with Codex on fixtures, or blocker recorded.",
+      "category": "A-verify",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "A6"
+      ],
+      "evidence": [
+        "scratchpad/agent-cases/codex/*.jsonl: both SKILL.md files opened via shell in 6/6 cases; gate attempted in 6/6"
+      ],
+      "tests": [
+        "scratchpad/run-codex-cases.sh"
+      ],
+      "verification": "Independent Codex process; gate itself could not run inside Codex sandbox (tsx not on PATH via linked node_modules). Codex wrote Spanish in tu form in case 2 despite the usted rule.",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "A11",
+      "requirement": "Typecheck, unit tests and validate:content pass after part A.",
+      "category": "A-verify",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "A2",
+        "A8"
+      ],
+      "evidence": [
+        "tsc exit 0",
+        "npm test 105/105",
+        "validate:content pass"
+      ],
+      "tests": [
+        "npm run check:content-quality -- --reviewed"
+      ],
+      "verification": "Gate re-ran all three in child processes: PASS",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "B1",
+      "requirement": "CIAS video frames extracted and each question mapped to its feedback slides.",
+      "category": "B-cias",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [],
+      "evidence": [
+        "468 cropped frames, Windows OCR index, 97 key frames viewed",
+        "docs/curriculum/CIAS_FEEDBACK_TRANSCRIPT.md"
+      ],
+      "tests": [],
+      "verification": "Each slide read from the frame image, cross-checked against OCR and editor score values",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "B2",
+      "requirement": "Per-choice one-sentence explanations written for every check-your-understanding question, gaps labelled.",
+      "category": "B-cias",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "B1",
+        "A4"
+      ],
+      "evidence": [
+        "src/content/question-feedback/en.ts",
+        "keys.ts drafted lists"
+      ],
+      "tests": [
+        "tests/question-feedback.test.ts"
+      ],
+      "verification": "Notes render per choice in the running app (m4-q1, m4-04, m2-q1)",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "B3",
+      "requirement": "Question types set to C vs R judgments across all modules.",
+      "category": "B-cias",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "B1"
+      ],
+      "evidence": [
+        "29 graded questions in m1-m7 keyed; m1-r1, m2-r1, m7-r1 ungraded; m8-m9 unchanged"
+      ],
+      "tests": [
+        "tests/question-feedback.test.ts",
+        "tests/curriculum-review.test.ts"
+      ],
+      "verification": "Browser shows 'Check your understanding' on m4-q1, m4-04, m2-q1",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "B4",
+      "requirement": "Per-choice explanations render inside each choice card only after submit; Change Your Answers resets them.",
+      "category": "B-ui",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "B2"
+      ],
+      "evidence": [
+        "src/components/LessonRenderer.tsx"
+      ],
+      "tests": [
+        "browser: submit wrong mix, change answers (0 notes while editing), resubmit"
+      ],
+      "verification": "Running app in preview, DOM and screenshots",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "B5",
+      "requirement": "Check-your-understanding questions block Next until answered correctly.",
+      "category": "B-ui",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "B3"
+      ],
+      "evidence": [
+        "existing canContinue gate; saved attempts re-graded against current key"
+      ],
+      "tests": [
+        "browser: Next aria-disabled true after wrong and partial answers, enabled after correct"
+      ],
+      "verification": "Running app in preview",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "B6",
+      "requirement": "Explanations translated for es, pt-BR and ht; locale completeness tests pass.",
+      "category": "B-i18n",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "B2"
+      ],
+      "evidence": [
+        "src/content/question-feedback/{es,pt-BR,ht}.ts",
+        "UI strings choiceNotesRetry/choiceNotesMissing in 4 locales"
+      ],
+      "tests": [
+        "tests/locale-infrastructure.test.ts",
+        "tests/translation-qa.test.ts",
+        "tests/question-feedback.test.ts"
+      ],
+      "verification": "Running app in Spanish (in-app navigation): m4-q4 shows Spanish per-choice notes and Spanish retry line, Next locked; pt-BR and ht covered by locale tests",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    },
+    {
+      "id": "B7",
+      "requirement": "Typecheck, tests and browser check of submit/change/resubmit/gate pass.",
+      "category": "B-verify",
+      "status": "verified",
+      "feasible": true,
+      "dependencies": [
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "evidence": [
+        "tsc 0",
+        "105/105",
+        "browser flows on m4-q1, m4-04, m2-q1"
+      ],
+      "tests": [
+        "npm test",
+        "browser"
+      ],
+      "verification": "Fresh processes and running app",
+      "blocker": null,
+      "last_updated": "2026-11-21"
+    }
+  ]
+}

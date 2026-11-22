@@ -11,6 +11,8 @@ export type AnswerBehaviorProvenance =
   | 'CURRENT_APP_EXISTING_BEHAVIOR'
   | 'CIAS_ANSWER_KEY_NOT_RECOVERED'
   | 'PRODUCT_OWNER_ANSWER_KEY'
+  // Key and per-choice feedback read from the CIAS editor screen recording of 2026-11-21.
+  | 'CIAS_SCREEN_RECORDING'
   | 'HELD_SOURCE_LIMITED_NO_CIAS_BEHAVIOR_PROMOTED'
   | 'NOT_APPLICABLE';
 

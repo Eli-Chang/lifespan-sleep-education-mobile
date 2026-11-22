@@ -39,9 +39,8 @@ Canonical local development runtime:
 npm.cmd run dev:canonical
 ```
 
-This repository-owned command stops stale Lifespan Sleep Expo/Worker processes,
-starts the app at `http://127.0.0.1:8084`, starts the Worker at
-`http://127.0.0.1:8789`, and prints both URLs. Do not use stale sleep-app
+This repository-owned command stops stale Lifespan Sleep Expo processes,
+starts the app at `http://127.0.0.1:8084`, and prints the URL. Do not use stale sleep-app
 instances on other ports for verification. Historical checkouts are protected
 artifacts and are not active runtimes.
 
@@ -121,30 +120,19 @@ All written content, questions, feedback, translations, icons, and progress logi
 
 Before patient release, complete clinical review, source/citation verification, professional bilingual review, asset-permission review, accessibility review, and the iOS/Android checklist in `docs/PHYSICAL_DEVICE_TEST_CHECKLIST.md`. See the audit documents for known ambiguities and omitted third-party media.
 
-## Deterministic evaluation system
+## No AI companion
 
-The `evaluation/` directory contains ten fixed synthetic personas, a versioned scenario library written for the earlier seven-module curriculum (it has not been updated for the ten-module curriculum or the removal of in-app AI), fixture and fail-closed live AI runners, Playwright browser tests, raw JSONL runs, SQLite/SQL analysis, a local workbook, human-review queues, and baseline/rerun comparison reports. Deterministic personas are repeatable test constructs; they are not real users and do not establish clinical effectiveness, real-user usability, PAP adherence, or patient understanding.
+The app has no AI companion, chatbot, or tutor. The earlier Vela companion, its Cloudflare Worker, the shared conversation policy, and the AI evaluation scripts were removed on 2026-11-21. The app makes no network calls (`tests/privacy-boundaries.test.ts` enforces this), and `src/state/curriculum-migration.ts` still strips any old companion data from saved progress.
 
-Run the safe fixture workflow in PowerShell:
+Key documents:
 
-```powershell
-npm.cmd run evaluation:validate
-npm.cmd run evaluation:ai:fixture
-npm.cmd run evaluation:db
-npm.cmd run evaluation:dashboard
-npm.cmd run evaluation:report
-npm.cmd run evaluation:ui
-```
-
-`npm.cmd run evaluation:all` combines fixture AI, Playwright, SQLite, workbook, and report generation without calling a paid live endpoint. Live AI requires explicit `LIVE_AI_TESTS=true` and a configured development endpoint; it is never enabled by the default workflow. Use `evaluation/docs/google-sheets-setup.md` for the dry-run-only Google Sheets path, and `evaluation/docs/human-review-guide.md` for medical, safety, and Spanish review.
-Key upgrade documents:
-
-- `docs/GROQ_UPGRADE_BASELINE.md`
 - `docs/DESIGN_SYSTEM.md`
 - `docs/QUESTION_REVIEW.md`
-- `docs/AI_ARCHITECTURE.md`
-- `docs/AI_SAFETY_BOUNDARIES.md`
-- `docs/AI_QA_REPORT.md`
+
+## Writing patient-facing text
+
+Every change to text a learner sees follows the human-voice and clinical-copy workflow in `CLAUDE.md` and `AGENTS.md`: the `humanizer` and `sleep-app-content-quality` skills, then `npm.cmd run check:content-quality`.
+
 # Canonical repository
 
 This AI-OS Projects checkout is the canonical Lifespan Sleep Education

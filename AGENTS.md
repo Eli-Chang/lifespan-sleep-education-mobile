@@ -4,6 +4,15 @@ Read the exact versioned docs at https://docs.expo.dev/versions/v54.0.0/ before 
 
 For substantial app work, use the project-scoped `sleep-app-development` skill. Delegate explicitly to relevant agents, use parallel read-heavy investigation where useful, and keep one primary application-code writer. User-facing changes require running-app browser testing, phone-sized visual checks, English/Spanish checks, accessibility review, and privacy review for storage, consent, AI, or network changes. Use clinical/AI-safety review for health content or AI behavior, native testing when available, and final verification before claiming completion. Never write outside this project folder or claim one-thread role-playing as separate agents or browser emulation as native testing.
 
+## Patient-facing text (human voice and clinical copy)
+
+Whenever you add, edit, rewrite, translate, or generate text a learner can see anywhere in the app (lessons, questions, choices, feedback and per-choice explanations, summaries, narration text, alt text, interface strings, `app.json` copy, and the es, pt-BR, and ht translations), load and apply both project skills before finalizing the change, including during small UI edits and refactors:
+
+1. `.agents/skills/humanizer/SKILL.md` (Codex) or the `humanizer` skill (Claude Code), for natural, non-formulaic writing.
+2. `.agents/skills/sleep-app-content-quality/SKILL.md` (Codex) or the `sleep-app-content-quality` skill (Claude Code), for plain language, clinical anchors, quiz integrity, and translations.
+
+Preserve all clinically meaningful information, including hedges such as "may" and "associated with". Any added or changed English text needs its Spanish, Brazilian Portuguese, and Haitian Creole version in the same change, even when the request only mentions English. Run `npm.cmd run check:content-quality`, fix every `BLOCK` and `REVIEW` it lists, then rerun with `-- --reviewed`; the change is not finished until that prints `Result: PASS`. Never edit learner-entered text. Report which skills you applied and any item left for clinical review. The app has no AI companion or runtime text generation; do not add one without an explicit request.
+
 ## Agent routing and response contract
 
 The mandatory baseline is `code_mapper → app_planner → app_implementer → test_architect → final_verifier`; route optional reviewers only when their concern is in scope. The project orchestration contract is in `docs/agents/AGENT_ORCHESTRATION.md`; validate it with `npm.cmd run verify:agents`. A configured `.codex/agents/*.toml` is not evidence that an agent ran. Every participating agent reports the outcome, exact project-relative files, exact commands and results, runtime evidence reference, limitations, and whether the next gate may proceed. The app writer does not self-approve; only the final verifier may report `PASS`, `FAIL`, or `BLOCKED`.

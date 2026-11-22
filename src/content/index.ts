@@ -1,6 +1,7 @@
-import { englishModules } from './en';
+import { englishBaseModules, englishModules } from './en';
 import { spanishModules } from './es';
 import { overlayModules } from './overlay';
+import { withQuestionFeedback } from './question-feedback';
 import { ptBRCatalog } from './translations/pt-BR';
 import { htCatalog } from './translations/ht';
 import { SOURCE_LOCALE, SUPPORTED_LOCALES, type SupportedLocale } from '@/src/i18n/locales';
@@ -11,8 +12,8 @@ import { localeContentGaps } from './locale-completeness';
 export const modulesByLocale: Record<SupportedLocale, EducationModule[]> = {
   en: englishModules,
   es: spanishModules,
-  'pt-BR': overlayModules(englishModules, { locale: 'pt-BR', catalog: ptBRCatalog.content }),
-  ht: overlayModules(englishModules, { locale: 'ht', catalog: htCatalog.content }),
+  'pt-BR': withQuestionFeedback(overlayModules(englishBaseModules, { locale: 'pt-BR', catalog: ptBRCatalog.content }), 'pt-BR'),
+  ht: withQuestionFeedback(overlayModules(englishBaseModules, { locale: 'ht', catalog: htCatalog.content }), 'ht'),
 };
 
 /**

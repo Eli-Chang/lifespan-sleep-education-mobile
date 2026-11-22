@@ -2,8 +2,7 @@
 
 This project uses a small, auditable agent workflow for approved work. This
 document covers orchestration and configuration only; it does not grant
-permission to change application behavior, clinical content, assets, or the
-Cloudflare worker.
+permission to change application behavior, clinical content, or assets.
 
 ## Mandatory baseline sequence
 
@@ -36,8 +35,8 @@ concern; do not invoke the entire roster by default.
 | Rendered browser flows, console, network, traces | `playwright_flow_tester` | A running Expo Web route or browser behavior changes | Workspace-write for test artifacts only |
 | Phone/tablet/desktop visual parity or English/Spanish layout | `mobile_visual_qa` | User-facing UI or localization changes | Workspace-write for QA artifacts only |
 | Accessibility semantics, focus, touch targets, language parity | `accessibility_localization_reviewer` | User-facing UI or localization changes | Read-only |
-| Storage, consent, external requests, logs, secrets, reset | `privacy_security_reviewer` | Persistence, consent, AI, or network changes | Read-only |
-| Health content or AI behavior | `clinical_ai_safety_reviewer` | Clinical lessons, tutor behavior, or safety boundaries change | Read-only |
+| Storage, external requests, logs, secrets, reset | `privacy_security_reviewer` | Persistence or network changes | Read-only |
+| Health content | `clinical_ai_safety_reviewer` | Clinical lessons, quiz answers or feedback, or safety wording change | Read-only |
 | Navigation, loading, persistence, offline behavior, performance | `reliability_performance_reviewer` | Runtime reliability or performance changes | Read-only |
 | Android or iOS validation | `native_mobile_qa` | An existing emulator or device is available | Read-only; browser emulation is not native evidence |
 | Product journey and cognitive load | `product_ux_reviewer` | A patient-facing journey changes | Read-only |
@@ -121,7 +120,7 @@ node scripts/verify-agent-orchestration.mjs --classify clinical
 
 The verifier also reads `git status` without modifying it. With a verified
 repository baseline, current relevant changes in app, component, source,
-content/data, assets/public, design-system, Cloudflare worker, tests, scripts,
+content/data, assets/public, design-system, tests, scripts,
 docs, package/config, or `.codex` paths require a fresh report whose listed paths and `createdAt` cover the
 changes; a clean status is an explicit no-change pass. This checkout has no
 verified `HEAD`, so the check records that limitation and does not infer a task

@@ -1,0 +1,272 @@
+import type { LocaleQuestionFeedback } from './types';
+
+// Haitian Creole draft, translated from en.ts by Claude. Awaiting native and clinical review.
+export const htQuestionFeedback: Record<string, LocaleQuestionFeedback> = {
+  'm1-q1': { optionExplanations: {
+    c1: 'Ronfle konn rive souvan ak apne nan dòmi, men li pa obligatwa, kidonk ou ka gen apne nan dòmi san w pa ronfle.',
+    c2: 'Ronfle konn rive souvan ak apne nan dòmi, men li pa obligatwa, kidonk si w pa ronfle sa pa vle di ou pa genyen l.',
+  } },
+  'm1-q2': { optionExplanations: {
+    c1: 'PAP voye lè ak presyon, se pa oksijèn anplis, pou ede kenbe wout respiratwa w louvri.',
+    c2: 'PAP sèvi ak yon ti presyon lè pou ede kenbe wout respiratwa w louvri pandan w ap dòmi.',
+    c3: 'Mask la se fason lè ak presyon ki soti nan machin PAP la rive nan nen w oswa nan bouch ou.',
+    c4: 'Presyon PAP ou a se yon preskripsyon, kidonk nenpòt chanjman dwe pase nan ekip swen w lan.',
+    c5: 'Ekip PAP ou oswa ekip swen dòmi w ka ede w ak kesyon sou ekipman an ak konfò w.',
+  } },
+  'm3-q1': {
+    optionExplanations: {
+      c1: 'OSA ki pa trete souvan vini ak lòt pwoblèm, tankou dyabèt, tansyon wo, ak obezite, ki ogmante chans pou yon sezaryèn.',
+      c2: 'OSA ki pa trete pi komen ansanm ak pwoblèm tankou dyabèt, tansyon wo, ak obezite, epi pwoblèm sa yo ogmante chans pou yon sezaryèn.',
+    },
+  },
+  'm3-q3': { optionExplanations: {
+    c1: 'Se viris ki trape lè w ekspoze ki bay grip, epi OSA ki pa trete pa ogmante risk enfeksyon kout tèm yon fason ki konte.',
+    c2: 'OSA ki pa trete fè oksijèn nan kò a desann plizyè fwa epi òmòn estrès monte, sa fatige kè a epi ogmante risk pou pwoblèm ritm kè, kè ki fèb, oswa lòt konplikasyon kè pandan akouchman.',
+    c3: 'Entoksikasyon ak manje soti nan manje ki kontamine, epi apne nan dòmi pa ogmante risk pou w genyen l yon fason ki konte.',
+    c4: 'Senyen nan nen souvan soti nan lè sèk, iritasyon, oswa medikaman ki fè san an klè, epi OSA ki pa trete pa ogmante chans pou sa rive.',
+  } },
+  'm3-q4': { optionExplanations: {
+    c1: 'Yon pwa nesans ki twò wo konn gen rapò ak dyabèt oswa obezite manman an, men pwoblèm respirasyon pandan dòmi (SDB) gen rapò ak kontrè a.',
+    c2: 'Etid yo jwenn yon gwo lyen ant SDB ak pwa nesans ki ba, kidonk pwa nòmal se pa sa yo dekri.',
+    c3: 'Sèt etid fè lyen ant SDB ak pwa nesans ki ba, petèt paske mank oksijèn ak òmòn estrès ki monte ka diminye san ak nouriti ki pase nan plasenta a epi ralanti kwasans tibebe a.',
+  } },
+  'm3-q5': { optionExplanations: {
+    c1: 'Yo wè preeklanpsi pi souvan nan moun ansent ki gen apne nan dòmi, ansanm ak tansyon wo ki vini avè l.',
+    c2: 'Alèji manje enpòtan pou okipe, men rechèch pa montre apne nan dòmi lakòz yo.',
+    c3: 'Entolerans laktoz enpòtan pou okipe, men rechèch pa montre apne nan dòmi lakòz li.',
+    c4: 'Lè oksijèn desann pandan apne nan dòmi, estrès ou monte, sa ka fè tansyon w monte.',
+    c5: 'Lè oksijèn desann pandan apne nan dòmi, estrès ou monte, sa ka ogmante rezistans ensilin epi fè sik nan san w monte.',
+  } },
+  'm4-q1': {
+    generalExplanation: 'Apne nan dòmi pandan gwosès mete w an risk pou tansyon wo, sik wo nan san, ak preeklanpsi, paske lè oksijèn desann estrès ou monte.',
+    optionExplanations: {
+      c1: 'Preeklanpsi se youn nan pwoblèm apne nan dòmi pandan gwosès mete w an risk pou yo, ansanm ak tansyon wo.',
+      c2: 'Alèji manje enpòtan pou okipe, men rechèch pa montre apne nan dòmi lakòz yo.',
+      c3: 'Entolerans laktoz enpòtan pou okipe, men rechèch pa montre apne nan dòmi lakòz li.',
+      c4: 'Lè oksijèn desann pandan apne nan dòmi, estrès ou monte, sa voye siyal pou kò w fè tansyon w monte.',
+      c5: 'Lè oksijèn desann pandan apne nan dòmi, estrès ou monte, sa ogmante rezistans ensilin epi fè sik nan san w monte.',
+    },
+  },
+  'm4-04': {
+    generalExplanation: 'Dyabèt gwosès mete w an risk pou tansyon wo ak preeklanpsi, obezite ak dyabèt tip II, epi pou w bezwen yon sezaryèn.',
+    optionExplanations: {
+      c1: 'Opresyon (asm) se yon pwoblèm enpòtan pou okipe, men rechèch pa montre dyabèt gwosès lakòz li.',
+      c2: 'Dyabèt gwosès ogmante chans pou w bezwen yon sezaryèn pou akouche.',
+      c3: 'Dyabèt gwosès mete w nan pi gwo risk pou obezite ak dyabèt tip II.',
+      c4: 'Dyabèt gwosès mete w nan pi gwo risk pou tansyon wo ak preeklanpsi.',
+      c5: 'Zo kase se yon pwoblèm enpòtan pou okipe, men rechèch pa montre dyabèt gwosès lakòz li.',
+    },
+  },
+  'm4-q4': {
+    generalExplanation: 'Dyabèt gwosès mete tibebe w an risk pou sendwòm detrès respiratwa (RDS), pwa nesans ki twò gwo, akouchman twò bonè, ak tibebe ki fèt mouri.',
+    optionExplanations: {
+      c1: 'Otis se yon kondisyon enpòtan pou okipe, men rechèch pa montre dyabèt gwosès ogmante risk li.',
+      c2: 'Dyabèt gwosès mete tibebe w an risk pou sendwòm detrès respiratwa (RDS), ki fè li difisil pou yon tibebe ki fenk fèt respire.',
+      c3: 'Twòp sik pase nan plasenta a epi li ka fè tibebe a grandi plis pase sa yo te tann, sa yo rele pwa nesans ki twò gwo.',
+      c4: 'ADHD se yon kondisyon enpòtan pou okipe, men rechèch pa montre dyabèt gwosès ogmante risk li.',
+      c5: 'Dyabèt gwosès mete tibebe w an risk pou fèt twò bonè (fèt anvan lè epi li poko devlope byen) ak pou fèt mouri (fèt san okenn siy lavi).',
+    },
+  },
+  'm4-q6': {
+    generalExplanation: 'Preeklanpsi mete manman an an risk pou gwo pwoblèm kè, epi li mete tibebe a an risk pou kwasans ki ralanti nan vant.',
+    optionExplanations: {
+      c1: 'Li vo lapenn trete doulè koud tenis, men okenn rechèch pa montre preeklanpsi mete w an risk pou sa.',
+      c2: 'Preeklanpsi mete manman an an risk pou gwo pwoblèm kè, tankou maladi kè ak kè ki fèb, sitou nan fen gwosès la e menm apre.',
+      c3: 'Li vo lapenn trete pye atlèt, men okenn rechèch pa montre preeklanpsi mete w an risk pou sa.',
+      c4: 'Preeklanpsi mete tibebe a an risk pou kwasans ki ralanti nan vant, kote tibebe a pa grandi ase nan matris la.',
+      c5: 'Li vo lapenn trete dan pouri, men okenn rechèch pa montre preeklanpsi mete w an risk pou sa.',
+    },
+  },
+  'm4-q3': { optionExplanations: {
+    c1: 'PAP kenbe wout respiratwa w louvri, sa trete dirèkteman respirasyon bloke OSA a pandan dòmi.',
+    c2: 'PAP trete OSA, men li pa ka garanti tout konplikasyon gwosès p ap rive.',
+    c3: 'PAP trete respirasyon w pandan dòmi; se ekip swen prenatal ou ki okipe dyabèt gwosès.',
+    c4: 'PAP mache ansanm ak swen prenatal ou, li pa ranplase l.',
+  } },
+  'm2-q2': {
+    generalExplanation: 'Lè w sèvi ak CPAP pandan w ap dòmi ak patnè w, sa ka bay nou toude plis enèji epi ede patnè w dòmi pi vit.',
+    optionExplanations: {
+      c1: 'CPAP amelyore kalite dòmi nou toude, men li pa fè nou dòmi ak leve menm lè.',
+      c2: 'Nou toude dòmi pi byen lè w sèvi ak CPAP, epi pi bon dòmi vle di plis enèji pandan lajounen pou nou toude.',
+      c3: 'Sèvi ak CPAP chak swa bay patnè w apeprè de fwa plis benefis pase sèvi avè l yon swa sou de.',
+      c4: 'CPAP ka ede anpeche ronfle, sa bay patnè w yon nwit pi trankil epi li ka ede l dòmi pi vit.',
+    },
+  },
+  'm2-q1': {
+    generalExplanation: 'Vre. Sèvi ak CPAP pandan w ap dòmi ak patnè w amelyore dòmi patnè a, epi kèk koup di yo pi satisfè nan relasyon an tou.',
+    optionExplanations: {
+      c1: 'CPAP amelyore dòmi patnè w, epi nan yon etid 41% patnè kabann yo di yo te pi satisfè nan relasyon an tou.',
+      c2: 'Deklarasyon sa a vre: CPAP amelyore dòmi patnè w, epi kèk koup di yo pi satisfè nan relasyon an tou.',
+    },
+  },
+  'm5-q5': { optionExplanations: {
+    c1: 'Move dòmi fè sistèm defans kò w vin pi fèb, paske li diminye pwodiksyon molekil defans ki itil yo.',
+    c2: 'Move dòmi deranje sa ki kontwole imè w epi li kenbe òmòn estrès yo wo, sa ogmante risk depresyon ak imè ki ba.',
+    c3: 'Move dòmi p ap fè yon granmoun vin pi kout, menm si li ka ralanti kwasans moun ki toujou nan laj adolesans.',
+    c4: 'Move dòmi gen anpil konsekans pou sante fizik ak mantal ou.',
+    c5: 'Move dòmi toujou gen lyen ak chanjman nan kò a ki ogmante risk dyabèt, tansyon wo, kolestewòl wo, obezite, ak plis ankò.',
+    c6: 'Lè w dòmi mal, kò w pa ka retire tout adenozin, pwodui chimik ki ba w dòmi an, kidonk ou santi w fatige pandan lajounen menm apre w fin dòmi.',
+  } },
+  'm5-q6': {
+    generalExplanation: 'Move dòmi pandan gwosès gen lyen ak akouchman twò bonè, tranche ki dire pi lontan, ak plis chans pou bezwen yon sezaryèn.',
+    optionExplanations: {
+      c1: 'Move dòmi ka diminye kapasite w pou sipòte doulè ak enèji pou kontraksyon yo, sa ka mennen nan yon tranche ki pa avanse ak yon sezaryèn.',
+      c2: 'Move dòmi p ap fè tranche a kanpe, menm si tranche a konn dire pi lontan nan fanm ki dòmi mwens pase 6 èdtan.',
+      c3: 'Dòmi pa afekte jèn ki deside karakteristik fizik tankou koulè je.',
+      c4: 'Nou poko konnen si abitid dòmi tibebe a afekte pa orè dòmi manman an.',
+      c5: 'Etid yo montre fanm ansent ki dòmi mwens pase 6 èdtan souvan gen tranche ki dire pi lontan anpil.',
+      c6: 'Yo panse move dòmi ogmante enflamasyon nan tout kò a, sa ka voye siyal pou kontraksyon kòmanse twò bonè.',
+    },
+  },
+  'm5-q7': {
+    generalExplanation: 'Fè egzèsis regilyèman, manje manje ki nourisan, ak pran solèy chak jou ede w dòmi pi byen.',
+    optionExplanations: {
+      c1: 'Egzèsis sèvi ak plis enèji kò a epi li fè adenozin, pwodui chimik ki ba w dòmi an, ogmante, kidonk ou santi w pi fatige leswa.',
+      c2: 'Yon gwo repa anvan w dòmi fè kò w travay twòp pou dijere lè li vle ralanti epi repoze.',
+      c3: 'Yon long ti dòmi pandan lajounen fè li pi difisil pou w dòmi lè lè dòmi rive epi li ka deregle revèy kò w.',
+      c4: 'Yon alimantasyon ki nourisan anpeche kò w rete nan yon eta enflamasyon, sa ede w dòmi pi byen leswa.',
+      c5: 'Solèy chak jou fè kòtizòl monte nan maten epi li kenbe melatonin jiska lè dòmi, sa regle revèy kò w.',
+      c6: 'Kafeyin bloke kapasite w pou santi w fatige, kidonk w ap gen plis difikilte pou w dòmi epi w ap gen mwens dòmi pwofon.',
+    },
+  },
+  'm5-q1': {
+    generalExplanation: 'Yon bon woutin dòmi vle di evite limyè ble leswa, kenbe menm woutin anvan dòmi, epi dòmi ak leve menm lè.',
+    optionExplanations: {
+      c1: 'Lè w evite limyè ble leswa, kò w pa resevwa siyal pou l rete reveye, kidonk ou santi w plis anvi dòmi.',
+      c2: 'Revèy kò w renmen bagay ki fèt menm jan chak jou, epi yon woutin fiks anvan dòmi ede kò w ak tèt ou prepare pou dòmi.',
+      c3: 'Lè w dòmi ak leve menm lè chak jou, kò w ka lage pwodui chimik dòmi yo nan bon moman.',
+      c4: 'Anplis limyè ble a, rezo sosyal fèt pou kenbe tèt ou aktif lè li ta dwe ap ralanti.',
+      c5: 'Menm jan ak telefòn nan, gade yon emisyon kenbe tèt ou okipe epi li di l pou l rete an alèt.',
+      c6: 'Chanje orè dòmi w kèk èdtan nan wikenn se tankou chanje zòn lè chak semèn, kidonk lendi ou vin pi fatige toujou.',
+    },
+  },
+  'm5-q9': { optionExplanations: {
+    c1: 'Limyè solèy la gen limyè ble ladan l vre, sa ede w rete reveye pandan lajounen; limyè ble se yon pwoblèm sèlman leswa.',
+    c2: 'Solèy la kenbe melatonin pandan lajounen, kidonk plis ladan l lage leswa pou prepare w pou dòmi.',
+    c3: 'Melatonin se pwodui chimik dòmi an, kidonk solèy maten an fè l desann olye l monte, sa se sa w vle pandan lajounen.',
+    c4: 'Solèy maten di kò w ki lè pou l reveye ak ki lè pou l dòmi, sa fikse orè dòmi w.',
+    c5: 'Solèy la kenbe w an alèt pandan lajounen, sa bati anvi dòmi ki ede w dòmi leswa.',
+    c6: 'Solèy la ka chofe po w, men se pa konsa li ede w dòmi.',
+  } },
+  'm5-q4': {
+    generalExplanation: 'Si w pa ka dòmi, leve kite kabann nan, fè yon bagay trankil ak dous nan yon ti limyè, epi retounen nan kabann lè w santi w anvi dòmi.',
+    optionExplanations: {
+      c1: 'Yon aktivite trankil ki fè w detann kenbe kè w kalm epi li ede w vin gen ase dòmi pou w retounen nan kabann byento.',
+      c2: 'Lè w soti nan chanm nan, tèt ou kontinye mete kabann nan ansanm ak dòmi, pa ak rete reveye.',
+      c3: 'Gade lè a fè enkyetid pou dòmi ak batman kè w monte, sa fè li pi difisil anpil pou w dòmi.',
+      c4: 'Rezo sosyal ak nouvèl fèt pou kenbe tèt ou reveye ak an alèt.',
+      c5: 'Rete reveye nan kabann aprann tèt ou mete kabann nan ansanm ak enkyetid ak rete reveye, sa se kontrè sa w vle.',
+      c6: 'Retounen nan kabann sèlman lè w santi w anvi dòmi ede tèt ou mete kabann nan ansanm ak dòmi.',
+    },
+  },
+  'm5-q3': { optionExplanations: {
+    c1: 'Chak moun ansent trete kafeyin nan yon vitès diferan, kidonk yo konseye kèk moun pou yo evite l nèt.',
+    c2: 'Nan fen gwosès, fwa a trete kafeyin pi dousman, kidonk li ka rete nan san an pandan 10 èdtan oswa plis.',
+    c3: '400 mg, apeprè kat tas kafe 8 oz, twòp pandan gwosès, paske kafeyin pase nan plasenta a epi tibebe pa ka trete l menm jan ak granmoun.',
+    c4: 'Vitès kò a trete kafeyin vin pi dousman, apeprè 3 fwa, nan fen gwosès, kidonk menm kafeyin maten ka deranje dòmi w leswa.',
+    c5: 'Kafeyin nan kò w diminye pa mwatye apeprè chak 5 èdtan, kidonk apeprè 25% kafe maten an ka toujou la 10 èdtan apre.',
+    c6: 'Konsèy jeneral la se jiska 200 mg pa jou, paske nan kantite sa a kò w toujou ka retire kafeyin nan epi dòz la pa ase wo pou l afekte tibebe a.',
+  } },
+  'm5-q2': {
+    generalExplanation: 'Yon bon anviwònman pou dòmi retire bagay ki stimile je ak bri, epi li kenbe chanm nan fre.',
+    optionExplanations: {
+      c1: 'Gade lè a nan kabann fè w pi enkyete pou dòmi w pèdi, fè kè w bat pi vit, epi fè li pi difisil pou w dòmi.',
+      c2: 'Je w ka santi limyè menm lè yo fèmen, sa kenbe sistèm nève w yon ti jan an alèt epi li ka gate kalite dòmi w.',
+      c3: 'Mizik chanje volim ak son tout tan, sa eksite sèvo w menm lè w ap dòmi epi li koupe dòmi w an moso.',
+      c4: 'Yon chanm fre (60–68°F) fè li pi fasil pou tanperati kò w desann natirèlman, sa fè kè w bat pi dousman epi amelyore dòmi.',
+      c5: 'Sèvo w dòmi pi byen ak yon son ki pa chanje, tankou silans, bri blan, oswa yon vantilatè, paske li ka bliye l.',
+      c6: 'Yon chanm cho (75–82°F) fè kò w travay pi di pou l refwadi, kidonk dòmi ak dòmi byen vin pi difisil.',
+    },
+  },
+  'm5-q11': { optionExplanations: {
+    c1: 'Avwàn natirèl se yon bon chwa pou dejene, li gen anpil fib ak mwens kalori.',
+    c2: 'Twòp kafeyin ka rete nan kò w jiska lè dòmi epi fè li pi difisil pou w dòmi.',
+    c3: 'Yon Quarter Pounder se yon anbègè ki trè trete, ki gen anpil kalori ak grès satire, sa ki ankouraje obezite ak enflamasyon ki gate dòmi.',
+    c4: 'Legim fèy vèt gen anpil mayezyòm, ki ede misk ou detann epi sipòte yon pi bon dòmi.',
+    c5: 'Pòmdetè plen vant epi yo gen anpil fib, potasyòm, vitamin C, ak vitamin B6.',
+    c6: 'Yon ba Snickers gen anpil sik ajoute ak grès satire, ki gen lyen ak plis reveye leswa ak mwens dòmi pwofon.',
+    c7: 'Ti fwi wouj yo gen anpil fib, polifenòl, ak antioksidan, ki gen lyen ak yon dòmi mwens koupe ak mwens enflamasyon.',
+    c8: 'Poul se yon pwoteyin mèg ki ede w santi w plen epi kenbe sik nan san w estab.',
+    c9: 'Yogout grèk natirèl, sitou 0% grès, se yon pwoteyin mèg ki kenbe sik nan san w estab epi ede w santi w plen.',
+    c10: 'Fri gen anpil kalori, grès satire, ak sèl, menm jan ak chips; li bon pou manje l yon lè konsa.',
+    c11: 'Chips gen anpil kalori, grès satire, ak sèl, epi twòp sèl ka fè w leve pipi leswa.',
+    c12: 'Alkòl, sitou ta leswa, koupe dòmi an moso epi gate kalite dòmi.',
+  } },
+  'm5-q8': {
+    generalExplanation: 'Prèv kronoterapi alimantè jodi a sipòte manje plis bonè nan jounen an epi bwè plis likid bonè tou.',
+    optionExplanations: {
+      c1: 'Leswa kò w pa voye siyal plen vant byen, kidonk kontrè a pi bon: dejene tankou yon wa, soupe tankou yon malere.',
+      c2: 'Bwè toupre lè dòmi ka fè w leve pipi, kidonk bwè dlo pi bonè ede w ale nan twalèt anvan w kouche.',
+      c3: 'Kè w rete bat pi vit apre yon repa paske dijesyon bezwen san, kidonk manje jis anvan w dòmi pa bon pou dòmi.',
+      c4: 'Manje pi bonè an reyalite amelyore siyal plen vant yo, sa diminye grangou ta leswa.',
+      c5: 'Manje plis kalori bonè mache ak kò w, ki trete manje pi byen bonè epi ki ka prepare l pou dòmi apre.',
+      c6: 'Rechèch sipòte manje pi bonè nan jounen an pou santi w plen, pou anpeche dyabèt, ak pou kalite dòmi.',
+    },
+  },
+  'm5-q10': {
+    generalExplanation: 'Sèvi ak zòrye pou w alèz, fè ti dòmi bonè epi kout, epi dòmi sou kote apre 28 semèn gwosès.',
+    optionExplanations: {
+      c1: 'Zòrye se yon bon fason pou w alèz, sa ede amelyore kalite dòmi w an jeneral.',
+      c2: 'Apre 28 semèn, lè w dòmi sou do, pwa matris la ka peze gwo venn ak atè, sa ka limite san k ap koule pou ou ak tibebe w.',
+      c3: 'Long ti dòmi ta nan jounen an ka deranje orè dòmi w epi fè li pi difisil pou w dòmi leswa.',
+      c4: 'Yon ti dòmi kout bonè, apeprè 20 minit, ba w enèji pou jounen an san l pa gate dòmi w leswa.',
+      c5: 'Pa enkyete w pou dezòd; sa ki pi enpòtan se pou w alèz, epi zòrye ede w ak sa.',
+      c6: 'Dòmi sou kote souvan se pozisyon ki pi alèz nan fen gwosès la, epi li anpeche matris la peze kò w.',
+    },
+  },
+  'm6-q1': {
+    generalExplanation: 'Pou nen bouche pandan gwosès, yo rekòmande imidite cho machin PAP la, espre dlo sale, ak espre nen ki gen esteroyid.',
+    optionExplanations: {
+      c1: 'Imidite cho machin PAP ou a ka ede anpeche nen w sèk ak irite pandan w ap dòmi.',
+      c2: 'Espre dlo sale se yon opsyon ki pa gen gwo risk, san preskripsyon, ki mouye nen w, fè larim nan vin pi likid, epi netwaye alèjèn yo.',
+      c3: 'Espre nen ki gen esteroyid, tankou fliticazòn oswa bidezonid, diminye anflamasyon ak larim nan nen w, sa ka soulaje nen bouche.',
+      c4: 'Lè w flite tou dwat anlè, ou frape mi nan mitan nen an, sa ka bay iritasyon ak senyen nan nen, epi li pa rive nan pi bon kote a, bò deyò a.',
+      c5: 'Sèvi ak Afrin chak swa ka bay nen bouche ki retounen pi rèd, kote ou vin depann sou espre a epi nen w bouche plis lè w sispann.',
+      c6: 'Antibyotik trete enfeksyon bakteri, kidonk pou nen bouche se pa bon zouti a.',
+    },
+  },
+  'm6-q2': {
+    generalExplanation: 'Pi piti repa ak mwens grès, mwens kafeyin, leve tèt kabann nan, ak dòmi sou bò goch ka soulaje ret asid (GERD) pandan gwosès.',
+    optionExplanations: {
+      c1: 'Pi piti repa pa detire vant ou otan, epi repa ki gen mwens grès dijere pi vit, kidonk manje a pa rete twò lontan nan vant ou.',
+      c2: 'Kafeyin pa lakòz GERD nan tout moun, men diminye l te ede sentòm kèk moun.',
+      c3: 'Leve tèt kabann nan ede anpeche sa ki nan vant ou remonte; leve tout pati anwo kò w ak yon kwen oswa ak pye kabann nan, pa sèlman ak plis zòrye anba tèt ou.',
+      c4: 'Dòmi sou bò goch mete vant ou ak ezofaj ou nan yon pozisyon ki diminye asid ki monte ak sentòm GERD.',
+      c5: 'Antiyasid ka ede, men an jeneral li pi bon pou w eseye chanje abitid ou anvan, pou w evite yon medikaman ak efè segondè li si w kapab.',
+      c6: 'Dòmi sou vant pa kite gravite kenbe sa ki nan vant ou anba, epi li vin pi difisil plis gwosès la avanse.',
+    },
+  },
+  'm6-q3': {
+    generalExplanation: 'Amelyore dòmi, manje, ak egzèsis, diminye kafeyin ak alkòl, ak konsèy oswa TCC se fason yo rekòmande pou trete enkyetid pandan gwosès.',
+    optionExplanations: {
+      c1: 'Bon dòmi, bon manje, ak egzèsis regilye diminye estrès epi leve moral ou, sa se bon fason pou okipe enkyetid.',
+      c2: 'Kafeyin ka fè w pi ajite epi fè w gen plis pwoblèm pou dòmi, epi efè kalman alkòl la pa dire lontan epi li ka fè enkyetid la retounen pi rèd.',
+      c3: 'Konsèy ak terapi kognitif konpòtmantal (TCC) ba w yon kote ki an sekirite pou w travay sou laperèz ak estrès ou epi chanje panse ki ankouraje enkyetid.',
+      c4: 'ISRS yo efikas pou enkyetid, men yo ka pa nesesè si chanjman nan abitid ak terapi ede.',
+      c5: 'Enkyetid pandan gwosès komen epi li vo lapenn okipe l, sitou lè li fè w soufri oswa li afekte lavi chak jou w.',
+      c6: 'Mariwana ka bay panik ak paranoya, epi pwodui aktif li (THC) ka pase bay tibebe a epi fè devlopman li mal.',
+    },
+  },
+  'm7-04': {
+    generalExplanation: 'Mete mask PAP ou chak fwa w gen entansyon dòmi, ladan l ti dòmi ak nenpòt lè ou ka tonbe dòmi nan kabann.',
+    optionExplanations: {
+      c1: 'Sa se moman prensipal pou w mete PAP: mete l anvan w dòmi pwoteje w kont lè oksijèn desann pandan w san konesans.',
+      c2: 'Apne nan dòmi rive lè wout respiratwa w fèmen pandan w ap dòmi, kidonk PAP pa fè anyen anpil pandan w reveye, sòf si w pral dòmi touswit apre.',
+      c3: 'Ti dòmi konte kòm dòmi tou, kidonk mete PAP pou yo enpòtan pou sante w.',
+      c4: 'Li bon pou w panse davans sou ki lè ou ka tonbe dòmi, epi kenbe machin PAP ou toupre.',
+      c5: 'Ou ka gen apne nan dòmi san w pa ronfle fò, kidonk mete PAP menm si patnè w pa remake okenn sentòm.',
+      c6: 'PAP trete pwoblèm respirasyon pandan dòmi, kidonk mete l pandan w ap fè sèks pa bay okenn benefis, ni li pa fè okenn mal.',
+    },
+  },
+  'm7-q2': {
+    generalExplanation: 'Gwosès ak apne nan dòmi ka chanje anvi pou fè sèks, epi pi bon dòmi ak CPAP ka ede fè enèji ak anvi a retounen.',
+    optionExplanations: {
+      c1: 'Gwosès pote gwo chanjman fizik ak emosyonèl, epi malèz, estrès, ak fatig ka afekte anvi w.',
+      c2: 'Move dòmi akoz apne nan dòmi ka bese enèji ak anvi, epi li ka afekte òmòn, imè, ak sikilasyon san tou.',
+      c3: 'CPAP ka amelyore kalite dòmi avèk tan, men li pa toujou ogmante anvi pou fè sèks touswit, epi kèk moun konn wont mete mask la.',
+      c4: 'Yon chanjman nan anvi pou fè sèks pandan gwosès souvan nòmal epi li ka soti nan chanjman nan kò a, fatig, oswa estrès.',
+      c5: 'Pi bon dòmi ak CPAP ka ede fè enèji, anvi, ak sikilasyon san retounen, epi diminye estrès oswa enkyetid.',
+      c6: 'Apne nan dòmi ka afekte anvi pou fè sèks tou atravè move dòmi, chanjman òmòn, chanjman imè, ak mwens sikilasyon san.',
+    },
+  },
+};

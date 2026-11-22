@@ -52,7 +52,7 @@ const unorderedScreens: LessonScreen[] = [
     'In this module, you will learn about health outcomes that research has associated with untreated OSA during pregnancy and why treating OSA matters.',
     'Associations describe patterns across groups; they do not predict what will happen to you or your baby. Your care team can explain your personal risk.',
   ] },
-  q1, q3, q4, outcomesOverview, outcomesQuestion,
+  outcomesOverview, q1, q3, q4, outcomesQuestion,
   { ...requiredScreen('m3-recap'), title: 'Thanks for completing this module', type: 'summary', keyPoints: [
     'I hope you learned that untreated OSA during pregnancy has been associated with cesarean birth, cardiovascular strain, lower newborn birth weight, gestational diabetes, high blood pressure, and preeclampsia.',
     'PAP treats airway obstruction during sleep. Your prenatal and sleep-care teams can help you understand personal risk and treatment.',
@@ -64,4 +64,4 @@ const unorderedScreens: LessonScreen[] = [
 ];
 const screens = [...unorderedScreens.filter((screen) => screen.id !== 'm3-recap'), ...unorderedScreens.filter((screen) => screen.id === 'm3-recap')];
 
-export const module03: EducationModule = { id: 'm3', order: 3, title: 'OSA Outcomes and Motivation', shortTitle: 'Outcomes & Motivation', description: 'Understand pregnancy-related OSA associations and build realistic next steps for PAP.', screens, sourceScreenshotIds: [], curriculumVersion: 10, translationStatus: 'source', clinicalReviewStatus: 'not_reviewed' };
+export const module03: EducationModule = { id: 'm3', order: 2, title: 'OSA Outcomes and Motivation', shortTitle: 'Outcomes & Motivation', description: 'Understand pregnancy-related OSA associations and build realistic next steps for PAP.', screens, sourceScreenshotIds: [], curriculumVersion: 10, translationStatus: 'source', clinicalReviewStatus: 'not_reviewed' };

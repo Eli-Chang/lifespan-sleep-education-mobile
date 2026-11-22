@@ -18,7 +18,7 @@ import { join, relative, sep } from 'node:path';
 
 const SKIP_DIRS = new Set(['node_modules', '.git', '.expo', 'dist', 'web-build', '.playwright-cli', 'node_modules.junction-broken-20260901']);
 const SKIP_FILES = new Set(['desktop.ini']);
-const SOURCE_PREFIXES = ['src/', 'app/', 'scripts/', 'tests/', 'shared/', 'cloudflare-worker/src/', 'cloudflare-worker/tests/', 'docs/', 'components/', 'hooks/', 'constants/', 'assets/'];
+const SOURCE_PREFIXES = ['src/', 'app/', 'scripts/', 'tests/', 'shared/', 'docs/', 'components/', 'hooks/', 'constants/', 'assets/'];
 
 const [, , configPath, outDir] = process.argv;
 if (!configPath || !outDir) {

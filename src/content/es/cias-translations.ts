@@ -28,7 +28,7 @@ export const ciasSpanishTranslations: Record<string, CiasSpanishTranslation> = {
     title: '¿Verdadero o falso? Puede tener apnea obstructiva del sueño aunque no ronque.',
     prompt: '¿Verdadero o falso? Puede tener apnea obstructiva del sueño aunque no ronque.',
     instructions: '¿Verdadero o falso? Díganos qué piensa a continuación.',
-    choices: ['Verdadero: puede tener apnea del sueño sin roncar', 'Falso: tiene que roncar para tener apnea del sueño'],
+    choices: ['Verdadero: puede tener apnea del sueño sin roncar.', 'Falso: tiene que roncar para tener apnea del sueño.'],
     questionFeedback: {
       correctSummary: 'Correcto.',
       incorrectSummary: 'Aún no.',

@@ -12,7 +12,7 @@ const moduleText = (moduleId: string) => englishModules.find((module) => module.
 
 describe('clinical review register', () => {
   it('has exactly one entry per module, matching the content status', () => {
-    assert.deepEqual(MODULE_CLINICAL_REVIEW.map((entry) => entry.moduleId), englishModules.map((module) => module.id));
+    assert.deepEqual([...MODULE_CLINICAL_REVIEW.map((entry) => entry.moduleId)].sort(), englishModules.map((module) => module.id).sort());
     for (const entry of MODULE_CLINICAL_REVIEW) {
       const module = englishModules.find((candidate) => candidate.id === entry.moduleId)!;
       assert.equal(entry.status, module.clinicalReviewStatus, `${entry.moduleId} status`);

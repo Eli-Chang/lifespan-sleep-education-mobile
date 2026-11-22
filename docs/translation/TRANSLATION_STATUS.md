@@ -16,9 +16,9 @@ States: **source** is the authoring language. **approved** needs an entry in `sr
 | Module | en | es | pt-BR | ht |
 | --- | --- | --- | --- | --- |
 | `m1` | 10 source | 10 draft awaiting native review | 10 draft awaiting native review | 10 draft awaiting native review |
-| `m2` | 8 source | 8 draft awaiting native review | 8 draft awaiting native review | 8 draft awaiting native review |
 | `m3` | 8 source | 8 draft awaiting native review | 8 draft awaiting native review | 8 draft awaiting native review |
 | `m4` | 10 source | 10 draft awaiting native review | 10 draft awaiting native review | 10 draft awaiting native review |
+| `m2` | 8 source | 8 draft awaiting native review | 8 draft awaiting native review | 8 draft awaiting native review |
 | `m5` | 14 source | 14 draft awaiting native review | 14 draft awaiting native review | 14 draft awaiting native review |
 | `m5b` | 17 source | 17 draft awaiting native review | 17 draft awaiting native review | 17 draft awaiting native review |
 | `m6` | 11 source | 11 draft awaiting native review | 11 draft awaiting native review | 11 draft awaiting native review |

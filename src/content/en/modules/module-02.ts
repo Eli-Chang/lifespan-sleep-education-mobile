@@ -33,4 +33,4 @@ const currentScreens = [
 const preservedCurrentScreenIds = new Set(['m2-recap']);
 const merged = [...ciasScreensByModule.m2.filter((screen) => screen.id !== 'm2-recap'), ...currentScreens.filter((screen) => preservedCurrentScreenIds.has(screen.id))];
 const screens = [...merged.filter((screen) => screen.id !== 'm2-recap'), ...merged.filter((screen) => screen.id === 'm2-recap')];
-export const module02: EducationModule = { id:'m2', order:2, title:'How Does Sleep Apnea Impact My Partner?', shortTitle:'Partner Impact', description:'Understand shared-sleep effects and supportive, blame-free PAP problem solving.', screens, sourceScreenshotIds:[], curriculumVersion:10, translationStatus:'source', clinicalReviewStatus:'not_reviewed' };
+export const module02: EducationModule = { id:'m2', order:4, title:'How Does Sleep Apnea Impact My Partner?', shortTitle:'Partner Impact', description:'Understand shared-sleep effects and supportive, blame-free PAP problem solving.', screens, sourceScreenshotIds:[], curriculumVersion:10, translationStatus:'source', clinicalReviewStatus:'not_reviewed' };

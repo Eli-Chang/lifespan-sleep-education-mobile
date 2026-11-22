@@ -1,5 +1,9 @@
 Upstream: https://github.com/blader/humanizer
-Version: 4.0.0
-Commit: b48c832f0f809c1b5658edbb838c2521b72f2413 (2026-11-09)
+Version: 4.0.0 (SKILL.md metadata)
+Commit: a32f24407364c74c812b43c15926d638bee1e072 (2026-11-19)
+Previous commit: b48c832f0f809c1b5658edbb838c2521b72f2413 (installed 2026-11-19)
 Copied files: SKILL.md, LICENSE only (no scripts, hooks or plugin manifests).
-Reviewed 2026-11-19: no network calls, no executables, no allowed-tools, no hooks.
+Reviewed 2026-11-21: upstream diff b48c832..a32f244 is wording only plus an informal-text
+section and a "the part" tell; no network calls, no executables, no allowed-tools, no hooks.
+Upstream rules are not edited here. Sleep-app specifics live in the
+sleep-app-content-quality skill, which runs alongside this one.

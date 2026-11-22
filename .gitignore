@@ -119,3 +119,6 @@ desktop.ini
 # Generated QA captures written to the project root by earlier review runs
 /qa-*.png
 /qa-*.yaml
+
+# Temporary base-revision checkout written by scripts/content-quality-gate.ts
+/.content-gate-base/

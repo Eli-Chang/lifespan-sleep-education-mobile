@@ -94,7 +94,6 @@ const RELEVANT_CHANGED_PREFIXES = [
   'assets/',
   'public/',
   'design-system/',
-  'cloudflare-worker/',
   'tests/',
   'qa/',
   'scripts/',

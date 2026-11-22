@@ -9,6 +9,7 @@ import { ActionButton, AppScreen, ProgressMeter } from '@/src/components/ui';
 import { chooseVoice, isNarrationSpeaking, replayNarration, speakFeedback, speakScreen, stopNarration } from '@/src/services/narration';
 import { palette, radius, spacing, touchTarget, type as typeScale } from '@/src/theme/tokens';
 import { useReducedMotion } from '@/src/hooks/useReducedMotion';
+import { evaluateQuestion } from '@/src/utils/questions';
 
 type NarrationState = 'listen' | 'pause' | 'replay' | 'unavailable';
 
@@ -38,8 +39,18 @@ export default function LessonScreen() {
   const screen = index >= 0 ? module?.screens[index] : undefined;
   const incomingScreen = module?.screens.find((candidate) => candidate.id === requestedScreenId);
   const latestAttempt = state.answerAttempts[displayedScreenId ?? '']?.at(-1);
+  // Re-grade a saved attempt against the current answer key, so an answer saved while a question was
+  // still ungraded unlocks Next when it is right and stays locked when it is wrong.
+  const attemptIsCorrect = (attempt: typeof latestAttempt) => {
+    if (!attempt) return false;
+    if (screen && (screen.type === 'singleChoice' || screen.type === 'multiSelect')) {
+      const graded = evaluateQuestion(screen, attempt.answers ?? []);
+      if (graded !== undefined) return graded;
+    }
+    return attempt.correct === true;
+  };
   const [submittedNow, setSubmittedNow] = useState(Boolean(latestAttempt));
-  const [submissionCorrect, setSubmissionCorrect] = useState(latestAttempt?.correct === true);
+  const [submissionCorrect, setSubmissionCorrect] = useState(attemptIsCorrect(latestAttempt));
   const [keyboardVisible, setKeyboardVisible] = useState(false);
   const [narrationState, setNarrationState] = useState<NarrationState>('listen');
   const navigationLocked = useRef(false);
@@ -99,7 +110,9 @@ export default function LessonScreen() {
   useEffect(() => {
     const attempt = state.answerAttempts[displayedScreenId ?? '']?.at(-1);
     setSubmittedNow(Boolean(attempt));
-    setSubmissionCorrect(attempt?.correct === true);
+    setSubmissionCorrect(attemptIsCorrect(attempt));
+    // attemptIsCorrect reads the displayed screen, which changes with displayedScreenId.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayedScreenId, state.answerAttempts]);
   useEffect(() => {
     if (narrationState !== 'pause') return;

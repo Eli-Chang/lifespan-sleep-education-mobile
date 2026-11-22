@@ -1,0 +1,272 @@
+import type { LocaleQuestionFeedback } from './types';
+
+// Spanish draft (usted), translated from en.ts. Awaiting native and clinical review like the rest of the Spanish text.
+export const esQuestionFeedback: Record<string, LocaleQuestionFeedback> = {
+  'm1-q1': { optionExplanations: {
+    c1: 'Roncar es común con la apnea del sueño, pero no es obligatorio, así que puede tener apnea del sueño sin roncar.',
+    c2: 'Roncar es común con la apnea del sueño, pero no es obligatorio, así que no roncar no la descarta.',
+  } },
+  'm1-q2': { optionExplanations: {
+    c1: 'PAP administra aire a presión, no oxígeno adicional, para ayudar a mantener abierta la vía respiratoria.',
+    c2: 'PAP usa una presión de aire suave para ayudar a mantener abierta la vía respiratoria mientras duerme.',
+    c3: 'La mascarilla es la forma en que el aire a presión del equipo de PAP llega a su nariz o boca.',
+    c4: 'La presión de su PAP es recetada, así que cualquier cambio debe pasar por su equipo de salud.',
+    c5: 'Su equipo de PAP o de cuidado del sueño puede ayudarle con preguntas sobre el equipo y la comodidad.',
+  } },
+  'm3-q1': {
+    optionExplanations: {
+      c1: 'La AOS sin tratar suele venir acompañada de otras afecciones, como diabetes, presión arterial alta y obesidad, que aumentan la probabilidad de una cesárea.',
+      c2: 'La AOS sin tratar es más común junto con afecciones como diabetes, presión arterial alta y obesidad, y estas aumentan la probabilidad de una cesárea.',
+    },
+  },
+  'm3-q3': { optionExplanations: {
+    c1: 'El resfriado común lo causan virus contagiosos que se transmiten por exposición, y la AOS sin tratar no aumenta de forma importante el riesgo de infecciones a corto plazo.',
+    c2: 'La AOS sin tratar causa bajadas repetidas de oxígeno y aumentos de las hormonas del estrés, que fuerzan el corazón y elevan el riesgo de problemas del ritmo, insuficiencia cardíaca u otras complicaciones del corazón durante el parto.',
+    c3: 'La intoxicación alimentaria viene de comer alimentos contaminados, y la apnea del sueño no aumenta de forma importante el riesgo de tenerla.',
+    c4: 'El sangrado de nariz suele deberse al aire seco, la irritación o los anticoagulantes, y la AOS sin tratar no aumenta la probabilidad de tenerlo.',
+  } },
+  'm3-q4': { optionExplanations: {
+    c1: 'Un peso al nacer anormalmente alto suele asociarse con diabetes u obesidad de la madre, mientras que la respiración alterada durante el sueño (RAS) se asocia con lo contrario.',
+    c2: 'Los estudios han encontrado una relación importante entre la RAS y el bajo peso al nacer, así que un peso normal no es el patrón que describen.',
+    c3: 'Siete estudios han relacionado la RAS con el bajo peso al nacer, probablemente porque la falta de oxígeno y los aumentos de hormonas del estrés pueden reducir el flujo de sangre y nutrientes por la placenta y frenar el crecimiento del bebé.',
+  } },
+  'm3-q5': { optionExplanations: {
+    c1: 'La preeclampsia se ha visto con más frecuencia en personas embarazadas con apnea del sueño, junto con la presión arterial alta que la acompaña.',
+    c2: 'Las alergias alimentarias son importantes de manejar, pero la investigación no ha demostrado que la apnea del sueño las cause.',
+    c3: 'La intolerancia a la lactosa es importante de manejar, pero la investigación no ha demostrado que la apnea del sueño la cause.',
+    c4: 'Los episodios de falta de oxígeno durante la apnea del sueño aumentan su nivel de estrés, lo que puede subir su presión arterial.',
+    c5: 'Los episodios de falta de oxígeno durante la apnea del sueño aumentan su nivel de estrés, lo que puede aumentar la resistencia a la insulina y causar azúcar alta en la sangre.',
+  } },
+  'm4-q1': {
+    generalExplanation: 'La apnea del sueño durante el embarazo la pone en riesgo de presión arterial alta, azúcar alta en la sangre y preeclampsia, porque los episodios de falta de oxígeno aumentan su nivel de estrés.',
+    optionExplanations: {
+      c1: 'La preeclampsia es una de las afecciones de las que la apnea del sueño durante el embarazo la pone en riesgo, junto con la presión arterial alta.',
+      c2: 'Las alergias alimentarias son importantes de manejar, pero la investigación no ha demostrado que la apnea del sueño las cause.',
+      c3: 'La intolerancia a la lactosa es importante de manejar, pero la investigación no ha demostrado que la apnea del sueño la cause.',
+      c4: 'Los episodios de falta de oxígeno durante la apnea del sueño aumentan su nivel de estrés, lo que le indica a su cuerpo que suba la presión arterial.',
+      c5: 'Los episodios de falta de oxígeno durante la apnea del sueño aumentan su nivel de estrés, lo que aumenta la resistencia a la insulina y causa azúcar alta en la sangre.',
+    },
+  },
+  'm4-04': {
+    generalExplanation: 'La diabetes gestacional la pone en riesgo de presión arterial alta y preeclampsia, obesidad y diabetes tipo II, y de necesitar una cesárea.',
+    optionExplanations: {
+      c1: 'El asma es un problema importante que atender, pero la investigación no ha demostrado que la diabetes gestacional lo cause.',
+      c2: 'La diabetes gestacional aumenta la probabilidad de que necesite una cesárea para el parto.',
+      c3: 'La diabetes gestacional la pone en mayor riesgo de obesidad y diabetes tipo II.',
+      c4: 'La diabetes gestacional la pone en mayor riesgo de presión arterial alta y preeclampsia.',
+      c5: 'Los huesos rotos son un problema importante que atender, pero la investigación no ha demostrado que la diabetes gestacional los cause.',
+    },
+  },
+  'm4-q4': {
+    generalExplanation: 'La diabetes gestacional pone a su bebé en riesgo de síndrome de dificultad respiratoria (SDR), peso excesivo al nacer, parto prematuro y muerte fetal.',
+    optionExplanations: {
+      c1: 'El autismo es una condición importante que atender, pero la investigación no ha demostrado que la diabetes gestacional aumente su riesgo.',
+      c2: 'La diabetes gestacional pone a su bebé en riesgo de síndrome de dificultad respiratoria (SDR), que le dificulta respirar al recién nacido.',
+      c3: 'El exceso de azúcar pasa por la placenta y puede hacer que el bebé crezca más de lo esperado, lo que se llama peso excesivo al nacer.',
+      c4: 'El TDAH es una condición importante que atender, pero la investigación no ha demostrado que la diabetes gestacional aumente su riesgo.',
+      c5: 'La diabetes gestacional pone a su bebé en riesgo de parto prematuro (nacer demasiado pronto y sin terminar de desarrollarse) y de muerte fetal (nacer sin signos de vida).',
+    },
+  },
+  'm4-q6': {
+    generalExplanation: 'La preeclampsia pone a la madre en riesgo de problemas graves del corazón y al bebé en riesgo de restricción del crecimiento fetal.',
+    optionExplanations: {
+      c1: 'Vale la pena tratar el codo de tenista, pero ninguna investigación ha demostrado que la preeclampsia la ponga en riesgo de tenerlo.',
+      c2: 'La preeclampsia pone a la madre en riesgo de problemas graves del corazón, como enfermedad cardíaca e insuficiencia cardíaca, sobre todo al final del embarazo e incluso después.',
+      c3: 'Vale la pena tratar el pie de atleta, pero ninguna investigación ha demostrado que la preeclampsia la ponga en riesgo de tenerlo.',
+      c4: 'La preeclampsia pone al bebé en riesgo de restricción del crecimiento fetal, cuando el bebé no crece lo suficiente en el útero.',
+      c5: 'Vale la pena tratar las caries, pero ninguna investigación ha demostrado que la preeclampsia la ponga en riesgo de tenerlas.',
+    },
+  },
+  'm4-q3': { optionExplanations: {
+    c1: 'PAP mantiene abierta la vía respiratoria, lo que trata directamente la respiración bloqueada de la AOS durante el sueño.',
+    c2: 'PAP trata la AOS, pero no puede garantizar que se prevengan todas las complicaciones del embarazo.',
+    c3: 'PAP trata su respiración durante el sueño; la diabetes gestacional se maneja con su equipo de atención prenatal.',
+    c4: 'PAP funciona junto con su atención prenatal y no la reemplaza.',
+  } },
+  'm2-q2': {
+    generalExplanation: 'Usar CPAP cuando duerme con su pareja puede mejorar la energía de ambos y ayudar a su pareja a dormirse más rápido.',
+    optionExplanations: {
+      c1: 'El CPAP mejora la calidad del sueño de ambos, pero no hace que se duerman y se despierten a la misma hora.',
+      c2: 'Ambos duermen mejor cuando usted usa CPAP, y dormir mejor significa más energía durante el día para los dos.',
+      c3: 'Usar CPAP todas las noches da aproximadamente el doble de beneficio para su pareja que usarlo una noche sí y otra no.',
+      c4: 'El CPAP puede ayudar a evitar los ronquidos, lo que le da a su pareja una noche más tranquila y puede ayudarle a dormirse más rápido.',
+    },
+  },
+  'm2-q1': {
+    generalExplanation: 'Verdadero. Usar CPAP al dormir con la pareja mejora el sueño de la pareja, y algunas parejas también dicen sentirse más satisfechas con la relación.',
+    optionExplanations: {
+      c1: 'El CPAP mejora el sueño de su pareja, y en un estudio el 41% de las parejas también dijo sentirse más satisfecho con la relación.',
+      c2: 'Esta afirmación es verdadera: el CPAP mejora el sueño de su pareja, y algunas parejas también dicen sentirse más satisfechas con la relación.',
+    },
+  },
+  'm5-q5': { optionExplanations: {
+    c1: 'Dormir mal debilita su sistema inmunitario, porque reduce la producción de moléculas inmunitarias útiles.',
+    c2: 'Dormir mal altera reguladores clave del ánimo y mantiene altas las hormonas del estrés, lo que aumenta el riesgo de depresión y de ánimo bajo.',
+    c3: 'Dormir mal no hará más baja a una persona adulta, aunque puede frenar el crecimiento de quienes todavía están en la pubertad.',
+    c4: 'Dormir mal tiene muchas consecuencias para su salud física y mental.',
+    c5: 'Dormir mal se relaciona de forma constante con cambios en el cuerpo que aumentan el riesgo de diabetes, presión alta, colesterol alto, obesidad y más.',
+    c6: 'Al dormir mal no se elimina del todo la adenosina, la sustancia que da sueño, así que se siente cansada durante el día aunque haya dormido.',
+  } },
+  'm5-q6': {
+    generalExplanation: 'Dormir mal durante el embarazo se relaciona con parto prematuro, partos más largos y más probabilidad de necesitar una cesárea.',
+    optionExplanations: {
+      c1: 'Dormir mal puede bajar su tolerancia al dolor y la energía para las contracciones, lo que puede llevar a un parto que no avanza y a una cesárea.',
+      c2: 'Dormir mal no detiene el parto, aunque el parto suele ser más largo en mujeres que duermen menos de 6 horas.',
+      c3: 'El sueño no afecta los genes que deciden rasgos físicos como el color de ojos.',
+      c4: 'Todavía no sabemos si los hábitos de sueño del bebé se ven afectados por el horario de sueño de la mamá.',
+      c5: 'Los estudios muestran que las embarazadas que duermen menos de 6 horas suelen tener partos bastante más largos.',
+      c6: 'Se cree que dormir mal aumenta la inflamación en todo el cuerpo, lo que puede provocar contracciones tempranas.',
+    },
+  },
+  'm5-q7': {
+    generalExplanation: 'El ejercicio regular, las comidas nutritivas y el sol todos los días ayudan a mejorar su sueño.',
+    optionExplanations: {
+      c1: 'El ejercicio usa más energía del cuerpo y acumula adenosina, la sustancia que da sueño, así que se siente más cansada por la noche.',
+      c2: 'Una comida grande antes de dormir hace que su cuerpo trabaje de más para digerir cuando quiere calmarse y descansar.',
+      c3: 'Una siesta larga durante el día hace más difícil dormirse a la hora de acostarse y puede desajustar su reloj interno.',
+      c4: 'Una alimentación nutritiva evita que su cuerpo esté en un estado inflamatorio, lo que favorece un mejor sueño por la noche.',
+      c5: 'El sol de cada día sube el cortisol por la mañana y retrasa la melatonina hasta la hora de dormir, lo que ajusta su reloj interno.',
+      c6: 'La cafeína bloquea su capacidad de sentir cansancio, así que le costará más dormirse y tendrá menos sueño profundo.',
+    },
+  },
+  'm5-q1': {
+    generalExplanation: 'Una buena rutina de sueño significa evitar la luz azul por la noche, tener una rutina constante antes de dormir y dormir y despertar a las mismas horas.',
+    optionExplanations: {
+      c1: 'Evitar la luz azul por la noche impide que su cuerpo reciba la señal de mantenerse despierto, así que siente más sueño.',
+      c2: 'Su reloj interno funciona mejor con constancia, y una rutina fija antes de dormir ayuda a su cuerpo y su mente a prepararse para el sueño.',
+      c3: 'Un horario constante para dormir y despertar permite que su cuerpo libere sus sustancias del sueño a las horas correctas cada día.',
+      c4: 'Además de la luz azul, las redes sociales están hechas para mantener su mente activa cuando debería estar relajándose.',
+      c5: 'Igual que revisar el teléfono, ver una serie mantiene su mente ocupada y le indica que siga alerta.',
+      c6: 'Cambiar su sueño unas horas los fines de semana es como cambiar de zona horaria cada semana, así que el lunes se siente aún más cansada.',
+    },
+  },
+  'm5-q9': { optionExplanations: {
+    c1: 'La luz del sol sí contiene luz azul, que le ayuda a mantenerse despierta durante el día; la luz azul solo es un problema por la noche.',
+    c2: 'El sol frena la melatonina durante el día, así que se libera más por la noche para prepararla para dormir.',
+    c3: 'La melatonina es la sustancia del sueño, así que el sol de la mañana la baja en lugar de subirla, que es lo que conviene durante el día.',
+    c4: 'El sol de la mañana le dice a su cuerpo cuándo estar despierto y cuándo dormir, lo que fija su horario de sueño.',
+    c5: 'El sol la mantiene alerta durante el día, lo que acumula las ganas de dormir que le ayudan a dormirse por la noche.',
+    c6: 'El sol puede calentar su piel, pero no es así como ayuda a dormir.',
+  } },
+  'm5-q4': {
+    generalExplanation: 'Si no puede dormirse, levántese, haga algo tranquilo y relajante con poca luz, y vuelva a la cama cuando sienta sueño.',
+    optionExplanations: {
+      c1: 'Una actividad tranquila y relajante mantiene bajo su ritmo cardíaco y le ayuda a tener suficiente sueño para volver pronto a la cama.',
+      c2: 'Salir del cuarto ayuda a que su mente relacione la cama con dormir y no con estar despierta.',
+      c3: 'Mirar la hora aumenta su ansiedad por dormir y su ritmo cardíaco, lo que hace mucho más difícil dormirse.',
+      c4: 'Las redes sociales y las noticias están hechas para mantener su mente despierta y alerta.',
+      c5: 'Quedarse despierta en la cama enseña a su mente a relacionar la cama con preocupación y vigilia, justo lo contrario de lo que busca.',
+      c6: 'Volver a la cama solo cuando siente sueño ayuda a que su mente relacione la cama con dormir.',
+    },
+  },
+  'm5-q3': { optionExplanations: {
+    c1: 'Cada persona embarazada procesa la cafeína a una velocidad distinta, así que a algunas se les aconseja evitarla por completo.',
+    c2: 'Al final del embarazo el hígado procesa la cafeína más despacio, así que puede quedarse en la sangre 10 horas o más.',
+    c3: '400 mg, unas cuatro tazas de café de 8 oz, es demasiado durante el embarazo, porque la cafeína pasa por la placenta y los bebés no pueden procesarla como los adultos.',
+    c4: 'El procesamiento de la cafeína en realidad se vuelve más lento, unas 3 veces, al final del embarazo, así que incluso la cafeína de la mañana puede alterar su sueño por la noche.',
+    c5: 'La cafeína en su cuerpo se reduce a la mitad más o menos cada 5 horas, así que cerca del 25% del café de la mañana puede seguir ahí 10 horas después.',
+    c6: 'La recomendación general es hasta 200 mg al día, porque con esa cantidad su cuerpo todavía puede eliminar la cafeína y la dosis no es tan alta como para afectar al bebé.',
+  } },
+  'm5-q2': {
+    generalExplanation: 'Un buen ambiente para dormir elimina los estímulos visuales y los ruidos, y mantiene fresca la habitación.',
+    optionExplanations: {
+      c1: 'Mirar la hora en la cama aumenta su ansiedad por el sueño perdido, sube su ritmo cardíaco y hace más difícil dormirse.',
+      c2: 'Sus ojos detectan la luz aunque estén cerrados, lo que mantiene su sistema nervioso un poco alerta y puede empeorar la calidad del sueño.',
+      c3: 'La música cambia todo el tiempo de volumen y tono, lo que activa su cerebro incluso dormida y fragmenta su sueño.',
+      c4: 'Una habitación fresca (60–68°F) facilita la bajada natural de la temperatura de su cuerpo, lo que baja su ritmo cardíaco y mejora el sueño.',
+      c5: 'Su cerebro duerme mejor con un sonido constante, como el silencio, el ruido blanco o un ventilador, porque puede ignorarlo.',
+      c6: 'Una habitación cálida (75–82°F) hace que su cuerpo trabaje más para enfriarse, así que dormirse y dormir bien se vuelve más difícil.',
+    },
+  },
+  'm5-q11': { optionExplanations: {
+    c1: 'La avena natural es una buena opción para el desayuno, con mucha fibra y pocas calorías.',
+    c2: 'El exceso de cafeína puede seguir en su cuerpo a la hora de dormir y hacer más difícil dormirse.',
+    c3: 'Un Quarter Pounder es una hamburguesa muy procesada, con muchas calorías y grasa saturada, que favorecen la obesidad y la inflamación que empeoran el sueño.',
+    c4: 'Las verduras de hoja verde son ricas en magnesio, que ayuda a relajar los músculos y favorece un mejor sueño.',
+    c5: 'Las papas llenan y son ricas en fibra, potasio, vitamina C y vitamina B6.',
+    c6: 'Una barra Snickers tiene mucho azúcar añadido y grasa saturada, que se relacionan con más despertares nocturnos y menos sueño profundo.',
+    c7: 'Las bayas son ricas en fibra, polifenoles y antioxidantes, que se relacionan con un sueño menos interrumpido y menos inflamación.',
+    c8: 'El pollo es una proteína magra que le ayuda a sentirse llena y mantiene estable su azúcar en la sangre.',
+    c9: 'El yogur griego natural, idealmente con 0% de grasa, es una proteína magra que mantiene estable su azúcar en la sangre y le ayuda a sentirse llena.',
+    c10: 'Las papas fritas tienen muchas calorías, grasa saturada y sal, igual que los chips; está bien comerlas de vez en cuando.',
+    c11: 'Los chips tienen muchas calorías, grasa saturada y sal, y demasiada sal puede hacer que se despierte a orinar por la noche.',
+    c12: 'El alcohol, sobre todo tarde por la noche, interrumpe el sueño y empeora su calidad.',
+  } },
+  'm5-q8': {
+    generalExplanation: 'La evidencia actual sobre crononutrición apoya comer más temprano en el día y tomar también más líquidos temprano.',
+    optionExplanations: {
+      c1: 'Por la noche su cuerpo indica peor la saciedad, así que funciona mejor al revés: desayunar como rey y cenar como mendigo.',
+      c2: 'Tomar líquidos cerca de la hora de dormir puede hacer que se despierte a orinar, así que hidratarse antes le permite ir al baño antes de acostarse.',
+      c3: 'Su ritmo cardíaco sigue más alto después de comer porque la digestión necesita flujo de sangre, así que comer justo antes de dormir no ayuda al sueño.',
+      c4: 'Comer más temprano en realidad mejora las señales de saciedad, lo que reduce el hambre por la noche.',
+      c5: 'Comer más calorías temprano va de acuerdo con su cuerpo, que procesa mejor la comida temprano y luego puede prepararse para dormir.',
+      c6: 'La investigación apoya comer más temprano en el día por la saciedad, la prevención de la diabetes y la calidad del sueño.',
+    },
+  },
+  'm5-q10': {
+    generalExplanation: 'Use almohadas para estar cómoda, haga siestas temprano y cortas, y duerma de lado después de las 28 semanas de embarazo.',
+    optionExplanations: {
+      c1: 'Las almohadas son una gran forma de ponerse cómoda, lo que ayuda a mejorar la calidad general de su sueño.',
+      c2: 'Después de las 28 semanas, dormir boca arriba deja que el peso del útero presione vasos sanguíneos grandes, lo que puede limitar el flujo de sangre para usted y su bebé.',
+      c3: 'Las siestas largas al final del día pueden alterar su horario de sueño y hacer más difícil dormirse por la noche.',
+      c4: 'Una siesta corta y temprana, de unos 20 minutos, le da energía para el día sin afectar su sueño esa noche.',
+      c5: 'No se preocupe por el desorden; lo más importante es estar cómoda, y las almohadas ayudan con eso.',
+      c6: 'Dormir de lado suele ser la posición más cómoda al final del embarazo y evita que el útero presione su cuerpo.',
+    },
+  },
+  'm6-q1': {
+    generalExplanation: 'Para la congestión nasal durante el embarazo se recomiendan la humedad caliente del equipo de PAP, el aerosol salino y los aerosoles nasales con esteroides.',
+    optionExplanations: {
+      c1: 'La humedad caliente de su equipo de PAP puede ayudar a evitar la resequedad y la irritación nasal mientras duerme.',
+      c2: 'El aerosol salino es una opción de bajo riesgo y sin receta que humedece la nariz, afloja el moco y limpia los alérgenos.',
+      c3: 'Los aerosoles nasales con esteroides, como fluticasona o budesonida, reducen la hinchazón y el moco de la nariz, lo que puede aliviar la congestión.',
+      c4: 'Rociar hacia arriba golpea la pared central de la nariz, lo que puede causar irritación y sangrado y no llega al mejor lugar, la parte externa.',
+      c5: 'Usar Afrin todas las noches puede causar congestión de rebote, en la que depende del aerosol y la congestión empeora al dejarlo.',
+      c6: 'Los antibióticos tratan infecciones por bacterias, así que para la congestión nasal no son la herramienta correcta.',
+    },
+  },
+  'm6-q2': {
+    generalExplanation: 'Comidas más pequeñas y con menos grasa, menos cafeína, elevar la cabecera de la cama y dormir del lado izquierdo pueden aliviar el reflujo (ERGE) durante el embarazo.',
+    optionExplanations: {
+      c1: 'Las comidas pequeñas estiran menos el estómago y las comidas con menos grasa se digieren más rápido, así que la comida pasa menos tiempo en el estómago.',
+      c2: 'La cafeína no causa ERGE en todas las personas, pero reducirla ha ayudado a los síntomas de algunas.',
+      c3: 'Elevar la cabecera de la cama ayuda a que el contenido del estómago no regrese; eleve la parte superior del cuerpo con una cuña o con la base de la cama, no solo con más almohadas bajo la cabeza.',
+      c4: 'Dormir del lado izquierdo coloca el estómago y el esófago de una forma que reduce la exposición al ácido y los síntomas de ERGE.',
+      c5: 'Los antiácidos pueden ayudar, pero en general es más saludable probar primero cambios de estilo de vida y evitar un medicamento y sus efectos secundarios si se puede.',
+      c6: 'Dormir boca abajo no deja que la gravedad mantenga abajo el contenido del estómago, y se vuelve más difícil a medida que avanza el embarazo.',
+    },
+  },
+  'm6-q3': {
+    generalExplanation: 'Mejorar el sueño, la alimentación y el ejercicio, reducir la cafeína y el alcohol, y la consejería o la TCC son formas recomendadas de tratar la ansiedad durante el embarazo.',
+    optionExplanations: {
+      c1: 'Dormir bien, comer sano y hacer ejercicio con regularidad reducen el estrés y mejoran el ánimo, lo que ayuda mucho con la ansiedad.',
+      c2: 'La cafeína puede empeorar la inquietud y los problemas para dormir, y el efecto calmante del alcohol dura poco y puede causar ansiedad de rebote.',
+      c3: 'La consejería y la terapia cognitivo-conductual (TCC) le dan un espacio seguro para trabajar sus miedos y su estrés y cambiar pensamientos que alimentan la ansiedad.',
+      c4: 'Los ISRS son eficaces para la ansiedad, pero quizás no hagan falta si los cambios de estilo de vida y la terapia ayudan.',
+      c5: 'La ansiedad durante el embarazo es común y vale la pena atenderla, sobre todo cuando causa malestar o afecta la vida diaria.',
+      c6: 'El cannabis puede causar pánico y paranoia, y su sustancia activa (THC) puede pasar al bebé y dañar su desarrollo.',
+    },
+  },
+  'm7-04': {
+    generalExplanation: 'Use su mascarilla de PAP siempre que planee dormir, incluidas las siestas y cualquier momento en que pueda quedarse dormida en la cama.',
+    optionExplanations: {
+      c1: 'Este es el momento principal para usar PAP: ponérsela antes de dormir la protege de los episodios de falta de oxígeno mientras está inconsciente.',
+      c2: 'La apnea del sueño ocurre cuando la vía respiratoria se cierra al dormir, así que PAP no hace mucho mientras está despierta, a menos que vaya a dormirse justo después.',
+      c3: 'Las siestas también cuentan como sueño, así que usar PAP en ellas es importante para su salud.',
+      c4: 'Es buena idea pensar con anticipación cuándo podría quedarse dormida y tener su equipo de PAP a mano.',
+      c5: 'Puede tener apnea del sueño sin roncar fuerte, así que use PAP aunque su pareja no note ningún síntoma.',
+      c6: 'PAP trata los problemas de respiración durante el sueño, así que usarla durante las relaciones sexuales no da ningún beneficio, ni tampoco hace daño.',
+    },
+  },
+  'm7-q2': {
+    generalExplanation: 'El embarazo y la apnea del sueño pueden cambiar el deseo sexual, y dormir mejor con CPAP puede ayudar a recuperar la energía y el deseo.',
+    optionExplanations: {
+      c1: 'El embarazo trae grandes cambios físicos y emocionales, y la incomodidad, el estrés y el cansancio pueden afectar el deseo.',
+      c2: 'El mal sueño por la apnea del sueño puede bajar la energía y el deseo, y también puede afectar las hormonas, el ánimo y el flujo de sangre.',
+      c3: 'El CPAP puede mejorar la calidad del sueño con el tiempo, pero no siempre aumenta el deseo sexual de inmediato, y algunas personas se sienten cohibidas con la mascarilla.',
+      c4: 'Un cambio en el deseo sexual durante el embarazo suele ser normal y puede deberse a cambios del cuerpo, cansancio o estrés.',
+      c5: 'Dormir mejor con CPAP puede ayudar a recuperar la energía, el deseo y el flujo de sangre, y a reducir el estrés o la ansiedad.',
+      c6: 'La apnea del sueño también puede afectar el deseo sexual por el mal sueño, los cambios hormonales, los cambios de ánimo y el menor flujo de sangre.',
+    },
+  },
+};
