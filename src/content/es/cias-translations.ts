@@ -304,7 +304,7 @@ export const ciasSpanishTranslations: Record<string, CiasSpanishTranslation> = {
   },
   'm6-07': {
     title: 'Tratamiento de la enfermedad por reflujo gastroesofágico (ERGE)',
-    paragraphs: ['Los tratamientos iniciales para la ERGE y la acidez suelen ser cambios en la alimentación y ajustes de la cama, como:', '• menos cafeína, por ejemplo en café, té, refrescos y bebidas energéticas', '• dormir sobre el lado izquierdo', '• antiácidos', 'Si las modificaciones del estilo de vida no son suficientes, durante el embarazo pueden considerarse medicamentos para reducir el ácido, como bloqueadores H2, entre ellos famotidina, nizatidina o cimetidina, o inhibidores de la bomba de protones, como omeprazol. En general, estos medicamentos se consideran seguros y la literatura indica que no causan defectos de nacimiento, pero consulte a su médico antes de comenzar a usarlos.'],
+    paragraphs: ['Los tratamientos iniciales para la ERGE y la acidez suelen ser cambios en la alimentación y ajustes de la cama, como:', '• menos cafeína, por ejemplo en café, té, refrescos y bebidas energéticas', '• dormir sobre el lado izquierdo', '• antiácidos', 'Si las modificaciones del estilo de vida no son suficientes, durante el embarazo pueden considerarse medicamentos para reducir el ácido, como bloqueadores H2, entre ellos famotidina, nizatidina o cimetidina, o inhibidores de la bomba de protones, como omeprazol. Las revisiones grandes de estudios no han relacionado los bloqueadores H2 con defectos de nacimiento, pero los resultados sobre los inhibidores de la bomba de protones son mixtos, así que hable con su médico sobre los beneficios y los riesgos antes de empezar cualquiera de estos medicamentos.'],
   },
   'm6-05': {
     title: 'Ansiedad',

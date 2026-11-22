@@ -133,8 +133,9 @@ test('Spanish narration uses a Spanish voice and never reads the answer explanat
   expect(new Set(spoken.map((call) => call.lang))).toEqual(new Set(['es-US']));
   expect(new Set(spoken.map((call) => call.voice))).toEqual(new Set(['Test Español (Estados Unidos)']));
   const text = normalize(spoken.map((call) => call.text).join(' '));
-  expect(question.type === 'singleChoice' && text.startsWith(normalize(question.prompt))).toBe(true);
-  const explanation = question.type === 'singleChoice' ? question.questionFeedback?.generalExplanation ?? '' : '';
+  const isChoice = question.type === 'singleChoice' || question.type === 'multiSelect';
+  expect(isChoice && text.startsWith(normalize(question.prompt))).toBe(true);
+  const explanation = isChoice ? question.questionFeedback?.generalExplanation ?? '' : '';
   expect(explanation.length).toBeGreaterThan(10);
   expect(text.includes(normalize(explanation))).toBe(false);
 });
@@ -179,9 +180,11 @@ test('completing a module while narration plays leaves nothing playing', async (
   await seed(page, { narrationEnabled: true, language: 'en' });
   const last = englishModules.find((module) => module.id === 'm9')!.screens.at(-1)!;
   await page.goto(`/lesson/m9/${last.id}`);
-  if (last.type === 'singleChoice' && last.correctChoiceId) {
-    await page.getByRole('radio', { name: last.choices.find((choice) => choice.id === last.correctChoiceId)!.label, exact: true }).filter({ visible: true }).first().click();
-    await page.getByRole('button', { name: /^Submit/ }).filter({ visible: true }).first().click();
+  // The module ends with a check: answer it correctly so the Complete module button is available.
+  const correct = last.type === 'singleChoice' && last.correctChoiceId ? [last.correctChoiceId] : last.type === 'multiSelect' ? last.correctChoiceIds ?? [] : [];
+  if (correct.length && (last.type === 'singleChoice' || last.type === 'multiSelect')) {
+    for (const id of correct) await page.getByRole(last.type === 'singleChoice' ? 'radio' : 'checkbox', { name: last.choices.find((choice) => choice.id === id)!.label, exact: true }).filter({ visible: true }).first().click();
+    await page.getByRole('button', { name: /^Check/ }).filter({ visible: true }).first().click();
   }
   await page.getByRole('button', { name: 'Listen', exact: true }).filter({ visible: true }).first().click();
   await expect(page.getByRole('button', { name: 'Stop', exact: true }).filter({ visible: true }).first()).toBeVisible();

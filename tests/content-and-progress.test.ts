@@ -84,7 +84,7 @@ test('a finished nine-module sleep hygiene module migrates to both parts complet
     answerAttempts: { 'm5-q5': [{ answers: ['c2', 'c5', 'c6'], correct: true, submittedAt: 'test' }] },
   };
   const migrated = migrateLearningState(input);
-  assert.equal(migrated.curriculumVersion, 12);
+  assert.equal(migrated.curriculumVersion, CURRICULUM_VERSION);
   assert.deepEqual(migrated.completedModuleIds, ['m1', 'm5', 'm5b', 'm8']);
   assert.equal(migrated.currentModuleId, 'm5b');
   assert.deepEqual(migrated.lastScreenByModule, { m1: 'm1-01', m5: 'm5-q4', m5b: 'm5-recap', m8: 'm8-01' });
@@ -131,14 +131,32 @@ test('progress inside Part 1 is left in place', () => {
   assert.equal(migrated.currentModuleId, 'm5');
 });
 
-test('version 12 state is not re-split, and version 11 PAP progress is kept', () => {
+test('version 12 state is not re-split, and version 11 PAP progress is kept except answers to rewritten checks', () => {
   const current = { curriculumVersion: 12, completedScreenIds: PART_ONE, completedModuleIds: ['m5'], currentModuleId: 'm5', lastScreenByModule: { m5: 'm5-q4' } };
   assert.deepEqual(migrateLearningState(current).completedModuleIds, ['m5']);
   const papUser = migrateLearningState({ curriculumVersion: 11, completedScreenIds: ['m8-01', 'm9-q1'], completedModuleIds: ['m8'], currentModuleId: 'm9', lastScreenByModule: { m9: 'm9-q1' }, answers: { 'm9-q1': ['c2'] } });
-  assert.deepEqual(papUser.completedScreenIds, ['m8-01', 'm9-q1']);
+  assert.deepEqual(papUser.completedScreenIds, ['m8-01']);
   assert.deepEqual(papUser.completedModuleIds, ['m8']);
   assert.equal(papUser.currentModuleId, 'm9');
-  assert.deepEqual(papUser.answers, { 'm9-q1': ['c2'] });
+  assert.deepEqual(papUser.answers, {});
+});
+
+test('version 13 drops saved answers to the rewritten Module 9 and 10 checks only', () => {
+  const migrated = migrateLearningState({
+    curriculumVersion: 12,
+    completedScreenIds: ['m8-04', 'm8-q1', 'm4-q1'],
+    completedModuleIds: ['m8'],
+    lastScreenByModule: { m8: 'm8-q2' },
+    answers: { 'm8-q2': ['c3'], 'm4-q1': ['c1', 'c4', 'c5'] },
+    answerAttempts: { 'm9-q3': [{ answers: ['c2'], correct: true, submittedAt: 'test' }], 'm4-q1': [{ answers: ['c1', 'c4', 'c5'], correct: true, submittedAt: 'test' }] },
+  });
+  assert.equal(migrated.curriculumVersion, 13);
+  assert.deepEqual(migrated.completedScreenIds, ['m8-04', 'm4-q1']);
+  assert.deepEqual(migrated.completedModuleIds, ['m8']);
+  assert.deepEqual(migrated.lastScreenByModule, { m8: 'm8-q2' });
+  assert.deepEqual(migrated.answers, { 'm4-q1': ['c1', 'c4', 'c5'] });
+  assert.deepEqual(Object.keys(migrated.answerAttempts ?? {}), ['m4-q1']);
+  assert.deepEqual(migrateLearningState(migrated).answers, migrated.answers, 'running the migration again changes nothing');
 });
 
 test('legacy pre-version-11 sleep hygiene screen IDs map into the split modules', () => {

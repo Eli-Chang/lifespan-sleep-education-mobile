@@ -271,4 +271,64 @@ export const enQuestionFeedback: Record<string, LocaleQuestionFeedback> = {
       c6: 'Sleep apnea can also affect sex drive through poor sleep, hormone changes, mood changes, and reduced blood flow.',
     },
   },
+  'm8-q1': {
+    generalExplanation: 'Build comfort step by step. Practice while resting, and keep sessions short enough to repeat.',
+    optionExplanations: {
+      c1: 'Your pressure is part of your prescription, so only your healthcare provider should change it.',
+      c2: 'Practicing during a planned rest or nap is the next step, and you don\'t have to fall asleep for it to help.',
+      c3: 'Jumping straight to a full night can feel like too much, and practicing while resting first makes that step easier.',
+      c4: 'A long break isn\'t part of the plan, and shorter practice sessions are a gentler way to keep going.',
+      c5: 'Short sessions you can repeat build comfort, and you can add time as the mask feels more familiar.',
+    },
+  },
+  'm8-q2': {
+    generalExplanation: 'Keep building at your own pace. Put the mask back on if it comes off, and ask your team about a ramp feature.',
+    optionExplanations: {
+      c1: 'Using PAP every time you sleep gives the treatment the best chance to help, not just on nights you feel tired.',
+      c2: 'Putting the mask back on once you\'re awake enough to do it safely helps you build toward the whole night.',
+      c3: 'Your healthcare provider sets your pressure, so ask about a ramp feature instead of changing it yourself.',
+      c4: 'A ramp lowers the starting pressure while you fall asleep, and your team can tell you if it\'s right for your device.',
+      c5: 'Tracking symptoms before and after you start PAP helps you and your team see whether it\'s working.',
+    },
+  },
+  'm8-q3': {
+    generalExplanation: 'Keep using PAP, and bring your notes and data to your healthcare provider, who decides whether a setting change is needed.',
+    optionExplanations: {
+      c1: 'Only your healthcare provider should change your prescribed pressure, even when you still feel tired.',
+      c2: 'Stopping PAP means your breathing isn\'t supported while you sleep, so keep using it and talk with your team.',
+      c3: 'Using PAP every time you sleep gives the treatment the best chance to work while your team looks into the tiredness.',
+      c4: 'A tighter mask doesn\'t raise your pressure, and over-tightening can make leaks and pressure points worse.',
+      c5: 'Your notes and device data help your healthcare provider decide whether a change is needed.',
+    },
+  },
+  'm9-q1': {
+    generalExplanation: 'Air blowing near the top of the mask can mean a leak. Check the fit first, and ask about another mask style if it keeps happening.',
+    optionExplanations: {
+      c1: 'Your pressure is part of your prescription, so only your healthcare provider should change it.',
+      c2: 'Air near the top of the mask can mean a leak, so reseating it and adjusting the fit is a good first step.',
+      c3: 'Humidity helps with dryness, but it won\'t stop air leaking toward your eyes, so check the fit first.',
+      c4: 'If the leak or eye irritation keeps happening, a different mask style may fit you better.',
+      c5: 'The vents let air out on purpose, so they should never be covered.',
+    },
+  },
+  'm9-q2': {
+    generalExplanation: 'Dry mouth with a nasal mask can come from air leaking through your mouth. Check for a mouth leak, and ask your care team about a chin strap or full-face mask.',
+    optionExplanations: {
+      c1: 'With a nasal mask, an open mouth can let air escape, which can dry out your mouth.',
+      c2: 'Tightening every strap won\'t stop air escaping through your mouth, and over-tightening can make the fit worse.',
+      c3: 'Humidification may help with dryness, so turning it off could make your mouth feel drier.',
+      c4: 'Using PAP every time you sleep gives the treatment the best chance to work, so bring the dryness to your team instead.',
+      c5: 'Your care team can help decide whether a chin strap or a full-face mask would work better for you.',
+    },
+  },
+  'm9-q3': {
+    generalExplanation: 'A ramp feature and your care team can help with bloating, and your machine\'s manual should guide how you clean it.',
+    optionExplanations: {
+      c1: 'A ramp lowers the pressure while you fall asleep, and your care team can show you how to use it.',
+      c2: 'Pressure changes need your healthcare provider, so don\'t adjust the pressure yourself to chase a symptom.',
+      c3: 'The machine itself should never go in water, so wipe the outside as your manual directs.',
+      c4: 'Parts and materials vary, so your machine\'s manual comes first when you clean.',
+      c5: 'Bleach is on the list of cleaners to avoid, so use mild soap and water as your manual directs.',
+    },
+  },
 };

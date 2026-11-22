@@ -29,7 +29,7 @@ describe('four-language translation QA', () => {
       it('has identical modules, screens, types, choice IDs, answer keys, source IDs, and review flags', () => {
         const translated = modulesByLocale[locale];
         assert.deepEqual(translated.map((module) => module.id), englishModules.map((module) => module.id));
-        assert.equal(translated.reduce((sum, module) => sum + module.screens.length, 0), 113);
+        assert.equal(translated.reduce((sum, module) => sum + module.screens.length, 0), 114);
         englishModules.forEach((module, moduleIndex) => module.screens.forEach((screen, screenIndex) => {
           const other = translated[moduleIndex].screens[screenIndex] as typeof screen;
           assert.equal(other.id, screen.id);

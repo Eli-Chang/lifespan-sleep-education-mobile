@@ -54,7 +54,7 @@ const unorderedScreens: LessonScreen[] = [
   ] },
   outcomesOverview, q1, q3, q4, outcomesQuestion,
   { ...requiredScreen('m3-recap'), title: 'Thanks for completing this module', type: 'summary', keyPoints: [
-    'I hope you learned that untreated OSA during pregnancy has been associated with cesarean birth, cardiovascular strain, lower newborn birth weight, gestational diabetes, high blood pressure, and preeclampsia.',
+    'I hope you learned that untreated OSA during pregnancy has been associated with cesarean birth, cardiovascular strain, gestational diabetes, high blood pressure, and preeclampsia.',
     'PAP treats airway obstruction during sleep. Your prenatal and sleep-care teams can help you understand personal risk and treatment.',
   ] },
   { ...requiredScreen('m3-04'), type: 'content', paragraphs: [

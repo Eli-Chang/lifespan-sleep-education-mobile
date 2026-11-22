@@ -65,6 +65,8 @@ Primary references: AHRQ Patient Education Materials Assessment Tool (PEMAT, htt
   - Narration text: what reads well aloud, with no symbols the voice would mispronounce.
 - Reassure only when it is true and useful. Never promise outcomes.
 - Do not add slang, deliberate errors, invented personal stories, or quotes to sound human.
+- For lessons Claude wrote (display Modules 9 and 10, internal `m8` and `m9`), follow `docs/curriculum/VOICE_GUIDE.md`: Eli's CIAS voice, bullets for any list of three or more, and three select-all checks per module.
+- A "Supporting source" citation (`src/content/citations.ts`) must be a PubMed-indexed paper whose abstract supports the exact sentence on the screen. If you reword a cited sentence, update its `claim` and recheck the abstract; never cite from memory.
 
 ## 4. Clinical anchors (protected)
 

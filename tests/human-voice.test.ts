@@ -15,7 +15,7 @@ describe('human voice copy audit', () => {
     const en = getModules('en');
     const es = getModules('es');
     assert.equal(en.length, 10);
-    assert.equal(en.reduce((total, module) => total + module.screens.length, 0), 113);
+    assert.equal(en.reduce((total, module) => total + module.screens.length, 0), 114);
     assert.deepEqual(en.map((module) => module.screens.map((screen) => [screen.id, screen.type])), es.map((module) => module.screens.map((screen) => [screen.id, screen.type])));
   });
 

@@ -14,6 +14,7 @@ import { LessonVideoCard } from './LessonVideoCard';
 import { imagesForLesson } from '@/src/content/image-registry';
 import { useReducedMotion } from '@/src/hooks/useReducedMotion';
 import { richPresentation } from '@/src/content/rich-presentation';
+import { SCREEN_CITATIONS, citationLabel, pubmedUrl } from '@/src/content/citations';
 import { boilerplateQuestionCopy, normalizeQuestionCopy } from '@/src/utils/question-copy';
 
 const ChoicePressable = Pressable as React.ComponentType<any>;
@@ -133,6 +134,7 @@ export function LessonRenderer({ screen, onSubmitted, onEditingChange }: { scree
     const sourceRecovered = screen.sourceIds?.includes('cias-screenshot-recovery');
     const assets = imagesForLesson(screen.id).filter((asset) => !sourceRecovered || asset.displayOnSourceRecovered);
     const presentation = richPresentation(screen, state.language);
+    const citation = SCREEN_CITATIONS[screen.id];
     return <View style={styles.stack}>
     <Text accessibilityRole="header" style={styles.lessonTitle}>{screen.title}</Text>
     <View style={styles.contentCard}>
@@ -145,6 +147,7 @@ export function LessonRenderer({ screen, onSubmitted, onEditingChange }: { scree
     {screen.keyPoints?.length ? <View style={styles.takeaway}><View style={styles.takeawayHeader}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="lightbulb-on-outline" size={17} color={palette.dawnInk} /><Text style={styles.takeawayLabel}>{t('keyPoint')}</Text></View>{screen.keyPoints.map((point, index) => <View key={index} style={styles.point}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="check-circle-outline" size={22} color={palette.primary} /><Text style={styles.pointText}>{point}</Text></View>)}</View> : null}
     {screen.sourceVisibleLabels?.length ? <View style={styles.takeaway}>{screen.sourceVisibleLabels.map((label, index) => <View key={index} style={styles.point}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="label-outline" size={22} color={palette.primary} /><Text style={styles.pointText}>{label}</Text></View>)}</View> : null}
     {['m1-01', 'm1-07'].includes(screen.id) ? <Pressable accessibilityRole="link" accessibilityLabel={t('supportingSourceNhlbi')} onPress={() => void Linking.openURL('https://www.nhlbi.nih.gov/health/sleep-apnea')} style={styles.sourceLinkButton}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="open-in-new" size={17} color={palette.primary} /><Text style={styles.sourceLink}>{t('supportingSourceNhlbi')}</Text></Pressable> : null}
+    {citation ? <Pressable accessibilityRole="link" accessibilityLabel={t('supportingSourcePaperLabel', { citation: citationLabel(citation) })} onPress={() => void Linking.openURL(pubmedUrl(citation.pmid))} style={styles.sourceLinkButton} testID={`paper-source-${screen.id}`}><MaterialCommunityIcons accessible={false} importantForAccessibility="no" name="open-in-new" size={17} color={palette.primary} /><Text style={styles.sourceLink}>{t('supportingSourcePaper', { citation: citationLabel(citation) })}</Text></Pressable> : null}
     </View>
   </View>;
   }

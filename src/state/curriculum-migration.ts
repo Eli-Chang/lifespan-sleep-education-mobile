@@ -6,9 +6,14 @@ import { englishModules } from '../content/en';
  * - < 11: legacy curricula with old screen IDs and the former PAP modules (m8–m10), which were replaced.
  * - 11: nine modules, with Healthy Sleep Hygiene as one 31-screen module (m5).
  * - 12: ten modules. The same 31 screens are split into m5 (Part 1) and m5b (Part 2); every screen ID is unchanged.
+ * - 13: display Modules 9 and 10 (m8, m9) were rewritten with three select-all checks each. The old m8/m9 checks kept
+ *       their IDs but got new choices, so answers saved against the old choices are dropped (the learner answers again).
  */
-export const CURRICULUM_VERSION = 12;
+export const CURRICULUM_VERSION = 13;
 const PAP_REPLACEMENT_VERSION = 11;
+const SLEEP_HYGIENE_SPLIT_VERSION = 12;
+const PAP_CHECKS_REWRITE_VERSION = 13;
+const rewrittenPapChecks = ['m8-q1', 'm8-q2', 'm9-q1', 'm9-q2', 'm9-q3'];
 
 const oldToNew: Record<string, string> = {
   'm1-s01':'m1-01','m1-s02':'m1-02','m1-s03':'m1-03','m1-s04':'m1-q1','m1-s05':'m1-05','m1-s06':'m1-r1',
@@ -98,11 +103,23 @@ const splitSleepHygiene = (state: MigratedState): MigratedState => {
   return { ...state, completedModuleIds: [...known, ...unknown], lastScreenByModule, currentModuleId };
 };
 
+/** v13 step: forget answers to the rewritten PAP checks; their choice IDs now point at different options. */
+const resetRewrittenPapChecks = (state: MigratedState): MigratedState => {
+  const omit = <T>(record: Record<string, T> | undefined) => Object.fromEntries(Object.entries(record ?? {}).filter(([id]) => !rewrittenPapChecks.includes(id)));
+  return {
+    ...state,
+    answers: omit(state.answers),
+    answerAttempts: omit(state.answerAttempts),
+    completedScreenIds: (state.completedScreenIds ?? []).filter((id) => !rewrittenPapChecks.includes(id)),
+  };
+};
+
 /** Always remove obsolete Vela/AI records while retaining supported local learning data. */
 export const migrateLearningState = (input: LegacyState): MigratedState => {
   const startingVersion = typeof input.curriculumVersion === 'number' ? input.curriculumVersion : 0;
   let state = migrateLegacyIds(input);
-  if (startingVersion < CURRICULUM_VERSION) state = splitSleepHygiene(state);
+  if (startingVersion < SLEEP_HYGIENE_SPLIT_VERSION) state = splitSleepHygiene(state);
+  if (startingVersion < PAP_CHECKS_REWRITE_VERSION) state = resetRewrittenPapChecks(state);
   return { ...state, curriculumVersion: Math.max(startingVersion, CURRICULUM_VERSION) };
 };
 

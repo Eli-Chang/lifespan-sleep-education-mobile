@@ -62,7 +62,7 @@ for (const locale of NEW_LOCALES) {
         count += 1;
       }
     }
-    expect(count).toBe(113);
+    expect(count).toBe(114);
     expect(errors).toEqual([]);
   });
 
@@ -86,7 +86,7 @@ for (const locale of NEW_LOCALES) {
             const label = screen.choices.find((choice) => choice.id === id)!.label;
             await page.getByRole(screen.type === 'singleChoice' ? 'radio' : 'checkbox', { name: label, exact: true }).filter({ visible: true }).first().click();
           }
-          // Single-choice shows "Submit answer"; multi-select shows "Submit N answers". Match the shared first word.
+          // Single-choice shows "Check answer"; multi-select shows "Check N answers". Match the shared first word.
           await page.getByRole('button', { name: new RegExp(`^${escape(strings.submit.split(' ')[0])}`) }).filter({ visible: true }).first().click();
           await expect(page.getByRole('alert').filter({ visible: true }).filter({ hasText: strings.correct }).first()).toBeVisible();
         }
@@ -105,7 +105,7 @@ for (const locale of NEW_LOCALES) {
     await page.goto('/');
     await expect(page.getByText(strings.allModulesComplete)).toBeVisible();
     const stored = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE_KEY);
-    expect(stored.curriculumVersion).toBe(12);
+    expect(stored.curriculumVersion).toBe(13);
     expect(new Set(stored.completedModuleIds)).toEqual(new Set(englishModules.map((module) => module.id)));
   });
 }
@@ -129,6 +129,8 @@ test('switching languages keeps progress and answers, never duplicates completed
 
 for (const [name, width, height] of [['phone 320', 320, 640], ['phone 390', 390, 844], ['desktop', 1280, 800]] as const) {
   test(`long Portuguese and Creole text does not overflow on ${name}`, async ({ page }) => {
+    // Twelve full page loads against the dev server; 30 s was too tight on the 2026-11 Windows PC.
+    test.setTimeout(120_000);
     await page.setViewportSize({ width, height });
     for (const locale of NEW_LOCALES) {
       await page.addInitScript(([key, value]) => localStorage.setItem(key, value), [STORAGE_KEY, JSON.stringify({ language: locale })] as const);

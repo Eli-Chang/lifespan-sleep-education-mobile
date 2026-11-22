@@ -15,6 +15,8 @@ export interface QuestionKey {
   correct: string[];
   provenance: AnswerBehaviorProvenance;
   drafted: string[];
+  /** Display order of the choices when the source order clustered the correct answers. Choice IDs do not change. */
+  displayOrder?: string[];
 }
 
 export const QUESTION_KEYS: Record<string, QuestionKey> = {
@@ -45,9 +47,16 @@ export const QUESTION_KEYS: Record<string, QuestionKey> = {
   'm5-q11': { correct: ['c1', 'c4', 'c5', 'c7', 'c8', 'c9'], provenance: 'CIAS_SCREEN_RECORDING', drafted: [] },
   'm5-q8': { correct: ['c2', 'c5', 'c6'], provenance: 'CIAS_SCREEN_RECORDING', drafted: [] },
   'm5-q10': { correct: ['c1', 'c4', 'c6'], provenance: 'CIAS_SCREEN_RECORDING', drafted: [] },
-  'm6-q1': { correct: ['c1', 'c2', 'c3'], provenance: 'CIAS_SCREEN_RECORDING', drafted: [] },
+  // Owner request 2026-11-22: the three correct answers were the first three options; shuffle the display order.
+  'm6-q1': { correct: ['c1', 'c2', 'c3'], provenance: 'CIAS_SCREEN_RECORDING', drafted: [], displayOrder: ['c2', 'c4', 'c5', 'c1', 'c6', 'c3'] },
   'm6-q2': { correct: ['c1', 'c2', 'c3', 'c4'], provenance: 'CIAS_SCREEN_RECORDING', drafted: [] },
   'm6-q3': { correct: ['c1', 'c2', 'c3'], provenance: 'CIAS_SCREEN_RECORDING', drafted: [] },
   'm7-04': { correct: ['c1', 'c3', 'c4'], provenance: 'CIAS_SCREEN_RECORDING', drafted: [] },
   'm7-q2': { correct: ['c1', 'c2', 'c5'], provenance: 'CIAS_SCREEN_RECORDING', drafted: [] },
+  'm8-q1': { correct: ['c2', 'c5'], provenance: 'CLAUDE_DRAFTED_AT_OWNER_REQUEST', drafted: ['c1', 'c2', 'c3', 'c4', 'c5'] },
+  'm8-q2': { correct: ['c2', 'c4'], provenance: 'CLAUDE_DRAFTED_AT_OWNER_REQUEST', drafted: ['c1', 'c2', 'c3', 'c4', 'c5'] },
+  'm8-q3': { correct: ['c3', 'c5'], provenance: 'CLAUDE_DRAFTED_AT_OWNER_REQUEST', drafted: ['c1', 'c2', 'c3', 'c4', 'c5'] },
+  'm9-q1': { correct: ['c2', 'c4'], provenance: 'CLAUDE_DRAFTED_AT_OWNER_REQUEST', drafted: ['c1', 'c2', 'c3', 'c4', 'c5'] },
+  'm9-q2': { correct: ['c1', 'c5'], provenance: 'CLAUDE_DRAFTED_AT_OWNER_REQUEST', drafted: ['c1', 'c2', 'c3', 'c4', 'c5'] },
+  'm9-q3': { correct: ['c1', 'c4'], provenance: 'CLAUDE_DRAFTED_AT_OWNER_REQUEST', drafted: ['c1', 'c2', 'c3', 'c4', 'c5'] },
 };

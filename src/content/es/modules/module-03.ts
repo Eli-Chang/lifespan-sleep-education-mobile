@@ -30,7 +30,7 @@ export const module03 = {
       'Las asociaciones describen patrones entre grupos; no predicen lo que ocurrirá con usted o su bebé. Su equipo de atención puede explicarle su riesgo personal.',
     ] };
     if (screen.id === 'm3-recap' && screen.type === 'summary') return { ...screen, title: 'Gracias por completar este módulo', keyPoints: [
-      'Espero que haya aprendido que la AOS sin tratar durante el embarazo se ha asociado con parto por cesárea, tensión cardiovascular, menor peso del recién nacido, diabetes gestacional, presión arterial alta y preeclampsia.',
+      'Espero que haya aprendido que la AOS sin tratar durante el embarazo se ha asociado con parto por cesárea, tensión cardiovascular, diabetes gestacional, presión arterial alta y preeclampsia.',
       'PAP trata la obstrucción de la vía respiratoria durante el sueño. Sus equipos de atención prenatal y del sueño pueden ayudarle a comprender su riesgo y tratamiento.',
     ] };
     if (screen.id === 'm3-04' && screen.type === 'content') return { ...screen, paragraphs: [

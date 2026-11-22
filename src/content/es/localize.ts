@@ -7,6 +7,8 @@ export interface SpanishScreenDraft {
   keyPoints?: string[];
   orderedList?: string[];
   placeholder?: string;
+  /** Spanish instructions for a question that has English `instructions` (for example "Select all that apply"). */
+  instructions?: string;
 }
 
 function translateCiasScreen(screen: LessonScreen, translation: CiasSpanishTranslation): LessonScreen {
@@ -102,7 +104,8 @@ export function draftSpanishModule(
       // and is shown (and spoken) only after the learner answers, so reading it first would give the answer away.
       ...screen, ...review, title:draft.title, narrationText:draft.body.slice(0, screen.choices.length + 1).join(' '),
       prompt: draft.body[0],
-      instructions: screen.instructions,
+      // A draft can carry Spanish instructions; m3-q5 sets its own after this function runs.
+      instructions: draft.instructions ?? screen.instructions,
       choices: screen.choices.map((choice, index) => ({ ...choice, label: draft.body[index + 1] })),
       questionFeedback: isReflection
         ? { generalExplanation }

@@ -34,8 +34,8 @@ test('the home path lists all ten modules in order in English and Spanish', asyn
 });
 
 const ui = {
-  en: { modules: englishModules, open: /^(Start|Continue|Review Module)/, step: 'Step', of: 'of', submit: /^Submit/, correct: /\bCorrect[.!]/, advance: /^(Next|Skip)$/, complete: 'Complete module', done: (n: number) => `MODULE ${n} COMPLETE`, upNext: (n: number) => `UP NEXT · MODULE ${n}`, cont: (title: string) => `Continue to ${title}`, all: 'All modules complete' },
-  es: { modules: spanishModules, open: /^(Comenzar|Continuar|Repasar módulo)/, step: 'Paso', of: 'de', submit: /^Enviar/, correct: /\bCorrecto[.!]/, advance: /^(Siguiente|Omitir)$/, complete: 'Completar módulo', done: (n: number) => `MÓDULO ${n} COMPLETADO`, upNext: (n: number) => `SIGUIENTE · MÓDULO ${n}`, cont: (title: string) => `Continuar a ${title}`, all: 'Todos los módulos están completos' },
+  en: { modules: englishModules, open: /^(Start|Continue|Review Module)/, step: 'Step', of: 'of', submit: /^Check/, correct: /\bCorrect[.!]/, advance: /^(Next|Skip)$/, complete: 'Complete module', done: (n: number) => `MODULE ${n} COMPLETE`, upNext: (n: number) => `UP NEXT · MODULE ${n}`, cont: (title: string) => `Continue to ${title}`, all: 'All modules complete' },
+  es: { modules: spanishModules, open: /^(Comenzar|Continuar|Repasar módulo)/, step: 'Paso', of: 'de', submit: /^Comprobar/, correct: /\bCorrecto[.!]/, advance: /^(Siguiente|Omitir)$/, complete: 'Completar módulo', done: (n: number) => `MÓDULO ${n} COMPLETADO`, upNext: (n: number) => `SIGUIENTE · MÓDULO ${n}`, cont: (title: string) => `Continuar a ${title}`, all: 'Todos los módulos están completos' },
 } as const;
 
 for (const language of ['en', 'es'] as const) {
@@ -77,7 +77,7 @@ for (const language of ['en', 'es'] as const) {
     await page.goto('/');
     await expect(page.getByText(t.all)).toBeVisible();
     const stored = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE_KEY);
-    expect(stored.curriculumVersion).toBe(12);
+    expect(stored.curriculumVersion).toBe(13);
     expect(new Set(stored.completedModuleIds)).toEqual(new Set(t.modules.map((module) => module.id)));
   });
 }
@@ -98,8 +98,8 @@ test('saved nine-module progress opens on Part 2 and keeps both sleep hygiene pa
   await expect(page.getByRole('button', { name: /^6\. Healthy Sleep Hygiene, Part 2: Environment and Daily Habits\. Complete/ })).toBeVisible();
   await expect(page.getByText('Module 7', { exact: true })).toBeVisible();
   const stored = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE_KEY);
-  expect(stored.curriculumVersion).toBe(12);
-  expect(stored.completedModuleIds).toEqual(['m1', 'm2', 'm3', 'm4', 'm5', 'm5b']);
+  expect(stored.curriculumVersion).toBe(13);
+  expect(stored.completedModuleIds).toEqual(['m1', 'm3', 'm4', 'm2', 'm5', 'm5b']);
   expect(stored.currentModuleId).toBe('m5b');
   expect(stored.answers).toEqual({ 'm5-q2': ['c1'] });
 });
@@ -129,7 +129,7 @@ for (const mode of ['system preference', 'app setting'] as const) {
       if (index === 5) break;
       if (screen.type === 'multiSelect' && screen.correctChoiceIds?.length) {
         for (const id of screen.correctChoiceIds) await page.getByRole('checkbox', { name: screen.choices.find((choice) => choice.id === id)!.label, exact: true }).filter({ visible: true }).first().click();
-        await page.getByRole('button', { name: /^Enviar/ }).filter({ visible: true }).first().click();
+        await page.getByRole('button', { name: /^Comprobar/ }).filter({ visible: true }).first().click();
       }
       await page.waitForTimeout(400);
       await page.getByRole('button', { name: /^(Siguiente|Omitir)$/ }).filter({ visible: true }).first().click();

@@ -269,4 +269,64 @@ export const esQuestionFeedback: Record<string, LocaleQuestionFeedback> = {
       c6: 'La apnea del sueño también puede afectar el deseo sexual por el mal sueño, los cambios hormonales, los cambios de ánimo y el menor flujo de sangre.',
     },
   },
+  'm8-q1': {
+    generalExplanation: 'Gane comodidad paso a paso. Practique mientras descansa y mantenga sesiones lo bastante cortas para repetirlas.',
+    optionExplanations: {
+      c1: 'Su presión es parte de su receta médica, así que solo su profesional de salud debe cambiarla.',
+      c2: 'Practicar durante un descanso o una siesta planificados es el siguiente paso, y no necesita dormirse para que le ayude.',
+      c3: 'Pasar directamente a una noche completa puede ser demasiado, y practicar primero mientras descansa facilita ese paso.',
+      c4: 'Un descanso largo no es parte del plan, y las sesiones de práctica más cortas son una forma más suave de seguir adelante.',
+      c5: 'Las sesiones cortas que puede repetir le dan comodidad, y puede añadir tiempo a medida que la mascarilla le resulte más familiar.',
+    },
+  },
+  'm8-q2': {
+    generalExplanation: 'Siga avanzando a su propio ritmo. Vuelva a ponerse la mascarilla si se le sale y pregunte a su equipo por la función de rampa.',
+    optionExplanations: {
+      c1: 'Usar PAP cada vez que duerme le da al tratamiento la mejor oportunidad de ayudar, no solo las noches en que se siente cansada.',
+      c2: 'Volver a ponerse la mascarilla cuando esté lo bastante despierta para hacerlo con seguridad le ayuda a avanzar hacia la noche completa.',
+      c3: 'Su profesional de salud fija su presión, así que pregunte por la función de rampa en lugar de cambiarla usted misma.',
+      c4: 'La rampa baja la presión inicial mientras se duerme, y su equipo de atención puede decirle si es adecuada para su dispositivo.',
+      c5: 'Registrar los síntomas antes y después de empezar PAP les ayuda a usted y a su equipo a ver si está funcionando.',
+    },
+  },
+  'm8-q3': {
+    generalExplanation: 'Siga usando PAP y lleve sus notas y datos a su profesional de salud, quien decide si hace falta cambiar la configuración.',
+    optionExplanations: {
+      c1: 'Solo su profesional de salud debe cambiar la presión indicada, aunque usted todavía se sienta cansada.',
+      c2: 'Dejar PAP significa que su respiración no tiene apoyo mientras duerme, así que siga usándolo y hable con su equipo.',
+      c3: 'Usar PAP cada vez que duerme le da al tratamiento la mejor oportunidad de funcionar mientras su equipo revisa el cansancio.',
+      c4: 'Una mascarilla más apretada no aumenta la presión, y apretarla demasiado puede empeorar las fugas y los puntos de presión.',
+      c5: 'Sus notas y los datos del dispositivo ayudan a su profesional de salud a decidir si hace falta un cambio.',
+    },
+  },
+  'm9-q1': {
+    generalExplanation: 'El aire cerca de la parte superior de la mascarilla puede indicar una fuga. Revise primero el ajuste y pregunte por otro estilo de mascarilla si sigue pasando.',
+    optionExplanations: {
+      c1: 'Su presión es parte de su receta médica, así que solo su profesional de salud debe cambiarla.',
+      c2: 'El aire cerca de la parte superior de la mascarilla puede indicar una fuga, así que volver a colocarla y ajustarla es un buen primer paso.',
+      c3: 'La humedad ayuda con la sequedad, pero no detiene el aire que se escapa hacia sus ojos, así que revise primero el ajuste.',
+      c4: 'Si la fuga o la irritación de los ojos sigue, otro estilo de mascarilla puede quedarle mejor.',
+      c5: 'Las ventilaciones dejan salir el aire a propósito, así que nunca deben taparse.',
+    },
+  },
+  'm9-q2': {
+    generalExplanation: 'La boca seca con una mascarilla nasal puede deberse al aire que se escapa por la boca. Revise si hay una fuga por la boca y pregunte a su equipo de atención por una mentonera o una mascarilla facial completa.',
+    optionExplanations: {
+      c1: 'Con una mascarilla nasal, la boca abierta puede dejar escapar el aire, y eso puede resecarle la boca.',
+      c2: 'Apretar todas las correas no detiene el aire que se escapa por la boca, y apretar demasiado puede empeorar el ajuste.',
+      c3: 'La humidificación puede ayudar con la sequedad, así que apagarla podría hacer que sienta la boca más seca.',
+      c4: 'Usar PAP cada vez que duerme le da al tratamiento la mejor oportunidad de funcionar, así que mejor comente la sequedad con su equipo.',
+      c5: 'Su equipo de atención puede ayudarle a decidir si una mentonera o una mascarilla facial completa le funcionaría mejor.',
+    },
+  },
+  'm9-q3': {
+    generalExplanation: 'La función de rampa y su equipo de atención pueden ayudar con la hinchazón, y el manual de su máquina debe guiar cómo limpiarla.',
+    optionExplanations: {
+      c1: 'La rampa baja la presión mientras se duerme, y su equipo de atención puede enseñarle a usarla.',
+      c2: 'Los cambios de presión le corresponden a su profesional de salud, así que no ajuste la presión usted misma para perseguir un síntoma.',
+      c3: 'La máquina nunca debe meterse en agua, así que limpie el exterior como indica su manual.',
+      c4: 'Las piezas y los materiales varían, así que el manual de su máquina va primero a la hora de limpiar.',
+      c5: 'La lejía está en la lista de productos que debe evitar, así que use jabón suave y agua como indica su manual.',
+    },
+  },
 };

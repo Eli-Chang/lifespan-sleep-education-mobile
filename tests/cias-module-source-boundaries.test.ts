@@ -22,9 +22,25 @@ test('PAP modules retain CIAS and clinical supplement source IDs in both languag
 
 test('PAP modules have required screen counts, knowledge-check spacing, and safety exclusions', () => {
   const m8 = moduleById(englishModules, 'm8'); const m9 = moduleById(englishModules, 'm9');
-  assert.equal(m8.screens.length, 12); assert.deepEqual(m8.screens.filter((screen) => screen.type === 'singleChoice').map((screen) => screen.id), ['m8-q1', 'm8-q2']);
-  assert.equal(m9.screens.length, 14); assert.deepEqual(m9.screens.filter((screen) => screen.type === 'singleChoice').map((screen) => screen.id), ['m9-q1', 'm9-q2', 'm9-q3']);
+  // Owner request 2026-11-22: three select-all checks per Claude-written module, one at the end of each third,
+  // never first, always last; five options with two correct.
+  assert.equal(m8.screens.length, 13); assert.deepEqual(m8.screens.filter((screen) => screen.type === 'multiSelect').map((screen) => screen.id), ['m8-q1', 'm8-q2', 'm8-q3']);
+  assert.equal(m9.screens.length, 14); assert.deepEqual(m9.screens.filter((screen) => screen.type === 'multiSelect').map((screen) => screen.id), ['m9-q1', 'm9-q2', 'm9-q3']);
   assert.deepEqual(m9.screens.filter((screen) => screen.type === 'content').map((screen) => screen.id), ['m9-01', 'm9-02', 'm9-03', 'm9-04', 'm9-05', 'm9-06', 'm9-07', 'm9-08', 'm9-09', 'm9-10', 'm9-11']);
+  for (const module of [m8, m9]) {
+    const checks = module.screens.flatMap((screen, index) => screen.type === 'multiSelect' ? [index] : []);
+    assert.notEqual(module.screens[0].type, 'multiSelect');
+    assert.equal(checks.at(-1), module.screens.length - 1, `${module.id} must end with a check`);
+    const parts = checks.map((index, i) => index - (i === 0 ? 0 : checks[i - 1] + 1));
+    assert.ok(Math.max(...parts) - Math.min(...parts) <= 1, `${module.id} checks are unevenly spaced: ${parts.join(', ')}`);
+    for (const index of checks) {
+      const screen = module.screens[index];
+      assert.ok(screen.type === 'multiSelect');
+      assert.equal(screen.choices.length, 5);
+      assert.equal(screen.correctChoiceIds?.length, 2);
+      assert.deepEqual(Object.keys(screen.questionFeedback?.optionExplanations ?? {}), ['c1', 'c2', 'c3', 'c4', 'c5']);
+    }
+  }
   assert.doesNotMatch(JSON.stringify(m9), /Traveling with PAP|Flying with PAP/);
   const text = JSON.stringify([m8, m9]);
   for (const forbidden of ['less than 30 minutes', 'mouth tap', 'insurance', 'rental', 'machine on the floor']) assert.doesNotMatch(text.toLowerCase(), new RegExp(forbidden));

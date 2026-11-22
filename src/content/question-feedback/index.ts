@@ -49,7 +49,15 @@ function withFeedback(screen: LessonScreen, locale: SupportedLocale): LessonScre
     generalExplanation: entry.generalExplanation ?? screen.questionFeedback?.generalExplanation,
     optionExplanations: entry.optionExplanations,
   };
-  const common = { prompt, contextParagraphs, narrationText, questionKind: 'objective' as const, answerBehaviorProvenance: key.provenance, questionFeedback };
+  // A display order only moves choices; IDs, keys, and per-choice notes stay attached to the same option.
+  const choices = key.displayOrder ? key.displayOrder.map((id) => {
+    const choice = screen.choices.find((candidate) => candidate.id === id);
+    if (!choice) throw new Error(`Display order for ${screen.id} names unknown choice ${id}`);
+    return choice;
+  }) : screen.choices;
+  if (choices.length !== screen.choices.length) throw new Error(`Display order for ${screen.id} must list every choice once`);
+  const orderedNarration = key.displayOrder ? [prompt, screen.instructions, ...choices.map((choice) => choice.label)].filter(Boolean).join(' ') : narrationText;
+  const common = { prompt, contextParagraphs, choices, narrationText: orderedNarration, questionKind: 'objective' as const, answerBehaviorProvenance: key.provenance, questionFeedback };
   return screen.type === 'singleChoice'
     ? { ...screen, ...common, correctChoiceId: key.correct[0] }
     : { ...screen, ...common, correctChoiceIds: [...key.correct] };

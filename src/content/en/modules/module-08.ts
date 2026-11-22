@@ -1,18 +1,25 @@
 import { easyPapContent as c, easyPapSourceIds } from '@/src/content/helpers';
-import type { EducationModule, SingleChoiceLesson } from '@/src/types/content';
-const q = (id: string, prompt: string, choices: string[], correctChoiceId: string, explanation: string): SingleChoiceLesson => ({
+import type { EducationModule, MultiSelectLesson } from '@/src/types/content';
+
+// Display Module 9. Text written by Claude in the voice described in docs/curriculum/VOICE_GUIDE.md.
+// Lines that start with "•" render as a bullet list (src/content/rich-presentation.ts).
+
+/** A select-all-that-apply check: five options, two correct, explained per choice in src/content/question-feedback. */
+export const easyPapCheck = (id: string, prompt: string, choices: string[], correctChoiceIds: string[], explanation: string): MultiSelectLesson => ({
   id,
-  type: 'singleChoice',
+  type: 'multiSelect',
   title: 'Check Your Understanding',
   prompt,
+  instructions: 'Select all that apply. Hint: There are 2 correct answers.',
   choices: choices.map((label, index) => ({ id: `c${index + 1}`, label })),
-  correctChoiceId,
+  correctChoiceIds,
   questionKind: 'objective',
-  questionFeedback: { correctSummary: 'Correct.', incorrectSummary: 'Not quite.', generalExplanation: explanation },
+  questionFeedback: { correctSummary: 'Correct!', incorrectSummary: 'Well, not quite…', generalExplanation: explanation },
   narrationText: [prompt, ...choices].join(' '),
   sourceScreenshotIds: [],
   sourceIds: [...easyPapSourceIds],
   clinicalReviewStatus: 'not_reviewed',
+  answerBehaviorProvenance: 'CLAUDE_DRAFTED_AT_OWNER_REQUEST',
 });
 
 export const module08: EducationModule = {
@@ -20,93 +27,142 @@ export const module08: EducationModule = {
   order: 9,
   title: 'Getting Started with PAP',
   shortTitle: 'Getting Started with PAP',
-  description: 'Build comfort with PAP gradually and use the care team for treatment questions.',
+  description: 'Get comfortable with PAP step by step, and lean on your care team for treatment questions.',
   sourceScreenshotIds: [],
   curriculumVersion: 11,
   translationStatus: 'source',
   clinicalReviewStatus: 'not_reviewed',
   screens: [
+    // Part 1: getting comfortable
     c('m8-01', 'Getting Started with PAP', [
-      'Getting used to PAP can take time. Move through the acclimation stages at your own pace, and ask the prescribing healthcare provider when questions or problems come up.',
-      'PAP is prescribed with a particular mask or interface and settings. At first, the goal is to make the mask, airflow, and routine familiar enough to use during sleep, not to force a perfect night immediately.',
-      'Keep the care team involved. They can check the fit, review device data, and decide whether a comfort adjustment is appropriate. Do not change prescribed pressure on your own.',
+      'Congratulations on taking this important step to treat your OSA! Getting used to PAP can take time, and that\'s okay. Move through the practice steps in this module at your own pace.',
+      'Your PAP comes with a mask (also called an interface) and settings chosen for you. At first, the goal is to get comfortable with the mask and the airflow so you can use them while you sleep. You don\'t need a perfect night right away.',
+      'Keep your healthcare team involved. They can:',
+      '• Check how your mask fits\n• Review your device data\n• Decide whether a comfort change makes sense for you',
+      'Don\'t change your prescribed pressure on your own. Reach out to the healthcare provider who prescribed your PAP when questions or problems come up.',
     ], [
-      'Short, repeatable practice is progress; one difficult night does not mean PAP has failed.',
-      'Write down what feels difficult so you can bring a specific question to the PAP or sleep-care team.',
+      'Short practice sessions you can repeat are real progress. One hard night doesn\'t mean PAP has failed.',
+      'Write down what feels hard so you can bring a specific question to your PAP or sleep care team.',
     ]),
     c('m8-02', 'Start with a Comfortable Mask', [
-      'Begin by finding a mask or interface and headgear that feel comfortable. Different interfaces fit different faces and sleeping styles, and it may take trying more than one.',
-      'Focus on mask comfort before worrying about using the machine. With the machine running, adjust the straps just enough to create a seal. A mask should feel secure, not painfully tight.',
-      'If the mask only seals when the straps are very tight, ask the equipment team to check the size, cushion, or style. Nasal pillows, a nasal mask, and a full-face mask fit differently.',
+      'First, find a mask and headgear that feel comfortable. Masks fit different faces and sleeping styles, so you may need to try more than one, and that\'s normal.',
+      'Focus on comfort before you worry about using the machine. With the machine running, adjust the straps just enough to make a seal. The mask should feel secure, not painfully tight.',
+      'If the mask only seals when the straps are very tight, ask your equipment team to check the size, cushion, or style. Common mask styles fit differently:',
+      '• Nasal pillows\n• Nasal mask\n• Full-face mask',
     ], [
-      'Fit the mask with airflow running and make one small adjustment at a time.',
-      'Ask for a different size or interface when comfort depends on over-tightening.',
+      'Fit the mask with the air running, and make one small adjustment at a time.',
+      'Ask for a different size or style if the mask only seals when you over-tighten it.',
     ]),
-    c('m8-03', 'Practice While You’re Awake', [
-      'Practice using PAP while awake and sitting upright in a comfortable position for about one hour a day for several days. Pair it with reading or watching television.',
-      'Turn the machine on before placing the mask, then notice how the airflow feels while you are awake. A calm activity gives you time to practice breathing with the mask without also trying to fall asleep.',
-      'If the sensation becomes too much, pause and return to a shorter practice period later. Repeating manageable practice is more useful than forcing yourself through distress.',
+    c('m8-03', 'Practice While You\'re Awake', [
+      'Start by using PAP while you\'re awake. Sit upright in a comfortable spot for about one hour a day for several days. Reading or watching TV at the same time can help!',
+      'Turn the machine on before you put on the mask, then notice how the airflow feels. A calm activity gives you time to practice breathing with the mask without also trying to fall asleep.',
+      'If it starts to feel like too much, take a break and come back for a shorter session later. Repeating practice you can manage helps more than pushing through distress.',
     ], [
-      'Use an enjoyable, low-pressure activity to make practice predictable.',
-      'Increase practice time gradually as the mask and airflow become more familiar.',
+      'Pick something you enjoy doing so practice becomes a predictable part of your day.',
+      'Add practice time little by little as the mask and airflow feel more familiar.',
     ]),
     c('m8-04', 'Practice While Resting', [
-      'Next, use PAP while lying down during a scheduled rest or nap. Put your head down and close your eyes. You do not have to fall asleep for this practice to help.',
-      'Use a short, planned rest and notice whether your position, pressure, mask seal, or tubing feels like the main barrier. Support the tubing so it does not pull on the mask as you move.',
-      'If you become uncomfortable, take a break and try a shorter session another time. Persistent difficulty is a reason to ask the equipment or healthcare team for coaching.',
+      'Next, use PAP while lying down for a planned rest or nap. Put your head down and close your eyes. You don\'t have to fall asleep for this practice to help.',
+      'During a short, planned rest, notice what feels like the biggest barrier, such as:',
+      '• Your sleeping position\n• The air pressure\n• The mask seal\n• The tubing',
+      'Support the tubing so it doesn\'t pull on the mask when you move. If you feel uncomfortable, take a break and try a shorter session another time. If it keeps being hard, ask your equipment or healthcare team for coaching.',
     ], [
-      'Practice the position and setup you expect to use for sleep.',
-      'Keep tubing supported so movement does not pull the mask out of place.',
+      'Practice in the position and setup you plan to use for sleep.',
+      'Keep the tubing supported so moving around doesn\'t pull the mask out of place.',
     ]),
+    easyPapCheck(
+      'm8-q1',
+      'You can wear your PAP comfortably for about an hour while you\'re awake, but a whole night still feels like a lot. What could you do next?',
+      [
+        'Turn the pressure up a little so the air feels more natural.',
+        'Practice with PAP while lying down for a planned rest or nap.',
+        'Skip the rest practice and try sleeping a full night with it right away.',
+        'Take a week off from PAP, then start over from the beginning.',
+        'Keep practice sessions short and add time as they get easier.',
+      ],
+      ['c2', 'c5'],
+      'Build comfort step by step. Practice while resting, and keep sessions short enough to repeat.',
+    ),
+    // Part 2: moving PAP into the night
     c('m8-05', 'Bring PAP Into Your Bedtime Routine', [
-      'Once awake and resting practice feel comfortable, begin using PAP during the first part of nighttime sleep.',
-      'Make setup predictable: keep the mask, tubing, and machine ready before you feel sleepy, and avoid routing the tubing where it can tug on the mask.',
-      'If falling asleep remains difficult, ask whether your device has a ramp or autoramp comfort feature that is appropriate for you. Review these settings with the sleep-care team instead of changing them on your own.',
+      'Once practicing while awake and resting feels comfortable, it\'s time to bring PAP to bed! Start by using it during the first part of your nighttime sleep.',
+      'Make setup easy on yourself. Have the mask, tubing, and machine ready before you feel sleepy, and place the tubing where it won\'t tug on the mask.',
+      'If falling asleep is still hard, ask your sleep care team whether your device has a ramp or autoramp feature that\'s right for you. A ramp lowers the starting pressure while you fall asleep. Go over these settings with your team instead of changing them on your own.',
     ], [
-      'Start with the first part of sleep, then build from there.',
-      'Ask the care team about ramp or autoramp instead of changing pressure yourself.',
+      'Start with the first part of the night, then build from there.',
+      'Ask your care team about ramp or autoramp instead of changing the pressure yourself.',
     ]),
-    q('m8-q1', 'A person can now wear their PAP comfortably for about an hour while awake, but trying to use it for an entire night still feels overwhelming. Based on the acclimation sequence in this module, what is the best next step?', ['Increase the prescribed pressure so they fall asleep faster.', 'Practice with PAP while lying down during a scheduled rest or nap.', 'Skip the remaining practice stages and force themselves to wear it all night.', 'Stop using PAP until it feels completely natural without practice.'], 'c2', 'Build comfort gradually. Practice while resting before moving toward nighttime use.'),
     c('m8-06', 'Build Toward the Whole Night', [
-      'After practicing during the first part of nighttime sleep, work toward using PAP throughout the entire night. Progress can happen at your own pace.',
-      'Use PAP for the whole sleep period as you build tolerance. If you remove it during the night, put it back on when you wake enough to do so safely and note what prompted you to remove it.',
-      'Hours of use, leak information, and pressure data can help the care team see patterns. Use those data to guide a conversation rather than changing settings on your own.',
+      'After you\'ve practiced during the first part of the night, work toward using PAP the whole night. You can go at your own pace.',
+      'If you take the mask off during the night, put it back on once you\'re awake enough to do it safely. Make a note of what made you take it off, such as:',
+      '• Discomfort\n• Dryness\n• Leaks\n• Congestion\n• Noise\n• Pressure',
+      'Your device also tracks your hours of use, leaks, and pressure, which help your care team spot patterns. Use this information to start a conversation with your team, not to change settings on your own.',
     ], [
-      'Track what happens before you remove the mask: discomfort, dryness, leaks, congestion, noise, or pressure.',
-      'Bring repeated barriers to the care team early; support can make the next step more manageable.',
+      'Bring problems that keep coming back to your care team early. Support can make the next step easier.',
+      'Notes about what bothers you help your team find the right fix.',
     ]),
     c('m8-07', 'How Can I Tell if PAP Is Helping?', [
-      'Track symptoms before and after starting therapy, including sleepiness, daytime naps, or insomnia. Some symptoms may change quickly, while others may take weeks.',
-      'PAP devices collect treatment and use data that the healthcare team can review when assessing therapy.',
-      'Symptoms and device data answer different questions. Your notes describe how you feel, and the device can show use, leaks, and treatment information. If sleepiness persists or symptoms get worse, talk with the healthcare provider instead of changing the pressure yourself.',
+      'Keep track of your symptoms before and after you start PAP, such as:',
+      '• Sleepiness\n• Daytime naps\n• Insomnia (trouble falling or staying asleep)',
+      'Some symptoms may get better quickly, while others may take weeks.',
+      'Your PAP device also collects treatment and use data that your healthcare team can review. Your notes show how you feel, and the device shows use, leaks, and treatment information. If you\'re still sleepy or your symptoms get worse, talk with your healthcare provider instead of changing the pressure yourself.',
     ], [
-      'Record both your experience and the nights or hours you used PAP.',
-      'A follow-up review can identify mask, leak, comfort, or setting problems that are not obvious from symptoms alone.',
+      'Write down how you feel and the nights or hours you used PAP.',
+      'A follow-up visit can catch mask, leak, comfort, or setting problems that your symptoms alone might not show.',
     ]),
+    easyPapCheck(
+      'm8-q2',
+      'You\'ve started using PAP for the first part of the night. Which of these can help you build toward using it all night?',
+      [
+        'Only use PAP on nights when you feel very tired.',
+        'Put the mask back on if you wake up and find it came off.',
+        'Lower your pressure on nights when it\'s hard to fall asleep.',
+        'Ask your sleep team whether a ramp feature is right for you.',
+        'Wait until you feel better before you start tracking symptoms.',
+      ],
+      ['c2', 'c4'],
+      'Keep building at your own pace. Put the mask back on if it comes off, and ask your team about a ramp feature.',
+    ),
+    // Part 3: comfort, timing, and settings
     c('m8-08', 'What if PAP Feels Uncomfortable at First?', [
-      'An adjustment period is normal. Mask fit, the sensation of air pressure, and adding PAP to a bedtime routine can take time. Discuss persistent problems with the healthcare provider or equipment team.',
-      'Name the specific barrier, whether it is mask pressure, leaks, dryness, congestion, noise, claustrophobia, or difficulty exhaling, because each may have a different solution.',
-      'Ask whether another mask size or style, heated humidification, ramp or autoramp, or an expiratory comfort feature is available and appropriate for your device. These are care-team and device decisions.',
-      'If a problem repeatedly prevents use, contact the team promptly instead of abandoning treatment or changing settings without guidance.',
+      'Don\'t be surprised if PAP takes some getting used to. That\'s normal! Getting the mask to fit, feeling the air pressure, and adding PAP to your bedtime routine all take time. Talk to your healthcare provider or equipment team about problems that don\'t go away.',
+      'Try to name the exact problem, because each one may have a different fix:',
+      '• Mask pressure\n• Leaks\n• Dryness\n• Congestion\n• Noise\n• Feeling closed in (claustrophobia)\n• Trouble breathing out',
+      'Ask whether any of these are available and right for your device:',
+      '• A different mask size or style\n• Heated humidification\n• Ramp or autoramp\n• A comfort feature that makes breathing out easier',
+      'Your care team makes these decisions with you. If a problem keeps stopping you from using PAP, contact them right away instead of giving up on treatment or changing settings without guidance.',
     ], [
-      'Describe when the problem starts and what it feels like; details help the team troubleshoot.',
-      'Do not interpret early discomfort as proof that PAP cannot work for you.',
+      'Tell your team when the problem starts and what it feels like. Details help them troubleshoot.',
+      'Early discomfort doesn\'t mean PAP can\'t work for you.',
     ]),
     c('m8-09', 'When Should I Use PAP?', [
-      'Use PAP whenever sleeping, including nighttime sleep, naps, and travel.',
-      'Using it for every sleep period gives the treatment the best chance to support your breathing the whole time you are asleep. If you cannot use it for a particular sleep period, ask your healthcare team how to handle that safely.',
+      'Use PAP any time you sleep, including:',
+      '• Nighttime sleep\n• Naps\n• When you travel',
+      'Using it every time you sleep gives the treatment the best chance to support your breathing the whole time you\'re asleep. If you can\'t use it for a certain sleep period, ask your healthcare team how to handle that safely.',
     ], [
-      'Keep the mask and machine part of your regular sleep routine instead of using them only when you feel tired.',
-      'Ask the care team about barriers that make naps or sleep away from home difficult.',
+      'Make your mask and machine part of your regular sleep routine, not just something you use when you feel tired.',
+      'Ask your care team for help with anything that makes naps or sleeping away from home harder.',
     ]),
     c('m8-10', 'Who Adjusts My PAP Settings?', [
-      'The healthcare provider recommends the initial settings and may adjust them based on how you feel and PAP data. Do not independently change prescribed pressure.',
-      'At follow-up, share your symptom notes and ask the team to review hours of use, leaks, and other available treatment data. The team may decide that a mask change or a comfort feature is more useful than a pressure change.',
-      'Use only the comfort features and settings you have been taught to use. If the device feels too strong, too weak, or difficult to exhale against, contact the prescribing provider or equipment team.',
+      'Your healthcare provider recommends your starting settings and may adjust them based on how you feel and your PAP data. Please don\'t change your prescribed pressure on your own.',
+      'At follow-up visits, share your symptom notes and ask your team to review your hours of use, leaks, and other treatment data. Your team may decide that a mask change or a comfort feature will help more than a pressure change.',
+      'Only use the comfort features and settings you\'ve been taught to use. If the air feels too strong, too weak, or hard to breathe out against, contact the provider who prescribed your PAP or your equipment team.',
     ], [
-      'Do not change PAP settings on your own; they are part of your prescribed treatment.',
-      'Your observations and device data give the care team better information for a safe adjustment.',
+      'Your PAP settings are part of your prescribed treatment, so leave changes to your care team.',
+      'Your notes and device data help your care team make a safe adjustment.',
     ]),
-    q('m8-q2', 'A person has been using PAP for several days. They still feel tired and decide that the pressure must be too low, so they plan to increase it themselves. Which response best matches the module?', ['Increase the pressure gradually until daytime tiredness disappears.', 'Stop using PAP until the tiredness improves.', 'Keep track of symptoms and use, then review the PAP data and settings with the prescribing healthcare provider.', 'Use PAP only on nights when they feel especially tired.'], 'c3', 'Keep using PAP as directed and review symptoms, use data, and settings with the prescribing healthcare provider.'),
+    easyPapCheck(
+      'm8-q3',
+      'You\'ve used PAP for a few days, but you still feel tired. You wonder if your pressure is too low. What should you do?',
+      [
+        'Turn up the pressure a little more each night until you feel rested.',
+        'Take a break from PAP until the tiredness goes away.',
+        'Keep using PAP every time you sleep, including naps.',
+        'Tighten your mask straps so more air reaches your airway.',
+        'Bring your symptom notes and PAP data to your provider.',
+      ],
+      ['c3', 'c5'],
+      'Keep using PAP, and bring your notes and data to your healthcare provider, who decides whether a setting change is needed.',
+    ),
   ],
 };

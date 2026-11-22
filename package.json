@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "validate:content": "tsx scripts/validate-content.ts",
     "check:content-quality": "tsx scripts/content-quality-gate.ts",
+    "generate:locator": "tsx scripts/generate-curriculum-locator.ts",
     "verify:agents": "node scripts/verify-agent-orchestration.mjs",
     "test": "tsx --test tests/*.test.ts",
     "test:e2e": "playwright test"

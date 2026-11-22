@@ -13,6 +13,9 @@ export type AnswerBehaviorProvenance =
   | 'PRODUCT_OWNER_ANSWER_KEY'
   // Key and per-choice feedback read from the CIAS editor screen recording of 2026-11-21.
   | 'CIAS_SCREEN_RECORDING'
+  // Question, key, and explanations written by Claude at the product owner's request (2026-11-22, display
+  // Modules 9 and 10). Clinical review pending.
+  | 'CLAUDE_DRAFTED_AT_OWNER_REQUEST'
   | 'HELD_SOURCE_LIMITED_NO_CIAS_BEHAVIOR_PROMOTED'
   | 'NOT_APPLICABLE';
 

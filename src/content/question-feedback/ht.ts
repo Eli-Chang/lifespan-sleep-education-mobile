@@ -269,4 +269,64 @@ export const htQuestionFeedback: Record<string, LocaleQuestionFeedback> = {
       c6: 'Apne nan dòmi ka afekte anvi pou fè sèks tou atravè move dòmi, chanjman òmòn, chanjman imè, ak mwens sikilasyon san.',
     },
   },
+  'm8-q1': {
+    generalExplanation: 'Bati konfò w etap pa etap. Pratike pandan w ap repoze, epi kenbe sesyon yo kout ase pou w ka repete yo.',
+    optionExplanations: {
+      c1: 'Presyon w fè pati preskripsyon w, kidonk se sèlman pwofesyonèl sante w ki dwe chanje l.',
+      c2: 'Pratike pandan yon repo oswa yon ti dòmi ou planifye se pwochen etap la, epi ou pa bezwen dòmi pou sa ede w.',
+      c3: 'Sote dirèkteman sou yon nwit antye ka twòp, epi pratike pandan w ap repoze anvan fè etap sa a pi fasil.',
+      c4: 'Yon gwo kanpe pa fè pati plan an, epi sesyon pratik ki pi kout se yon fason ki pi dous pou w kontinye.',
+      c5: 'Sesyon kout ou ka repete yo bati konfò, epi ou ka ajoute tan pandan mask la vin pi abitye pou ou.',
+    },
+  },
+  'm8-q2': {
+    generalExplanation: 'Kontinye avanse nan pwòp ritm ou. Remete mask la si l soti, epi mande ekip ou a sou fonksyon ranp lan.',
+    optionExplanations: {
+      c1: 'Sèvi ak PAP chak fwa w dòmi bay tretman an pi bon chans pou l ede, pa sèlman nan nwit ou santi w fatige.',
+      c2: 'Remete mask la lè w reveye ase pou w fè l san danje ede w avanse pou rive sou tout nwit lan.',
+      c3: 'Se pwofesyonèl sante w ki fikse presyon w, kidonk mande sou fonksyon ranp lan olye w chanje l poukont ou.',
+      c4: 'Yon ranp bese presyon kòmansman an pandan w ap tonbe nan dòmi, epi ekip ou a ka di w si li bon pou aparèy ou.',
+      c5: 'Swiv sentòm yo anvan ak apre w kòmanse PAP ede ou menm ak ekip ou a wè si l ap mache.',
+    },
+  },
+  'm8-q3': {
+    generalExplanation: 'Kontinye sèvi ak PAP, epi pote nòt ou ak done yo bay pwofesyonèl sante w, ki deside si yon chanjman nan paramèt yo nesesè.',
+    optionExplanations: {
+      c1: 'Se sèlman pwofesyonèl sante w ki dwe chanje presyon yo preskri w la, menm si w toujou santi w fatige.',
+      c2: 'Kanpe PAP vle di respirasyon w pa gen sipò pandan w ap dòmi, kidonk kontinye sèvi avè l epi pale ak ekip ou a.',
+      c3: 'Sèvi ak PAP chak fwa w dòmi bay tretman an pi bon chans pou l mache pandan ekip ou a ap gade fatig la.',
+      c4: 'Yon mask ki pi sere pa ogmante presyon w, epi sere l twòp ka fè fwit lè ak pwen presyon yo vin pi mal.',
+      c5: 'Nòt ou ak done aparèy la ede pwofesyonèl sante w deside si yon chanjman nesesè.',
+    },
+  },
+  'm9-q1': {
+    generalExplanation: 'Lè ki soufle toupre tèt mask la ka vle di gen yon fwit lè. Tcheke jan mask la chita anvan, epi mande sou yon lòt modèl mask si sa kontinye.',
+    optionExplanations: {
+      c1: 'Presyon w fè pati preskripsyon w, kidonk se sèlman pwofesyonèl sante w ki dwe chanje l.',
+      c2: 'Lè toupre tèt mask la ka vle di gen yon fwit lè, kidonk remete mask la byen epi ajiste l se yon bon premye etap.',
+      c3: 'Imidite ede ak sechrès, men li pa anpeche lè k ap chape al nan je w, kidonk tcheke jan mask la chita anvan.',
+      c4: 'Si fwit lè a oswa iritasyon nan je w kontinye, yon lòt modèl mask ka chita pi byen sou ou.',
+      c5: 'Twou vantilasyon yo kite lè soti espre, kidonk ou pa dwe janm bouche yo.',
+    },
+  },
+  'm9-q2': {
+    generalExplanation: 'Bouch sèch ak yon mask nen ka soti nan lè k ap chape pa bouch ou. Tcheke si gen fwit lè pa bouch, epi mande ekip swen ou a sou yon sangle manton oswa yon mask ki kouvri tout figi.',
+    optionExplanations: {
+      c1: 'Ak yon mask nen, yon bouch ki louvri ka kite lè chape, sa ki ka fè bouch ou sèch.',
+      c2: 'Sere tout sangle yo pa anpeche lè chape pa bouch ou, epi sere twòp ka fè mask la chita pi mal.',
+      c3: 'Imidifikasyon ka ede ak sechrès, kidonk etenn li ka fè bouch ou vin pi sèch.',
+      c4: 'Sèvi ak PAP chak fwa w dòmi bay tretman an pi bon chans pou l mache, kidonk pito pale ak ekip ou a sou sechrès la.',
+      c5: 'Ekip swen ou a ka ede w deside si yon sangle manton oswa yon mask ki kouvri tout figi t ap mache pi byen pou ou.',
+    },
+  },
+  'm9-q3': {
+    generalExplanation: 'Fonksyon ranp lan ak ekip swen ou a ka ede ak vant gonfle, epi manyèl machin ou an dwe gide jan w netwaye l.',
+    optionExplanations: {
+      c1: 'Yon ranp bese presyon an pandan w ap tonbe nan dòmi, epi ekip swen ou a ka montre w kijan pou sèvi avè l.',
+      c2: 'Chanjman presyon bezwen pwofesyonèl sante w, kidonk pa ajiste presyon an poukont ou pou kouri dèyè yon sentòm.',
+      c3: 'Machin nan limenm pa dwe janm al nan dlo, kidonk siye deyò l jan manyèl la di.',
+      c4: 'Pyès ak materyèl yo varye, kidonk manyèl machin ou an vin anvan lè w ap netwaye.',
+      c5: 'Klowòks se youn nan pwodui pou w evite yo, kidonk sèvi ak savon dous ak dlo jan manyèl la di.',
+    },
+  },
 };

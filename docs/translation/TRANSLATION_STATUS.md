@@ -6,10 +6,10 @@ States: **source** is the authoring language. **approved** needs an entry in `sr
 
 | Language | Decided | Learner can select | Source | Approved | Draft awaiting native review | Missing | Screens still needing clinical review |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| English (`en`) | yes | yes | 113 | 0 | 0 | 0 | 113 of 113 |
-| Spanish (`es`) | yes | yes | 0 | 0 | 113 | 0 | 113 of 113 |
-| Portuguese (Brazil) (`pt-BR`) | no | yes | 0 | 0 | 113 | 0 | 113 of 113 |
-| Haitian Creole (`ht`) | no | yes | 0 | 0 | 113 | 0 | 113 of 113 |
+| English (`en`) | yes | yes | 114 | 0 | 0 | 0 | 114 of 114 |
+| Spanish (`es`) | yes | yes | 0 | 0 | 114 | 0 | 114 of 114 |
+| Portuguese (Brazil) (`pt-BR`) | no | yes | 0 | 0 | 114 | 0 | 114 of 114 |
+| Haitian Creole (`ht`) | no | yes | 0 | 0 | 114 | 0 | 114 of 114 |
 
 ## By module
 
@@ -23,7 +23,7 @@ States: **source** is the authoring language. **approved** needs an entry in `sr
 | `m5b` | 17 source | 17 draft awaiting native review | 17 draft awaiting native review | 17 draft awaiting native review |
 | `m6` | 11 source | 11 draft awaiting native review | 11 draft awaiting native review | 11 draft awaiting native review |
 | `m7` | 9 source | 9 draft awaiting native review | 9 draft awaiting native review | 9 draft awaiting native review |
-| `m8` | 12 source | 12 draft awaiting native review | 12 draft awaiting native review | 12 draft awaiting native review |
+| `m8` | 13 source | 13 draft awaiting native review | 13 draft awaiting native review | 13 draft awaiting native review |
 | `m9` | 14 source | 14 draft awaiting native review | 14 draft awaiting native review | 14 draft awaiting native review |
 
 ## Language varieties awaiting confirmation

@@ -269,4 +269,64 @@ export const ptBRQuestionFeedback: Record<string, LocaleQuestionFeedback> = {
       c6: 'A apneia do sono também pode afetar o desejo sexual pelo sono ruim, por mudanças hormonais, mudanças de humor e menor fluxo de sangue.',
     },
   },
+  'm8-q1': {
+    generalExplanation: 'Ganhe conforto passo a passo. Pratique enquanto descansa e mantenha as sessões curtas o bastante para repetir.',
+    optionExplanations: {
+      c1: 'Sua pressão faz parte da sua prescrição, então só o seu profissional de saúde deve mudá-la.',
+      c2: 'Praticar durante um descanso ou cochilo planejado é o próximo passo, e você não precisa dormir para isso ajudar.',
+      c3: 'Pular direto para uma noite inteira pode ser demais, e praticar primeiro enquanto descansa torna esse passo mais fácil.',
+      c4: 'Uma pausa longa não faz parte do plano, e sessões de prática mais curtas são um jeito mais suave de seguir em frente.',
+      c5: 'Sessões curtas que você consegue repetir trazem conforto, e você pode aumentar o tempo conforme a máscara fica mais familiar.',
+    },
+  },
+  'm8-q2': {
+    generalExplanation: 'Continue avançando no seu ritmo. Coloque a máscara de volta se ela sair e pergunte à sua equipe sobre a função rampa.',
+    optionExplanations: {
+      c1: 'Usar o PAP toda vez que você dorme dá ao tratamento a melhor chance de ajudar, não só nas noites em que você se sente cansada.',
+      c2: 'Colocar a máscara de volta quando estiver acordada o suficiente para fazer isso com segurança ajuda você a chegar à noite inteira.',
+      c3: 'Seu profissional de saúde define a sua pressão, então pergunte sobre a função rampa em vez de mudá-la por conta própria.',
+      c4: 'A rampa diminui a pressão inicial enquanto você adormece, e sua equipe pode dizer se ela é adequada para o seu aparelho.',
+      c5: 'Acompanhar os sintomas antes e depois de começar o PAP ajuda você e sua equipe a ver se ele está funcionando.',
+    },
+  },
+  'm8-q3': {
+    generalExplanation: 'Continue usando o PAP e leve suas anotações e dados ao seu profissional de saúde, que decide se é preciso mudar algum ajuste.',
+    optionExplanations: {
+      c1: 'Só o seu profissional de saúde deve mudar a pressão prescrita, mesmo que você ainda se sinta cansada.',
+      c2: 'Parar o PAP significa que sua respiração fica sem apoio enquanto você dorme, então continue usando e converse com sua equipe.',
+      c3: 'Usar o PAP toda vez que você dorme dá ao tratamento a melhor chance de funcionar enquanto sua equipe investiga o cansaço.',
+      c4: 'Uma máscara mais apertada não aumenta a pressão, e apertar demais pode piorar os vazamentos e os pontos de pressão.',
+      c5: 'Suas anotações e os dados do aparelho ajudam seu profissional de saúde a decidir se é preciso fazer alguma mudança.',
+    },
+  },
+  'm9-q1': {
+    generalExplanation: 'Ar soprando perto da parte de cima da máscara pode indicar um vazamento. Confira o ajuste primeiro e pergunte sobre outro modelo de máscara se continuar acontecendo.',
+    optionExplanations: {
+      c1: 'Sua pressão faz parte da sua prescrição, então só o seu profissional de saúde deve mudá-la.',
+      c2: 'Ar perto da parte de cima da máscara pode indicar um vazamento, então reposicionar a máscara e ajustar o encaixe é um bom primeiro passo.',
+      c3: 'A umidade ajuda com o ressecamento, mas não impede o ar que vaza em direção aos seus olhos, então confira o ajuste primeiro.',
+      c4: 'Se o vazamento ou a irritação nos olhos continuar, outro modelo de máscara pode se ajustar melhor a você.',
+      c5: 'As saídas de ar deixam o ar sair de propósito, então nunca devem ser cobertas.',
+    },
+  },
+  'm9-q2': {
+    generalExplanation: 'Boca seca com máscara nasal pode vir de ar escapando pela boca. Verifique se há vazamento pela boca e pergunte à sua equipe de saúde sobre uma faixa de queixo ou uma máscara facial completa.',
+    optionExplanations: {
+      c1: 'Com uma máscara nasal, a boca aberta pode deixar o ar escapar, o que pode ressecar a sua boca.',
+      c2: 'Apertar todas as tiras não impede o ar de escapar pela boca, e apertar demais pode piorar o encaixe.',
+      c3: 'A umidificação pode ajudar com o ressecamento, então desligá-la pode deixar sua boca ainda mais seca.',
+      c4: 'Usar o PAP toda vez que você dorme dá ao tratamento a melhor chance de funcionar, então leve o ressecamento à sua equipe.',
+      c5: 'Sua equipe de saúde pode ajudar a decidir se uma faixa de queixo ou uma máscara facial completa funcionaria melhor para você.',
+    },
+  },
+  'm9-q3': {
+    generalExplanation: 'A função rampa e sua equipe de saúde podem ajudar com o inchaço, e o manual do seu aparelho deve guiar a limpeza.',
+    optionExplanations: {
+      c1: 'A rampa diminui a pressão enquanto você adormece, e sua equipe de saúde pode mostrar como usá-la.',
+      c2: 'Mudanças de pressão precisam do seu profissional de saúde, então não ajuste a pressão por conta própria para correr atrás de um sintoma.',
+      c3: 'O aparelho em si nunca deve ir para a água, então limpe a parte de fora como o manual orienta.',
+      c4: 'Peças e materiais variam, então o manual do seu aparelho vem primeiro na hora de limpar.',
+      c5: 'A água sanitária está na lista de produtos a evitar, então use sabão neutro e água como o manual orienta.',
+    },
+  },
 };
