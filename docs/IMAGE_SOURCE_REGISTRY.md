@@ -2,6 +2,15 @@
 
 Accessed 2026-07-30. All assets are bundled locally; there is no runtime hotlinking. OpenMoji SVGs retain their upstream 72×72 viewBox and are already compact vector files. “Clinical review” means the asset was screened for fit with existing educational text, not independently approved by a clinician.
 
+## Rights status (2026-11-22)
+
+- Eli confirmed on 2026-11-22 that he has the rights to use the outside images and the YouTube videos in the app. This is Eli's statement. The repo holds no written permission letters.
+- Earlier, Eli said the app's images and videos do not come from outside sources. The records below show outside origins for some items, so the two statements conflict. This note relies on the 2026-11-22 confirmation of rights.
+- Openly licensed items keep their license terms. OpenMoji items and the `cpap-patient` image (MyUpchar via Wikimedia Commons) are CC BY-SA 4.0, which requires attribution and share-alike. `cpap-open-airway` is public domain.
+- `osa-breathing` is recorded as a user-provided image, but its labels name the Mayo Foundation for Medical Education and Research. The 2026-11-22 confirmation covers it.
+- Items marked "License/provenance unknown" keep that label, because no license document exists for them.
+- Known gap: the app does not yet display the attribution lines for the CC BY-SA items. Adding them changes learner-facing text, so it needs the content skills and all four languages. Not done in this change.
+
 ## Shared license sources
 
 - OpenMoji source: https://www.openmoji.org/ and https://github.com/hfg-gmuend/openmoji

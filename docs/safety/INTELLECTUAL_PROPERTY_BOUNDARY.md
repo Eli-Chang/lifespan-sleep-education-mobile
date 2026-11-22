@@ -10,4 +10,6 @@
 
 The AI companion and its Cloudflare Worker were removed on 2026-11-21, so the repository holds no server-side prompt, retrieval policy, or provider key. The mobile app contains only public/approved lesson content required for education and does not bundle the evidence-bank source documents as a released client artifact.
 
+Rights status (2026-11-22): Eli confirmed rights to the outside images and YouTube videos. Per-item licenses, the attribution requirements, and the open attribution gap are in `docs/IMAGE_SOURCE_REGISTRY.md`.
+
 No deployment, credential rotation, console setting, legal agreement, publication, or real-participant collection was performed in this audit.

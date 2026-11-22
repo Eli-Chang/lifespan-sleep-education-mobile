@@ -181,6 +181,8 @@ Audited 2026-10-21. Sources: `cias-normalized.txt` (CIAS EZ-PAP; Section III = p
 
 No image, video or attribution fields in the m9 JSON. Images are attached through `src/content/image-registry.ts` (m9-02 to m9-11; none for m9-01 or the quizzes). Every one is listed as `attribution: "User-provided image"`, `licenseStatus: "unknown/user-provided"`. No video.
 
+Rights status (2026-11-22): Eli confirmed rights to the images. The `unknown/user-provided` labels in the data are unchanged. Per-item records are in `docs/IMAGE_SOURCE_REGISTRY.md`.
+
 - **m9-02**: image-registry m9-02-mask-adjustment.jpg: alt text accurate. Looks like manufacturer product photography; attribution "User-provided image", licenseStatus "unknown/user-provided".
 - **m9-03**: image-registry m9-03-mask-leak-illustration.jpg: illustration of a full-face mask with airflow at the sides; alt text accurate; license unknown/user-provided.
 - **m9-04**: image-registry m9-04-water-in-mask.jpg: alt text says "Illustration" but it is a photo with English title text overlaid (looks like a third-party blog or retailer thumbnail); license unknown/user-provided; English text shows on the Spanish screen.
