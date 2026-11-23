@@ -15,29 +15,28 @@ export const enQuestionFeedback: Record<string, LocaleQuestionFeedback> = {
     c4: 'Your PAP pressure is prescribed, so any change should go through your care team.',
     c5: 'Your PAP or sleep-care team can help with equipment and comfort questions.',
   } },
-  'm3-q1': {
-    optionExplanations: {
-      c1: 'Untreated OSA often comes with other conditions, like diabetes, high blood pressure, and obesity, that raise the chance of a cesarean birth.',
-      c2: 'Untreated OSA is more common alongside conditions like diabetes, high blood pressure, and obesity, and those raise the chance of a cesarean birth.',
-    },
-  },
-  'm3-q3': { optionExplanations: {
-    c1: 'The common cold is caused by contagious viruses that spread by exposure, and untreated OSA doesn’t meaningfully increase short-term infection risk.',
-    c2: 'Untreated OSA causes repeated drops in oxygen and surges in stress hormones, which strain the heart and raise the risk of rhythm problems, heart failure, or other heart complications during delivery.',
-    c3: 'Food poisoning comes from eating contaminated food, and sleep apnea doesn’t meaningfully increase the risk of getting it.',
-    c4: 'Nosebleeds are usually caused by dry air, irritation, or blood thinners, and untreated OSA doesn’t increase the chance of them.',
+  'm3-q1': { optionExplanations: {
+    c1: 'Untreated OSA often comes with other conditions, like obesity and high blood pressure, that raise the chance of a cesarean birth.',
+    c2: 'Untreated OSA is more common alongside conditions like obesity and high blood pressure, and those raise the chance of a cesarean birth, so the statement is true.',
   } },
-  'm3-q4': { optionExplanations: {
-    c1: 'Abnormally high birth weights are usually linked to maternal diabetes or obesity, while sleep-disordered breathing (SDB) is linked to the opposite.',
-    c2: 'Studies have found a significant link between SDB and low birth weight, so normal birth weight isn’t the pattern they describe.',
-    c3: 'Seven studies have linked SDB to low birth weight, likely because low oxygen and stress-hormone surges can reduce blood and nutrient flow through the placenta and slow the baby’s growth.',
+  'm3-q3': { optionExplanations: {
+    c1: 'Appendicitis is an emergency that can happen to anyone, but studies of OSA during pregnancy haven’t linked the two.',
+    c2: 'Studies of hospital deliveries found that people with OSA had a higher risk of heart problems such as cardiomyopathy and heart failure, though these problems are rare.',
+    c3: 'Urinary tract infections are common during pregnancy, but studies of OSA during pregnancy haven’t linked the two.',
+    c4: 'Hemorrhoids are common around birth, but studies of OSA during pregnancy haven’t linked the two.',
   } },
   'm3-q5': { optionExplanations: {
     c1: 'Preeclampsia has been seen more often in pregnant people with sleep apnea, along with the high blood pressure that comes with it.',
-    c2: 'Food allergies are important to manage, but research hasn’t shown that sleep apnea causes them.',
-    c3: 'Lactose intolerance is important to manage, but research hasn’t shown that sleep apnea causes it.',
+    c2: 'Urinary tract infections are common during pregnancy, but research hasn’t linked them to sleep apnea.',
+    c3: 'Hemorrhoids are common during pregnancy, but research hasn’t linked them to sleep apnea.',
     c4: 'Low-oxygen events during sleep apnea raise your stress levels, which can push your blood pressure up.',
     c5: 'Low-oxygen events during sleep apnea raise your stress levels, which can increase insulin resistance and lead to high blood sugar.',
+  } },
+  'm3-q6': { optionExplanations: {
+    c1: 'PAP uses air from your room, not oxygen from a tank, to hold your airway open.',
+    c2: 'Small electric pulses to the tongue nerve are a different OSA treatment that uses an implanted device. PAP uses air pressure instead.',
+    c3: 'PAP gently pushes air through a mask, and that air pressure holds your airway open while you sleep.',
+    c4: 'PAP doesn’t deliver medicine. It uses air pressure alone to keep your airway open.',
   } },
   'm4-q1': {
     generalExplanation: 'Sleep apnea during pregnancy puts you at risk for high blood pressure, high blood sugar, and preeclampsia, because low-oxygen events raise your stress levels.',

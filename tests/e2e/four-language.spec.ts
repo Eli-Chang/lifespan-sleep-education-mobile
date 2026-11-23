@@ -62,7 +62,7 @@ for (const locale of NEW_LOCALES) {
         count += 1;
       }
     }
-    expect(count).toBe(114);
+    expect(count).toBe(116);
     expect(errors).toEqual([]);
   });
 
@@ -105,7 +105,7 @@ for (const locale of NEW_LOCALES) {
     await page.goto('/');
     await expect(page.getByText(strings.allModulesComplete)).toBeVisible();
     const stored = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE_KEY);
-    expect(stored.curriculumVersion).toBe(13);
+    expect(stored.curriculumVersion).toBe(14);
     expect(new Set(stored.completedModuleIds)).toEqual(new Set(englishModules.map((module) => module.id)));
   });
 }

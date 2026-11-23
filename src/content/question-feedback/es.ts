@@ -13,29 +13,28 @@ export const esQuestionFeedback: Record<string, LocaleQuestionFeedback> = {
     c4: 'La presión de su PAP es recetada, así que cualquier cambio debe pasar por su equipo de salud.',
     c5: 'Su equipo de PAP o de cuidado del sueño puede ayudarle con preguntas sobre el equipo y la comodidad.',
   } },
-  'm3-q1': {
-    optionExplanations: {
-      c1: 'La AOS sin tratar suele venir acompañada de otras afecciones, como diabetes, presión arterial alta y obesidad, que aumentan la probabilidad de una cesárea.',
-      c2: 'La AOS sin tratar es más común junto con afecciones como diabetes, presión arterial alta y obesidad, y estas aumentan la probabilidad de una cesárea.',
-    },
-  },
-  'm3-q3': { optionExplanations: {
-    c1: 'El resfriado común lo causan virus contagiosos que se transmiten por exposición, y la AOS sin tratar no aumenta de forma importante el riesgo de infecciones a corto plazo.',
-    c2: 'La AOS sin tratar causa bajadas repetidas de oxígeno y aumentos de las hormonas del estrés, que fuerzan el corazón y elevan el riesgo de problemas del ritmo, insuficiencia cardíaca u otras complicaciones del corazón durante el parto.',
-    c3: 'La intoxicación alimentaria viene de comer alimentos contaminados, y la apnea del sueño no aumenta de forma importante el riesgo de tenerla.',
-    c4: 'El sangrado de nariz suele deberse al aire seco, la irritación o los anticoagulantes, y la AOS sin tratar no aumenta la probabilidad de tenerlo.',
+  'm3-q1': { optionExplanations: {
+    c1: 'La AOS sin tratar suele presentarse junto con otras afecciones, como la obesidad y la presión arterial alta, que aumentan la probabilidad de un parto por cesárea.',
+    c2: 'La AOS sin tratar es más común junto con afecciones como la obesidad y la presión arterial alta, que aumentan la probabilidad de un parto por cesárea, así que la afirmación es verdadera.',
   } },
-  'm3-q4': { optionExplanations: {
-    c1: 'Un peso al nacer anormalmente alto suele asociarse con diabetes u obesidad de la madre, mientras que la respiración alterada durante el sueño (RAS) se asocia con lo contrario.',
-    c2: 'Los estudios han encontrado una relación importante entre la RAS y el bajo peso al nacer, así que un peso normal no es el patrón que describen.',
-    c3: 'Siete estudios han relacionado la RAS con el bajo peso al nacer, probablemente porque la falta de oxígeno y los aumentos de hormonas del estrés pueden reducir el flujo de sangre y nutrientes por la placenta y frenar el crecimiento del bebé.',
+  'm3-q3': { optionExplanations: {
+    c1: 'La apendicitis es una emergencia que le puede ocurrir a cualquier persona, pero los estudios sobre la AOS durante el embarazo no han encontrado una relación entre ambas.',
+    c2: 'Los estudios de partos en hospitales encontraron que las personas con AOS tenían un mayor riesgo de problemas cardíacos, como miocardiopatía e insuficiencia cardíaca, aunque estos problemas son poco frecuentes.',
+    c3: 'Las infecciones urinarias son comunes durante el embarazo, pero los estudios sobre la AOS durante el embarazo no han encontrado una relación entre ambas.',
+    c4: 'Las hemorroides son comunes alrededor del parto, pero los estudios sobre la AOS durante el embarazo no han encontrado una relación entre ambas.',
   } },
   'm3-q5': { optionExplanations: {
     c1: 'La preeclampsia se ha visto con más frecuencia en personas embarazadas con apnea del sueño, junto con la presión arterial alta que la acompaña.',
-    c2: 'Las alergias alimentarias son importantes de manejar, pero la investigación no ha demostrado que la apnea del sueño las cause.',
-    c3: 'La intolerancia a la lactosa es importante de manejar, pero la investigación no ha demostrado que la apnea del sueño la cause.',
+    c2: 'Las infecciones urinarias son comunes durante el embarazo, pero la investigación no las ha relacionado con la apnea del sueño.',
+    c3: 'Las hemorroides son comunes durante el embarazo, pero la investigación no las ha relacionado con la apnea del sueño.',
     c4: 'Los episodios de falta de oxígeno durante la apnea del sueño aumentan su nivel de estrés, lo que puede subir su presión arterial.',
     c5: 'Los episodios de falta de oxígeno durante la apnea del sueño aumentan su nivel de estrés, lo que puede aumentar la resistencia a la insulina y causar azúcar alta en la sangre.',
+  } },
+  'm3-q6': { optionExplanations: {
+    c1: 'PAP usa el aire de su habitación, no oxígeno de un tanque, para mantener abierta su vía respiratoria.',
+    c2: 'Los pequeños impulsos eléctricos al nervio de la lengua son otro tratamiento para la AOS que usa un dispositivo implantado. PAP usa presión de aire.',
+    c3: 'PAP empuja suavemente aire a través de una mascarilla, y esa presión de aire mantiene abierta su vía respiratoria mientras duerme.',
+    c4: 'PAP no administra medicamentos. Usa solo presión de aire para mantener abierta su vía respiratoria.',
   } },
   'm4-q1': {
     generalExplanation: 'La apnea del sueño durante el embarazo la pone en riesgo de presión arterial alta, azúcar alta en la sangre y preeclampsia, porque los episodios de falta de oxígeno aumentan su nivel de estrés.',

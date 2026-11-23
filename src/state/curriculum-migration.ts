@@ -8,12 +8,17 @@ import { englishModules } from '../content/en';
  * - 12: ten modules. The same 31 screens are split into m5 (Part 1) and m5b (Part 2); every screen ID is unchanged.
  * - 13: display Modules 9 and 10 (m8, m9) were rewritten with three select-all checks each. The old m8/m9 checks kept
  *       their IDs but got new choices, so answers saved against the old choices are dropped (the learner answers again).
+ * - 14: display Module 2 (m3) was reworked into ten steps. The birth-weight question (m3-q4) was retired, three new
+ *       screens were added (m3-06, m3-07, m3-q6), and the kept checks (m3-q1, m3-q3, m3-q5) got new wording or choices,
+ *       so their saved answers are dropped and Module 2 counts as complete only when every new step is done.
  */
-export const CURRICULUM_VERSION = 13;
+export const CURRICULUM_VERSION = 14;
 const PAP_REPLACEMENT_VERSION = 11;
 const SLEEP_HYGIENE_SPLIT_VERSION = 12;
 const PAP_CHECKS_REWRITE_VERSION = 13;
 const rewrittenPapChecks = ['m8-q1', 'm8-q2', 'm9-q1', 'm9-q2', 'm9-q3'];
+const MODULE_TWO_REWORK_VERSION = 14;
+const reworkedModuleTwoChecks = ['m3-q1', 'm3-q3', 'm3-q4', 'm3-q5'];
 
 const oldToNew: Record<string, string> = {
   'm1-s01':'m1-01','m1-s02':'m1-02','m1-s03':'m1-03','m1-s04':'m1-q1','m1-s05':'m1-05','m1-s06':'m1-r1',
@@ -114,12 +119,30 @@ const resetRewrittenPapChecks = (state: MigratedState): MigratedState => {
   };
 };
 
+/**
+ * v14 step: Module 2 rework. Forget answers to the changed checks, then recompute Module 2 completion from its
+ * current screens. A learner from version 11 to 13 who is not finished resumes at the first Module 2 step they have not
+ * completed. Older (pre-11) saves keep the legacy fallback position chosen by migrateLegacyIds.
+ */
+const reworkModuleTwo = (state: MigratedState, repositionResume: boolean): MigratedState => {
+  const omit = <T>(record: Record<string, T> | undefined) => Object.fromEntries(Object.entries(record ?? {}).filter(([id]) => !reworkedModuleTwoChecks.includes(id)));
+  const completedScreenIds = (state.completedScreenIds ?? []).filter((id) => !reworkedModuleTwoChecks.includes(id));
+  const moduleTwo = screenIdsOf('m3');
+  const done = new Set(completedScreenIds);
+  const complete = moduleTwo.length > 0 && moduleTwo.every((id) => done.has(id));
+  const completedModuleIds = (state.completedModuleIds ?? []).filter((id) => id !== 'm3' || complete);
+  const lastScreenByModule = { ...(state.lastScreenByModule ?? {}) };
+  if (repositionResume && !complete && lastScreenByModule.m3) lastScreenByModule.m3 = moduleTwo.find((id) => !done.has(id)) ?? moduleTwo[0];
+  return { ...state, answers: omit(state.answers), answerAttempts: omit(state.answerAttempts), completedScreenIds, completedModuleIds, lastScreenByModule };
+};
+
 /** Always remove obsolete Vela/AI records while retaining supported local learning data. */
 export const migrateLearningState = (input: LegacyState): MigratedState => {
   const startingVersion = typeof input.curriculumVersion === 'number' ? input.curriculumVersion : 0;
   let state = migrateLegacyIds(input);
   if (startingVersion < SLEEP_HYGIENE_SPLIT_VERSION) state = splitSleepHygiene(state);
   if (startingVersion < PAP_CHECKS_REWRITE_VERSION) state = resetRewrittenPapChecks(state);
+  if (startingVersion < MODULE_TWO_REWORK_VERSION) state = reworkModuleTwo(state, startingVersion >= PAP_REPLACEMENT_VERSION);
   return { ...state, curriculumVersion: Math.max(startingVersion, CURRICULUM_VERSION) };
 };
 

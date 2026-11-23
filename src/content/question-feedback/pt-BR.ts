@@ -13,29 +13,28 @@ export const ptBRQuestionFeedback: Record<string, LocaleQuestionFeedback> = {
     c4: 'A pressão do seu PAP é prescrita, então qualquer mudança deve passar pela sua equipe de saúde.',
     c5: 'Sua equipe de PAP ou de cuidados do sono pode ajudar com dúvidas sobre o equipamento e o conforto.',
   } },
-  'm3-q1': {
-    optionExplanations: {
-      c1: 'A AOS não tratada costuma vir acompanhada de outras condições, como diabetes, pressão alta e obesidade, que aumentam a chance de uma cesariana.',
-      c2: 'A AOS não tratada é mais comum junto com condições como diabetes, pressão alta e obesidade, e elas aumentam a chance de uma cesariana.',
-    },
-  },
-  'm3-q3': { optionExplanations: {
-    c1: 'O resfriado comum é causado por vírus contagiosos que passam de pessoa para pessoa, e a AOS não tratada não aumenta de forma importante o risco de infecções de curto prazo.',
-    c2: 'A AOS não tratada causa quedas repetidas de oxigênio e picos de hormônios do estresse, que sobrecarregam o coração e aumentam o risco de problemas de ritmo, insuficiência cardíaca ou outras complicações do coração durante o parto.',
-    c3: 'A intoxicação alimentar vem de comer alimentos contaminados, e a apneia do sono não aumenta de forma importante o risco de tê-la.',
-    c4: 'O sangramento nasal costuma ser causado por ar seco, irritação ou anticoagulantes, e a AOS não tratada não aumenta a chance de ele acontecer.',
+  'm3-q1': { optionExplanations: {
+    c1: 'A AOS não tratada costuma vir acompanhada de outras condições, como obesidade e pressão alta, que aumentam a chance de uma cesariana.',
+    c2: 'A AOS não tratada é mais comum junto com condições como obesidade e pressão alta, que aumentam a chance de uma cesariana, então a afirmação é verdadeira.',
   } },
-  'm3-q4': { optionExplanations: {
-    c1: 'Um peso ao nascer anormalmente alto costuma estar ligado a diabetes ou obesidade da mãe, enquanto os distúrbios respiratórios do sono (DRS) estão ligados ao contrário.',
-    c2: 'Os estudos encontraram uma ligação importante entre DRS e baixo peso ao nascer, então o peso normal não é o padrão que eles descrevem.',
-    c3: 'Sete estudos ligaram os DRS ao baixo peso ao nascer, provavelmente porque a falta de oxigênio e os picos de hormônios do estresse podem reduzir o fluxo de sangue e nutrientes pela placenta e atrasar o crescimento do bebê.',
+  'm3-q3': { optionExplanations: {
+    c1: 'A apendicite é uma emergência que pode acontecer com qualquer pessoa, mas os estudos sobre AOS na gravidez não encontraram relação entre as duas.',
+    c2: 'Estudos de partos em hospitais mostraram que pessoas com AOS tinham maior risco de problemas cardíacos, como cardiomiopatia e insuficiência cardíaca, embora esses problemas sejam raros.',
+    c3: 'Infecções urinárias são comuns na gravidez, mas os estudos sobre AOS na gravidez não encontraram relação entre as duas.',
+    c4: 'Hemorroidas são comuns perto do parto, mas os estudos sobre AOS na gravidez não encontraram relação entre as duas.',
   } },
   'm3-q5': { optionExplanations: {
     c1: 'A pré-eclâmpsia aparece com mais frequência em gestantes com apneia do sono, junto com a pressão alta que a acompanha.',
-    c2: 'Alergias alimentares são importantes de cuidar, mas as pesquisas não mostraram que a apneia do sono as cause.',
-    c3: 'A intolerância à lactose é importante de cuidar, mas as pesquisas não mostraram que a apneia do sono a cause.',
+    c2: 'Infecções urinárias são comuns na gravidez, mas as pesquisas não as relacionaram à apneia do sono.',
+    c3: 'Hemorroidas são comuns na gravidez, mas as pesquisas não as relacionaram à apneia do sono.',
     c4: 'Os episódios de falta de oxigênio na apneia do sono aumentam o seu nível de estresse, o que pode elevar a sua pressão arterial.',
     c5: 'Os episódios de falta de oxigênio na apneia do sono aumentam o seu nível de estresse, o que pode aumentar a resistência à insulina e levar a açúcar alto no sangue.',
+  } },
+  'm3-q6': { optionExplanations: {
+    c1: 'O PAP usa o ar do seu quarto, e não oxigênio de um cilindro, para manter suas vias aéreas abertas.',
+    c2: 'Pequenos impulsos elétricos no nervo da língua são outro tratamento para AOS, que usa um dispositivo implantado. O PAP usa pressão de ar.',
+    c3: 'O PAP empurra o ar suavemente por uma máscara, e essa pressão de ar mantém suas vias aéreas abertas enquanto você dorme.',
+    c4: 'O PAP não aplica medicamentos. Ele usa apenas pressão de ar para manter suas vias aéreas abertas.',
   } },
   'm4-q1': {
     generalExplanation: 'A apneia do sono na gravidez coloca você em risco de pressão alta, açúcar alto no sangue e pré-eclâmpsia, porque os episódios de falta de oxigênio aumentam o seu nível de estresse.',

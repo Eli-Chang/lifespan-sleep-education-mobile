@@ -5,7 +5,7 @@ Generated from the code by `scripts/generate-review-reports.ts`. Do not edit by 
 | # | ID | English title | Spanish title | Screens | Content | Single choice | Multi-select | Reflection items | Summary | Images (license not recorded) | Videos | CIAS-app screens | CIAS EZ-PAP doc | ATS supplement | App curriculum | Clinical status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | `m1` | Intro to Sleep Apnea | Introducción a la apnea del sueño | 10 | 6 | 1 | 2 | 1 | 1 | 7 (6) | 1 | 3 | 0 | 0 | 7 | not_reviewed |
-| 2 | `m3` | OSA Outcomes and Motivation | Resultados de la AOS y motivación | 8 | 3 | 3 | 1 | 0 | 1 | 3 (3) | 0 | 6 | 0 | 0 | 2 | not_reviewed |
+| 2 | `m3` | OSA Outcomes and Motivation | Resultados de la AOS y motivación | 10 | 5 | 3 | 1 | 0 | 1 | 3 (3) | 0 | 5 | 0 | 0 | 5 | not_reviewed |
 | 3 | `m4` | Sleep Apnea and Health of Your Pregnancy and Baby | Apnea del sueño y salud de su embarazo y bebé | 10 | 4 | 1 | 4 | 0 | 1 | 3 (3) | 2 | 8 | 0 | 0 | 2 | not_reviewed |
 | 4 | `m2` | How Does Sleep Apnea Impact My Partner? | ¿Cómo afecta la apnea del sueño a mi pareja? | 8 | 4 | 2 | 1 | 0 | 1 | 4 (4) | 0 | 7 | 0 | 0 | 1 | not_reviewed |
 | 5 | `m5` | Healthy Sleep Hygiene, Part 1: Routine and Light | Higiene saludable del sueño, parte 1: rutina y luz | 14 | 8 | 0 | 6 | 0 | 0 | 7 (7) | 0 | 12 | 0 | 0 | 2 | not_reviewed |
@@ -15,14 +15,14 @@ Generated from the code by `scripts/generate-review-reports.ts`. Do not edit by 
 | 9 | `m8` | Getting Started with PAP | Cómo empezar con PAP | 13 | 10 | 0 | 3 | 0 | 0 | 9 (9) | 0 | 0 | 13 | 13 | 0 | not_reviewed |
 | 10 | `m9` | Troubleshooting PAP | Resolución de problemas con PAP | 14 | 11 | 0 | 3 | 0 | 0 | 10 (10) | 0 | 0 | 14 | 14 | 0 | not_reviewed |
 
-Totals: 10 modules, 114 screens per language, 66 image placements.
+Totals: 10 modules, 116 screens per language, 66 image placements.
 
 "Reflection items" counts reflection screens plus ungraded choice questions. "Images (license not recorded)" counts images whose registry entry says user-provided or unknown license. Source columns count screens that cite each source ID; a screen can cite several.
 
 ## Screen IDs by module
 
 - `m1` (10): `m1-01`, `m1-03`, `m1-q1`, `m1-04`, `m1-05`, `m1-r1`, `m1-06`, `m1-07`, `m1-q2`, `m1-recap`
-- `m3` (8): `m3-01`, `m3-05`, `m3-q1`, `m3-q3`, `m3-q4`, `m3-q5`, `m3-04`, `m3-recap`
+- `m3` (10): `m3-01`, `m3-05`, `m3-q5`, `m3-06`, `m3-q1`, `m3-07`, `m3-q3`, `m3-04`, `m3-q6`, `m3-recap`
 - `m4` (10): `m4-01`, `m4-q1`, `m4-03`, `m4-04`, `m4-q4`, `m4-05`, `m4-06`, `m4-q6`, `m4-q3`, `m4-recap`
 - `m2` (8): `m2-01`, `m2-r1`, `m2-03`, `m2-05`, `m2-04`, `m2-q2`, `m2-q1`, `m2-recap`
 - `m5` (14): `m5-01`, `m5-02`, `m5-03`, `m5-q5`, `m5-q6`, `m5-04`, `m5-13`, `m5-05`, `m5-q7`, `m5-11`, `m5-q1`, `m5-14`, `m5-q9`, `m5-q4`

@@ -13,29 +13,28 @@ export const htQuestionFeedback: Record<string, LocaleQuestionFeedback> = {
     c4: 'Presyon PAP ou a se yon preskripsyon, kidonk nenpòt chanjman dwe pase nan ekip swen w lan.',
     c5: 'Ekip PAP ou oswa ekip swen dòmi w ka ede w ak kesyon sou ekipman an ak konfò w.',
   } },
-  'm3-q1': {
-    optionExplanations: {
-      c1: 'OSA ki pa trete souvan vini ak lòt pwoblèm, tankou dyabèt, tansyon wo, ak obezite, ki ogmante chans pou yon sezaryèn.',
-      c2: 'OSA ki pa trete pi komen ansanm ak pwoblèm tankou dyabèt, tansyon wo, ak obezite, epi pwoblèm sa yo ogmante chans pou yon sezaryèn.',
-    },
-  },
-  'm3-q3': { optionExplanations: {
-    c1: 'Se viris ki trape lè w ekspoze ki bay grip, epi OSA ki pa trete pa ogmante risk enfeksyon kout tèm yon fason ki konte.',
-    c2: 'OSA ki pa trete fè oksijèn nan kò a desann plizyè fwa epi òmòn estrès monte, sa fatige kè a epi ogmante risk pou pwoblèm ritm kè, kè ki fèb, oswa lòt konplikasyon kè pandan akouchman.',
-    c3: 'Entoksikasyon ak manje soti nan manje ki kontamine, epi apne nan dòmi pa ogmante risk pou w genyen l yon fason ki konte.',
-    c4: 'Senyen nan nen souvan soti nan lè sèk, iritasyon, oswa medikaman ki fè san an klè, epi OSA ki pa trete pa ogmante chans pou sa rive.',
+  'm3-q1': { optionExplanations: {
+    c1: 'OSA ki pa trete souvan vini ansanm ak lòt kondisyon, tankou obezite ak tansyon wo, ki ogmante chans pou yon akouchman pa sezaryèn.',
+    c2: 'OSA ki pa trete pi komen ansanm ak kondisyon tankou obezite ak tansyon wo, epi kondisyon sa yo ogmante chans pou yon akouchman pa sezaryèn, kidonk deklarasyon an vre.',
   } },
-  'm3-q4': { optionExplanations: {
-    c1: 'Yon pwa nesans ki twò wo konn gen rapò ak dyabèt oswa obezite manman an, men pwoblèm respirasyon pandan dòmi (SDB) gen rapò ak kontrè a.',
-    c2: 'Etid yo jwenn yon gwo lyen ant SDB ak pwa nesans ki ba, kidonk pwa nòmal se pa sa yo dekri.',
-    c3: 'Sèt etid fè lyen ant SDB ak pwa nesans ki ba, petèt paske mank oksijèn ak òmòn estrès ki monte ka diminye san ak nouriti ki pase nan plasenta a epi ralanti kwasans tibebe a.',
+  'm3-q3': { optionExplanations: {
+    c1: 'Apendisit se yon ijans ki ka rive nenpòt moun, men etid sou OSA pandan gwosès pa jwenn lyen ant de bagay sa yo.',
+    c2: 'Etid sou akouchman lopital jwenn moun ki gen OSA te gen plis risk pou pwoblèm kè, tankou kadyomyopati ak ensifizans kadyak, menm si pwoblèm sa yo ra.',
+    c3: 'Enfeksyon nan pipi komen pandan gwosès, men etid sou OSA pandan gwosès pa jwenn lyen ant de bagay sa yo.',
+    c4: 'Emowoyid komen toupre moman akouchman an, men etid sou OSA pandan gwosès pa jwenn lyen ant de bagay sa yo.',
   } },
   'm3-q5': { optionExplanations: {
     c1: 'Yo wè preeklanpsi pi souvan nan moun ansent ki gen apne nan dòmi, ansanm ak tansyon wo ki vini avè l.',
-    c2: 'Alèji manje enpòtan pou okipe, men rechèch pa montre apne nan dòmi lakòz yo.',
-    c3: 'Entolerans laktoz enpòtan pou okipe, men rechèch pa montre apne nan dòmi lakòz li.',
+    c2: 'Enfeksyon nan pipi komen pandan gwosès, men rechèch yo pa jwenn lyen ant yo ak apne nan dòmi.',
+    c3: 'Emowoyid komen pandan gwosès, men rechèch yo pa jwenn lyen ant yo ak apne nan dòmi.',
     c4: 'Lè oksijèn desann pandan apne nan dòmi, estrès ou monte, sa ka fè tansyon w monte.',
     c5: 'Lè oksijèn desann pandan apne nan dòmi, estrès ou monte, sa ka ogmante rezistans ensilin epi fè sik nan san w monte.',
+  } },
+  'm3-q6': { optionExplanations: {
+    c1: 'PAP sèvi ak lè ki nan chanm ou, pa oksijèn ki soti nan yon tank, pou kenbe wout respiratwa w ouvè.',
+    c2: 'Ti batman elektrik sou nè lang lan se yon lòt tretman pou OSA ki sèvi ak yon aparèy yo mete anndan kò a. PAP sèvi ak presyon lè pito.',
+    c3: 'PAP pouse lè dousman nan yon mask, epi presyon lè sa a kenbe wout respiratwa w ouvè pandan w ap dòmi.',
+    c4: 'PAP pa bay medikaman. Li sèvi sèlman ak presyon lè pou kenbe wout respiratwa w ouvè.',
   } },
   'm4-q1': {
     generalExplanation: 'Apne nan dòmi pandan gwosès mete w an risk pou tansyon wo, sik wo nan san, ak preeklanpsi, paske lè oksijèn desann estrès ou monte.',

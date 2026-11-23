@@ -77,7 +77,7 @@ for (const language of ['en', 'es'] as const) {
     await page.goto('/');
     await expect(page.getByText(t.all)).toBeVisible();
     const stored = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE_KEY);
-    expect(stored.curriculumVersion).toBe(13);
+    expect(stored.curriculumVersion).toBe(14);
     expect(new Set(stored.completedModuleIds)).toEqual(new Set(t.modules.map((module) => module.id)));
   });
 }
@@ -96,10 +96,10 @@ test('saved nine-module progress opens on Part 2 and keeps both sleep hygiene pa
   await page.goto('/');
   await expect(page.getByRole('button', { name: /^5\. Healthy Sleep Hygiene, Part 1: Routine and Light\. Complete/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /^6\. Healthy Sleep Hygiene, Part 2: Environment and Daily Habits\. Complete/ })).toBeVisible();
-  await expect(page.getByText('Module 7', { exact: true })).toBeVisible();
+  await expect(page.getByText('MODULE 7', { exact: true })).toBeVisible();
   const stored = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE_KEY);
-  expect(stored.curriculumVersion).toBe(13);
-  expect(stored.completedModuleIds).toEqual(['m1', 'm3', 'm4', 'm2', 'm5', 'm5b']);
+  expect(stored.curriculumVersion).toBe(14);
+  expect(stored.completedModuleIds).toEqual(['m1', 'm4', 'm2', 'm5', 'm5b']);
   expect(stored.currentModuleId).toBe('m5b');
   expect(stored.answers).toEqual({ 'm5-q2': ['c1'] });
 });

@@ -59,10 +59,12 @@ export function sourceCitationsMarkdown(): string {
     '',
     '## Statements the evidence does not support as written',
     '',
+    ...(CITATION_CONFLICTS.length === 0 ? ['None open. The last one, the Module 2 newborn birth-weight question, was retired in the 2026-11-22 Module 2 rework.'] : [
     'These come from the CIAS text and were left unchanged. They need the content owner\'s decision (and clinical review) before anything is cited there.',
     '',
     '| Module, step | Wording on the screen | Papers | What the papers say |',
     '| --- | --- | --- | --- |',
+    ]),
     ...CITATION_CONFLICTS.map((conflict) => {
       const location = where(conflict.screenId);
       return `| ${location.displayModule}, ${location.step} | "${cell(conflict.claim)}" | ${conflict.pmids.map((pmid) => `[PMID ${pmid}](${pubmedUrl(pmid)})`).join(', ')} | ${cell(conflict.issue)} |`;

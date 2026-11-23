@@ -34,7 +34,7 @@ describe('check-your-understanding questions', () => {
   it('keep the true/false statements for m2-q1 and m3-q1 above the question, with keys that match their wording', () => {
     const en = Object.fromEntries(screensFor('en').map(({ screen }) => [screen.id, screen]));
     const statement = (id: string) => { const screen = en[id]; return screen.type === 'singleChoice' ? (screen.contextParagraphs ?? []).join(' ') : ''; };
-    assert.match(statement('m3-q1'), /co-morbid illnesses that increase their risk for cesarean births/);
+    assert.match(statement('m3-q1'), /co-morbid illnesses, such as obesity or high blood pressure, that increase their risk for cesarean births/);
     assert.match(statement('m2-q1'), /some couples also report increased relationship satisfaction/);
     // The approved m2-q1 wording is true, so True is the key; m3-q1 is true in the CIAS slides.
     assert.deepEqual(keyOf(en['m2-q1']), ['c1']);

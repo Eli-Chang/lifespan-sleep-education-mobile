@@ -12,7 +12,7 @@ export interface ScreenCitation {
   journal: string;
   year: number;
   title: string;
-  studyType: 'guideline' | 'systematic review and meta-analysis' | 'systematic review' | 'randomized trial' | 'cohort' | 'cross-sectional survey' | 'narrative review';
+  studyType: 'guideline' | 'systematic review and meta-analysis' | 'systematic review' | 'randomized trial' | 'cohort' | 'cross-sectional study' | 'cross-sectional survey' | 'narrative review';
   /** The English sentence on the screen that this paper supports. */
   claim: string;
   /** Sentence from the PubMed abstract that supports the claim. */
@@ -35,6 +35,21 @@ export const SCREEN_CITATIONS: Record<string, ScreenCitation> = {
     title: "Association between Sleep-Disordered Breathing during Pregnancy and Maternal and Fetal Outcomes: An Updated Systematic Review and Meta-Analysis.",
     claim: "Research has found associations between OSA during pregnancy and conditions including gestational diabetes, high blood pressure, and preeclampsia.",
     supportingQuote: "SDB during pregnancy was associated with a significantly increased risk of gestational diabetes mellitus (GDM), pregnancy-induced hypertension (PIH), and preeclampsia (PEC), but not significantly associated with fetal maternal outcomes, namely APGAR score and birth weight." },
+  "m3-06": { pmid: "41066984", doi: "10.1016/j.ejogrb.2025.114753", firstAuthor: "Yao", journal: "Eur J Obstet Gynecol Reprod Biol", year: 2025, studyType: "cross-sectional study",
+    title: "Obstructive sleep apnea in pregnancy: Nationwide assessment of obstetric characteristics and maternal morbidity at delivery.",
+    claim: "In a large U.S. study of more than 18 million hospital deliveries, people with OSA were more likely to also have:",
+    reviewNote: "National Inpatient Sample (18,056,390 deliveries, 2016 to 2020); OSA and other conditions come from hospital billing codes. The same abstract reports cesarean delivery in 62.3% of the OSA group vs 50.4% (matched cohort), which supports the screen's next statement.",
+    supportingQuote: "Patients with OSA were more likely to have a diagnosis of obesity (69.7 % vs 11.4 %, adjusted-odds ratio [aOR] 9.97, 95 % confidence interval [CI] 9.67-10.28), asthma (28.0 % vs 5.2 %, aOR 3.19, 95%CI 3.09-3.29), pre-gestational hypertension (24.8 % vs 2.8 %, aOR 2.77, 95%CI 2.68-2.87), and polycystic ovary syndrome (5.6 % vs 0.7 %, aOR 2.58, 95%CI 2.42-2.74)." },
+  "m3-07": { pmid: "29031756", doi: "10.1016/j.sleep.2017.06.035", firstAuthor: "Bourjeily", journal: "Sleep Med", year: 2017, studyType: "cohort",
+    title: "Obstructive sleep apnea in pregnancy is associated with adverse maternal outcomes: a national cohort.",
+    claim: "A national study of more than 1.5 million deliveries found that people with OSA had a higher risk of rare but serious heart problems, such as cardiomyopathy and heart failure.",
+    reviewNote: "1,577,632 deliveries (2010 to 2014); OSA identified from delivery discharge codes, so undiagnosed OSA is missed.",
+    supportingQuote: "OSA status was also associated with a 2.5-3.5-fold increase in risk of severe complications such as cardiomyopathy, congestive heart failure, and hysterectomy." },
+  "m3-04": { pmid: "31792939", doi: "10.1002/14651858.CD003531.pub4", firstAuthor: "Kennedy", journal: "Cochrane Database Syst Rev", year: 2019, studyType: "systematic review and meta-analysis",
+    title: "Pressure modification or humidification for improving usage of continuous positive airway pressure machines in adults with obstructive sleep apnoea.",
+    claim: "The air pressure holds your airway open, a bit like a splint made of air.",
+    reviewNote: "Same review as Module 1, Step 8. The supporting sentence is from the review background, and the splint comparison is plain-language wording, not the review's.",
+    supportingQuote: "They deliver air pressure by a nasal or oronasal mask to prevent the airway from closing, reducing sleep disturbance and improving sleep quality." },
   "m4-06": { pmid: "37007771", doi: "10.3389/fmed.2023.1144170", firstAuthor: "Bisson", journal: "Front Med (Lausanne)", year: 2023, studyType: "narrative review",
     title: "Preeclampsia pathophysiology and adverse outcomes during pregnancy and postpartum.",
     claim: "In addition to the information mentioned in the video, it's important to note that preeclampsia puts you at risk for organ damage in addition to just the heart.",
@@ -116,8 +131,7 @@ export const SCREEN_CITATIONS: Record<string, ScreenCitation> = {
 
 /** Slide statements that PubMed evidence contradicts or overstates. They are not cited; they need the content owner's decision. */
 export const CITATION_CONFLICTS: { screenId: string; claim: string; pmids: string[]; issue: string }[] = [
-  { screenId: 'm3-q4', claim: 'lower birth weight (the keyed answer to this learning question)', pmids: ['29892255', '37956482'],
-    issue: 'Li 2018 (meta-analysis) found sleep-disordered breathing in pregnancy was not significantly associated with birth weight, and Sanapo 2024 (meta-analysis) linked objectively diagnosed OSA with large-for-gestational-age babies. The same claim was removed from the module recap on 2026-11-22; this question was left as it is.' },
+  // The Module 2 birth-weight question (m3-q4) was listed here until the 2026-11-22 rework retired it.
 ];
 
 export const pubmedUrl = (pmid: string) => `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;

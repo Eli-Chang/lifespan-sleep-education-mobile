@@ -150,7 +150,7 @@ test('version 13 drops saved answers to the rewritten Module 9 and 10 checks onl
     answers: { 'm8-q2': ['c3'], 'm4-q1': ['c1', 'c4', 'c5'] },
     answerAttempts: { 'm9-q3': [{ answers: ['c2'], correct: true, submittedAt: 'test' }], 'm4-q1': [{ answers: ['c1', 'c4', 'c5'], correct: true, submittedAt: 'test' }] },
   });
-  assert.equal(migrated.curriculumVersion, 13);
+  assert.equal(migrated.curriculumVersion, CURRICULUM_VERSION);
   assert.deepEqual(migrated.completedScreenIds, ['m8-04', 'm4-q1']);
   assert.deepEqual(migrated.completedModuleIds, ['m8']);
   assert.deepEqual(migrated.lastScreenByModule, { m8: 'm8-q2' });
@@ -170,4 +170,23 @@ test('legacy pre-version-11 sleep hygiene screen IDs map into the split modules'
   assert.deepEqual(migrated.completedScreenIds, ['m5-01', 'm5-06']);
   assert.deepEqual(migrated.answers, { 'm5-q2': ['c1'] });
   assert.deepEqual(migrated.lastScreenByModule, { m5b: 'm5-15' });
+});
+
+test('version 14 resets the reworked Module 2 checks and reopens Module 2 until its new steps are done', () => {
+  const migrated = migrateLearningState({
+    curriculumVersion: 13,
+    completedScreenIds: ['m3-01', 'm3-05', 'm3-q1', 'm3-q3', 'm3-q4', 'm3-q5', 'm3-04', 'm3-recap', 'm8-q1'],
+    completedModuleIds: ['m1', 'm3'],
+    currentModuleId: 'm3',
+    lastScreenByModule: { m3: 'm3-recap' },
+    answers: { 'm3-q1': ['c1'], 'm3-q4': ['c3'], 'm3-q5': ['c1', 'c2'], 'm8-q1': ['c2'] },
+    answerAttempts: { 'm3-q3': [{ answers: ['c2'], correct: true, submittedAt: 'test' }] },
+  });
+  assert.equal(migrated.curriculumVersion, CURRICULUM_VERSION);
+  assert.deepEqual(migrated.completedScreenIds, ['m3-01', 'm3-05', 'm3-04', 'm3-recap', 'm8-q1']);
+  assert.deepEqual(migrated.completedModuleIds, ['m1']);
+  assert.equal(migrated.lastScreenByModule?.m3, 'm3-q5', 'resumes at the first Module 2 step not yet done');
+  assert.deepEqual(migrated.answers, { 'm8-q1': ['c2'] });
+  assert.deepEqual(migrated.answerAttempts, {});
+  assert.deepEqual(migrateLearningState(migrated), migrated, 'running the migration again changes nothing');
 });

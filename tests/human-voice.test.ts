@@ -6,7 +6,7 @@ import { ui } from '../src/i18n';
 import { collectUnits, countMatches } from '../scripts/human-voice-audit';
 
 const expectedAnswers: Record<string, string[]> = {
-  'm1-q2': ['c2', 'c3', 'c5'], 'm3-q1': ['c1'], 'm3-q3': ['c2'], 'm3-q4': ['c3'], 'm3-q5': ['c1', 'c4', 'c5'], 'm4-q3': ['c1'],
+  'm1-q2': ['c2', 'c3', 'c5'], 'm3-q1': ['c1'], 'm3-q3': ['c2'], 'm3-q5': ['c1', 'c4', 'c5'], 'm3-q6': ['c3'], 'm4-q3': ['c1'],
   'm5-q5': ['c2', 'c5', 'c6'], 'm5-q9': ['c2', 'c4', 'c5'], 'm5-q3': ['c1', 'c2', 'c6'], 'm5-q11': ['c1', 'c4', 'c5', 'c7', 'c8', 'c9'],
 };
 
@@ -15,7 +15,7 @@ describe('human voice copy audit', () => {
     const en = getModules('en');
     const es = getModules('es');
     assert.equal(en.length, 10);
-    assert.equal(en.reduce((total, module) => total + module.screens.length, 0), 114);
+    assert.equal(en.reduce((total, module) => total + module.screens.length, 0), 116);
     assert.deepEqual(en.map((module) => module.screens.map((screen) => [screen.id, screen.type])), es.map((module) => module.screens.map((screen) => [screen.id, screen.type])));
   });
 

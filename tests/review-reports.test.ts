@@ -9,7 +9,7 @@ it('committed curriculum inventory and translation status match the code', async
   const reports = await buildReviewReports();
   assert.equal(normalize(readFileSync('docs/curriculum/CURRICULUM_INVENTORY.md', 'utf8')), normalize(reports.inventory), 'rerun: npx tsx scripts/generate-review-reports.ts');
   assert.equal(normalize(readFileSync('docs/translation/TRANSLATION_STATUS.md', 'utf8')), normalize(reports.translation), 'rerun: npx tsx scripts/generate-review-reports.ts');
-  assert.match(reports.translation, /\| Spanish \(`es`\) \| yes \| yes \| 0 \| 0 \| 114 \| 0 \| 114 of 114 \|/);
-  assert.match(reports.translation, /| Portuguese (Brazil) (`pt-BR`) | no | yes | 0 | 0 | 114 | 0 | 114 of 114 |/);
-  assert.match(reports.translation, /| Haitian Creole (`ht`) | no | yes | 0 | 0 | 114 | 0 | 114 of 114 |/);
+  assert.match(reports.translation, /\| Spanish \(`es`\) \| yes \| yes \| 0 \| 0 \| 116 \| 0 \| 116 of 116 \|/);
+  assert.match(reports.translation, /| Portuguese (Brazil) (`pt-BR`) | no | yes | 0 | 0 | 116 | 0 | 116 of 116 |/);
+  assert.match(reports.translation, /| Haitian Creole (`ht`) | no | yes | 0 | 0 | 116 | 0 | 116 of 116 |/);
 });

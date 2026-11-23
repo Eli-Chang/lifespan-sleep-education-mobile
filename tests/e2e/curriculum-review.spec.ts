@@ -47,7 +47,7 @@ test('the review index opens every affected real screen with the exact English t
   await page.getByTestId('review-tab-3').click();
   await expect(page.getByTestId('review-issue-title')).toContainText('Issue 3 of 6');
   await expect(page.getByTestId('key-m2-q1')).toContainText('none stored');
-  await expect(page.getByTestId('key-m2-q2')).toContainText('CIAS_ANSWER_KEY_NOT_RECOVERED');
+  await expect(page.getByTestId('key-m2-q2')).toContainText('CIAS_SCREEN_RECORDING');
   await page.getByTestId('review-tab-2').click();
   await page.getByTestId('jump-m2-05').click();
   await expect(page).toHaveURL(/\/lesson\/m2(\/m2-05|[?].*screenId=m2-05)/);
